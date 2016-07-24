@@ -16,10 +16,9 @@ class CreateProductSubCategoriesTable extends Migration
             $table->increments('id');
             $table->integer('category_main_id')->unsigned();
             $table->foreign('category_main_id')->references('id')->on('product_main_categories');
-            $table->string('name');
+            $table->string('title');
             $table->string('image');
             $table->timestamps();
-            $table->softDeletes();
         });
     }
 

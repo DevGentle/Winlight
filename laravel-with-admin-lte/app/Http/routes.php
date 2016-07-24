@@ -22,58 +22,10 @@ use App\Model\Product\ProductSubCategory;
 |
 */
 
-Route::group(['admin'], function () {
+Route::get('/', function () {
 
-    Route::get('/', function () {
+    return view('welcome');
 
-        return view('welcome');
-
-    });
-
-    Route::resource('product-main-categories', 'ProductMainCategoriesController');
-
-    Route::resource('product-sub-categories', 'ProductSubCategoriesController');
-
-    Route::resource('products', 'ProductsController');
-
-    Route::resource('posts', 'PostsController');
-
-    Route::get('dates', function () {
-
-        $date = new DateTime('+1 week');
-
-        echo $date->format('m-d-Y');
-
-        echo '<br>';
-
-        echo Carbon::now()->addDays(10)->diffForHumans();
-
-        echo '<br>';
-
-        echo Carbon::now()->addMonths(10)->diffForHumans();
-
-        echo '<br>';
-
-        echo Carbon::now()->yesterday()->diffForHumans();
-    });
-
-    Route::get('getname', function () {
-
-        $user = User::find(1);
-
-        echo $user->name;
-
-    });
-
-    Route::get('setname', function () {
-
-        $user = User::find(1);
-
-        $user->name = 'godoak';
-
-        $user->save();
-
-    });
 });
 
 Route::group(['products'], function () {
@@ -91,6 +43,54 @@ Route::group(['products'], function () {
 });
 
 Route::resource('admin/users', 'AdminUsersController');
+
+//Route::group(['admin'], function () {
+//
+//    Route::resource('product-main-categories', 'ProductMainCategoriesController');
+//
+//    Route::resource('product-sub-categories', 'ProductSubCategoriesController');
+//
+//    Route::resource('products', 'ProductsController');
+//
+//    Route::resource('posts', 'PostsController');
+//
+//    Route::get('dates', function () {
+//
+//        $date = new DateTime('+1 week');
+//
+//        echo $date->format('m-d-Y');
+//
+//        echo '<br>';
+//
+//        echo Carbon::now()->addDays(10)->diffForHumans();
+//
+//        echo '<br>';
+//
+//        echo Carbon::now()->addMonths(10)->diffForHumans();
+//
+//        echo '<br>';
+//
+//        echo Carbon::now()->yesterday()->diffForHumans();
+//    });
+//
+//    Route::get('getname', function () {
+//
+//        $user = User::find(1);
+//
+//        echo $user->name;
+//
+//    });
+//
+//    Route::get('setname', function () {
+//
+//        $user = User::find(1);
+//
+//        $user->name = 'godoak';
+//
+//        $user->save();
+//
+//    });
+//});
 
 //Route::get('/test/{id}/{name}', function ($id, $name) {
 //

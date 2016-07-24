@@ -19,11 +19,10 @@ class CreateProductsTable extends Migration
             $table->integer('category_sub_id')->unsigned();
             $table->foreign('category_sub_id')->references('id')->on('product_sub_categories');
             $table->string('code');
-            $table->string('name');
+            $table->string('title');
             $table->string('description');
             $table->string('image');
             $table->timestamps();
-            $table->softDeletes();
         });
     }
 
