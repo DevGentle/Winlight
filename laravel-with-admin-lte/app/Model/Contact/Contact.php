@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Model\ContactUs;
+namespace App\Model\Contact;
 
 use Illuminate\Database\Eloquent\Model;
 
-class ContactUs extends Model
+class Contact extends Model
 {
     protected $fillable = [
         'title', 'address', 'email', 'phone_number', 'fax_number', 'link'

@@ -1,13 +1,12 @@
 <?php
 
-namespace App\Http\Controller;
+namespace App\Http\Controllers;
 
-use App\Model\Product\ProductSubCategory;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
-class ProductSubCategoriesController extends Controller
+class ReferencesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,9 +15,7 @@ class ProductSubCategoriesController extends Controller
      */
     public function index()
     {
-        $productSubCategories = ProductSubCategory::latest();
-
-        return view('admin.productSubCategory.index', compact('productSubCategories'));
+        //
     }
 
     /**
