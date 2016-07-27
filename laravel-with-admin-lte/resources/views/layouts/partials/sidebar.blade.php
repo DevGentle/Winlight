@@ -33,17 +33,33 @@
         <ul class="sidebar-menu">
             <li class="header">{{ trans('adminlte_lang::message.header') }}</li>
             <!-- Optionally, you can add icons to the links -->
-            <li class="active"><a href="{{ url('home') }}"><i class='fa fa-link'></i> <span>Dashboard</span></a></li>
+            <li class="active"><a href="{{ url('home') }}"><i class='fa fa-tachometer'></i> <span>Dashboard</span></a></li>
             {{--<li><a href="#"><i class='fa fa-link'></i> <span>{{ trans('adminlte_lang::message.anotherlink') }}</span></a></li>--}}
             <li class="treeview">
-                <a href="#"><i class='fa fa-link'></i> <span>Products</span> <i class="fa fa-angle-left pull-right"></i></a>
+                <a href="#"><i class='fa fa-newspaper-o'></i> <span>News</span> <i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
-                    <li><a href="{{ url('product-main-categories') }}">Product Categories Main</a></li>
-                    <li><a href="{{ url('product-sub-categories') }}">Product Categories Sub</a></li>
-                    <li><a href="{{ url('products') }}">Products</a></li>
+                    <li><a href="#">News Categories</a></li>
+                    <li><a href="#">News</a></li>
+                </ul>
+            </li>
+            <li class="treeview">
+                <a href="#"><i class="fa fa-lightbulb-o"></i> <span>Products</span> <i class="fa fa-angle-left pull-right"></i></a>
+                <ul class="treeview-menu">
+                    <li><a href="{{ url('admin/product-main-categories') }}">Product Categories Main</a></li>
+                    <li><a href="{{ url('admin/product-sub-categories') }}">Product Categories Sub</a></li>
+                    <li><a href="{{ url('admin/products') }}">Products</a></li>
+                </ul>
+            </li>
+            <li class="treeview">
+                <a href="#"><i class='fa fa-cubes'></i> <span>Services</span> <i class="fa fa-angle-left pull-right"></i></a>
+                <ul class="treeview-menu">
+                    <li><a href="#">Service Categories</a></li>
+                    <li><a href="#">Services</a></li>
                 </ul>
             </li>
             <li><a href="{{ url('posts/create') }}"><i class='fa fa-link'></i> <span>Posts</span></a></li>
+            <li><a href="#"><i class='fa fa-cc'></i> <span>Project References</span></a></li>
+            <li><a href="#"><i class='fa fa-user'></i> <span>Contact</span></a></li>
         </ul><!-- /.sidebar-menu -->
     </section>
     <!-- /.sidebar -->

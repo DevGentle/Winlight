@@ -28,31 +28,47 @@ Route::get('/', function () {
 
 });
 
-Route::group(['products'], function () {
-    Route::get('category-main/{id}', function ($id) {
-        return ProductMainCategory::find($id);
-    });
+//Route::group(['products'], function () {
+//    Route::get('category-main/{id}', function ($id) {
+//        return ProductMainCategory::find($id);
+//    });
+//
+//    Route::get('category-sub/{id}', function ($id) {
+//        return ProductSubCategory::find($id);
+//    });
+//
+//    Route::get('/product/{id}', function ($id) {
+//        return Product::find($id);
+//    });
+//});
 
-    Route::get('category-sub/{id}', function ($id) {
-        return ProductSubCategory::find($id);
-    });
+//Route::resource('product-main-categories', 'ProductMainCategoriesController');
+//
+//Route::resource('product-sub-categories', 'ProductSubCategoriesController');
+//
+//Route::resource('products', 'ProductsController');
+//
+//Route::resource('posts', 'PostsController');
 
-    Route::get('/product/{id}', function ($id) {
-        return Product::find($id);
-    });
+//Route::resource('admin/users', 'AdminUsersController');
+
+Route::group(['prefix' => 'admin'], function () {
+    Route::resource('product-main-categories', 'ProductMainCategoriesController');
+
+    Route::resource('product-sub-categories', 'ProductSubCategoriesController');
+
+    Route::resource('products', 'ProductsController');
+
+    Route::resource('posts', 'PostsController');
 });
 
-Route::resource('admin/users', 'AdminUsersController');
 
-//Route::group(['admin'], function () {
-//
-//    Route::resource('product-main-categories', 'ProductMainCategoriesController');
-//
-//    Route::resource('product-sub-categories', 'ProductSubCategoriesController');
-//
-//    Route::resource('products', 'ProductsController');
-//
-//    Route::resource('posts', 'PostsController');
+
+
+
+
+
+
 //
 //    Route::get('dates', function () {
 //
@@ -423,6 +439,3 @@ Route::resource('admin/users', 'AdminUsersController');
 | CRUD
 |------------------------------------------------------
  */
-
-    Route::resource('posts', 'PostsController');
-
