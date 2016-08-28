@@ -1,11 +1,10 @@
-/.vagrant/
+/.vagrant
 /vendor
 /node_modules
 /public/storage
+/laravel-with-admin-lte/vendor
 Homestead.yaml
 Homestead.json
 .env
 /.idea/
 .idea
-
-.vagrant/machines/default/virtualbox/action_set_name

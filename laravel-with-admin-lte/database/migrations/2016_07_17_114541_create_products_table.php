@@ -16,12 +16,12 @@ class CreateProductsTable extends Migration
             $table->increments('id');
             $table->integer('category_main_id')->unsigned();
             $table->foreign('category_main_id')->references('id')->on('product_main_categories');
-            $table->integer('category_sub_id')->unsigned();
+            $table->integer('category_sub_id')->unsigned()->nullable();
             $table->foreign('category_sub_id')->references('id')->on('product_sub_categories');
             $table->string('code');
             $table->string('title');
-            $table->string('description');
-            $table->string('image');
+            $table->string('description')->nullable();
+            $table->string('image')->nullable();
             $table->timestamps();
         });
     }

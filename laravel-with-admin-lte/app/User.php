@@ -12,7 +12,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'role_id', 'is_enable'
     ];
 
     /**
@@ -31,7 +31,7 @@ class User extends Authenticatable
 
     public function roles()
     {
-        return $this->belongsToMany('App\Role')->withPivot('created_at');
+        return $this->belongsToMany('App\Role');
     }
 
     public function photos()

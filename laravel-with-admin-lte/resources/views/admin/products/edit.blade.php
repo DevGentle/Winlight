@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('htmlheader_title')
+    Product
+@endsection
+
 @section('contentheader_title')
     <h1>Posts edit</h1>
 @endsection

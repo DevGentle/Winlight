@@ -1,25 +1,16 @@
 @extends('layouts.app')
 
+@section('htmlheader_title')
+    productMainCategory main category
+@endsection
+
 @section('contentheader_title')
-    <h1>Product Category Main</h1>
+    <h1>Product main categories</h1>
 @endsection
 
 @section('main-content')
-    {{--<div class="box">--}}
-        {{--<div class="box-body">--}}
-            {{--<div class="row">--}}
-
-            {{--</div>--}}
-        {{--</div>--}}
-    {{--</div>--}}
-
-    <ul>
-        @foreach($productMainCategories as $productMainCategory)
-
-            <li>
-                {{ $productMainCategory->name }}
-            </li>
-
-        @endforeach
-    </ul>
+    <a href= "{{ url('admin/product-main-categories/create') }}" class="btn btn-lg inline">Create</a>
+    <div class="box box-default">
+        {!! $grid !!}
+    </div>
 @endsection

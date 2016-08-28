@@ -7,11 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 class Product extends Model
 {
     protected $fillable = [
-        'name', 'description', 'image'
+        'title', 'description', 'image'
     ];
 
     public function productSubCategories()
     {
-        return $this->belongsTo('App\Model\Product');
+        return $this->belongsTo('App\Model\Product\Product');
     }
 }

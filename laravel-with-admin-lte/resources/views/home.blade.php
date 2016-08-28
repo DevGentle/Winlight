@@ -1,9 +1,12 @@
 @extends('layouts.app')
 
 @section('htmlheader_title')
-	Home
+	Dashboard
 @endsection
 
+@section('contentheader_title')
+	<h1>Dashboard</h1>
+@endsection
 
 @section('main-content')
 	<div class="container spark-screen">

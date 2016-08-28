@@ -7,11 +7,16 @@ use Illuminate\Database\Eloquent\Model;
 class ProductMainCategory extends Model
 {
     protected $fillable = [
-        'name', 'image'
+        'title', 'image'
     ];
 
     public function productSubCategories()
     {
-        return $this->hasMany('App\Model\ProductSubCategory');
+        return $this->hasMany('App\Model\Product\ProductSubCategory');
+    }
+
+    public function photo()
+    {
+        return $this->belongsTo('App\Model\Photo\Photo');
     }
 }
