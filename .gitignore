@@ -1,4 +1,4 @@
-/.vagrant/
+/.vagrant
 /vendor
 /node_modules
 /public/storage
@@ -8,5 +8,3 @@ Homestead.json
 .env
 /.idea/
 .idea
-
-.vagrant/machines/default/virtualbox/action_set_name

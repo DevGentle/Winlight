@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
-
-use App\Model\Product\ProductMainCategory;
-use Illuminate\Http\Request;
+namespace App\Http\Controllers\Admin\Product;
 
 use App\Http\Requests;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
 
-class ProductMainCategoriesController extends Controller
+class ProductSubCategoriesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,9 +16,9 @@ class ProductMainCategoriesController extends Controller
      */
     public function index()
     {
-        $productMainCategories = ProductMainCategory::latest();
+        $productSubCategories = DB::table('product_sub_categories')->paginate(10);
 
-        return view('admin.productMainCategory.index', compact('productMainCategories'));
+        return view('admin.productSubCategory.index', ['productSubCategories' => $productSubCategories]);
     }
 
     /**
@@ -50,9 +50,7 @@ class ProductMainCategoriesController extends Controller
      */
     public function show($id)
     {
-        $productMainCategories = ProductMainCategory::findOrFail($id);
-
-        return view('product-main-categories.show', compact('productMainCategories'));
+        //
     }
 
     /**

@@ -28,6 +28,21 @@ Route::get('/', function () {
 
 });
 
+Route::group(['prefix' => 'admin'], function () {
+    Route::resource('contacts', 'ContactsController');
+    Route::resource('news-categories', 'NewsCategoriesController');
+    Route::resource('news', 'NewsController');
+    Route::resource('product-main-categories', 'Admin\Product\ProductMainCategoriesController');
+    Route::resource('product-sub-categories', 'Admin\Product\ProductSubCategoriesController');
+    Route::resource('products', 'Admin\Product\ProductsController');
+    Route::resource('service-categories', 'ServiceCategoriesController');
+    Route::resource('services', 'ServicesController');
+    Route::resource('references', 'ReferencesController');
+    Route::resource('posts', 'PostsController');
+    Route::resource('users', 'AdminUsersController');
+});
+
+
 //Route::group(['products'], function () {
 //    Route::get('category-main/{id}', function ($id) {
 //        return ProductMainCategory::find($id);
@@ -49,26 +64,6 @@ Route::get('/', function () {
 //Route::resource('products', 'ProductsController');
 //
 //Route::resource('posts', 'PostsController');
-
-//Route::resource('admin/users', 'AdminUsersController');
-
-Route::group(['prefix' => 'admin'], function () {
-    Route::resource('product-main-categories', 'ProductMainCategoriesController');
-
-    Route::resource('product-sub-categories', 'ProductSubCategoriesController');
-
-    Route::resource('products', 'ProductsController');
-
-    Route::resource('posts', 'PostsController');
-});
-
-
-
-
-
-
-
-
 //
 //    Route::get('dates', function () {
 //
