@@ -12,11 +12,11 @@ class ProductSubCategory extends Model
 
     public function productMainCategories()
     {
-        return $this->belongsTo('App\Model\ProductMainCategory');
+        return $this->belongsTo('App\Model\Product\ProductMainCategory');
     }
 
     public function products()
     {
-        return $this->hasMany('App\Model\Products');
+        return $this->hasMany('App\Model\Product\Product');
     }
 }
