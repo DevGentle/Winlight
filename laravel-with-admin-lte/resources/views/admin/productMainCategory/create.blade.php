@@ -19,7 +19,7 @@
         </div>
     @endif
     <div class="box-body">
-        {!! Form::open(['method' => 'POST', 'action' => 'Admin\Product\ProductMainCategoriesController@store']) !!}
+        {!! Form::open(['method' => 'POST', 'action' => 'Admin\Product\ProductMainCategoriesController@store', 'files'=>true]) !!}
             {{ Form::token() }}
 
             <div class="col-xs-5">
@@ -28,8 +28,8 @@
                     {{ Form::text('title', null, ['class' => 'form-control', 'placeholder' => 'Enter your title']) }}
                 </div>
                 <div class="margin">
-                    {{ Form::label('upload', 'Image') }}
-                    {{ Form::file('file', null, ['class' => 'form-control', 'placeholder' => 'Enter your content']) }}
+                    {{ Form::label('photo_id', 'Image') }}
+                    {{ Form::file('photo_id', null, ['class' => 'form-control']) }}
                 </div>
             </div>
 

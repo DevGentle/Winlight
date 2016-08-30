@@ -17,7 +17,8 @@ class CreateProductSubCategoriesTable extends Migration
             $table->integer('category_main_id')->unsigned();
             $table->foreign('category_main_id')->references('id')->on('product_main_categories');
             $table->string('title');
-            $table->string('image');
+            $table->integer('photo_id')->unsigned();
+            $table->foreign('photo_id')->references('id')->on('photos');
             $table->timestamps();
         });
     }

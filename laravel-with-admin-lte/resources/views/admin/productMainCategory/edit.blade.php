@@ -17,6 +17,10 @@
                 {{ Form::label('title', 'Title') }}
                 {{ Form::text('title', null, ['class' => 'form-control']) }}
             </div>
+            <div class="margin">
+                {{ Form::label('image_id', 'Image') }}
+                {{ Form::file('image_id', null, ['class' => 'form-control']) }}
+            </div>
         {!! Form::close() !!}
             <div class="margin">
                 {{ Form::submit('Update', ['class'=>'btn btn-primary']) }}

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin\Product;
 
 use App\Http\Requests\ProductMainCategoryRequest;
+use App\Model\Photo\Photo;
 use App\Model\Product\ProductMainCategory;
 use Illuminate\Http\Request;
 use Nayjest\Grids\EloquentDataProvider;
@@ -91,15 +92,21 @@ class ProductMainCategoriesController extends Controller
 
     public function store(ProductMainCategoryRequest $request)
     {
-        ProductMainCategory::create($request->all());
+        $input = $request->all();
 
-        if ($file = $request->file('file')) {
-            $name = $file->getClientOriginalName();
+        if ($file = $request->file('photo_id')) {
+
+            $name = time() . $file->getClientOriginalName();
 
             $file->move('images', $name);
 
-            $input['image'] = $name;
+            $photo = Photo::create(['file'=> $name]);
+
+            $input['photo_id'] = $photo->id;
+
         }
+
+        ProductMainCategory::create($input);
 
         return redirect('admin/product-main-categories');
     }
