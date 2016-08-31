@@ -13,6 +13,7 @@ use Nayjest\Grids\FieldConfig;
 use Nayjest\Grids\FilterConfig;
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
+use Nayjest\Grids\ObjectDataRow;
 
 class ProductMainCategoriesController extends Controller
 {
@@ -31,13 +32,16 @@ class ProductMainCategoriesController extends Controller
                         ->setLabel('ID')
                         ->setSortable(true),
                     (new FieldConfig)
-                        ->setName('image')
+                        ->setName('photo_id')
                         ->setLabel('Image')
-                        ->setCallback(function () {
+                        ->setCallback(function ($val, ObjectDataRow $row) {
+                            $photo = Photo::find($val);
+                            $path = $photo->file;
+
                             $img =
-                                '<div style="width: 40px; height: 40px;">
-                                            <img src="http://ereiramendoza.co.uk/wp-content/uploads/2016/08/Footer-Logo-Instagram-60x60-40x40.png">
-                                        </div>'
+                                '<div>
+                                    <img height="50" src="/images/'.$path.'">
+                                </div>'
                             ;
 
                             return $img;
@@ -58,7 +62,8 @@ class ProductMainCategoriesController extends Controller
                         ->setName('action')
                         ->setLabel('Actions')
                         ->setCallback(function ($id) {
-                            $url = action('Admin\Product\ProductMainCategoriesController@edit', ['id' => $id]);
+                            $edit = action('Admin\Product\ProductMainCategoriesController@edit', ['id' => $id]);
+                            $remove = action('Admin\Product\ProductMainCategoriesController@destroy', ['id' => $id]);
                             $icon =
                                 '<div class="btn-group">
                                     <a href="#" class="glyphicon glyphicon-cog" 
@@ -66,10 +71,10 @@ class ProductMainCategoriesController extends Controller
                                     </a>
                                     <ul class="dropdown-menu">
                                         <li>
-                                            <a href="'.$url.'" class="glyphicon glyphicon-pencil"> Edit</a>
+                                            <a href="'.$edit.'" class="glyphicon glyphicon-pencil"> Edit</a>
                                         </li>
                                         <li>
-                                            <a href="#" class="glyphicon glyphicon-trash text-red"> Delete</a>
+                                            <a href="'.$remove.'" class="glyphicon glyphicon-trash text-red"> Delete</a>
                                         </li>
                                     </ul>
                                 </div>';
