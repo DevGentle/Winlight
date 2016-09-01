@@ -3,11 +3,11 @@
 namespace App\Http\Controllers\Admin\Product;
 
 use App\Http\Requests;
-use App\Model\Product\ProductMainCategory;
+use App\Model\Product\ProductSubCategory as SubCategory;
+use App\Model\Product\ProductMainCategory as MainCategory;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Model\Photo\Photo;
-use App\Model\Product\ProductSubCategory;
 use Nayjest\Grids\EloquentDataProvider;
 use Nayjest\Grids\Grid;
 use Nayjest\Grids\GridConfig;
@@ -17,17 +17,12 @@ use Nayjest\Grids\ObjectDataRow;
 
 class ProductSubCategoriesController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         $grid = new Grid(
             (new GridConfig)
                 ->setDataProvider(
-                    new EloquentDataProvider(ProductSubCategory::query())
+                    new EloquentDataProvider(SubCategory::query())
                 )
                 ->setName('products')
                 ->setPageSize(15)
@@ -60,19 +55,19 @@ class ProductSubCategoriesController extends Controller
                                 ->setName('title')
                                 ->setOperator(FilterConfig::OPERATOR_LIKE)
                         ),
-//                    (new FieldConfig)
-//                        ->setName('category_main_id')
-//                        ->setLabel('Category Main')
-//                        ->setSortable(true)
-//                        ->addFilter(
-//                            (new FilterConfig)
-//                                ->setName('category_main_id')
-//                                ->setOperator(FilterConfig::OPERATOR_LIKE)
-//                        )
-//                        ->setCallback(function ($val, ObjectDataRow $row) {
-//                            $mainCat = ProductMainCategory::find($val);
-//                            return $mainCat->title;
-//                        }),
+                    (new FieldConfig)
+                        ->setName('category_main_id')
+                        ->setLabel('Category Main')
+                        ->setSortable(true)
+                        ->addFilter(
+                            (new FilterConfig)
+                                ->setName('category_main_id')
+                                ->setOperator(FilterConfig::OPERATOR_LIKE)
+                        )
+                        ->setCallback(function ($val, ObjectDataRow $row) {
+                            $mainCat = MainCategory::find($val);
+                            return $mainCat->title;
+                        }),
                     (new FieldConfig)
                         ->setName('created_at')
                         ->setLabel('Created at'),
@@ -110,16 +105,13 @@ class ProductSubCategoriesController extends Controller
 
     public function create()
     {
-        $productMainCategory = ProductMainCategory::lists('title', 'id')->all();
+        $productMainCategory = MainCategory::lists('title', 'id')->all();
         return view('admin.productSubCategory.create', compact('productMainCategory'));
     }
 
     public function store(Request $request)
     {
         $input = $request->all();
-
-        dump($input);
-//        exit();
 
         if ($file = $request->file('photo_id')) {
 
@@ -133,28 +125,28 @@ class ProductSubCategoriesController extends Controller
 
         }
 
-        ProductSubCategory::create($input);
+        SubCategory::create($input);
 
         return redirect('admin/product-sub-categories');
     }
 
     public function show($id)
     {
-        $productSubCategories = ProductSubCategory::findOrFail($id);
+        $productSubCategories = SubCategory::findOrFail($id);
 
         return view('admin.productSubCategory.show', compact('productSubCategories'));
     }
 
     public function edit($id)
     {
-        $productSubCategories = ProductSubCategory::findOrFail($id);
+        $productSubCategories = SubCategory::findOrFail($id);
 
         return view('admin.productSubCategory.edit', compact('productSubCategories'));
     }
 
     public function update(Request $request, $id)
     {
-        $productSubCategories = ProductSubCategory::findOrFail($id);
+        $productSubCategories = SubCategory::findOrFail($id);
 
         $productSubCategories->update($request->all());
 
@@ -163,7 +155,7 @@ class ProductSubCategoriesController extends Controller
 
     public function destroy($id)
     {
-        ProductSubCategory::whereId($id)->delete();
+        SubCategory::whereId($id)->delete();
 
         return redirect('admin/product-sub-categories');
     }

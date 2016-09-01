@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers\Admin\Product;
 
+use App\Model\Photo\Photo;
 use App\Model\Product\Product;
 use App\Model\Product\ProductMainCategory;
+use App\Model\Product\ProductSubCategory;
 use Nayjest\Grids\EloquentDataProvider;
 use Nayjest\Grids\FieldConfig;
 use Nayjest\Grids\FilterConfig;
@@ -18,11 +20,6 @@ use App\Http\Controllers\Controller;
 
 class ProductsController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         $grid = new Grid(
@@ -89,8 +86,8 @@ class ProductsController extends Controller
                                 <a href="#" class="glyphicon glyphicon-cog" 
                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 </a>
-                                <ul class="dropdown-menu" style="width: 50px">
-                                <li><a href="#" class="glyphicon glyphicon-pencil" style="width: 50px></a></li>
+                                <ul class="dropdown-menu">
+                                <li><a href="#" class="glyphicon glyphicon-pencil"></a></li>
                                 <li><a href="#" class="glyphicon glyphicon-trash red" style="width: 50px"></a></li>
                                 </ul>
                                 </div>';
@@ -106,70 +103,50 @@ class ProductsController extends Controller
         return view('admin.products.index', compact('grid'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        $testing = ProductMainCategory::lists('title', 'id')->all();
-        return view('admin.products.create', compact('testing'));
+        $mainCat = ProductMainCategory::lists('title', 'id')->all();
+        $subCat = ProductSubCategory::lists('title', 'id')->all();
+
+        return view('admin.products.create', compact('mainCat', 'subCat'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        Product::create($request->all());
+        $input = $request->all();
 
-        return redirect('admin/product-main-categories');
+        if ($file = $request->file('photo_id')) {
+
+            $name = time() . $file->getClientOriginalName();
+
+            $file->move('images', $name);
+
+            $photo = Photo::create(['file'=> $name]);
+
+            $input['photo_id'] = $photo->id;
+
+        }
+
+        Product::create($input);
+
+        return redirect('admin/products');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
-        //
+
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
         //

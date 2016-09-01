@@ -29,16 +29,16 @@
         </script>
     </head>
     <div class="box-body">
-        {!! Form::open(['method' => 'POST', 'action' => 'Admin\Product\ProductsController@store']) !!}
+        {!! Form::open(['method' => 'POST', 'action' => 'Admin\Product\ProductsController@store', 'files' => true]) !!}
             {{ Form::token() }}
             <div class="col-lg-6">
                 <div class="margin">
-                    {{ Form::label('mainCategory', 'Main category') }}
-                    {{ Form::select('category_main_id', $testing, null, ['class' => 'form-control' ,'placeholder' => 'Select main category']) }}
+                    {{ Form::label('category_main_id', 'Main category') }}
+                    {{ Form::select('category_main_id', $mainCat, null, ['class' => 'form-control' ,'placeholder' => 'Select main category']) }}
                 </div>
                 <div class="margin">
-                    {{ Form::label('subCategory', 'Sub category') }}
-                    {{ Form::select('category_sub_id', $testing, null, ['class' => 'form-control' ,'placeholder' => 'Select sub category']) }}
+                    {{ Form::label('category_sub_id', 'Sub category') }}
+                    {{ Form::select('category_sub_id', $subCat, null, ['class' => 'form-control' ,'placeholder' => 'Select sub category']) }}
                 </div>
                 <div class="margin">
                     {{ Form::label('code', 'Code') }}
@@ -48,9 +48,13 @@
                     {{ Form::label('title', 'Title') }}
                     {{ Form::text('title', null, ['class' => 'form-control', 'placeholder' => 'Enter product title']) }}
                 </div>
+                <div>
+                    {{ Form::label('photo_id', 'Image') }}
+                    {{ Form::file('photo_id', null, ['class' => 'form-control']) }}
+                </div>
                 <div class="margin">
-                    {{ Form::label('content', 'Content') }}
-                    {{ Form::textarea('content', null, ['class' => 'form-control', 'placeholder' => 'Enter product description']) }}
+                    {{ Form::label('description', 'Content') }}
+                    {{ Form::textarea('description', null, ['class' => 'form-control', 'placeholder' => 'Enter product description']) }}
                 </div>
             </div>
             <div class="col-xs-10 margin">

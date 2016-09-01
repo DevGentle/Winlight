@@ -19,4 +19,9 @@ class ProductSubCategory extends Model
     {
         return $this->hasMany('App\Model\Product\Product');
     }
+
+    public function photo()
+    {
+        return $this->belongsTo('App\Model\Photo\Photo');
+    }
 }

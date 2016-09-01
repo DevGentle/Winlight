@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin\Product;
 
 use App\Http\Requests\ProductMainCategoryRequest;
 use App\Model\Photo\Photo;
-use App\Model\Product\ProductMainCategory;
+use App\Model\Product\ProductMainCategory as MainCategory;
 use Illuminate\Http\Request;
 use Nayjest\Grids\EloquentDataProvider;
 use Nayjest\Grids\Grid;
@@ -22,7 +22,7 @@ class ProductMainCategoriesController extends Controller
         $grid = new Grid(
             (new GridConfig)
                 ->setDataProvider(
-                    new EloquentDataProvider(ProductMainCategory::query())
+                    new EloquentDataProvider(MainCategory::query())
                 )
                 ->setName('products')
                 ->setPageSize(15)
@@ -111,28 +111,28 @@ class ProductMainCategoriesController extends Controller
 
         }
 
-        ProductMainCategory::create($input);
+        MainCategory::create($input);
 
         return redirect('admin/product-main-categories');
     }
 
     public function show($id)
     {
-        $productMainCategories = ProductMainCategory::findOrFail($id);
+        $productMainCategories = MainCategory::findOrFail($id);
 
         return view('admin.productMainCategory.show', compact('productMainCategories'));
     }
 
     public function edit($id)
     {
-        $productMainCategories = ProductMainCategory::findOrFail($id);
+        $productMainCategories = MainCategory::findOrFail($id);
 
         return view('admin.productMainCategory.edit', compact('productMainCategories'));
     }
 
     public function update(Request $request, $id)
     {
-        $productMainCategories = ProductMainCategory::findOrFail($id);
+        $productMainCategories = MainCategory::findOrFail($id);
 
         $productMainCategories->update($request->all());
 
@@ -141,7 +141,7 @@ class ProductMainCategoriesController extends Controller
 
     public function destroy($id)
     {
-        ProductMainCategory::whereId($id)->delete();
+        MainCategory::whereId($id)->delete();
 
         return redirect('admin/product-main-categories');
     }
