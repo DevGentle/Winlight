@@ -79,22 +79,27 @@ class ProductsController extends Controller
                             return $subCat->title;
                         }),
                     (new FieldConfig)
-                        ->setName('action')
+                        ->setName('id')
                         ->setLabel('Action')
-                        ->setCallback(function () {
-                            $icon = '<div class="btn-group">
-                                <a href="#" class="glyphicon glyphicon-cog" 
-                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                </a>
-                                <ul class="dropdown-menu">
-                                <li><a href="#" class="glyphicon glyphicon-pencil"></a></li>
-                                <li><a href="#" class="glyphicon glyphicon-trash red" style="width: 50px"></a></li>
-                                </ul>
+                        ->setCallback(function ($val, ObjectDataRow $row) {
+                            $edit = action('Admin\Product\ProductsController@edit', ['id' => $val]);
+                            $remove = action('Admin\Product\ProductsController@destroy', ['id' => $val]);
+                            $icon =
+                                '<div class="btn-group">
+                                    <a href="#" class="glyphicon glyphicon-cog"
+                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li>
+                                            <a href="' . $edit . '" class="glyphicon glyphicon-pencil"> Edit</a>
+                                        </li>
+                                        <li>
+                                            <a href="' . $remove . '" class="glyphicon glyphicon-trash text-red"> Delete</a>
+                                        </li>
+                                    </ul>
                                 </div>';
 
-                            return
-                                $icon
-                            ;
+                            return $icon;
                         })
                 ])
         );
@@ -134,21 +139,53 @@ class ProductsController extends Controller
 
     public function show($id)
     {
+        $products = Product::findOrFail($id);
 
+        return view('admin.products.show', compact('products'));
     }
 
     public function edit($id)
     {
-        //
+        $products = Product::findOrFail($id);
+        $mainCat = ProductMainCategory::lists('title', 'id')->all();
+        $subCat = ProductSubCategory::lists('title', 'id')->all();
+
+        return view('admin.products.edit', compact('products', 'mainCat', 'subCat'));
     }
 
     public function update(Request $request, $id)
     {
-        //
+        $products = Product::findOrFail($id);
+
+        $input = $request->all();
+
+        if ($file = $request->file('photo_id')) {
+
+            $name = time() . $file->getClientOriginalName();
+
+            $file->move('images', $name);
+
+            $photo = new Photo();
+
+            $photo->file = $name;
+
+            $photo->save();
+
+            $photo = Photo::create(['file'=> $name]);
+
+            $input['photo_id'] = $photo->id;
+
+        }
+
+        $products->update($input);
+
+        return redirect('admin/products');
     }
 
     public function destroy($id)
     {
-        //
+        Product::whereId($id)->delete();
+
+        return redirect('admin/products');
     }
 }

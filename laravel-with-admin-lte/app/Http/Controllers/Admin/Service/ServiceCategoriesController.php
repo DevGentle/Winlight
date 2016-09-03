@@ -1,28 +1,27 @@
 <?php
 
-namespace App\Http\Controllers\Admin\Product;
+namespace App\Http\Controllers\Admin\Service;
 
-use App\Http\Requests;
-use App\Model\Product\ProductSubCategory as SubCategory;
-use App\Model\Product\ProductMainCategory as MainCategory;
-use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 use App\Model\Photo\Photo;
+use App\Model\Service\ServiceCategory;
+use Illuminate\Http\Request;
 use Nayjest\Grids\EloquentDataProvider;
 use Nayjest\Grids\Grid;
 use Nayjest\Grids\GridConfig;
 use Nayjest\Grids\FieldConfig;
 use Nayjest\Grids\FilterConfig;
+use App\Http\Controllers\Controller;
+use App\Http\Requests;
 use Nayjest\Grids\ObjectDataRow;
 
-class ProductSubCategoriesController extends Controller
+class ServiceCategoriesController extends Controller
 {
     public function index()
     {
         $grid = new Grid(
             (new GridConfig)
                 ->setDataProvider(
-                    new EloquentDataProvider(SubCategory::query())
+                    new EloquentDataProvider(ServiceCategory::query())
                 )
                 ->setName('products')
                 ->setPageSize(15)
@@ -32,7 +31,7 @@ class ProductSubCategoriesController extends Controller
                         ->setLabel('ID')
                         ->setSortable(true),
                     (new FieldConfig)
-                        ->setName('photo_id')
+                        ->setName('image_id')
                         ->setLabel('Image')
                         ->setCallback(function ($val, ObjectDataRow $row) {
                             $photo = Photo::find($val);
@@ -56,38 +55,25 @@ class ProductSubCategoriesController extends Controller
                                 ->setOperator(FilterConfig::OPERATOR_LIKE)
                         ),
                     (new FieldConfig)
-                        ->setName('category_main_id')
-                        ->setLabel('Category Main')
-                        ->setSortable(true)
-                        ->addFilter(
-                            (new FilterConfig)
-                                ->setName('category_main_id')
-                                ->setOperator(FilterConfig::OPERATOR_LIKE)
-                        )
-                        ->setCallback(function ($val, ObjectDataRow $row) {
-                            $mainCat = MainCategory::find($val);
-                            return $mainCat->title;
-                        }),
-                    (new FieldConfig)
                         ->setName('created_at')
                         ->setLabel('Created at'),
                     (new FieldConfig)
                         ->setName('id')
                         ->setLabel('Actions')
-                        ->setCallback(function ($id) {
-                            $edit = action('Admin\Product\ProductSubCategoriesController@edit', ['id' => $id]);
-                            $remove = action('Admin\Product\ProductSubCategoriesController@destroy', ['id' => $id]);
+                        ->setCallback(function ($val, ObjectDataRow $row) {
+                            $edit = action('Admin\Service\ServiceCategoriesController@edit', ['id' => $val]);
+                            $remove = action('Admin\Service\ServiceCategoriesController@destroy', ['id' => $val]);
                             $icon =
                                 '<div class="btn-group">
-                                    <a href="#" class="glyphicon glyphicon-cog" 
+                                    <a href="#" class="glyphicon glyphicon-cog"
                                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     </a>
                                     <ul class="dropdown-menu">
                                         <li>
-                                            <a href="'.$edit.'" class="glyphicon glyphicon-pencil"> Edit</a>
+                                            <a href="' . $edit . '" class="glyphicon glyphicon-pencil"> Edit</a>
                                         </li>
                                         <li>
-                                            <a href="'.$remove.'" class="glyphicon glyphicon-trash text-red"> Delete</a>
+                                            <a href="' . $remove . '" class="glyphicon glyphicon-trash text-red"> Delete</a>
                                         </li>
                                     </ul>
                                 </div>';
@@ -98,20 +84,19 @@ class ProductSubCategoriesController extends Controller
         );
         $grid = $grid->render();
 
-        return view('admin.productSubCategory.index', compact('grid'));
+        return view('admin.serviceCategory.index', compact('grid'));
     }
 
     public function create()
     {
-        $productMainCategory = MainCategory::lists('title', 'id')->all();
-        return view('admin.productSubCategory.create', compact('productMainCategory'));
+        return view('admin.serviceCategory.create');
     }
 
     public function store(Request $request)
     {
         $input = $request->all();
 
-        if ($file = $request->file('photo_id')) {
+        if ($file = $request->file('image_id')) {
 
             $name = time() . $file->getClientOriginalName();
 
@@ -119,37 +104,36 @@ class ProductSubCategoriesController extends Controller
 
             $photo = Photo::create(['file'=> $name]);
 
-            $input['photo_id'] = $photo->id;
+            $input['image_id'] = $photo->id;
 
         }
 
-        SubCategory::create($input);
+        ServiceCategory::create($input);
 
-        return redirect('admin/product-sub-categories');
+        return redirect('admin/service-categories');
     }
 
     public function show($id)
     {
-        $productSubCategories = SubCategory::findOrFail($id);
+        $serviceCategories = ServiceCategory::findOrFail($id);
 
-        return view('admin.productSubCategory.show', compact('productSubCategories'));
+        return view('admin.serviceCategory.show', compact('serviceCategories'));
     }
 
     public function edit($id)
     {
-        $productMainCategory = MainCategory::lists('title', 'id')->all();
-        $productSubCategories = SubCategory::findOrFail($id);
+        $serviceCategories = ServiceCategory::findOrFail($id);
 
-        return view('admin.productSubCategory.edit', compact('productSubCategories', 'productMainCategory'));
+        return view('admin.serviceCategory.edit', compact('serviceCategories'));
     }
 
     public function update(Request $request, $id)
     {
-        $productSubCategories = SubCategory::findOrFail($id);
+        $serviceCategories = ServiceCategory::findOrFail($id);
 
         $input = $request->all();
 
-        if ($file = $request->file('photo_id')) {
+        if ($file = $request->file('image_id')) {
 
             $name = time() . $file->getClientOriginalName();
 
@@ -163,19 +147,19 @@ class ProductSubCategoriesController extends Controller
 
             $photo = Photo::create(['file'=> $name]);
 
-            $input['photo_id'] = $photo->id;
+            $input['image_id'] = $photo->id;
 
         }
 
-        $productSubCategories->update($input);
+        $serviceCategories->update($input);
 
-        return redirect('admin/product-sub-categories');
+        return redirect('admin/service-categories');
     }
 
     public function destroy($id)
     {
-        SubCategory::whereId($id)->delete();
+        ServiceCategory::whereId($id)->delete();
 
-        return redirect('admin/product-sub-categories');
+        return redirect('admin/service-categories');
     }
 }

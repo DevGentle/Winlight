@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Admin\Product;
 use App\Http\Requests\ProductMainCategoryRequest;
 use App\Model\Photo\Photo;
 use App\Model\Product\ProductMainCategory as MainCategory;
-use Illuminate\Http\Request;
 use Nayjest\Grids\EloquentDataProvider;
 use Nayjest\Grids\Grid;
 use Nayjest\Grids\GridConfig;
@@ -59,29 +58,27 @@ class ProductMainCategoriesController extends Controller
                         ->setName('created_at')
                         ->setLabel('Created at'),
                     (new FieldConfig)
-                        ->setName('action')
+                        ->setName('id')
                         ->setLabel('Actions')
-                        ->setCallback(function ($id) {
-                            $edit = action('Admin\Product\ProductMainCategoriesController@edit', ['id' => $id]);
-                            $remove = action('Admin\Product\ProductMainCategoriesController@destroy', ['id' => $id]);
+                        ->setCallback(function ($val, ObjectDataRow $row) {
+                            $edit = action('Admin\Product\ProductMainCategoriesController@edit', ['id' => $val]);
+                            $remove = action('Admin\Product\ProductMainCategoriesController@destroy', ['id' => $val]);
                             $icon =
                                 '<div class="btn-group">
-                                    <a href="#" class="glyphicon glyphicon-cog" 
+                                    <a href="#" class="glyphicon glyphicon-cog"
                                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     </a>
                                     <ul class="dropdown-menu">
                                         <li>
-                                            <a href="'.$edit.'" class="glyphicon glyphicon-pencil"> Edit</a>
+                                            <a href="' . $edit . '" class="glyphicon glyphicon-pencil"> Edit</a>
                                         </li>
                                         <li>
-                                            <a href="'.$remove.'" class="glyphicon glyphicon-trash text-red"> Delete</a>
+                                            <a href="' . $remove . '" class="glyphicon glyphicon-trash text-red"> Delete</a>
                                         </li>
                                     </ul>
                                 </div>';
 
-                            return
-                                $icon
-                                ;
+                            return $icon;
                         })
                 ])
         );
@@ -130,11 +127,31 @@ class ProductMainCategoriesController extends Controller
         return view('admin.productMainCategory.edit', compact('productMainCategories'));
     }
 
-    public function update(Request $request, $id)
+    public function update(ProductMainCategoryRequest $request, $id)
     {
         $productMainCategories = MainCategory::findOrFail($id);
 
-        $productMainCategories->update($request->all());
+        $input = $request->all();
+
+        if ($file = $request->file('photo_id')) {
+
+            $name = time() . $file->getClientOriginalName();
+
+            $file->move('images', $name);
+
+            $photo = new Photo();
+
+            $photo->file = $name;
+
+            $photo->save();
+
+            $photo = Photo::create(['file'=> $name]);
+
+            $input['photo_id'] = $photo->id;
+
+        }
+
+        $productMainCategories->update($input);
 
         return redirect('admin/product-main-categories');
     }

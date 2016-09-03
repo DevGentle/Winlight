@@ -18,7 +18,8 @@ class CreateServicesTable extends Migration
             $table->foreign('service_category_id')->references('id')->on('service_categories');
             $table->string('title');
             $table->text('content');
-            $table->string('image');
+            $table->integer('image_id')->unsigned();
+            $table->foreign('image_id')->references('id')->on('photos');
             $table->timestamps();
         });
     }

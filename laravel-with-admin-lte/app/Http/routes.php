@@ -35,9 +35,9 @@ Route::group(['prefix' => 'admin'], function () {
     Route::resource('product-main-categories', 'Admin\Product\ProductMainCategoriesController');
     Route::resource('product-sub-categories', 'Admin\Product\ProductSubCategoriesController');
     Route::resource('products', 'Admin\Product\ProductsController');
-    Route::resource('service-categories', 'ServiceCategoriesController');
-    Route::resource('services', 'ServicesController');
-    Route::resource('references', 'ReferencesController');
+    Route::resource('service-categories', 'Admin\Service\ServiceCategoriesController');
+    Route::resource('services', 'Admin\ServiceServicesController');
+    Route::resource('references', 'Admin\Reference\ReferencesController');
     Route::resource('posts', 'PostsController');
     Route::resource('users', 'AdminUsersController');
 });

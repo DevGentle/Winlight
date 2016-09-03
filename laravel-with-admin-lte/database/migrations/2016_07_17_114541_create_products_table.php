@@ -20,7 +20,7 @@ class CreateProductsTable extends Migration
             $table->foreign('category_sub_id')->references('id')->on('product_sub_categories');
             $table->string('code');
             $table->string('title');
-            $table->string('description')->nullable();
+            $table->text('description')->nullable();
             $table->integer('photo_id')->unsigned();
             $table->foreign('photo_id')->references('id')->on('photos');
             $table->timestamps();
