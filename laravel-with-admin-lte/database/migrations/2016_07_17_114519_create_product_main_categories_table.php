@@ -15,7 +15,8 @@ class CreateProductMainCategoriesTable extends Migration
         Schema::create('product_main_categories', function (Blueprint $table) {
             $table->increments('id');
             $table->string('title');
-            $table->string('image');
+            $table->integer('photo_id')->unsigned();
+            $table->foreign('photo_id')->references('id')->on('photos');
             $table->timestamps();
         });
     }

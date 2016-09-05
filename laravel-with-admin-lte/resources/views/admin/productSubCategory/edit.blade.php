@@ -5,45 +5,32 @@
 @endsection
 
 @section('contentheader_title')
-    <h1>Posts edit</h1>
+    <h1>Edit product sub category</h1>
 @endsection
 
 @section('main-content')
     <div class="box-body">
-        {{--{{ Form::model($posts, array('route' => ['posts.create', $posts->id], 'method' => 'post'))}}--}}
-        {{--{{ Form::label('Title', null, ['class' => 'control-label']) }}--}}
-        {{--{{ Form::close }}--}}
-
-        {{--{{ Form::token() }}--}}
-
-
-        {!! Form::model($post, ['method' => 'PATCH', 'action' => ['PostsController@update', $post->id]]) !!}
+        {!! Form::model($productSubCategories, ['method' => 'PATCH', 'action' => ['Admin\Product\ProductSubCategoriesController@update', $productSubCategories->id], 'files' => true]) !!}
         {{ Form::token() }}
         <div class="col-xs-5">
+            <div class="margin">
+                {{ Form::label('category_main_id', 'Main category') }}
+                {{ Form::select('category_main_id', $productMainCategory, null, ['class' => 'form-control' ,'placeholder' => 'Select main category']) }}
+            </div>
             <div class="margin">
                 {{ Form::label('title', 'Title') }}
                 {{ Form::text('title', null, ['class' => 'form-control']) }}
             </div>
-
             <div class="margin">
-                {{ Form::label('content', 'Content') }}
-                {{ Form::text('content', null, ['class' => 'form-control']) }}
+                {{ Form::label('photo_id', 'Image') }}
+                {{ Form::file('photo_id', null, ['class' => 'form-control']) }}
             </div>
-        {!! Form::close() !!}
+            {!! Form::close() !!}
             <div class="margin">
                 {{ Form::submit('Update', ['class'=>'btn btn-primary']) }}
-            </div>
-        {!! Form::open(['method' => 'DELETE', 'action' => ['PostsController@destroy', $post->id]]) !!}
-            <div class="margin">
-                {{ Form::submit('Delete', ['class'=>'btn btn-danger']) }}
+                <a href= "{{ url('admin/product-sub-categories') }}" class="btn btn-danger">Cancel</a>
             </div>
         </div>
-        {!! Form::close() !!}
-
-            {{--<div class="col-xs-10 margin">--}}
-                {{--{{ Form::submit('Update', ['class'=>'btn btn-primary']) }}--}}
-                {{--{{ Form::submit('Delete', ['class'=>'btn btn-danger']) }}--}}
-            {{--</div>--}}
         {!! Form::close() !!}
     </div>
 @endsection

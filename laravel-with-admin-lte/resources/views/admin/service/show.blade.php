@@ -1,11 +1,11 @@
 @extends('layouts.app')
 
 @section('htmlheader_title')
-    Product
+    Services
 @endsection
 
 @section('contentheader_title')
-    <h1>Product show</h1>
+    <h1>Service show</h1>
 @endsection
 
 @section('main-content')

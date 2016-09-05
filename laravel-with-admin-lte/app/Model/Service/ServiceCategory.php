@@ -7,6 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 class ServiceCategory extends Model
 {
     protected $fillable = [
-        'title', 'image'
+        'title', 'image_id'
     ];
+
+    public function photo()
+    {
+        return $this->belongsTo('App\Model\Photo\Photo');
+    }
 }

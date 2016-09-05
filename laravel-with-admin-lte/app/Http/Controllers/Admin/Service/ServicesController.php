@@ -1,31 +1,28 @@
 <?php
 
-namespace App\Http\Controllers\Admin\Product;
+namespace App\Http\Controllers\Admin\Service;
 
 use App\Model\Photo\Photo;
-use App\Model\Product\Product;
-use App\Model\Product\ProductMainCategory;
-use App\Model\Product\ProductSubCategory;
+use App\Model\Service\Service;
+use App\Model\Service\ServiceCategory;
+use Illuminate\Http\Request;
 use Nayjest\Grids\EloquentDataProvider;
-use Nayjest\Grids\FieldConfig;
-use Nayjest\Grids\FilterConfig;
 use Nayjest\Grids\Grid;
 use Nayjest\Grids\GridConfig;
-use Illuminate\Http\Request;
+use Nayjest\Grids\FieldConfig;
+use Nayjest\Grids\FilterConfig;
+use App\Http\Controllers\Controller;
 use App\Http\Requests;
 use Nayjest\Grids\ObjectDataRow;
-use App\Model\Product\ProductMainCategory as MainCategory;
-use App\Model\Product\ProductSubCategory as SubCategory;
-use App\Http\Controllers\Controller;
 
-class ProductsController extends Controller
+class ServicesController extends Controller
 {
     public function index()
     {
         $grid = new Grid(
             (new GridConfig)
                 ->setDataProvider(
-                    new EloquentDataProvider(Product::query())
+                    new EloquentDataProvider(Service::query())
                 )
                 ->setName('products')
                 ->setPageSize(15)
@@ -35,55 +32,51 @@ class ProductsController extends Controller
                         ->setLabel('ID')
                         ->setSortable(true),
                     (new FieldConfig)
-                        ->setName('code')
-                        ->setLabel('Code')
-                        ->setSortable(true)
-                        ->addFilter(
-                            (new FilterConfig)
-                                ->setName('code')
-                                ->setOperator(FilterConfig::OPERATOR_LIKE)
-                        ),
+                        ->setName('image_id')
+                        ->setLabel('Image')
+                        ->setCallback(function ($val, ObjectDataRow $row) {
+                            $photo = Photo::find($val);
+                            $path = $photo->file;
+
+                            $img =
+                                '<div>
+                                    <img height="50" src="/images/'.$path.'">
+                                </div>'
+                            ;
+
+                            return $img;
+                        }),
                     (new FieldConfig)
                         ->setName('title')
                         ->setLabel('Title')
                         ->setSortable(true)
                         ->addFilter(
                             (new FilterConfig)
-                            ->setName('title')
-                            ->setOperator(FilterConfig::OPERATOR_LIKE)
+                                ->setName('title')
+                                ->setOperator(FilterConfig::OPERATOR_LIKE)
                         ),
                     (new FieldConfig)
-                        ->setName('category_main_id')
-                        ->setLabel('Category Main')
+                        ->setName('service_category_id')
+                        ->setLabel('Service category')
                         ->setSortable(true)
                         ->addFilter(
                             (new FilterConfig)
-                                ->setName('category_main_id')
+                                ->setName('service_category_id')
                                 ->setOperator(FilterConfig::OPERATOR_LIKE)
                         )
                         ->setCallback(function ($val, ObjectDataRow $row) {
-                            $mainCat = MainCategory::find($val);
-                            return $mainCat->title;
+                            $serviceCat = ServiceCategory::find($val);
+                            return $serviceCat->title;
                         }),
                     (new FieldConfig)
-                        ->setName('category_sub_id')
-                        ->setLabel('Category Sub')
-                        ->setSortable(true)
-                        ->addFilter(
-                            (new FilterConfig)
-                                ->setName('category_sub_id')
-                                ->setOperator(FilterConfig::OPERATOR_LIKE)
-                        )
-                        ->setCallback(function ($val, ObjectDataRow $row) {
-                            $subCat = SubCategory::find($val);
-                            return $subCat->title;
-                        }),
+                        ->setName('created_at')
+                        ->setLabel('Created at'),
                     (new FieldConfig)
                         ->setName('id')
-                        ->setLabel('Action')
+                        ->setLabel('Actions')
                         ->setCallback(function ($val, ObjectDataRow $row) {
-                            $edit = action('Admin\Product\ProductsController@edit', ['id' => $val]);
-                            $remove = action('Admin\Product\ProductsController@destroy', ['id' => $val]);
+                            $edit = action('Admin\Service\ServicesController@edit', ['id' => $val]);
+                            $remove = action('Admin\Service\ServicesController@destroy', ['id' => $val]);
                             $icon =
                                 '<div class="btn-group">
                                     <a href="#" class="glyphicon glyphicon-cog"
@@ -105,22 +98,21 @@ class ProductsController extends Controller
         );
         $grid = $grid->render();
 
-        return view('admin.products.index', compact('grid'));
+        return view('admin.service.index', compact('grid'));
     }
 
     public function create()
     {
-        $mainCat = ProductMainCategory::lists('title', 'id')->all();
-        $subCat = ProductSubCategory::lists('title', 'id')->all();
+        $serviceCategory = ServiceCategory::lists('title', 'id')->all();
 
-        return view('admin.products.create', compact('mainCat', 'subCat'));
+        return view('admin.service.create', compact('serviceCategory'));
     }
 
     public function store(Request $request)
     {
         $input = $request->all();
 
-        if ($file = $request->file('photo_id')) {
+        if ($file = $request->file('image_id')) {
 
             $name = time() . $file->getClientOriginalName();
 
@@ -128,38 +120,37 @@ class ProductsController extends Controller
 
             $photo = Photo::create(['file'=> $name]);
 
-            $input['photo_id'] = $photo->id;
+            $input['image_id'] = $photo->id;
 
         }
 
-        Product::create($input);
+        Service::create($input);
 
-        return redirect('admin/products');
+        return redirect('admin/services');
     }
 
     public function show($id)
     {
-        $products = Product::findOrFail($id);
+        $services = Service::findOrFail($id);
 
-        return view('admin.products.show', compact('products'));
+        return view('admin.service.show', compact('services'));
     }
 
     public function edit($id)
     {
-        $products = Product::findOrFail($id);
-        $mainCat = ProductMainCategory::lists('title', 'id')->all();
-        $subCat = ProductSubCategory::lists('title', 'id')->all();
+        $services = Service::findOrFail($id);
+        $serviceCategory = ServiceCategory::lists('title', 'id')->all();
 
-        return view('admin.products.edit', compact('products', 'mainCat', 'subCat'));
+        return view('admin.service.edit', compact('services', 'serviceCategory'));
     }
 
     public function update(Request $request, $id)
     {
-        $products = Product::findOrFail($id);
+        $services = Service::findOrFail($id);
 
         $input = $request->all();
 
-        if ($file = $request->file('photo_id')) {
+        if ($file = $request->file('image_id')) {
 
             $name = time() . $file->getClientOriginalName();
 
@@ -173,19 +164,19 @@ class ProductsController extends Controller
 
             $photo = Photo::create(['file'=> $name]);
 
-            $input['photo_id'] = $photo->id;
+            $input['image_id'] = $photo->id;
 
         }
 
-        $products->update($input);
+        $services->update($input);
 
-        return redirect('admin/products');
+        return redirect('admin/services');
     }
 
     public function destroy($id)
     {
-        Product::whereId($id)->delete();
+        Service::whereId($id)->delete();
 
-        return redirect('admin/products');
+        return redirect('admin/services');
     }
 }

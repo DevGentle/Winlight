@@ -43,7 +43,16 @@
                     <li><a href="{{ url('admin/products') }}">Products</a></li>
                 </ul>
             </li>
-        </ul><!-- /.sidebar-menu -->
+            <li class="treeview">
+                <a href="#"><i class="fa fa-lightbulb-o"></i> <span>Service</span> <i class="fa fa-angle-left pull-right"></i></a>
+                <ul class="treeview-menu">
+                    <li><a href="{{ url('admin/service-categories') }}">Service Categories</a></li>
+                    <li><a href="{{ url('admin/services') }}">Services</a></li>
+                </ul>
+            </li>
+            <li><a href="{{ url('admin/references') }}"><i class='fa fa-users'></i> <span>Project References</span></a></li>
+        </ul>
+        <!-- /.sidebar-menu -->
     </section>
     <!-- /.sidebar -->
 </aside>

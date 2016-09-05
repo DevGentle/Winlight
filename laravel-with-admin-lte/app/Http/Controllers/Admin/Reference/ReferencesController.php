@@ -1,28 +1,28 @@
 <?php
 
-namespace App\Http\Controllers\Admin\Product;
+namespace App\Http\Controllers\Admin\Reference;
 
-use App\Http\Requests;
-use App\Model\Product\ProductSubCategory as SubCategory;
-use App\Model\Product\ProductMainCategory as MainCategory;
-use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
+use App\Http\Requests\ProductMainCategoryRequest;
 use App\Model\Photo\Photo;
+use App\Model\Reference\Reference;
+use Illuminate\Http\Request;
 use Nayjest\Grids\EloquentDataProvider;
 use Nayjest\Grids\Grid;
 use Nayjest\Grids\GridConfig;
 use Nayjest\Grids\FieldConfig;
 use Nayjest\Grids\FilterConfig;
+use App\Http\Controllers\Controller;
+use App\Http\Requests;
 use Nayjest\Grids\ObjectDataRow;
 
-class ProductSubCategoriesController extends Controller
+class ReferencesController extends Controller
 {
     public function index()
     {
         $grid = new Grid(
             (new GridConfig)
                 ->setDataProvider(
-                    new EloquentDataProvider(SubCategory::query())
+                    new EloquentDataProvider(Reference::query())
                 )
                 ->setName('products')
                 ->setPageSize(15)
@@ -31,21 +31,6 @@ class ProductSubCategoriesController extends Controller
                         ->setName('id')
                         ->setLabel('ID')
                         ->setSortable(true),
-                    (new FieldConfig)
-                        ->setName('photo_id')
-                        ->setLabel('Image')
-                        ->setCallback(function ($val, ObjectDataRow $row) {
-                            $photo = Photo::find($val);
-                            $path = $photo->file;
-
-                            $img =
-                                '<div>
-                                    <img height="50" src="/images/'.$path.'">
-                                </div>'
-                            ;
-
-                            return $img;
-                        }),
                     (new FieldConfig)
                         ->setName('title')
                         ->setLabel('Title')
@@ -56,27 +41,23 @@ class ProductSubCategoriesController extends Controller
                                 ->setOperator(FilterConfig::OPERATOR_LIKE)
                         ),
                     (new FieldConfig)
-                        ->setName('category_main_id')
-                        ->setLabel('Category Main')
+                        ->setName('link')
+                        ->setLabel('Link')
                         ->setSortable(true)
                         ->addFilter(
                             (new FilterConfig)
-                                ->setName('category_main_id')
+                                ->setName('link')
                                 ->setOperator(FilterConfig::OPERATOR_LIKE)
-                        )
-                        ->setCallback(function ($val, ObjectDataRow $row) {
-                            $mainCat = MainCategory::find($val);
-                            return $mainCat->title;
-                        }),
+                        ),
                     (new FieldConfig)
                         ->setName('created_at')
                         ->setLabel('Created at'),
                     (new FieldConfig)
                         ->setName('id')
                         ->setLabel('Actions')
-                        ->setCallback(function ($id) {
-                            $edit = action('Admin\Product\ProductSubCategoriesController@edit', ['id' => $id]);
-                            $remove = action('Admin\Product\ProductSubCategoriesController@destroy', ['id' => $id]);
+                        ->setCallback(function ($val, ObjectDataRow $row) {
+                            $edit = action('Admin\Reference\ReferencesController@edit', ['id' => $val]);
+                            $remove = action('Admin\Reference\ReferencesController@destroy', ['id' => $val]);
                             $icon =
                                 '<div class="btn-group">
                                     <a href="#" class="glyphicon glyphicon-cog" 
@@ -92,19 +73,20 @@ class ProductSubCategoriesController extends Controller
                                     </ul>
                                 </div>';
 
-                            return $icon;
+                            return
+                                $icon
+                                ;
                         })
                 ])
         );
         $grid = $grid->render();
 
-        return view('admin.productSubCategory.index', compact('grid'));
+        return view('admin.projectReference.index', compact('grid'));
     }
 
     public function create()
     {
-        $productMainCategory = MainCategory::lists('title', 'id')->all();
-        return view('admin.productSubCategory.create', compact('productMainCategory'));
+        return view('admin.projectReference.create');
     }
 
     public function store(Request $request)
@@ -123,29 +105,28 @@ class ProductSubCategoriesController extends Controller
 
         }
 
-        SubCategory::create($input);
+        Reference::create($input);
 
-        return redirect('admin/product-sub-categories');
+        return redirect('admin/references');
     }
 
     public function show($id)
     {
-        $productSubCategories = SubCategory::findOrFail($id);
+        $references = Reference::findOrFail($id);
 
-        return view('admin.productSubCategory.show', compact('productSubCategories'));
+        return view('admin.projectReference.show', compact('references'));
     }
 
     public function edit($id)
     {
-        $productMainCategory = MainCategory::lists('title', 'id')->all();
-        $productSubCategories = SubCategory::findOrFail($id);
+        $references = Reference::findOrFail($id);
 
-        return view('admin.productSubCategory.edit', compact('productSubCategories', 'productMainCategory'));
+        return view('admin.projectReference.edit', compact('references'));
     }
 
     public function update(Request $request, $id)
     {
-        $productSubCategories = SubCategory::findOrFail($id);
+        $references = Reference::findOrFail($id);
 
         $input = $request->all();
 
@@ -167,15 +148,15 @@ class ProductSubCategoriesController extends Controller
 
         }
 
-        $productSubCategories->update($input);
+        $references->update($input);
 
-        return redirect('admin/product-sub-categories');
+        return redirect('admin/references');
     }
 
     public function destroy($id)
     {
-        SubCategory::whereId($id)->delete();
+        Reference::whereId($id)->delete();
 
-        return redirect('admin/product-sub-categories');
+        return redirect('admin/references');
     }
 }

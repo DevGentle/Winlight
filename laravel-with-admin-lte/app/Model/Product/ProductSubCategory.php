@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class ProductSubCategory extends Model
 {
     protected $fillable = [
-        'title', 'image'
+        'category_main_id', 'title', 'photo_id'
     ];
 
     public function productMainCategories()
@@ -18,5 +18,10 @@ class ProductSubCategory extends Model
     public function products()
     {
         return $this->hasMany('App\Model\Product\Product');
+    }
+
+    public function photo()
+    {
+        return $this->belongsTo('App\Model\Photo\Photo');
     }
 }

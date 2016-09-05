@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Admin\Product;
 
 use App\Http\Requests\ProductMainCategoryRequest;
-use App\Model\Product\ProductMainCategory;
-use Illuminate\Http\Request;
+use App\Model\Photo\Photo;
+use App\Model\Product\ProductMainCategory as MainCategory;
 use Nayjest\Grids\EloquentDataProvider;
 use Nayjest\Grids\Grid;
 use Nayjest\Grids\GridConfig;
@@ -12,6 +12,7 @@ use Nayjest\Grids\FieldConfig;
 use Nayjest\Grids\FilterConfig;
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
+use Nayjest\Grids\ObjectDataRow;
 
 class ProductMainCategoriesController extends Controller
 {
@@ -20,7 +21,7 @@ class ProductMainCategoriesController extends Controller
         $grid = new Grid(
             (new GridConfig)
                 ->setDataProvider(
-                    new EloquentDataProvider(ProductMainCategory::query())
+                    new EloquentDataProvider(MainCategory::query())
                 )
                 ->setName('products')
                 ->setPageSize(15)
@@ -30,13 +31,16 @@ class ProductMainCategoriesController extends Controller
                         ->setLabel('ID')
                         ->setSortable(true),
                     (new FieldConfig)
-                        ->setName('image')
+                        ->setName('photo_id')
                         ->setLabel('Image')
-                        ->setCallback(function () {
+                        ->setCallback(function ($val, ObjectDataRow $row) {
+                            $photo = Photo::find($val);
+                            $path = $photo->file;
+
                             $img =
-                                '<div style="width: 40px; height: 40px;">
-                                            <img src="http://ereiramendoza.co.uk/wp-content/uploads/2016/08/Footer-Logo-Instagram-60x60-40x40.png">
-                                        </div>'
+                                '<div>
+                                    <img height="50" src="/images/'.$path.'">
+                                </div>'
                             ;
 
                             return $img;
@@ -54,28 +58,27 @@ class ProductMainCategoriesController extends Controller
                         ->setName('created_at')
                         ->setLabel('Created at'),
                     (new FieldConfig)
-                        ->setName('action')
+                        ->setName('id')
                         ->setLabel('Actions')
-                        ->setCallback(function ($id) {
-                            $url = action('Admin\Product\ProductMainCategoriesController@edit', ['id' => $id]);
+                        ->setCallback(function ($val, ObjectDataRow $row) {
+                            $edit = action('Admin\Product\ProductMainCategoriesController@edit', ['id' => $val]);
+                            $remove = action('Admin\Product\ProductMainCategoriesController@destroy', ['id' => $val]);
                             $icon =
                                 '<div class="btn-group">
-                                    <a href="#" class="glyphicon glyphicon-cog" 
+                                    <a href="#" class="glyphicon glyphicon-cog"
                                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     </a>
                                     <ul class="dropdown-menu">
                                         <li>
-                                            <a href="'.$url.'" class="glyphicon glyphicon-pencil"> Edit</a>
+                                            <a href="' . $edit . '" class="glyphicon glyphicon-pencil"> Edit</a>
                                         </li>
                                         <li>
-                                            <a href="#" class="glyphicon glyphicon-trash text-red"> Delete</a>
+                                            <a href="' . $remove . '" class="glyphicon glyphicon-trash text-red"> Delete</a>
                                         </li>
                                     </ul>
                                 </div>';
 
-                            return
-                                $icon
-                                ;
+                            return $icon;
                         })
                 ])
         );
@@ -91,45 +94,71 @@ class ProductMainCategoriesController extends Controller
 
     public function store(ProductMainCategoryRequest $request)
     {
-        ProductMainCategory::create($request->all());
+        $input = $request->all();
 
-        if ($file = $request->file('file')) {
-            $name = $file->getClientOriginalName();
+        if ($file = $request->file('photo_id')) {
+
+            $name = time() . $file->getClientOriginalName();
 
             $file->move('images', $name);
 
-            $input['image'] = $name;
+            $photo = Photo::create(['file'=> $name]);
+
+            $input['photo_id'] = $photo->id;
+
         }
+
+        MainCategory::create($input);
 
         return redirect('admin/product-main-categories');
     }
 
     public function show($id)
     {
-        $productMainCategories = ProductMainCategory::findOrFail($id);
+        $productMainCategories = MainCategory::findOrFail($id);
 
         return view('admin.productMainCategory.show', compact('productMainCategories'));
     }
 
     public function edit($id)
     {
-        $productMainCategories = ProductMainCategory::findOrFail($id);
+        $productMainCategories = MainCategory::findOrFail($id);
 
         return view('admin.productMainCategory.edit', compact('productMainCategories'));
     }
 
-    public function update(Request $request, $id)
+    public function update(ProductMainCategoryRequest $request, $id)
     {
-        $productMainCategories = ProductMainCategory::findOrFail($id);
+        $productMainCategories = MainCategory::findOrFail($id);
 
-        $productMainCategories->update($request->all());
+        $input = $request->all();
+
+        if ($file = $request->file('photo_id')) {
+
+            $name = time() . $file->getClientOriginalName();
+
+            $file->move('images', $name);
+
+            $photo = new Photo();
+
+            $photo->file = $name;
+
+            $photo->save();
+
+            $photo = Photo::create(['file'=> $name]);
+
+            $input['photo_id'] = $photo->id;
+
+        }
+
+        $productMainCategories->update($input);
 
         return redirect('admin/product-main-categories');
     }
 
     public function destroy($id)
     {
-        ProductMainCategory::whereId($id)->delete();
+        MainCategory::whereId($id)->delete();
 
         return redirect('admin/product-main-categories');
     }

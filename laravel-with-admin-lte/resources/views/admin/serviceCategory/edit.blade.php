@@ -1,30 +1,30 @@
 @extends('layouts.app')
 
 @section('htmlheader_title')
-    Product main category
+    Service category
 @endsection
 
 @section('contentheader_title')
-    <h1>Edit product main category</h1>
+    <h1>Edit service category</h1>
 @endsection
 
 @section('main-content')
     <div class="box-body">
-        {!! Form::model($productMainCategories, ['method' => 'PATCH', 'action' => ['Admin\Product\ProductMainCategoriesController@update', $productMainCategories->id], 'files' => true]) !!}
+        {!! Form::model($serviceCategories, ['method' => 'PATCH', 'action' => ['Admin\Service\ServiceCategoriesController@update', $serviceCategories->id], 'files' => true]) !!}
         {{ Form::token() }}
-        <div class="col-xs-5">
+        <div class="col-xs-6">
             <div class="margin">
                 {{ Form::label('title', 'Title') }}
                 {{ Form::text('title', null, ['class' => 'form-control']) }}
             </div>
             <div class="margin">
-                {{ Form::label('photo_id', 'Image') }}
-                {{ Form::file('photo_id', null, ['class' => 'form-control']) }}
+                {{ Form::label('image_id', 'Image') }}
+                {{ Form::file('image_id', null, ['class' => 'form-control']) }}
             </div>
         {!! Form::close() !!}
             <div class="margin">
                 {{ Form::submit('Update', ['class'=>'btn btn-primary']) }}
-                <a href= "{{ url('admin/product-main-categories') }}" class="btn btn-danger">Cancel</a>
+                <a href= "{{ url('admin/service-categories') }}" class="btn btn-danger">Cancel</a>
             </div>
         </div>
         {!! Form::close() !!}
