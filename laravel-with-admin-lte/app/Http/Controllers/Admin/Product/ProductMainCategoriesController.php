@@ -73,7 +73,7 @@ class ProductMainCategoriesController extends Controller
                                             <a href="' . $edit . '" class="glyphicon glyphicon-pencil"> Edit</a>
                                         </li>
                                         <li>
-                                            <a href="' . $remove . '" class="glyphicon glyphicon-trash text-red"> Delete</a>
+                                            <a data-token="'. csrf_token() .'" class="delete-btn text-red" href="'.$remove.'">Delete</a>
                                         </li>
                                     </ul>
                                 </div>';
