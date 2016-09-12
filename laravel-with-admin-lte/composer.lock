@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "007ae1b1eac75939d03bed23fb6eb264",
-    "content-hash": "3ad6927b9d288adcb133f380f073a6c4",
+    "hash": "d0e90540f604ad037bde18a8630ab8d4",
+    "content-hash": "2325433e757571eeb5b0ec478ce42935",
     "packages": [
         {
             "name": "acacha/admin-lte-template-laravel",
@@ -212,6 +212,49 @@
                 "string"
             ],
             "time": "2015-11-06 14:35:42"
+        },
+        {
+            "name": "hedronium/spaceless-blade",
+            "version": "v2.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Hedronium/SpacelessBlade.git",
+                "reference": "bcf36bcc046dffc18d8ef161356933069bf2cdc1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Hedronium/SpacelessBlade/zipball/bcf36bcc046dffc18d8ef161356933069bf2cdc1",
+                "reference": "bcf36bcc046dffc18d8ef161356933069bf2cdc1",
+                "shasum": ""
+            },
+            "replace": {
+                "solidew/spaceless-blade": "*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "hedronium\\SpacelessBlade\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Omran Jamal",
+                    "email": "o.jamal97@gmail.com",
+                    "homepage": "http://about.me/omran.jamal"
+                }
+            ],
+            "description": "Adds the @spaceless tag to Blade. (works like in Twig)",
+            "keywords": [
+                "blade",
+                "laravel",
+                "spaceless",
+                "twig"
+            ],
+            "time": "2016-01-25 17:22:00"
         },
         {
             "name": "jakub-onderka/php-console-color",
