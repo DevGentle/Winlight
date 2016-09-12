@@ -35,6 +35,7 @@
             <!-- Optionally, you can add icons to the links -->
             <li class="active"><a href="{{ url('home') }}"><i class='fa fa-tachometer'></i> <span>Dashboard</span></a></li>
             <li><a href="{{ url('admin/users') }}"><i class='fa fa-users'></i> <span>Users</span></a></li>
+            <li><a href="{{ url('admin/slideshows') }}"><i class='fa fa-users'></i> <span>Slide show</span></a></li>
             <li class="treeview">
                 <a href="#"><i class="fa fa-lightbulb-o"></i> <span>Products</span> <i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
