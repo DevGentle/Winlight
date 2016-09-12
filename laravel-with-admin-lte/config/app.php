@@ -165,6 +165,8 @@ return [
         Nayjest\Grids\ServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
         Unisharp\Ckeditor\ServiceProvider::class,
+        hedronium\SpacelessBlade\SpacelessBladeProvider::class,
+
 
     ],
 

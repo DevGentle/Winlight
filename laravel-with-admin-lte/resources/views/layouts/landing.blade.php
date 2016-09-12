@@ -60,14 +60,14 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                 <li><a href="#showcase" class="smoothScroll">{{ trans('adminlte_lang::message.showcase') }}</a></li>
                 <li><a href="#contact" class="smoothScroll">{{ trans('adminlte_lang::message.contact') }}</a></li>
             </ul>
-            <ul class="nav navbar-nav navbar-right">
-                @if (Auth::guest())
-                    <li><a href="{{ url('/login') }}">{{ trans('adminlte_lang::message.login') }}</a></li>
-                    <li><a href="{{ url('/register') }}">{{ trans('adminlte_lang::message.register') }}</a></li>
-                @else
-                    <li><a href="/home">{{ Auth::user()->name }}</a></li>
-                @endif
-            </ul>
+            {{--<ul class="nav navbar-nav navbar-right">--}}
+                {{--@if (Auth::guest())--}}
+                    {{--<li><a href="{{ url('/login') }}">{{ trans('adminlte_lang::message.login') }}</a></li>--}}
+                    {{--<li><a href="{{ url('/register') }}">{{ trans('adminlte_lang::message.register') }}</a></li>--}}
+                {{--@else--}}
+                    {{--<li><a href="/home">{{ Auth::user()->name }}</a></li>--}}
+                {{--@endif--}}
+            {{--</ul>--}}
         </div><!--/.nav-collapse -->
     </div>
 </div>

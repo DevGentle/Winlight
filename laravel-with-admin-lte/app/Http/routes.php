@@ -24,12 +24,16 @@ use App\Model\Product\ProductSubCategory;
 
 Route::get('/', function () {
 
-    return view('welcome');
+    return view('web.main.index');
 
 });
 
+//Route::get('/test', function () {
+//    return view('web.main.index');
+//});
+
 Route::group(['prefix' => 'admin'], function () {
-    Route::resource('contacts', 'ContactsController');
+    Route::resource('contacts', 'Admin\Contact\ContactsController');
     Route::resource('news-categories', 'NewsCategoriesController');
     Route::resource('news', 'NewsController');
     Route::resource('product-main-categories', 'Admin\Product\ProductMainCategoriesController');

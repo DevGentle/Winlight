@@ -1,0 +1,53 @@
+.navbar-header {
+    position: fixed;
+    display: block;
+    background-color: #555;
+    width: 100%;
+    margin-top: 0;
+    border-bottom: 5px solid #23b14c;
+    &__menu {
+        position: absolute;
+        margin-top: 20px;
+        width: 100%;
+        height: 100px;
+        z-index: 1;
+        background-color: transparent;
+    }
+    &__menu-image {
+        float: left;
+    }
+    &__menu-box {
+        padding-top: 30px;
+        padding-left: 100px;
+    }
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        float: right;
+    }
+    li {
+        float: left;
+        border-right: 1px solid white;
+        li:last-child {
+            border: none;
+        }
+        a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            padding-top: 0;
+            padding-bottom: 0;
+        }
+        a:hover {
+            color: #23b14c;
+        }
+    }
+    img {
+        width: 50px;
+        height: 50px;
+    }
+}

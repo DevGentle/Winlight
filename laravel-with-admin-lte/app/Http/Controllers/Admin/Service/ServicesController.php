@@ -84,10 +84,10 @@ class ServicesController extends Controller
                                     </a>
                                     <ul class="dropdown-menu">
                                         <li>
-                                            <a href="' . $edit . '" class="glyphicon glyphicon-pencil"> Edit</a>
+                                            <a href="' . $edit . '">Edit</a>
                                         </li>
                                         <li>
-                                            <a href="' . $remove . '" class="glyphicon glyphicon-trash text-red"> Delete</a>
+                                            <a data-token="'. csrf_token() .'" class="delete-btn text-red" href="'.$remove.'">Delete</a>
                                         </li>
                                     </ul>
                                 </div>';
@@ -177,6 +177,6 @@ class ServicesController extends Controller
     {
         Service::whereId($id)->delete();
 
-        return redirect('admin/services');
+        return "Done";
     }
 }

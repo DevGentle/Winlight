@@ -1,0 +1,15 @@
+@import "common/main";
+@import "index/main";
+
+@font-face {
+    font-family: 'Kanit', sans-serif;
+    src: url(https://fonts.googleapis.com/css?family=Kanit) format("truetype");
+}
+.p-r-l-0 {
+    padding-left: 0;
+    padding-right: 0;
+}
+.p-t-b-0 {
+    padding-top: 0;
+    padding-bottom: 0;
+}
