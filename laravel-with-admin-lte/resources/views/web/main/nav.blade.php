@@ -51,7 +51,7 @@
 <div class="container-fluid p-r-l-0">
     <div class="navbar-header">
         <div class="navbar-header__menu">
-            <div class="col-xs-2 col-xs-offset-2 navbar-header__menu-image"><img src="{{ asset('img/logo.png') }}"></div>
+            <div class="col-xs-2 col-xs-offset-2 navbar-header__menu-image"><img src="{{ asset('img/resource/winlight_logo_white.png') }}"></div>
             <div class="col-xs-6 text-center navbar-header__menu-box">
                 <ul>
                     <li><a href="">วินเนอร์</a></li>
