@@ -65,9 +65,7 @@
 
     <body>
         <div>
-            @section('nav')
-                @extends('web.main.nav')
-            @endsection
+            @include('web.main.nav')
 
             <div class="container-fluid p-r-l-0">
                 @yield('content')
@@ -76,6 +74,7 @@
             @section('footer')
                 @extends('web.main.footer')
             @endsection
+
         </div>
     </body>
     </html>
