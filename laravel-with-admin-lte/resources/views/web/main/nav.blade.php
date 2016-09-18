@@ -54,10 +54,10 @@
             <div class="col-xs-2 col-xs-offset-2 navbar-header__menu-image"><img src="{{ asset('img/resource/winlight_logo_white.png') }}"></div>
             <div class="col-xs-6 text-center navbar-header__menu-box">
                 <ul>
-                    <li><a href="">วินเนอร์</a></li>
+                    <li><a href="{{ url('/') }}">วินเนอร์</a></li>
                     <li><a href="">ผลิตภัณฑ์</a></li>
-                    <li><a href="">บริการ</a></li>
-                    <li><a href="">ผลงาน</a></li>
+                    <li><a href="{{ url('/service') }}">บริการ</a></li>
+                    <li><a href="{{ url('/reference') }}">ผลงาน</a></li>
                     <li><a href="">ติดต่อสอบถาม</a></li>
                 </ul>
             </div>

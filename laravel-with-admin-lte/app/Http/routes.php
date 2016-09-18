@@ -23,9 +23,13 @@ use App\Model\Product\ProductSubCategory;
 */
 
 Route::get('/', function () {
-
     return view('web.main.index');
-
+});
+Route::get('/service', function () {
+    return view('web.service.service');
+});
+Route::get('/reference', function () {
+    return view('web.reference.reference');
 });
 
 //Route::get('/test', function () {

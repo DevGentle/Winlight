@@ -70,7 +70,7 @@
         </div>
         <div class="col-md-5">
             <div class="index-service__title">ด้านบริการ</div>
-            <div class="index-service__sub-title">ให้คำปรึกษา และอื่ๆ</div>
+            <div class="index-service__sub-title">ให้คำปรึกษา และอื่นๆ</div>
             <div class="index-service__content">
                 <span>เราให้คำปรึกษา และให้บริการเกี่ยวกับการติดตั้ง และคำแนะนำในการใช้</span><br>
                 <span>ติดตั้งแสงสว่างให้ได้ประโยชน์ในการใช้งานสูงสุด</span><br>
@@ -122,14 +122,6 @@
             <img src="{{ asset('img/resource/logo_amata.png') }}">
         </div>
     </div>
-    <div class="row index-contact">
-        <div class="index-contact__box text-center">
-            <div class="index-contact__box--title">ติดต่อเรา</div>
-            <div class="index-contact__box--content">
-                <span>(+66) 02 415 7576 - 7</span><br>
-                <span>(+66) 02 415 7578</span><br>
-                <span>{{ 'sale_wlc@winnerlight,co,th' }}</span>
-            </div>
-        </div>
-    </div>
+
+    @include('web.main.map')
 @endsection
