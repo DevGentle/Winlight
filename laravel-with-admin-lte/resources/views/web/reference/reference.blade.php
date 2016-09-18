@@ -18,55 +18,57 @@
             </div>
         </div>
     </div>
-    {{--<div class="container">--}}
-        {{--<div class="service text-center">--}}
-            {{--<div class="service__header--title">--}}
-                {{--Support from start to finish--}}
-            {{--</div>--}}
-            {{--<div class="service__header--sub-title">--}}
-                {{--แก้ไข รวดเร็ว ทันใจ--}}
-            {{--</div>--}}
-            {{--<div class="service__content">--}}
-                {{--<div class="row">--}}
-                    {{--<div class="col-xs-10 col-xs-offset-1">--}}
-                        {{--<div class="col-md-4">--}}
-                            {{--<div class="service__circle--item">--}}
-                                {{--<img src="{{ asset('img/resource/service_images_001.png') }}">--}}
-                            {{--</div>--}}
-                            {{--<div class="service__content--title">--}}
-                                {{--<p>ให้คำแนะนำปรึกษา</p>--}}
-                            {{--</div>--}}
-                            {{--<div class="service__content--description">--}}
-                                {{--<p>บริการให้คำแนะนำปรึกษาตั้งแต่เริ่มต้น จนจบโปรเจค เพื่อการใช้งานที่มีประสิทธิภาพสูงสุด</p>--}}
-                            {{--</div>--}}
-                        {{--</div>--}}
-                        {{--<div class="col-md-4">--}}
-                            {{--<div class="service__circle--item">--}}
-                                {{--<img src="{{ asset('img/resource/service_images_002.png') }}">--}}
-                            {{--</div>--}}
-                            {{--<div class="service__content--title">--}}
-                                {{--<p>แก้ไขปัญหา</p>--}}
-                            {{--</div>--}}
-                            {{--<div class="service__content--description">--}}
-                                {{--<p>บริการให้คำแนะนำปรึกษาตั้งแต่เริ่มต้น จนจบโปรเจค เพื่อการใช้งานที่มีประสิทธิภาพสูงสุด</p>--}}
-                            {{--</div>--}}
-                        {{--</div>--}}
-                        {{--<div class="col-md-4">--}}
-                            {{--<div class="service__circle--item">--}}
-                                {{--<img src="{{ asset('img/resource/service_images_003.png') }}">--}}
-                            {{--</div>--}}
-                            {{--<div class="service__content--title">--}}
-                                {{--<p>ตรวจสอบประสิทธิภาพ</p>--}}
-                            {{--</div>--}}
-                            {{--<div class="service__content--description">--}}
-                                {{--<p>บริการให้คำแนะนำปรึกษาตั้งแต่เริ่มต้น จนจบโปรเจค เพื่อการใช้งานที่มีประสิทธิภาพสูงสุด</p>--}}
-                            {{--</div>--}}
-                        {{--</div>--}}
-                    {{--</div>--}}
-                {{--</div>--}}
-            {{--</div>--}}
-        {{--</div>--}}
-    {{--</div>--}}
+    <div class="container">
+        <div class="reference text-center">
+            <div class="col-md-10 col-md-offset-1 reference__content">
+                <div class="col-md-4 col-sm-6">
+                    <img src="{{ asset('img/resource/reference/ref_08.jpg') }}">
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <img src="{{ asset('img/resource/reference/ref_09.jpg') }}">
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <img src="{{ asset('img/resource/reference/ref_11.jpg') }}">
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <img src="{{ asset('img/resource/reference/ref_16.jpg') }}">
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <img src="{{ asset('img/resource/reference/ref_17.jpg') }}">
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <img src="{{ asset('img/resource/reference/ref_19.jpg') }}">
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <img src="{{ asset('img/resource/reference/ref_25.jpg') }}">
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <img src="{{ asset('img/resource/reference/ref_26.jpg') }}">
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <img src="{{ asset('img/resource/reference/ref_28.jpg') }}">
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <img src="{{ asset('img/resource/reference/ref_34.jpg') }}">
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <img src="{{ asset('img/resource/reference/ref_35.jpg') }}">
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <img src="{{ asset('img/resource/reference/ref_37.jpg') }}">
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <img src="{{ asset('img/resource/reference/ref_43.jpg') }}">
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <img src="{{ asset('img/resource/reference/ref_44.jpg') }}">
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <img src="{{ asset('img/resource/reference/ref_46.jpg') }}">
+                </div>
+            </div>
+        </div>
+    </div>
 
     @include('web.main.map')
 @endsection
