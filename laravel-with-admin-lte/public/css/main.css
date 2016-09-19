@@ -243,6 +243,11 @@ div {
   margin-left: 0;
   margin-right: 0; }
 
+.reference__content {
+  margin-bottom: 30px; }
+  .reference__content img {
+    margin-top: 30px; }
+
 .service__header {
   width: 100%;
   height: auto; }
