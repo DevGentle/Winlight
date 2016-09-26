@@ -87,7 +87,9 @@
             font-style: italic;
             background-color: transparent;
         }
-        ol.breadcrumb li {display: inline;}
+        ol.breadcrumb li {
+            display: inline;
+        }
         ol.breadcrumb li+li:before {
             padding: 8px;
             font-weight: bold;
