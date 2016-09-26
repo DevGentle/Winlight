@@ -1,26 +1,25 @@
 @extends('web.layout')
 
 @section('content')
-    <div class="row index-service">
-        <div class="container">
-            <div class="col-md-1 col-md-offset-3">
-                <img src="{{ asset('img/resource/service_icon.png') }}">
+    <div class="row service p-r-l-0">
+        <div class="container service__first-header">
+            <div class="col-xs-1 text-right">
+                <div class="service__first-header--icon">
+                    <img src="{{ asset('img/resource/reference_icon.png') }}">
+                </div>
             </div>
-            <div class="col-md-5">
-                <div class="index-service__title">ด้านบริการ</div>
-                <div class="index-service__sub-title">ให้คำปรึกษา และอื่นๆ</div>
-                <div class="index-service__content">
+            <div class="col-xs-6">
+                <div class="service__first-header--title">ด้านบริการ</div>
+                <div class="service__first-header--sub-title">ให้คำปรึกษา และอื่นๆ</div>
+                <div class="service__first-header--description">
                     <span>เราให้คำปรึกษา และให้บริการเกี่ยวกับการติดตั้ง และคำแนะนำในการใช้</span><br>
                     <span>ติดตั้งแสงสว่างให้ได้ประโยชน์ในการใช้งานสูงสุด</span><br>
                 </div>
             </div>
-            <div class="col-md-1">
-                <button class="index-service__button" href="">learn more</button>
-            </div>
         </div>
     </div>
     <div class="container">
-        <div class="service text-center">
+        <div class="text-center">
             <div class="service__header--title">
                 Support from start to finish
             </div>

@@ -43,7 +43,7 @@
             </div>
         </div>
         <div class="col-md-1">
-            <button class="index-product__button" href="">learn more</button>
+            <button class="index-product__button" href="{{ url('product') }}">learn more</button>
         </div>
     </div>
     <div class="row m-l-r-0">
@@ -77,7 +77,7 @@
             </div>
         </div>
         <div class="col-md-1">
-            <button class="index-service__button" href="">learn more</button>
+            <button class="index-service__button" href="{{ url('service') }}">learn more</button>
         </div>
     </div>
     <div class="row index-service__circle text-center">
@@ -109,7 +109,7 @@
             </div>
         </div>
         <div class="col-md-1">
-            <button class="index-reference__button" href="">learn more</button>
+            <button class="index-reference__button" href="{{ url('reference') }}">learn more</button>
         </div>
     </div>
     <div class="row index-reference__showcase">
