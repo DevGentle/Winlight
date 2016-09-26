@@ -18,9 +18,6 @@
                     <span>Interior Lighting</span>
                 </div>
             </div>
-            <div class="col-xs-5">
-                <span>Interior Lighting</span>
-            </div>
         </div>
     </div>
     <div class="container-fluid product-content__main">
