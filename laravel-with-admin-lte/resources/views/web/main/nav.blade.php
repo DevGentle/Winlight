@@ -55,7 +55,7 @@
             <div class="col-xs-6 text-center navbar-header__menu-box">
                 <ul>
                     <li><a href="{{ url('/') }}">วินเนอร์</a></li>
-                    <li><a href="">ผลิตภัณฑ์</a></li>
+                    <li><a href="{{ url('/product') }}">ผลิตภัณฑ์</a></li>
                     <li><a href="{{ url('/service') }}">บริการ</a></li>
                     <li><a href="{{ url('/reference') }}">ผลงาน</a></li>
                     <li><a href="">ติดต่อสอบถาม</a></li>

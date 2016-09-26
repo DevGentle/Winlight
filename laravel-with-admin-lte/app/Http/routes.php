@@ -31,6 +31,12 @@ Route::get('/service', function () {
 Route::get('/reference', function () {
     return view('web.reference.reference');
 });
+Route::get('/product', function () {
+    return view('web.product.index');
+});
+Route::get('/product/{id}', function () {
+    return view('web.product.product');
+});
 
 //Route::get('/test', function () {
 //    return view('web.main.index');
