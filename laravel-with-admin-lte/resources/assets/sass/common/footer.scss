@@ -41,9 +41,12 @@
     }
     li {
         float: right;
-        //border-right: 1px solid white;
-        li:last-child {
-            border: none;
+        border-right: 1px solid white;
+        &:first-child {
+            border-right: 0 solid white;
+            a {
+                padding-right: 0;
+            }
         }
         a {
             display: block;
@@ -53,9 +56,9 @@
             text-decoration: none;
             padding-top: 0;
             padding-bottom: 0;
-        }
-        a:hover {
-            color: #23b14c;
+            &:hover {
+                color: #23b14c;
+            }
         }
     }
 }

@@ -41,7 +41,10 @@ div {
     overflow: hidden;
     float: right; }
   .navbar-header li {
-    float: left; }
+    float: left;
+    border-right: 1px solid white; }
+    .navbar-header li:last-child {
+      border-right: 0px solid white; }
     .navbar-header li a {
       display: block;
       color: white;
@@ -88,9 +91,12 @@ div {
     padding: 0;
     overflow: hidden; }
   .footer li {
-    float: right; }
-    .footer li li:last-child {
-      border: none; }
+    float: right;
+    border-right: 1px solid white; }
+    .footer li:first-child {
+      border-right: 0 solid white; }
+      .footer li:first-child a {
+        padding-right: 0; }
     .footer li a {
       display: block;
       color: white;
@@ -99,8 +105,8 @@ div {
       text-decoration: none;
       padding-top: 0;
       padding-bottom: 0; }
-    .footer li a:hover {
-      color: #23b14c; }
+      .footer li a:hover {
+        color: #23b14c; }
 
 .index-history {
   width: 100%;
