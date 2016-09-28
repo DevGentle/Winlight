@@ -11,6 +11,7 @@
             <link rel="stylesheet" href="{{ asset('/css/bootstrap.css') }}">
             <link rel="stylesheet" href="{{ asset('/css/main.css') }}">
             <link rel="stylesheet" href="{{ asset('/css/slick.css') }}">
+            <link rel="stylesheet" href="{{ asset('/css/slick-theme.css') }}">
 
         @yield('script')
             <script type="text/javascript" src="{{ asset('/js/slideshow/jquery-1.11.3.min.js') }}"></script>
