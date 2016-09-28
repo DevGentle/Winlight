@@ -8,7 +8,7 @@
                 <div class="setcol-right">
                     <div class="fontfooter2"><img src="{{ asset('img/resource/icon_facebook.jpg') }}"></div>
                     <div class="footer">
-                        <div class=" navbar-header__menu-box">
+                        <div class=" navbar-footer__menu-box">
                             <ul>
                                 <li><a href="">ติดต่อสอบถาม</a></li>
                                 <li><a href="{{ url('/reference') }}">ผลงาน</a></li>
