@@ -2,7 +2,7 @@
     &__menu {
         position: absolute;
         margin-top: 20px;
-        width: 100%;
+        width: 88%;
         height: 100px;
         z-index: 1;
         background-color: transparent;
@@ -16,7 +16,6 @@
     }
     &__menu-box {
         padding-top: 30px;
-        padding-left: 100px;
         ul {
             list-style-type: none;
             margin: 0;
