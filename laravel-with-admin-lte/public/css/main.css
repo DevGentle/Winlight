@@ -413,6 +413,10 @@ div {
       margin-left: 20px;
       margin-top: 20px;
       border: 1px solid #94bf46; }
+      .product-content__category--item:hover {
+        background-color: #94bf46; }
+      .product-content__category--item img {
+        width: 100%; }
     .product-content__category ol.breadcrumb {
       padding: 8px 16px;
       margin-top: 20px;
@@ -458,8 +462,12 @@ div {
       color: #fff; }
   .reference__content {
     margin-bottom: 30px; }
-    .reference__content img {
-      margin-top: 30px; }
+    .reference__content--item {
+      background-color: transparent; }
+      .reference__content--item img {
+        margin-top: 30px; }
+        .reference__content--item img:hover {
+          background-color: #0000AA; }
 
 .service {
   width: 100%;

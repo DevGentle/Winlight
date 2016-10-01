@@ -44,8 +44,10 @@
                             <li><a href="#">Home</a></li>
                             <li class="active">Home</li>
                         </ol>
-                        @for($i = 0; $i <= 10; $i++)
-                        <div class="col-md-4 product-content__category--item "></div>
+                        @for($i = 0; $i <= 8; $i++)
+                        <div class="col-md-4 product-content__category--item">
+                            <img src="">
+                        </div>
                         @endfor
                     </div>
                 </div>
