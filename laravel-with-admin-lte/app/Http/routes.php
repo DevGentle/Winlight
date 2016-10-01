@@ -25,6 +25,9 @@ use App\Model\Product\ProductSubCategory;
 Route::get('/', function () {
     return view('web.main.index');
 });
+Route::get('/about-us', function () {
+    return view('web.about.story');
+});
 Route::get('/service', function () {
     return view('web.service.service');
 });
