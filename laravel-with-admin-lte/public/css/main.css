@@ -439,6 +439,26 @@ div {
     margin-left: 0;
     border-top: 1px solid #707070; }
 
+.product-item__category {
+  width: 100%;
+  background-color: #fff;
+  margin-left: 0;
+  margin-right: 0;
+  margin-bottom: -30px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 40px; }
+  .product-item__category--image {
+    width: 500px;
+    height: 500px;
+    margin-left: 20px;
+    margin-top: 20px;
+    border: 1px solid #94bf46; }
+    .product-item__category--image img {
+      width: 100%; }
+  .product-item__category--description {
+    margin-top: 10px; }
+
 .reference {
   width: 100%;
   height: 250px;

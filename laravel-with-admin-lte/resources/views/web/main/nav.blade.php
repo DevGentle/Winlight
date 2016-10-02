@@ -3,7 +3,9 @@
         <div class="container">
             <div class="navbar-header__menu">
                 <div class="col-xs-10 col-xs-offset-1">
-                    <div class="col-xs-1 navbar-header__menu-image"><img src="{{ asset('img/resource/winlight_logo_white.png') }}"></div>
+                    <div class="col-xs-1 navbar-header__menu-image">
+                        <a href="{{ url('/') }}"><img src="{{ asset('img/resource/winlight_logo_white.png') }}"></a>
+                    </div>
                     <div class="col-xs-11 text-center navbar-header__menu-box">
                         <ul>
                             <li><a href="{{ url('/') }}">หน้าแรก</a></li>

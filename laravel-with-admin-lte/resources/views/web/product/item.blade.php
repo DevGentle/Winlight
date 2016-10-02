@@ -1,4 +1,4 @@
-
+@extends('web.layout')
 
 @section('content')
     <div class="row product-index p-r-l-0">
@@ -27,12 +27,12 @@
                     <div class="product-content__header">{{ 'Catalog' }}</div>
                     <hr>
                     @for($i = 0; $i <= 3; $i++)
-                    <div class="product-content__menu">
-                        <div class="product-content__menu--square"></div>
-                        <div class="product-content__menu--title">
-                            <a href="#">LED</a>
+                        <div class="product-content__menu">
+                            <div class="product-content__menu--square"></div>
+                            <div class="product-content__menu--title">
+                                <a href="#">LED</a>
+                            </div>
                         </div>
-                    </div>
                     @endfor
                     <hr>
                 </div>
@@ -44,9 +44,17 @@
                             <li><a href="#">Home</a></li>
                             <li class="active">Home</li>
                         </ol>
-                        @for($i = 0; $i <= 10; $i++)
-                        <div class="col-md-4 product-content__category--item "></div>
-                        @endfor
+                        <div class="col-md-12 product-item__category--image">
+                            <img src="">
+                        </div>
+                        <div class="col-md-10 product-item__category--description">
+                            asdfdsafasf
+                        </div>
+                        {{--@for($i = 0; $i <= 2; $i++)--}}
+                            {{--<div class="col-md-4 product-content__category--item">--}}
+                                {{--<img src="">--}}
+                            {{--</div>--}}
+                        {{--@endfor--}}
                     </div>
                 </div>
             </div>
