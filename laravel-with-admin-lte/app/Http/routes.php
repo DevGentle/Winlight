@@ -37,8 +37,8 @@ Route::get('/reference', function () {
 Route::get('/product', function () {
     return view('web.product.index');
 });
-Route::get('/product/{id}', function () {
-    return view('web.product.product');
+Route::get('/product/{id}', function ($id) {
+    return view('web.product.item');
 });
 
 //Route::get('/test', function () {
