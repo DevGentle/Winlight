@@ -9,7 +9,7 @@
             <span>WINLIGHT (WINNER LIGHT CO.,LTD.) โดยโรงงานผลิดโคมไฟฟ้าและเสาไฟฟ้าชนิดต่างๆ</span><br>
             <span>ที่ได้รับรองตามมาตรฐาน มอก.902 มอก. 1955 และ ISO 9001:2008</span>
         </div>
-        <button class="index-history__button" href="">learn more</button>
+        <a href="{{ url('/about-us') }}"><button class="index-history__button">learn more</button></a>
     </div>
     <div class="container">
         <div class="row index-history__circle text-center">
