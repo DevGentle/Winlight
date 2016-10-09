@@ -2,10 +2,8 @@
 
 @section('content')
     <div class="row story">
-        <div class="container">
-            <div class="col-md-12">
-                <img src="{{ asset('img/resource/winligt_logo.png') }}">
-            </div>
+        <div class="col-md-12">
+            <img src="{{ asset('/img/resource/aboutus_header.jpg') }}">
         </div>
     </div>
     <div class="container">

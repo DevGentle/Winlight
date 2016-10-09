@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin\Product;
 
 use App\Http\Requests;
+use App\Http\Requests\ProductSubCategoryRequest;
 use App\Model\Product\ProductSubCategory as SubCategory;
 use App\Model\Product\ProductMainCategory as MainCategory;
 use Illuminate\Http\Request;
@@ -107,7 +108,7 @@ class ProductSubCategoriesController extends Controller
         return view('admin.productSubCategory.create', compact('productMainCategory'));
     }
 
-    public function store(Request $request)
+    public function store(ProductSubCategoryRequest $request)
     {
         $input = $request->all();
 
@@ -143,7 +144,7 @@ class ProductSubCategoriesController extends Controller
         return view('admin.productSubCategory.edit', compact('productSubCategories', 'productMainCategory'));
     }
 
-    public function update(Request $request, $id)
+    public function update(ProductSubCategoryRequest $request, $id)
     {
         $productSubCategories = SubCategory::findOrFail($id);
 

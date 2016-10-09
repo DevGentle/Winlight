@@ -17,18 +17,19 @@ div {
   font-family: 'Kanit', sans-serif; }
 
 .story {
-  width: auto;
-  height: 150px;
-  background-color: #666; }
+  position: relative;
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+  background-color: #666;
+  text-align: center;
+  overflow: hidden; }
   .story img {
-    width: 100px;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    margin-left: auto;
-    margin-right: auto;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     text-align: center; }
   .story__title {
     margin-top: 30px;
