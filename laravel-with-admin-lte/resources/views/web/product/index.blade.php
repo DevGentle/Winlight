@@ -45,9 +45,11 @@
                             <li class="active">Home</li>
                         </ol>
                         @for($i = 0; $i <= 8; $i++)
-                        <div class="col-md-4 product-content__category--item">
-                            <img src="">
-                        </div>
+                            <a href="{{ url('product/1') }}">
+                                <div class="col-md-4 product-content__category--item">
+                                    <img src="">
+                                </div>
+                            </a>
                         @endfor
                     </div>
                 </div>
