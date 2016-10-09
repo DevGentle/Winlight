@@ -6,7 +6,6 @@ use App\Http\Requests;
 use App\Http\Requests\ProductSubCategoryRequest;
 use App\Model\Product\ProductSubCategory as SubCategory;
 use App\Model\Product\ProductMainCategory as MainCategory;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Model\Photo\Photo;
 use Nayjest\Grids\EloquentDataProvider;

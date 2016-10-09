@@ -9,6 +9,8 @@
 @endsection
 
 @section('main-content')
+    @include('admin.validation.error')
+
     <div class="box-body">
         {!! Form::model($slide, ['method' => 'PATCH', 'action' => ['Admin\Slideshow\SlideshowsController@update', $slide->id], 'files' => true]) !!}
         {{ Form::token() }}

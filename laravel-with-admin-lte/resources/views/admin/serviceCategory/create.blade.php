@@ -9,15 +9,8 @@
 @endsection
 
 @section('main-content')
-    @if (count($errors) > 0)
-        <div class="alert alert-danger">
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-    @endif
+    @include('admin.validation.error')
+
     <div class="box-body">
         {!! Form::open(['method' => 'POST', 'action' => 'Admin\Service\ServiceCategoriesController@store', 'files'=>true]) !!}
             {{ Form::token() }}

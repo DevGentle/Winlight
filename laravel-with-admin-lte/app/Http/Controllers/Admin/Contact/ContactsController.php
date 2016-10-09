@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin\Contact;
 
+use App\Http\Requests\ContactRequest;
 use App\Model\Photo\Photo;
 use App\Model\Product\Product;
 use App\Model\Product\ProductMainCategory;
@@ -46,7 +47,7 @@ class ContactsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ContactRequest $request)
     {
         //
     }
@@ -80,7 +81,7 @@ class ContactsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ContactRequest $request, $id)
     {
         //
     }

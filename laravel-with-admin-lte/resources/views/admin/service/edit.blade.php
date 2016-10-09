@@ -9,6 +9,8 @@
 @endsection
 
 @section('main-content')
+    @include('admin.validation.error')
+
     <head>
         <script src='//cdn.tinymce.com/4/tinymce.min.js'></script>
         <script>

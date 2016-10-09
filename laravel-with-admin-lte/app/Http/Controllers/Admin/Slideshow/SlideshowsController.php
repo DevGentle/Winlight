@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers\Admin\Slideshow;
 
+use App\Http\Requests\SlideShowRequest;
 use App\Model\Slideshow\Slideshow;
-use Illuminate\Http\Request;
 use App\Model\Photo\Photo;
 use Nayjest\Grids\EloquentDataProvider;
 use Nayjest\Grids\Grid;
@@ -92,7 +92,7 @@ class SlideshowsController extends Controller
         return view('admin.slideshow.create');
     }
 
-    public function store(Request $request)
+    public function store(SlideShowRequest $request)
     {
         $input = $request->all();
 
@@ -125,7 +125,7 @@ class SlideshowsController extends Controller
         return view('admin.slideshow.edit', compact('slide'));
     }
 
-    public function update(Request $request, $id)
+    public function update(SlideShowRequest $request, $id)
     {
         $slide = Slideshow::findOrFail($id);
 

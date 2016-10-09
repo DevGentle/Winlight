@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers\Admin\Service;
 
+use App\Http\Requests\ServiceCategoryRequest;
 use App\Model\Photo\Photo;
 use App\Model\Service\ServiceCategory;
-use Illuminate\Http\Request;
 use Nayjest\Grids\EloquentDataProvider;
 use Nayjest\Grids\Grid;
 use Nayjest\Grids\GridConfig;
@@ -92,7 +92,7 @@ class ServiceCategoriesController extends Controller
         return view('admin.serviceCategory.create');
     }
 
-    public function store(Request $request)
+    public function store(ServiceCategoryRequest $request)
     {
         $input = $request->all();
 
@@ -127,7 +127,7 @@ class ServiceCategoriesController extends Controller
         return view('admin.serviceCategory.edit', compact('serviceCategories'));
     }
 
-    public function update(Request $request, $id)
+    public function update(ServiceCategoryRequest $request, $id)
     {
         $serviceCategories = ServiceCategory::findOrFail($id);
 

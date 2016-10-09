@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers\Admin\Reference;
 
-use App\Http\Requests\ProductMainCategoryRequest;
+use App\Http\Requests\ReferenceRequest;
 use App\Model\Photo\Photo;
 use App\Model\Reference\Reference;
-use Illuminate\Http\Request;
 use Nayjest\Grids\EloquentDataProvider;
 use Nayjest\Grids\Grid;
 use Nayjest\Grids\GridConfig;
@@ -89,7 +88,7 @@ class ReferencesController extends Controller
         return view('admin.projectReference.create');
     }
 
-    public function store(Request $request)
+    public function store(ReferenceRequest $request)
     {
         $input = $request->all();
 
@@ -124,7 +123,7 @@ class ReferencesController extends Controller
         return view('admin.projectReference.edit', compact('references'));
     }
 
-    public function update(Request $request, $id)
+    public function update(ReferenceRequest $request, $id)
     {
         $references = Reference::findOrFail($id);
 

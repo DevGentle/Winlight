@@ -28,6 +28,9 @@
             });
         </script>
     </head>
+
+    @include('admin.validation.error')
+
     <div class="box-body">
         {!! Form::model($references, ['method' => 'PATCH', 'action' => ['Admin\Reference\ReferencesController@update', $references->id], 'files' => true]) !!}
         {{ Form::token() }}

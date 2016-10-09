@@ -12,7 +12,6 @@ use Nayjest\Grids\FieldConfig;
 use Nayjest\Grids\FilterConfig;
 use Nayjest\Grids\Grid;
 use Nayjest\Grids\GridConfig;
-use Illuminate\Http\Request;
 use App\Http\Requests;
 use Nayjest\Grids\ObjectDataRow;
 use App\Model\Product\ProductMainCategory as MainCategory;

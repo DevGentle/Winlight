@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use App\Http\Requests\Request;
 
-class ProductSubCategoryRequest extends Request
+class ContactRequest extends Request
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,8 +25,12 @@ class ProductSubCategoryRequest extends Request
     {
         return [
 
-            'category_sub_id' => 'required',
-            'title' => 'required'
+            'title' => 'required',
+            'address' => 'required',
+            'email' => 'required',
+            'phone_number' => 'required',
+            'fax_number' => 'required',
+            'link' => 'required'
 
         ];
     }

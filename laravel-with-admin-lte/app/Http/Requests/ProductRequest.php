@@ -26,8 +26,8 @@ class ProductRequest extends Request
         return [
 
             'category_main_id' => 'required',
-            'code' => 'require',
-            'title' => 'required',
+            'code' => 'required',
+            'title' => 'required'
 
         ];
     }

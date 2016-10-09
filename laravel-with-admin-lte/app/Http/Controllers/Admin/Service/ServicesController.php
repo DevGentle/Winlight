@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers\Admin\Service;
 
+use App\Http\Requests\ServiceRequest;
 use App\Model\Photo\Photo;
 use App\Model\Service\Service;
 use App\Model\Service\ServiceCategory;
-use Illuminate\Http\Request;
 use Nayjest\Grids\EloquentDataProvider;
 use Nayjest\Grids\Grid;
 use Nayjest\Grids\GridConfig;
@@ -108,7 +108,7 @@ class ServicesController extends Controller
         return view('admin.service.create', compact('serviceCategory'));
     }
 
-    public function store(Request $request)
+    public function store(ServiceRequest $request)
     {
         $input = $request->all();
 
@@ -144,7 +144,7 @@ class ServicesController extends Controller
         return view('admin.service.edit', compact('services', 'serviceCategory'));
     }
 
-    public function update(Request $request, $id)
+    public function update(ServiceRequest $request, $id)
     {
         $services = Service::findOrFail($id);
 
