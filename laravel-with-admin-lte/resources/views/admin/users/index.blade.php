@@ -9,6 +9,8 @@
 @endsection
 
 @section('main-content')
+    @include('admin.validation.error')
+
     <div class="box">
         <table class="table table-hover">
             <thead>

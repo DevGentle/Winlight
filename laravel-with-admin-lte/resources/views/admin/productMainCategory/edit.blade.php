@@ -9,6 +9,7 @@
 @endsection
 
 @section('main-content')
+    @include('admin.validation.error')
     <div class="box-body">
         {!! Form::model($productMainCategories, ['method' => 'PATCH', 'action' => ['Admin\Product\ProductMainCategoriesController@update', $productMainCategories->id], 'files' => true]) !!}
         {{ Form::token() }}

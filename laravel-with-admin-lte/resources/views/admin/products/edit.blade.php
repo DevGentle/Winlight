@@ -28,6 +28,9 @@
             });
         </script>
     </head>
+
+    @include('admin.validation.error')
+
     <div class="box-body">
         {!! Form::model($products, ['method' => 'PATCH', 'action' => ['Admin\Product\ProductsController@update', $products->id], 'files' => true]) !!}
         {{ Form::token() }}

@@ -9,6 +9,8 @@
 @endsection
 
 @section('main-content')
+    @include('admin.validation.error')
+
     <div class="box-body">
         {!! Form::model($serviceCategories, ['method' => 'PATCH', 'action' => ['Admin\Service\ServiceCategoriesController@update', $serviceCategories->id], 'files' => true]) !!}
         {{ Form::token() }}

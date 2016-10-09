@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin\Product;
 
+use App\Http\Requests\ProductRequest;
 use App\Model\Photo\Photo;
 use App\Model\Product\Product;
 use App\Model\Product\ProductMainCategory;
@@ -11,7 +12,6 @@ use Nayjest\Grids\FieldConfig;
 use Nayjest\Grids\FilterConfig;
 use Nayjest\Grids\Grid;
 use Nayjest\Grids\GridConfig;
-use Illuminate\Http\Request;
 use App\Http\Requests;
 use Nayjest\Grids\ObjectDataRow;
 use App\Model\Product\ProductMainCategory as MainCategory;
@@ -116,7 +116,7 @@ class ProductsController extends Controller
         return view('admin.products.create', compact('mainCat', 'subCat'));
     }
 
-    public function store(Request $request)
+    public function store(ProductRequest $request)
     {
         $input = $request->all();
 
@@ -153,7 +153,7 @@ class ProductsController extends Controller
         return view('admin.products.edit', compact('products', 'mainCat', 'subCat'));
     }
 
-    public function update(Request $request, $id)
+    public function update(ProductRequest $request, $id)
     {
         $products = Product::findOrFail($id);
 

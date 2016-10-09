@@ -28,6 +28,9 @@
             });
         </script>
     </head>
+
+    @include('admin.validation.error')
+
     <div class="box-body">
         {!! Form::open(['method' => 'POST', 'action' => 'Admin\Product\ProductsController@store', 'files' => true]) !!}
             {{ Form::token() }}
@@ -62,14 +65,5 @@
                 <a href= "{{ url('admin/products') }}" class="btn btn-danger">Cancel</a>
             </div>
         {!! Form::close() !!}
-        @if (count($errors) > 0)
-            <div class="alert alert-danger">
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-        @endif
     </div>
 @endsection
