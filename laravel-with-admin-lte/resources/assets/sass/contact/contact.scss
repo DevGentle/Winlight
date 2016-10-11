@@ -1,0 +1,25 @@
+.contact-bg {
+    background-color: #e3e3e3;
+}
+
+.contact-index {
+    padding: 30px 60px;
+    background-color: #fff;
+    &__header-left {
+        font-size: 30px;
+        font-weight: bold;
+        color: #3db44e;
+    }
+    &__header-right {
+        padding-top: 40px;
+        text-align: right;
+    }
+}
+
+.red {
+    background-color: #FF0000;
+}
+
+.green {
+    background-color: #00a157;
+}
