@@ -85,6 +85,9 @@
         height: 180px;
         margin: 60px auto;
         border: 1px solid #94bf46;
+        &:hover {
+            background-color: #96c341;
+        }
     }
 }
 

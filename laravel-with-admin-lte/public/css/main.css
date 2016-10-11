@@ -238,6 +238,8 @@ div {
     height: 180px;
     margin: 60px auto;
     border: 1px solid #94bf46; }
+    .index-product__preview:hover {
+      background-color: #96c341; }
 
 .index-service {
   width: 100%;
@@ -413,11 +415,15 @@ div {
       height: 200px;
       margin-left: 20px;
       margin-top: 20px;
-      border: 1px solid #94bf46; }
+      padding: 0px;
+      border: 1px solid #94bf46;
+      text-align: center; }
       .product-content__category--item:hover {
-        background-color: #94bf46; }
+        background-color: #36b648; }
       .product-content__category--item img {
-        width: 100%; }
+        width: 200px;
+        height: 200px;
+        background-image: url("/img/resource/default_images.png"); }
     .product-content__category ol.breadcrumb {
       padding: 8px 16px;
       margin-top: 20px;
