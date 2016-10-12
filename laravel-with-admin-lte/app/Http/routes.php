@@ -40,6 +40,9 @@ Route::get('/product', function () {
 Route::get('/product/{id}', function ($id) {
     return view('web.product.item');
 });
+Route::get('/contact-us', function () {
+    return view('web.contact.contact');
+});
 
 //Route::get('/test', function () {
 //    return view('web.main.index');
