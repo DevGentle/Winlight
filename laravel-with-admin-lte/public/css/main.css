@@ -68,6 +68,14 @@ div {
   .contact-index__header-right {
     padding-top: 40px;
     text-align: right; }
+  .contact-index__content-form {
+    padding-top: 2px; }
+    .contact-index__content-form button {
+      float: right;
+      font-weight: normal;
+      margin-left: 10px; }
+  .contact-index__content-map {
+    padding-top: 30px; }
 
 .red {
   background-color: #FF0000; }
