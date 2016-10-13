@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="row story">
-        <div class="col-md-12">
+        <div class="col-md-12 story__header">
             <img src="{{ asset('/img/resource/aboutus_header.jpg') }}">
         </div>
     </div>
