@@ -10,16 +10,13 @@ use Carbon\Carbon;
 use App\Model\Product\Product;
 use App\Model\Product\ProductMainCategory;
 use App\Model\Product\ProductSubCategory;
+use App\Http\Controllers\Admin\Slideshow\SlideshowsController;
+use Illuminate\Support\Facades\DB;
 
 /*
 |--------------------------------------------------------------------------
-| Application Routes
+| Front-end routes
 |--------------------------------------------------------------------------
-|
-| Here is where you can register all of the routes for an application.
-| It's a breeze. Simply tell Laravel the URIs it should respond to
-| and give it the controller to call when that URI is requested.
-|
 */
 
 Route::get('/', function () {
@@ -28,25 +25,22 @@ Route::get('/', function () {
 Route::get('/about-us', function () {
     return view('web.about.story');
 });
-Route::get('/service', function () {
-    return view('web.service.service');
-});
 Route::get('/reference', function () {
     return view('web.reference.reference');
-});
-Route::get('/product', function () {
-    return view('web.product.index');
 });
 Route::get('/product/{id}', function ($id) {
     return view('web.product.item');
 });
-Route::get('/contact-us', function () {
-    return view('web.contact.contact');
-});
 
-//Route::get('/test', function () {
-//    return view('web.main.index');
-//});
+Route::resource('contact-us', 'Web\ContactsController@findContactAll');
+Route::resource('product', 'Web\ProductsController@findProductCategoriesAll');
+Route::resource('service', 'Web\ServicesController@findServiceAll');
+
+/*
+|--------------------------------------------------------------------------
+| Backend-end routes
+|--------------------------------------------------------------------------
+*/
 
 Route::group(['prefix' => 'admin'], function () {
     Route::resource('contacts', 'Admin\Contact\ContactsController');

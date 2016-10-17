@@ -449,9 +449,8 @@ div {
       .product-content__category--item:hover {
         background-color: #36b648; }
       .product-content__category--item img {
-        width: 198px;
-        height: 198px;
-        background-image: url("/img/resource/default_images_200px.png"); }
+        width: 200px;
+        height: 200px; }
     .product-content__category ol.breadcrumb {
       padding: 8px 16px;
       margin-top: 20px;
