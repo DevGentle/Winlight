@@ -99,7 +99,7 @@ class SlideshowsController extends Controller
 
         if ($file = $request->file('image_id')) {
 
-            $name = '/images/slideShow' . $file->getClientOriginalName();
+            $name = '/images/slideShow/' . $file->getClientOriginalName();
 
             $file->move('images/slideShow', $name);
 
@@ -143,8 +143,6 @@ class SlideshowsController extends Controller
             $photo->file = $name;
 
             $photo->save();
-
-            $photo = Photo::create(['file'=> $name]);
 
             $input['image_id'] = $photo->id;
 

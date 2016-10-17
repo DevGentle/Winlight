@@ -141,8 +141,6 @@ class ReferencesController extends Controller
 
             $photo->save();
 
-            $photo = Photo::create(['file'=> $name]);
-
             $input['photo_id'] = $photo->id;
 
         }

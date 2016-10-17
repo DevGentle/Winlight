@@ -145,8 +145,6 @@ class ServiceCategoriesController extends Controller
 
             $photo->save();
 
-            $photo = Photo::create(['file'=> $name]);
-
             $input['image_id'] = $photo->id;
 
         }
