@@ -98,7 +98,7 @@ class SlideshowsController extends Controller
         $input = $request->all();
 
         if ($file = $request->file('image_id')) {
-
+            
             $name = '/images/slideShow/' . $file->getClientOriginalName();
 
             $file->move('images/slideShow', $name);
