@@ -114,7 +114,7 @@ class ServicesController extends Controller
 
         if ($file = $request->file('image_id')) {
 
-            $name = time() . $file->getClientOriginalName();
+            $name = '/images/' . $file->getClientOriginalName();
 
             $file->move('images', $name);
 

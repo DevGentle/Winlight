@@ -122,9 +122,9 @@ class ProductsController extends Controller
 
         if ($file = $request->file('photo_id')) {
 
-            $name = time() . $file->getClientOriginalName();
+            $name = '/images/product/' . $file->getClientOriginalName();
 
-            $file->move('images', $name);
+            $file->move('images/product', $name);
 
             $photo = Photo::create(['file'=> $name]);
 
@@ -161,9 +161,9 @@ class ProductsController extends Controller
 
         if ($file = $request->file('photo_id')) {
 
-            $name = time() . $file->getClientOriginalName();
+            $name = '/images/product/' . $file->getClientOriginalName();
 
-            $file->move('images', $name);
+            $file->move('images/product', $name);
 
             $photo = new Photo();
 

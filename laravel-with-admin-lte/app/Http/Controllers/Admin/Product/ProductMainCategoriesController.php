@@ -39,7 +39,7 @@ class ProductMainCategoriesController extends Controller
 
                             $img =
                                 '<div>
-                                    <img height="50" src="/images/'.$path.'">
+                                    <img height="50" src="'.$path.'">
                                 </div>'
                             ;
 
@@ -98,9 +98,9 @@ class ProductMainCategoriesController extends Controller
 
         if ($file = $request->file('photo_id')) {
 
-            $name = time() . $file->getClientOriginalName();
+            $name = '/images/productMainCategory/' . $file->getClientOriginalName();
 
-            $file->move('images', $name);
+            $file->move('images/productMainCategory', $name);
 
             $photo = Photo::create(['file'=> $name]);
 
@@ -135,9 +135,9 @@ class ProductMainCategoriesController extends Controller
 
         if ($file = $request->file('photo_id')) {
 
-            $name = time() . $file->getClientOriginalName();
+            $name = '/images/productMainCategory/' . $file->getClientOriginalName();
 
-            $file->move('images', $name);
+            $file->move('images/productMainCategory', $name);
 
             $photo = new Photo();
 

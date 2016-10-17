@@ -113,9 +113,9 @@ class ProductSubCategoriesController extends Controller
 
         if ($file = $request->file('photo_id')) {
 
-            $name = time() . $file->getClientOriginalName();
+            $name = '/images/productSubCategory/' . $file->getClientOriginalName();
 
-            $file->move('images', $name);
+            $file->move('images/productSubCategory', $name);
 
             $photo = Photo::create(['file'=> $name]);
 
@@ -151,9 +151,9 @@ class ProductSubCategoriesController extends Controller
 
         if ($file = $request->file('photo_id')) {
 
-            $name = time() . $file->getClientOriginalName();
+            $name = '/images/productSubCategory/' . $file->getClientOriginalName();
 
-            $file->move('images', $name);
+            $file->move('images/productSubCategory', $name);
 
             $photo = new Photo();
 
