@@ -3,97 +3,133 @@
 namespace App\Http\Controllers\Admin\Contact;
 
 use App\Http\Requests\ContactRequest;
-use App\Model\Photo\Photo;
-use App\Model\Product\Product;
-use App\Model\Product\ProductMainCategory;
-use App\Model\Product\ProductSubCategory;
+use App\Model\Contact\Contact;
 use Nayjest\Grids\EloquentDataProvider;
 use Nayjest\Grids\FieldConfig;
 use Nayjest\Grids\FilterConfig;
 use Nayjest\Grids\Grid;
 use Nayjest\Grids\GridConfig;
-use Illuminate\Http\Request;
 use App\Http\Requests;
 use Nayjest\Grids\ObjectDataRow;
-use App\Model\Product\ProductMainCategory as MainCategory;
-use App\Model\Product\ProductSubCategory as SubCategory;
 use App\Http\Controllers\Controller;
 
 class ContactsController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        //
+        $grid = new Grid(
+            (new GridConfig)
+                ->setDataProvider(
+                    new EloquentDataProvider(Contact::query())
+                )
+                ->setName('contacts')
+                ->setPageSize(15)
+                ->setColumns([
+                    (new FieldConfig)
+                        ->setName('id')
+                        ->setLabel('ID')
+                        ->setSortable(true),
+                    (new FieldConfig)
+                        ->setName('title')
+                        ->setLabel('Title')
+                        ->setSortable(true)
+                        ->addFilter(
+                            (new FilterConfig)
+                                ->setName('title')
+                                ->setOperator(FilterConfig::OPERATOR_LIKE)
+                        ),
+                    (new FieldConfig)
+                        ->setName('email')
+                        ->setLabel('Email')
+                        ->setSortable(true)
+                        ->addFilter(
+                            (new FilterConfig)
+                                ->setName('email')
+                                ->setOperator(FilterConfig::OPERATOR_LIKE)
+                        ),
+                    (new FieldConfig)
+                        ->setName('phone_number')
+                        ->setLabel('Tel')
+                        ->setSortable(true)
+                        ->addFilter(
+                            (new FilterConfig)
+                                ->setName('phone_number')
+                                ->setOperator(FilterConfig::OPERATOR_LIKE)
+                        ),
+                    (new FieldConfig)
+                        ->setName('created_at')
+                        ->setLabel('Created at'),
+                    (new FieldConfig)
+                        ->setName('id')
+                        ->setLabel('Actions')
+                        ->setCallback(function ($val, ObjectDataRow $row) {
+                            $edit = action('Admin\Contact\ContactsController@edit', ['id' => $val]);
+                            $remove = action('Admin\Contact\ContactsController@destroy', ['id' => $val]);
+                            $icon =
+                                '<div class="btn-group">
+                                    <a href="#" class="glyphicon glyphicon-cog"
+                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li>
+                                            <a href="' . $edit . '">Edit</a>
+                                        </li>
+                                        <li>
+                                            <a data-token="'. csrf_token() .'" class="delete-btn text-red" href="'.$remove.'">Delete</a>
+                                        </li>
+                                    </ul>
+                                </div>';
+
+                            return $icon;
+                        })
+                ])
+        );
+        $grid = $grid->render();
+
+        return view('admin.contact.index', compact('grid'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        //
+        return view('admin.contact.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(ContactRequest $request)
     {
-        //
+        $input = $request->all();
+
+        Contact::create($input);
+
+        return redirect('admin/contacts');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
-        //
+        $contact = Contact::findOrFail($id);
+
+        return view('admin.contact.edit', compact('contact'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(ContactRequest $request, $id)
     {
-        //
+        $contacts = Contact::findOrFail($id);
+
+        $input = $request->all();
+
+        $contacts->update($input);
+
+        return redirect('admin/contacts');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
-        //
+        Contact::whereId($id)->delete();
+
+        return "Done";
     }
 }
