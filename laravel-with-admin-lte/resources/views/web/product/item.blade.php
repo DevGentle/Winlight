@@ -39,7 +39,7 @@
                 <div class="col-md-9">
                     <div class="row product-content__category">
                         <ol class="breadcrumb">
-                            <li><a href="#">Catalog</a></li>
+                            <li><a href="{{ url('/product') }}">Products</a></li>
                             <li><a href="#">LED</a></li>
                             <li class="active">PRD-001</li>
                         </ol>

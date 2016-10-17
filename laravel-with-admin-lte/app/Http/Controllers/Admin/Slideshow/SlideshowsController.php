@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin\Slideshow;
 use App\Http\Requests\SlideShowRequest;
 use App\Model\Slideshow\Slideshow;
 use App\Model\Photo\Photo;
+use Illuminate\Support\Facades\DB;
 use Nayjest\Grids\EloquentDataProvider;
 use Nayjest\Grids\Grid;
 use Nayjest\Grids\GridConfig;
@@ -159,5 +160,12 @@ class SlideshowsController extends Controller
         Slideshow::whereId($id)->delete();
 
         return "Done";
+    }
+
+    public function findAll()
+    {
+        $slidesShow = DB::table('slideshows')->get();
+
+        return view('web.main.nav', compact('slidesShow'));
     }
 }
