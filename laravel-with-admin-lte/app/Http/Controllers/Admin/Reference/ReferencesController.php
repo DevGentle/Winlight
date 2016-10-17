@@ -94,9 +94,9 @@ class ReferencesController extends Controller
 
         if ($file = $request->file('photo_id')) {
 
-            $name = time() . $file->getClientOriginalName();
+            $name = '/images/reference/' . $file->getClientOriginalName();
 
-            $file->move('images', $name);
+            $file->move('images/reference', $name);
 
             $photo = Photo::create(['file'=> $name]);
 
@@ -131,9 +131,9 @@ class ReferencesController extends Controller
 
         if ($file = $request->file('photo_id')) {
 
-            $name = time() . $file->getClientOriginalName();
+            $name = 'images/reference/' . $file->getClientOriginalName();
 
-            $file->move('images', $name);
+            $file->move('images/reference', $name);
 
             $photo = new Photo();
 
