@@ -40,7 +40,7 @@ class ProductSubCategoriesController extends Controller
 
                             $img =
                                 '<div>
-                                    <img height="50" src="/images/'.$path.'">
+                                    <img height="50" src="'.$path.'">
                                 </div>'
                             ;
 

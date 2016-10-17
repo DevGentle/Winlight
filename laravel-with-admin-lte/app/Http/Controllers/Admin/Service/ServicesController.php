@@ -40,7 +40,7 @@ class ServicesController extends Controller
 
                             $img =
                                 '<div>
-                                    <img height="50" src="/images/'.$path.'">
+                                    <img height="50" src="'.$path.'">
                                 </div>'
                             ;
 
@@ -114,9 +114,9 @@ class ServicesController extends Controller
 
         if ($file = $request->file('image_id')) {
 
-            $name = '/images/' . $file->getClientOriginalName();
+            $name = '/images/service/' . $file->getClientOriginalName();
 
-            $file->move('images', $name);
+            $file->move('images/service', $name);
 
             $photo = Photo::create(['file'=> $name]);
 
@@ -152,9 +152,9 @@ class ServicesController extends Controller
 
         if ($file = $request->file('image_id')) {
 
-            $name = time() . $file->getClientOriginalName();
+            $name = '/images/service/' . $file->getClientOriginalName();
 
-            $file->move('images', $name);
+            $file->move('images/service', $name);
 
             $photo = new Photo();
 
