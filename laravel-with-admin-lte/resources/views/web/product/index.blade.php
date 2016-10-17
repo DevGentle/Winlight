@@ -26,20 +26,20 @@
                 <div class="col-md-2 col-md-offset-1">
                     <div class="product-content__header">{{ 'Catalog' }}</div>
                     <hr>
-                    @for($i = 0; $i <= 3; $i++)
-                    <div class="product-content__menu">
-                        <div class="product-content__menu--square"></div>
-                        <div class="product-content__menu--title">
-                            <a href="#">LED</a>
+                    @foreach($productMainCategories as $productMainCategory)
+                        <div class="product-content__menu">
+                            <div class="product-content__menu--square"></div>
+                            <div class="product-content__menu--title">
+                                <a href="#">{{ $productMainCategory->title }}</a>
+                            </div>
                         </div>
-                    </div>
-                    @endfor
+                    @endforeach
                     <hr>
                 </div>
                 <div class="col-md-9">
                     <div class="row product-content__category">
                         <ol class="breadcrumb">
-                            <li><a href="#">Home</a></li>
+                            <li><a href="{{ url('/product') }}">Products</a></li>
                             <li><a href="#">Home</a></li>
                             <li><a href="#">Home</a></li>
                             <li class="active">Home</li>
