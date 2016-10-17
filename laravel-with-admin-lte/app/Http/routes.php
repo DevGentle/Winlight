@@ -32,9 +32,9 @@ Route::get('/product/{id}', function ($id) {
     return view('web.product.item');
 });
 
-Route::resource('contact-us', 'Web\ContactsController@findContactAll');
-Route::resource('product', 'Web\ProductsController@findProductCategoriesAll');
-Route::resource('service', 'Web\ServicesController@findServiceAll');
+Route::get('contact-us', 'Web\ContactsController@findContactAll');
+Route::get('product', 'Web\ProductsController@findProductCategoriesAll');
+Route::get('service', 'Web\ServicesController@findServiceAll');
 
 /*
 |--------------------------------------------------------------------------
