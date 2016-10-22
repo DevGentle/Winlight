@@ -32,7 +32,7 @@ class SlideshowsController extends Controller
                         ->setLabel('ID')
                         ->setSortable(true),
                     (new FieldConfig)
-                        ->setName('image_id')
+                        ->setName('photo_id')
                         ->setLabel('Image')
                         ->setCallback(function ($val, ObjectDataRow $row) {
                             $photo = Photo::find($val);
@@ -97,7 +97,7 @@ class SlideshowsController extends Controller
     {
         $input = $request->all();
 
-        if ($file = $request->file('image_id')) {
+        if ($file = $request->file('photo_id')) {
             
             $name = '/images/slideShow/' . $file->getClientOriginalName();
 
@@ -105,7 +105,7 @@ class SlideshowsController extends Controller
 
             $photo = Photo::create(['file'=> $name]);
 
-            $input['image_id'] = $photo->id;
+            $input['photo_id'] = $photo->id;
 
         }
 
@@ -132,7 +132,7 @@ class SlideshowsController extends Controller
 
         $input = $request->all();
 
-        if ($file = $request->file('image_id')) {
+        if ($file = $request->file('photo_id')) {
 
             $name = '/images/slideShow/' . $file->getClientOriginalName();
 
@@ -144,7 +144,7 @@ class SlideshowsController extends Controller
 
             $photo->save();
 
-            $input['image_id'] = $photo->id;
+            $input['photo_id'] = $photo->id;
 
         }
 

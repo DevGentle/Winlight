@@ -21,8 +21,8 @@
                     {{ Form::text('title', null, ['class' => 'form-control', 'placeholder' => 'Enter your title']) }}
                 </div>
                 <div class="margin">
-                    {{ Form::label('image_id', 'Image') }}
-                    {{ Form::file('image_id', null, ['class' => 'form-control']) }}
+                    {{ Form::label('photo_id', 'Image') }}
+                    {{ Form::file('photo_id', null, ['class' => 'form-control']) }}
                 </div>
             </div>
 

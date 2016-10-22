@@ -30,10 +30,9 @@
                 <div class="row">
                     <div class="col-xs-10 col-xs-offset-1">
                         @foreach($services as $service)
-                            {{ dump($service->image) }}
                             <div class="col-md-4">
                                 <div class="service__circle--item">
-                                    <img src="{{ $service->photo }}">
+                                    <img src="{{ $service->photo->file }}">
                                 </div>
                                 <div class="service__content--title">
                                     <p>{{ $service->title }}</p>
@@ -43,28 +42,6 @@
                                 </div>
                             </div>
                         @endforeach
-                        {{--<div class="col-md-4">--}}
-                            {{--<div class="service__circle--item">--}}
-                                {{--<img src="{{ asset('img/resource/service_images_002.png') }}">--}}
-                            {{--</div>--}}
-                            {{--<div class="service__content--title">--}}
-                                {{--<p>แก้ไขปัญหา</p>--}}
-                            {{--</div>--}}
-                            {{--<div class="service__content--description">--}}
-                                {{--<p>บริการให้คำแนะนำปรึกษาตั้งแต่เริ่มต้น จนจบโปรเจค เพื่อการใช้งานที่มีประสิทธิภาพสูงสุด</p>--}}
-                            {{--</div>--}}
-                        {{--</div>--}}
-                        {{--<div class="col-md-4">--}}
-                            {{--<div class="service__circle--item">--}}
-                                {{--<img src="{{ asset('img/resource/service_images_003.png') }}">--}}
-                            {{--</div>--}}
-                            {{--<div class="service__content--title">--}}
-                                {{--<p>ตรวจสอบประสิทธิภาพ</p>--}}
-                            {{--</div>--}}
-                            {{--<div class="service__content--description">--}}
-                                {{--<p>บริการให้คำแนะนำปรึกษาตั้งแต่เริ่มต้น จนจบโปรเจค เพื่อการใช้งานที่มีประสิทธิภาพสูงสุด</p>--}}
-                            {{--</div>--}}
-                        {{--</div>--}}
                     </div>
                 </div>
             </div>

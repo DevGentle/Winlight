@@ -31,7 +31,7 @@ class ServiceCategoriesController extends Controller
                         ->setLabel('ID')
                         ->setSortable(true),
                     (new FieldConfig)
-                        ->setName('image_id')
+                        ->setName('photo_id')
                         ->setLabel('Image')
                         ->setCallback(function ($val, ObjectDataRow $row) {
                             $photo = Photo::find($val);
@@ -96,7 +96,7 @@ class ServiceCategoriesController extends Controller
     {
         $input = $request->all();
 
-        if ($file = $request->file('image_id')) {
+        if ($file = $request->file('photo_id')) {
 
             $name = '/images/serviceCategory/' . $file->getClientOriginalName();
 
@@ -104,7 +104,7 @@ class ServiceCategoriesController extends Controller
 
             $photo = Photo::create(['file'=> $name]);
 
-            $input['image_id'] = $photo->id;
+            $input['photo_id'] = $photo->id;
 
         }
 
@@ -133,7 +133,7 @@ class ServiceCategoriesController extends Controller
 
         $input = $request->all();
 
-        if ($file = $request->file('image_id')) {
+        if ($file = $request->file('photo_id')) {
 
             $name = '/images/serviceCategory/' . $file->getClientOriginalName();
 
@@ -145,7 +145,7 @@ class ServiceCategoriesController extends Controller
 
             $photo->save();
 
-            $input['image_id'] = $photo->id;
+            $input['photo_id'] = $photo->id;
 
         }
 
