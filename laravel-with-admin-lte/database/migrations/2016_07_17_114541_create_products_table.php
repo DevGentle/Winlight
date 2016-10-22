@@ -21,7 +21,7 @@ class CreateProductsTable extends Migration
             $table->string('code');
             $table->string('title');
             $table->text('description')->nullable();
-            $table->integer('photo_id')->unsigned();
+            $table->integer('photo_id')->unsigned()->nullable();
             $table->foreign('photo_id')->references('id')->on('photos');
             $table->timestamps();
         });

@@ -15,8 +15,9 @@ class CreateNewsCategoriesTable extends Migration
         Schema::create('news_categories', function (Blueprint $table) {
             $table->increments('id');
             $table->string('title');
-            $table->string('sub_title');
-            $table->string('image');
+            $table->string('sub_title')->nullable();
+            $table->integer('image_id')->unsigned()->nullable();
+            $table->foreign('image_id')->references('id')->on('photos');
             $table->timestamps();
         });
     }

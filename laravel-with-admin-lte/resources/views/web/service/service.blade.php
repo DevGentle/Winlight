@@ -30,9 +30,10 @@
                 <div class="row">
                     <div class="col-xs-10 col-xs-offset-1">
                         @foreach($services as $service)
+                            {{ dump($service->image) }}
                             <div class="col-md-4">
                                 <div class="service__circle--item">
-                                    <img src="{{ $service->image_id }}">
+                                    <img src="{{ $service->photo }}">
                                 </div>
                                 <div class="service__content--title">
                                     <p>{{ $service->title }}</p>
@@ -40,7 +41,6 @@
                                 <div class="service__content--description">
                                     <p>{{ $service->content }}</p>
                                 </div>
-                                {{ dump($service) }}
                             </div>
                         @endforeach
                         {{--<div class="col-md-4">--}}

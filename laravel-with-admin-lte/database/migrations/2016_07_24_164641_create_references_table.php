@@ -15,10 +15,10 @@ class CreateReferencesTable extends Migration
         Schema::create('references', function (Blueprint $table) {
             $table->increments('id');
             $table->string('title');
-            $table->text('content');
-            $table->integer('photo_id')->unsigned();
+            $table->text('content')->nullable();
+            $table->integer('photo_id')->unsigned()->nullable();
             $table->foreign('photo_id')->references('id')->on('photos');
-            $table->string('link');
+            $table->string('link')->nullable();
             $table->timestamps();
         });
     }

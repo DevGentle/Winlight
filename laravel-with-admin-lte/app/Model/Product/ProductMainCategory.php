@@ -15,6 +15,11 @@ class ProductMainCategory extends Model
         return $this->hasMany('App\Model\Product\ProductSubCategory');
     }
 
+    public function products()
+    {
+        return $this->hasMany('App\Model\Product\Product', 'category_main_id');
+    }
+
     public function photo()
     {
         return $this->belongsTo('App\Model\Photo\Photo');

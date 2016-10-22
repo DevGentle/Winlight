@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin\Reference;
 use App\Http\Requests\ReferenceRequest;
 use App\Model\Photo\Photo;
 use App\Model\Reference\Reference;
+use Illuminate\Support\Facades\Input;
 use Nayjest\Grids\EloquentDataProvider;
 use Nayjest\Grids\Grid;
 use Nayjest\Grids\GridConfig;
