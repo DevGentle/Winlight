@@ -25,7 +25,6 @@ class ProductSubCategoryRequest extends Request
     {
         return [
 
-            'category_sub_id' => 'required',
             'title' => 'required'
 
         ];

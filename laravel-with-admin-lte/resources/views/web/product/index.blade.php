@@ -26,14 +26,18 @@
                 <div class="col-md-2 col-md-offset-1">
                     <div class="product-content__header">{{ 'Catalog' }}</div>
                     <hr>
-                    @foreach($productMainCategories as $productMainCategory)
-                        <div class="product-content__menu">
-                            <div class="product-content__menu--square"></div>
-                            <div class="product-content__menu--title">
-                                <a href="#">{{ $productMainCategory->title }}</a>
-                            </div>
-                        </div>
-                    @endforeach
+                    {{--@foreach($productMainCategories as $productMainCategory)--}}
+                        {{--<div class="product-content__menu">--}}
+                            {{--<div class="product-content__menu--square"></div>--}}
+                            {{--<div class="product-content__menu--title">--}}
+                                {{--<a href="#">{{ $productMainCategory->title }}</a>--}}
+                            {{--</div>--}}
+                        {{--</div>--}}
+                    {{--@endforeach--}}
+                    {{ dump($productMainCategories->products) }}
+                    {{--@foreach($productMainCategories->products as $product)--}}
+                        {{--{{ dump($product)  }}--}}
+                    {{--@endforeach--}}
                     <hr>
                 </div>
                 <div class="col-md-9">

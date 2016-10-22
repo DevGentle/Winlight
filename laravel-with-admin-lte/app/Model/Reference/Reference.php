@@ -2,7 +2,6 @@
 
 namespace App\Model\Reference;
 
-use App\Model\Photo\Photo;
 use Illuminate\Database\Eloquent\Model;
 
 class Reference extends Model
