@@ -21,38 +21,12 @@
         <div class="text-center">
             <div class="col-md-10 col-md-offset-1 reference__content">
                 @foreach($references as $reference)
-                    {{  dump($reference->photo) }}
                     <div class="col-md-4 col-sm-6">
                         <div class="reference__content--item">
                             <img src="{{ asset($reference->photo->file) }}">
                         </div>
                     </div>
                 @endforeach
-                {{--<div class="col-md-4 col-sm-6">--}}
-                    {{--<div class="reference__content--item">--}}
-                        {{--<img src="{{ asset('img/resource/reference/ref_09.jpg') }}">--}}
-                    {{--</div>--}}
-                {{--</div>--}}
-                <div class="col-md-4 col-sm-6">
-                    <div class="reference__content--item">
-                        <img src="{{ asset('img/resource/reference/ref_11.jpg') }}">
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-6">
-                    <div class="reference__content--item">
-                        <img src="{{ asset('img/resource/reference/ref_16.jpg') }}">
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-6">
-                    <div class="reference__content--item">
-                        <img src="{{ asset('img/resource/reference/ref_17.jpg') }}">
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-6">
-                    <div class="reference__content--item">
-                        <img src="{{ asset('img/resource/reference/ref_19.jpg') }}">
-                    </div>
-                </div>
             </div>
         </div>
     </div>

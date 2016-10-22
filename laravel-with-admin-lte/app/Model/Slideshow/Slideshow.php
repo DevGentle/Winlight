@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Slideshow extends Model
 {
     protected $fillable = [
-        'title', 'sub_title', 'image_id'
+        'title', 'sub_title', 'photo_id'
     ];
 
     public function photo()

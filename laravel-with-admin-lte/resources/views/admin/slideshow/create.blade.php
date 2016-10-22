@@ -25,8 +25,8 @@
                     {{ Form::text('sub_title', null, ['class' => 'form-control', 'placeholder' => 'Enter image sub title']) }}
                 </div>
                 <div>
-                    {{ Form::label('image_id', 'Image') }}
-                    {{ Form::file('image_id', null, ['class' => 'form-control']) }}
+                    {{ Form::label('photo_id', 'Image') }}
+                    {{ Form::file('photo_id', null, ['class' => 'form-control']) }}
                 </div>
             </div>
 
