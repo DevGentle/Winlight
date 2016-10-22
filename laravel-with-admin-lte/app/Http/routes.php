@@ -32,6 +32,7 @@ Route::get('/about-us', function () {
 Route::get('contact-us', 'Web\ContactsController@findContactAll');
 Route::get('category/{id}', 'Web\ProductsController@findProductsByMainCat');
 Route::get('reference', 'Web\ReferencesController@findReferenceAll');
+Route::get('product', 'Web\ProductsController@findProductCategoriesAll');
 Route::get('service', 'Web\ServicesController@findServiceAll');
 
 /*
