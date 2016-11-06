@@ -57,20 +57,14 @@
     <div class="container">
         <div class="row m-l-r-0">
             <div class="col-xs-10 col-xs-offset-1">
+                @foreach($randProducts as $randProduct)
+                    {{--{{dump($randProduct->photo)}}--}}
                 <div class="col-md-3">
                     <div class="index-product__preview">
-                        <img src="">
+                        <img src="{{ $randProduct->photo->file }}">
                     </div>
                 </div>
-                <div class="col-md-3">
-                    <div class="index-product__preview"></div>
-                </div>
-                <div class="col-md-3 ">
-                    <div class="index-product__preview"></div>
-                </div>
-                <div class="col-md-3">
-                    <div class="index-product__preview"></div>
-                </div>
+                @endforeach
             </div>
         </div>
     </div>

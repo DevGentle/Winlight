@@ -1,18 +1,16 @@
 .story {
-    position: relative;
-    display: block;
-    width: 100%;
-    height: auto;
-    margin: 0 auto;
-    background-color: #666;
-    text-align: center;
-    overflow: hidden;
+    &__header {
+        img {
+            width: 100%;
+        }
+    }
     img {
-        position: relative;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        text-align: center;
+        //width: 100%;
+        //position: relative;
+        //top: 50%;
+        //left: 50%;
+        //transform: translate(-50%, -50%);
+        //text-align: center;
     }
     &__title {
         margin-top: 30px;

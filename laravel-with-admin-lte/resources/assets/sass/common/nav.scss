@@ -65,4 +65,41 @@
     &__green-line {
         border-bottom: 5px solid #23b14c;
     }
+    &__cover {
+        button {
+            position: absolute;
+            top: 50%;
+            width: 1.5rem;
+            height: 1.5rem;
+            background: transparent;
+            border-top: .4rem solid white;
+            border-right: .4rem solid white;
+            box-shadow: 0 0 0 lightgray;
+            transition: all 200ms ease;
+            color: #fff;
+            &:hover {
+                border-top: .4rem solid green;
+                border-right: .4rem solid green;
+            }
+        }
+        .slick-prev {
+            left: 200px;
+            z-index: 1;
+            transform: translate3d(0,-50%,0) rotate(-135deg);
+            &:before {
+                content: none;
+            }
+        }
+        .slick-next {
+            right: 200px;
+            z-index: 1;
+            transform: translate3d(0,-50%,0) rotate(45deg);
+            &:before {
+                content: none;
+            }
+        }
+        .slick-prev:before, .slick-next:before {
+            color: #fff;
+        }
+    }
 }

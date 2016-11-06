@@ -2,6 +2,9 @@
 
 namespace App\Providers;
 
+use App\Model\Product\ProductMainCategory;
+use App\Model\Product\ProductMainCategoryInterface;
+use App\Services\ProductsService;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -23,6 +26,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->app->bind(ProductMainCategoryInterface::class, ProductMainCategory::class);
     }
 }

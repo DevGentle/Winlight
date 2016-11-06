@@ -1,5 +1,7 @@
 @extends('web.layout')
 
+@inject('productMainCategory', 'App\Services\ProductsService')
+
 @section('content')
     <div class="row product-index p-r-l-0">
         <div class="container product-index__header">
@@ -26,35 +28,29 @@
                 <div class="col-md-2 col-md-offset-1">
                     <div class="product-content__header">{{ 'Catalog' }}</div>
                     <hr>
-                    {{--@foreach($productMainCategories as $productMainCategory)--}}
-                        {{--<div class="product-content__menu">--}}
-                            {{--<div class="product-content__menu--square"></div>--}}
-                            {{--<div class="product-content__menu--title">--}}
-                                {{--<a href="#">{{ $productMainCategory->title }}</a>--}}
-                            {{--</div>--}}
-                        {{--</div>--}}
-                    {{--@endforeach--}}
-                    {{ dump($productMainCategories->products) }}
-                    {{--@foreach($productMainCategories->products as $product)--}}
-                        {{--{{ dump($product)  }}--}}
-                    {{--@endforeach--}}
+                    @foreach($productMainCategory->findProductMainCategories()->productMainCategories as $productMainCategory)
+                        <div class="product-content__menu">
+                            <div class="product-content__menu--square"></div>
+                            <div class="product-content__menu--title">
+                                <a href="#">{{ $productMainCategory->title }}</a>
+                            </div>
+                        </div>
+                    @endforeach
                     <hr>
                 </div>
                 <div class="col-md-9">
                     <div class="row product-content__category">
                         <ol class="breadcrumb">
-                            <li><a href="{{ url('/product') }}">Products</a></li>
-                            <li><a href="#">Home</a></li>
-                            <li><a href="#">Home</a></li>
-                            <li class="active">Home</li>
+                            <li><a href="{{ url('/') }}">Home</a></li>
+                            <li><a href="{{ url('/products') }}">Products</a></li>
                         </ol>
-                        @for($i = 0; $i <= 8; $i++)
+                        {{--@foreach($photoProducts as $photoProduct)--}}
                             <a href="{{ url('product/1') }}">
                                 <div class="col-md-4 product-content__category--item">
-                                    <img src="">
+                                    {{--<img src="{{ asset($photoProduct->photo->file) }}">--}}
                                 </div>
                             </a>
-                        @endfor
+                        {{--@endforeach--}}
                     </div>
                 </div>
             </div>
