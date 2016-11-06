@@ -81,10 +81,20 @@
         border: 1px solid #fff;
     }
     &__preview {
+        position: relative;
         width: 180px;
         height: 180px;
         margin: 60px auto;
         border: 1px solid #94bf46;
+        img {
+            width: 100%;
+            position: absolute;
+            margin: auto;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+        }
         &:hover {
             background-color: #96c341;
         }

@@ -4,7 +4,7 @@ namespace App\Model\Product;
 
 use Illuminate\Database\Eloquent\Model;
 
-class ProductMainCategory extends Model
+class ProductMainCategory extends Model implements ProductMainCategoryInterface
 {
     protected $fillable = [
         'title', 'photo_id'

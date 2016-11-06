@@ -20,7 +20,9 @@ use Illuminate\Support\Facades\DB;
 */
 
 Route::get('/', function () {
-    return view('web.main.index');
+    $randProducts = Product::all()->random(4);
+
+    return view('web.main.index', compact('randProducts'));
 });
 Route::get('/about-us', function () {
     return view('web.about.story');
@@ -30,7 +32,7 @@ Route::get('/about-us', function () {
 //});
 
 Route::get('contact-us', 'Web\ContactsController@findContactAll');
-Route::get('category/{id}', 'Web\ProductsController@findProductsByMainCat');
+Route::get('products', 'Web\ProductsController@findProductsByMainCat');
 Route::get('reference', 'Web\ReferencesController@findReferenceAll');
 Route::get('product', 'Web\ProductsController@findProductCategoriesAll');
 Route::get('service', 'Web\ServicesController@findServiceAll');
