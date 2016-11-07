@@ -16,6 +16,11 @@ use Nayjest\Grids\ObjectDataRow;
 
 class ProductMainCategoriesController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     public function index()
     {
         $grid = new Grid(
