@@ -1,3 +1,4 @@
+@inject('slides', 'App\Services\SlideShowService')
 <div class="container-fluid p-r-l-0">
     <div class="row">
         <div class="container">
@@ -11,8 +12,8 @@
                             <li><a href="{{ url('/') }}">หน้าแรก</a></li>
                             <li><a href="{{ url('/about-us') }}">วินเนอร์</a></li>
                             <li><a href="{{ url('/products') }}">ผลิตภัณฑ์</a></li>
-                            <li><a href="{{ url('/service') }}">บริการ</a></li>
-                            <li><a href="{{ url('/reference') }}">ผลงาน</a></li>
+                            <li><a href="{{ url('/services') }}">บริการ</a></li>
+                            <li><a href="{{ url('/references') }}">ผลงาน</a></li>
                             <li><a href="{{ url('/contact-us') }}">ติดต่อสอบถาม</a></li>
                         </ul>
                     </div>
@@ -25,8 +26,10 @@
         </div>
     </div>
     <div class="navbar-header__cover">
-        <img data-u="image" src="{{ asset('img/resource/slider_01.jpg') }}" />
-        <img data-u="image" src="{{ asset('img/resource/slider_02.jpg') }}" />
+        @foreach($slides->findSlides()->slides as $slide)
+            <img data-u="image" src="{{ asset($slide->photo->file) }}" />
+        @endforeach
     </div>
     <div class="navbar-header__green-line"></div>
 </div>
+

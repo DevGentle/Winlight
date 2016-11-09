@@ -1,7 +1,5 @@
 @extends('web.layout')
 
-@inject('productMainCategory', 'App\Services\ProductsService')
-
 @section('content')
     <div class="row product-index p-r-l-0">
         <div class="container product-index__header">
@@ -26,17 +24,7 @@
         <div class="container">
             <div class="row product-content">
                 <div class="col-md-2 col-md-offset-1">
-                    <div class="product-content__header">{{ 'Catalog' }}</div>
-                    <hr>
-                    @foreach($productMainCategory->findProductMainCategories()->productMainCategories as $productMainCategory)
-                        <div class="product-content__menu">
-                            <div class="product-content__menu--square"></div>
-                            <div class="product-content__menu--title">
-                                <a href="#">{{ $productMainCategory->title }}</a>
-                            </div>
-                        </div>
-                    @endforeach
-                    <hr>
+                    @include('web.product.patial.sidemunu')
                 </div>
                 <div class="col-md-9">
                     <div class="row product-content__category">
@@ -44,13 +32,18 @@
                             <li><a href="{{ url('/') }}">Home</a></li>
                             <li><a href="{{ url('/products') }}">Products</a></li>
                         </ol>
-                        {{--@foreach($photoProducts as $photoProduct)--}}
-                            <a href="{{ url('product/1') }}">
-                                <div class="col-md-4 product-content__category--item">
-                                    {{--<img src="{{ asset($photoProduct->photo->file) }}">--}}
-                                </div>
-                            </a>
-                        {{--@endforeach--}}
+                        @foreach($products as $product)
+                            @if($product)
+                                <a href="{{ route('web.product.item', ['Id' => $product->id]) }}">
+                                    <div class="col-md-4 product-content__category--item">
+                                        <img src="{{ asset($product->photo->file) }}">
+                                    </div>
+                                </a>
+                            @else
+                                <div class="col-md-12"><h1>{{ 'Has no product in this category' }}</h1></div>
+                            @endif
+                        @endforeach
+                        {{  $products->links() }}
                     </div>
                 </div>
             </div>

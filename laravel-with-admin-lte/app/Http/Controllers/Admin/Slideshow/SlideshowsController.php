@@ -17,6 +17,11 @@ use Nayjest\Grids\ObjectDataRow;
 
 class SlideshowsController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     public function index()
     {
         $grid = new Grid(

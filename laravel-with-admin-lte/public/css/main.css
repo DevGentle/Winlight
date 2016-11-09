@@ -460,6 +460,8 @@ div {
         text-decoration: none; }
         .product-content__menu--title a:hover {
           font-weight: bold; }
+        .product-content__menu--title a:focus {
+          font-weight: bold; }
   .product-content__category {
     width: 100%;
     background-color: #fff;
@@ -519,13 +521,20 @@ div {
   padding-right: 10px;
   padding-bottom: 40px; }
   .product-item__category--image {
+    position: relative;
     width: 500px;
     height: 500px;
     margin-left: 20px;
     margin-top: 20px;
     border: 1px solid #94bf46; }
     .product-item__category--image img {
-      width: 100%; }
+      position: absolute;
+      width: 100%;
+      margin: auto;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0; }
   .product-item__category--description {
     margin-top: 10px; }
 

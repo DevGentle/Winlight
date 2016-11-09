@@ -17,6 +17,11 @@ use Nayjest\Grids\ObjectDataRow;
 
 class ReferencesController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     public function index()
     {
         $grid = new Grid(

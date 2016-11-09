@@ -1,11 +1,14 @@
 <!-- Content Header (Page header) -->
 <section class="content-header">
-    <h1>
-        @yield('contentheader_title', 'Page Header here')
-        @yield('contentheader_description')
-    </h1>
-    <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> {{ trans('adminlte_lang::message.level') }}</a></li>
-        <li class="active">{{ trans('adminlte_lang::message.here') }}</li>
-    </ol>
+    <div style="display: flex; position: relative;">
+        <div style="flex: 1;">
+            <h1>
+                @yield('contentheader_title', 'Page Header here')
+                @yield('contentheader_description')
+            </h1>
+        </div>
+        <div style="position: absolute; margin: 0; bottom: 0; right: 20px;">
+            @yield('button_crud')
+        </div>
+    </div>
 </section>

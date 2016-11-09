@@ -17,7 +17,7 @@ class ProductSubCategory extends Model
 
     public function products()
     {
-        return $this->hasMany('App\Model\Product\Product');
+        return $this->hasMany('App\Model\Product\Product', 'category_sub_id');
     }
 
     public function photo()

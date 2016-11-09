@@ -10,6 +10,11 @@ class Product extends Model
         'category_main_id', 'category_sub_id', 'code', 'title', 'description', 'photo_id'
     ];
 
+    public function productMainCategories()
+    {
+        return $this->belongsTo('App\Model\Product\ProductMainCategory', 'category_main_id');
+    }
+
     public function productSubCategories()
     {
         return $this->belongsTo('App\Model\Product\Product');

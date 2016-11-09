@@ -27,15 +27,13 @@ Route::get('/', function () {
 Route::get('/about-us', function () {
     return view('web.about.story');
 });
-//Route::get('/product/{id}', function ($id) {
-//    return view('web.product.item');
-//});
-
 Route::get('contact-us', 'Web\ContactsController@findContactAll');
-Route::get('products', 'Web\ProductsController@findProductsByMainCat');
-Route::get('reference', 'Web\ReferencesController@findReferenceAll');
+Route::get('products', 'Web\ProductsController@index');
+Route::get('product-category/{categoryId}', 'Web\ProductsController@productsByMainCat')->name('web.product.category');
+Route::get('products/{Id}', 'Web\ProductsController@findProduct')->name('web.product.item');
+Route::get('references', 'Web\ReferencesController@findReferenceAll');
 Route::get('product', 'Web\ProductsController@findProductCategoriesAll');
-Route::get('service', 'Web\ServicesController@findServiceAll');
+Route::get('services', 'Web\ServicesController@findServiceAll');
 
 /*
 |--------------------------------------------------------------------------
