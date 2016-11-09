@@ -24,46 +24,22 @@
         <div class="container">
             <div class="row product-content">
                 <div class="col-md-2 col-md-offset-1">
-                    <div class="product-content__header">{{ 'Catalog' }}</div>
-                    <hr>
-                    @for($i = 0; $i <= 3; $i++)
-                        <div class="product-content__menu">
-                            <div class="product-content__menu--square"></div>
-                            <div class="product-content__menu--title">
-                                <a href="#">LED</a>
-                            </div>
-                        </div>
-                    @endfor
-                    <hr>
+                    @include('web.product.patial.sidemunu')
                 </div>
                 <div class="col-md-9">
                     <div class="row product-content__category">
                         <ol class="breadcrumb">
+                            <li><a href="{{ url('/') }}">Home</a></li>
                             <li><a href="{{ url('/product') }}">Products</a></li>
-                            <li><a href="#">LED</a></li>
-                            <li class="active">PRD-001</li>
+                            <li><a href="{{ route('web.product.category', ['categoryId' => $product->productMainCategories->id]) }}">{{ $product->productMainCategories->title }}</a></li>
+                            <li class="active">{{ $product->title }}</li>
                         </ol>
                         <div class="col-md-12 product-item__category--image">
-                            <img src="{{ asset('img/resource/product/IMG_3120.png') }}" width="100%">
+                            <img src="{{ asset($product->photo->file) }}" width="100%">
                         </div>
                         <div class="col-md-10 product-item__category--description">
-                            Lorem Ipsum is a dummy text that is mainly used by the printing and design industry. It is intended to show how the type will look before the end product is available.
-
-                            Lorem Ipsum has been the industry's standard dummy text ever since the 1500:s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-
-                            Lorem Ipsum dummy texts was available for many years on adhesive sheets in different sizes and typefaces from a company called Letraset.
-
-                            When computers came along, Aldus included lorem ipsum in its PageMaker publishing software, and you now see it wherever designers, content designers, art directors, user interface developers and web designer are at work.
-
-                            They use it daily when using programs such as Adobe Photoshop, Paint Shop Pro, Dreamweaver, FrontPage, PageMaker, FrameMaker, Illustrator, Flash, Indesign etc.
-
-                            To the Lorem Ipsum dummy text �
+                            {!! $product->description !!}
                         </div>
-                        {{--@for($i = 0; $i <= 2; $i++)--}}
-                            {{--<div class="col-md-4 product-content__category--item">--}}
-                                {{--<img src="">--}}
-                            {{--</div>--}}
-                        {{--@endfor--}}
                     </div>
                 </div>
             </div>

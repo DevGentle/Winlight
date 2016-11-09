@@ -9,12 +9,25 @@ use App\Http\Controllers\Controller;
 
 class ProductsController extends Controller
 {
-    public function findProductsByMainCat()
+    public function index()
     {
-        $productMainCategories = ProductMainCategory::all();
+        $products = Product::paginate(15);
 
-        $photoProducts = Product::all();
+        return view('web.product.index', compact('products'));
+    }
 
-        return view('web.product.index', compact('productMainCategories', 'photoProducts'));
+    public function findProduct($Id)
+    {
+        $product = Product::findOrFail($Id);
+
+        return view('web.product.item', compact('product'));
+    }
+
+    public function productsByMainCat($categoryId)
+    {
+        $productMainCategories = ProductMainCategory::findOrFail($categoryId);
+        $products = $productMainCategories->products()->paginate(15);
+
+        return view('web.product.index', compact('products'));
     }
 }

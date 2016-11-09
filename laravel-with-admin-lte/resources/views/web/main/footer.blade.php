@@ -11,9 +11,9 @@
                         <div class=" navbar-footer__menu-box">
                             <ul>
                                 <li><a href="{{ url('/contact-us') }}">ติดต่อสอบถาม</a></li>
-                                <li><a href="{{ url('/reference') }}">ผลงาน</a></li>
-                                <li><a href="{{ url('/service') }}">บริการ</a></li>
-                                <li><a href="{{ url('/product') }}">ผลิตภัณฑ์</a></li>
+                                <li><a href="{{ url('/references') }}">ผลงาน</a></li>
+                                <li><a href="{{ url('/services') }}">บริการ</a></li>
+                                <li><a href="{{ url('/products') }}">ผลิตภัณฑ์</a></li>
                                 <li><a href="{{ url('/about-us') }}">วินเนอร์</a></li>
                                 <li><a href="{{ url('/') }}">หน้าแรก</a></li>
                             </ul>

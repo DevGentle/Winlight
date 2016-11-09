@@ -12,8 +12,11 @@
     Project references management system
 @endsection
 
-@section('main-content')
+@section('button_crud')
     <a href="{{ url('admin/references/create') }}" class="btn btn-danger">Create</a>
+@endsection
+
+@section('main-content')
     <div class="box box-default">
         {!! $grid !!}
     </div>

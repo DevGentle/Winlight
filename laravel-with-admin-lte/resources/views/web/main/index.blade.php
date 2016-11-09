@@ -49,7 +49,7 @@
                     </div>
                 </div>
                 <div class="col-md-1">
-                    <a href="{{ url('product') }}"><button class="index-product__button">learn more</button></a>
+                    <a href="{{ url('products') }}"><button class="index-product__button">learn more</button></a>
                 </div>
             </div>
         </div>
@@ -58,12 +58,13 @@
         <div class="row m-l-r-0">
             <div class="col-xs-10 col-xs-offset-1">
                 @foreach($randProducts as $randProduct)
-                    {{--{{dump($randProduct->photo)}}--}}
-                <div class="col-md-3">
-                    <div class="index-product__preview">
-                        <img src="{{ $randProduct->photo->file }}">
-                    </div>
-                </div>
+                    <a href="{{ route('web.product.item', ['Id' => $randProduct->id]) }}">
+                        <div class="col-md-3">
+                            <div class="index-product__preview">
+                                <img src="{{ $randProduct->photo->file }}">
+                            </div>
+                        </div>
+                    </a>
                 @endforeach
             </div>
         </div>
@@ -83,7 +84,7 @@
                     </div>
                 </div>
                 <div class="col-md-1">
-                    <a href="{{ url('service') }}"><button class="index-service__button">learn more</button></a>
+                    <a href="{{ url('services') }}"><button class="index-service__button">learn more</button></a>
                 </div>
             </div>
         </div>
@@ -123,7 +124,7 @@
                     </div>
                 </div>
                 <div class="col-md-1">
-                    <a href="{{ url('reference') }}"><button class="index-reference__button">learn more</button></a>
+                    <a href="{{ url('references') }}"><button class="index-reference__button">learn more</button></a>
                 </div>
             </div>
         </div>

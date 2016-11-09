@@ -38,7 +38,7 @@
                                     <p>{{ $service->title }}</p>
                                 </div>
                                 <div class="service__content--description">
-                                    <p>{{ $service->content }}</p>
+                                    <p>{!! $service->content !!}</p>
                                 </div>
                             </div>
                         @endforeach
