@@ -48,7 +48,7 @@
         left: 0px;
         top: 0;
         width: 100%;
-        margin-top: 100px;
+        margin-top: 350px;
         z-index: 1;
         text-align: center;
         &--title {
@@ -66,6 +66,23 @@
         border-bottom: 5px solid #23b14c;
     }
     &__cover {
+        video {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: -100;
+            transform: translateX(-50%) translateY(-50%);
+            background: url('//demosthenes.info/assets/images/polina.jpg') no-repeat;
+            background-size: cover;
+            transition: 1s opacity;
+        }
+        .stopfade {
+            opacity: .5;
+        }
         button {
             position: absolute;
             top: 50%;
