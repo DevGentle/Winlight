@@ -20,12 +20,13 @@
                 </div>
             </div>
             <div class="navbar-header__content-video hidden-xs">
-                <div class="navbar-header__content-video--title"><span style="color: #23b14c">วินเนอร์</span> ไลท์</div>
-                <div class="navbar-header__content-video--subtitle">เราดำเนินธุรกิจเกี่ยวกับผลิตภัณฑ์ด้านแสงสว่างอย่างครอบคลุม</div>
+                <div class="navbar-header__content-video--title"><span style="color: #23b14c">WINNER</span> LIGHT</div>
+                <div class="navbar-header__content-video--subtitle">We are operates on Lighting products a comprehensive</div>
             </div>
         </div>
     </div>
     <video poster="{{ asset('video/background_video_poster.png') }}" width="100%" id="bgvid" playsinline autoplay muted loop>
+        <source src="{{ asset('video/background_video_blur.webm') }}" type="video/webm">
         <source src="{{ asset('video/background_video_blur.mp4') }}" type="video/mp4">
     </video>
 </div>
