@@ -4,10 +4,10 @@
     <div class="index-history text-center">
         <div class="index-history__title">เรื่องราวของเรา</div>
         <div class="index-history__content">
-            <span>เราดำเนินธุรกิจเกี่ยวกับผลิตภัณฑ์ไฟฟ้าแสงสว่างอย่างครบวงจร</span><br>
-            <span>เริ่มต้นจากการผลิดและจำหน่ายอุปกรณ์ไฟฟ้าที่เกี่ยวข้องกับโคมไฟชนิดต่างๆ ภายใต้เครื่องหมายการค้า</span><br>
-            <span>WINLIGHT (WINNER LIGHT CO.,LTD.) โดยโรงงานผลิดโคมไฟฟ้าและเสาไฟฟ้าชนิดต่างๆ</span><br>
-            <span>ที่ได้รับรองตามมาตรฐาน มอก.902 มอก. 1955 และ ISO 9001:2008</span>
+            <span>ดำเนินธุรกิจเกี่ยวกับผลิตภัณฑ์ไฟฟ้าแสงสว่างอย่างครบวงจร</span><br>
+            <span>เริ่มต้นจากการผลิตและจำหน่ายอุปกรณ์ไฟฟ้าที่เกี่ยวข้องกับโคมไฟชนิดต่างๆ ภายใต้เครื่องหมายการค้า</span><br>
+            <span>WINLIGHT และเป็นตัวแทนจำหน่ายโคมไฟและอุปกรณ์ภายใต้เครื่องหมายการค้า PHILIPS</span><br>
+            <span>ที่ได้รับรองตามมาตรฐาน ISO 9001:2008</span>
         </div>
         <a href="{{ url('/about-us') }}"><button class="index-history__button">learn more</button></a>
     </div>

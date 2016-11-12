@@ -14,7 +14,7 @@
     <div class="box-body">
         {!! Form::model($serviceCategories, ['method' => 'PATCH', 'action' => ['Admin\Service\ServiceCategoriesController@update', $serviceCategories->id], 'files' => true]) !!}
         {{ Form::token() }}
-        <div class="col-xs-6">
+        <div class="col-xs-12">
             <div class="margin">
                 {{ Form::label('title', 'Title') }}
                 {{ Form::text('title', null, ['class' => 'form-control']) }}

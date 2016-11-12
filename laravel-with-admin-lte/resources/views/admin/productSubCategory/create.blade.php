@@ -15,7 +15,7 @@
         {!! Form::open(['method' => 'POST', 'action' => 'Admin\Product\ProductSubCategoriesController@store', 'files'=>true]) !!}
             {{ Form::token() }}
 
-            <div class="col-xs-5">
+            <div class="col-xs-12">
                 <div class="margin">
                     {{ Form::label('category_main_id', 'Main category') }}
                     {{ Form::select('category_main_id', $productMainCategory, null, ['class' => 'form-control' ,'placeholder' => 'Select main category']) }}

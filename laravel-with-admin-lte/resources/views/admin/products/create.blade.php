@@ -9,33 +9,13 @@
 @endsection
 
 @section('main-content')
-    <head>
-        <script src='//cdn.tinymce.com/4/tinymce.min.js'></script>
-        <script>
-            tinymce.init({
-                selector: 'textarea',
-                plugins: [
-                    "advlist autolink lists link image charmap print preview anchor",
-                    "searchreplace visualblocks code fullscreen",
-                    "insertdatetime media table contextmenu paste imagetools",
-                    "textcolor"
-                ],
-                toolbar: "insertfile undo redo | fontsizeselect | forecolor backcolor | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image",
-                imagetools_cors_hosts: ['www.tinymce.com', 'codepen.io'],
-                content_css: [
-                    '//fast.fonts.net/cssapi/e6dc9b99-64fe-4292-ad98-6974f93cd2a2.css',
-                    '//www.tinymce.com/css/codepen.min.css'
-                ]
-            });
-        </script>
-    </head>
-
+    @include('tinymce.textarea')
     @include('admin.validation.error')
 
     <div class="box-body">
         {!! Form::open(['method' => 'POST', 'action' => 'Admin\Product\ProductsController@store', 'files' => true]) !!}
             {{ Form::token() }}
-            <div class="col-lg-6">
+            <div class="col-lg-12">
                 <div class="margin">
                     {{ Form::label('category_main_id', 'Main category') }}
                     {{ Form::select('category_main_id', $mainCat, null, ['class' => 'form-control' ,'placeholder' => 'Select main category']) }}

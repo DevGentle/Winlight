@@ -15,7 +15,7 @@
         {!! Form::open(['method' => 'POST', 'action' => 'Admin\Product\ProductMainCategoriesController@store', 'files'=>true]) !!}
             {{ Form::token() }}
 
-            <div class="col-xs-5">
+            <div class="col-xs-12">
                 <div class="margin">
                     {{ Form::label('title', 'Title') }}
                     {{ Form::text('title', null, ['class' => 'form-control', 'placeholder' => 'Enter your title']) }}

@@ -13,7 +13,7 @@
     <div class="box-body">
         {!! Form::model($productMainCategories, ['method' => 'PATCH', 'action' => ['Admin\Product\ProductMainCategoriesController@update', $productMainCategories->id], 'files' => true]) !!}
         {{ Form::token() }}
-        <div class="col-xs-5">
+        <div class="col-xs-12">
             <div class="margin">
                 {{ Form::label('title', 'Title') }}
                 {{ Form::text('title', null, ['class' => 'form-control']) }}
