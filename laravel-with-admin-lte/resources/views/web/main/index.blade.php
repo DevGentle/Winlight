@@ -1,6 +1,11 @@
 @extends('web.layout')
 
+@section('navbar')
+    @include('web.main.videonav')
+@endsection
+
 @section('content')
+    <hr class="line-xs">
     <div class="index-history text-center">
         <div class="index-history__title">เรื่องราวของเรา</div>
         <div class="index-history__content">

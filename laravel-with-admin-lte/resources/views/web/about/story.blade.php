@@ -1,5 +1,9 @@
 @extends('web.layout')
 
+@section('navbar')
+    @include('web.main.slidenav')
+@endsection
+
 @section('content')
     <div class="row">
         <div class="col-md-12 story__header">

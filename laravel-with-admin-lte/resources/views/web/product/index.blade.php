@@ -1,5 +1,9 @@
 @extends('web.layout')
 
+@section('navbar')
+    @include('web.main.slidenav')
+@endsection
+
 @section('content')
     <div class="row product-index p-r-l-0">
         <div class="container product-index__header">

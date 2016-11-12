@@ -90,8 +90,9 @@ div {
 
 .navbar-header__menu-box ul {
   list-style-type: none;
-  margin: 0;
+  margin-top: 20px;
   padding: 0;
+  font-size: 15px;
   overflow: hidden;
   float: right; }
 
@@ -111,7 +112,7 @@ div {
   .navbar-header__menu-box li a:hover {
     color: #23b14c; }
 
-.navbar-header__content {
+.navbar-header__content-video {
   position: absolute;
   left: 0px;
   top: 0;
@@ -119,11 +120,29 @@ div {
   margin-top: 350px;
   z-index: 1;
   text-align: center; }
-  .navbar-header__content--title {
+  .navbar-header__content-video--title {
+    font-size: 60px;
+    font-weight: bold;
+    color: #fff; }
+  .navbar-header__content-video--subtitle {
+    margin-top: -2px;
+    font-size: 20px;
+    color: #fff;
+    line-height: 4px; }
+
+.navbar-header__content-slide {
+  position: absolute;
+  left: 0px;
+  top: 0;
+  width: 100%;
+  margin-top: 120px;
+  z-index: 1;
+  text-align: center; }
+  .navbar-header__content-slide--title {
     font-size: 40px;
     font-weight: bold;
     color: #fff; }
-  .navbar-header__content--subtitle {
+  .navbar-header__content-slide--subtitle {
     margin-top: -2px;
     font-size: 18px;
     color: #fff; }
@@ -141,7 +160,6 @@ div {
   height: auto;
   z-index: -100;
   transform: translateX(-50%) translateY(-50%);
-  background: url("//demosthenes.info/assets/images/polina.jpg") no-repeat;
   background-size: cover;
   transition: 1s opacity; }
 
@@ -179,6 +197,24 @@ div {
 
 .navbar-header__cover .slick-prev:before, .navbar-header__cover .slick-next:before {
   color: #fff; }
+
+@media screen and (max-width: 1400px) {
+  .navbar-header__content-video {
+    margin-top: 300px; }
+  .navbar-header__content-slide {
+    margin-top: 100px; } }
+
+@media screen and (max-width: 1200px) {
+  .navbar-header__content-video {
+    margin-top: 250px; }
+  .navbar-header__content-slide {
+    margin-top: 100px; }
+    .navbar-header__content-slide--subtitle {
+      font-size: 16px; } }
+
+@media screen and (max-width: 960px) {
+  .navbar-header__content-video {
+    margin-top: 200px; } }
 
 .setfooter {
   height: 230px;
@@ -420,6 +456,11 @@ div {
       font-size: 18px;
       font-style: italic;
       margin-top: 25px; }
+
+.line-xs {
+  margin-top: -6px;
+  margin-bottom: 0;
+  border-top: 5px solid #23b14c; }
 
 .m-l-r-0 {
   margin-left: 0;
