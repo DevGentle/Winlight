@@ -20,15 +20,18 @@
                 </div>
             </div>
             <div class="navbar-header__content">
-                <div class="navbar-header__content--title">วินเนอร์ ไลท์</div>
+                <div class="navbar-header__content--title"><span style="color: #23b14c">วินเนอร์</span> ไลท์</div>
                 <div class="navbar-header__content--subtitle">เราดำเนินธุรกิจเกี่ยวกับผลิตภัณฑ์ด้านแสงสว่างอย่างครอบคลุม</div>
             </div>
         </div>
     </div>
-    <div class="navbar-header__cover">
-        @foreach($slides->findSlides()->slides as $slide)
-            <img data-u="image" src="{{ asset($slide->photo->file) }}" />
-        @endforeach
+    <video width="100%" id="bgvid" playsinline autoplay muted loop>
+        <source src="{{ asset('video/background_video.mp4') }}" type="video/mp4">
+    </video>
+    {{--<div class="navbar-header__cover">--}}
+        {{--@foreach($slides->findSlides()->slides as $slide)--}}
+            {{--<img data-u="image" src="{{ asset($slide->photo->file) }}" />--}}
+        {{--@endforeach--}}
     </div>
     <div class="navbar-header__green-line"></div>
 </div>
