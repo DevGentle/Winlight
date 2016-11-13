@@ -34,24 +34,5 @@
                 </p>
             </div>
         </div>
-        <div class="row story__circle text-center">
-            <div class="col-xs-10 col-xs-offset-1">
-                <div class="col-md-4">
-                    <div class="story__circle--item">
-                        <img src="{{ asset('img/resource/home_image_001.png') }}">
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="story__circle--item">
-                        <img src="{{ asset('img/resource/home_image_002.png') }}">
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="story__circle--item">
-                        <img src="{{ asset('img/resource/home_image_003.png') }}">
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
 @endsection
