@@ -26,6 +26,7 @@ div {
   color: #22b24c; }
 
 .story__description {
+  padding-bottom: 40px;
   margin-top: 30px;
   font-size: 16px;
   color: #949494; }
@@ -90,8 +91,9 @@ div {
 
 .navbar-header__menu-box ul {
   list-style-type: none;
-  margin: 0;
+  margin-top: 20px;
   padding: 0;
+  font-size: 15px;
   overflow: hidden;
   float: right; }
 
@@ -111,7 +113,7 @@ div {
   .navbar-header__menu-box li a:hover {
     color: #23b14c; }
 
-.navbar-header__content {
+.navbar-header__content-video {
   position: absolute;
   left: 0px;
   top: 0;
@@ -119,11 +121,29 @@ div {
   margin-top: 350px;
   z-index: 1;
   text-align: center; }
-  .navbar-header__content--title {
+  .navbar-header__content-video--title {
+    font-size: 60px;
+    font-weight: bold;
+    color: #fff; }
+  .navbar-header__content-video--subtitle {
+    margin-top: -2px;
+    font-size: 20px;
+    color: #fff;
+    line-height: 4px; }
+
+.navbar-header__content-slide {
+  position: absolute;
+  left: 0px;
+  top: 0;
+  width: 100%;
+  margin-top: 120px;
+  z-index: 1;
+  text-align: center; }
+  .navbar-header__content-slide--title {
     font-size: 40px;
     font-weight: bold;
     color: #fff; }
-  .navbar-header__content--subtitle {
+  .navbar-header__content-slide--subtitle {
     margin-top: -2px;
     font-size: 18px;
     color: #fff; }
@@ -141,7 +161,6 @@ div {
   height: auto;
   z-index: -100;
   transform: translateX(-50%) translateY(-50%);
-  background: url("//demosthenes.info/assets/images/polina.jpg") no-repeat;
   background-size: cover;
   transition: 1s opacity; }
 
@@ -179,6 +198,24 @@ div {
 
 .navbar-header__cover .slick-prev:before, .navbar-header__cover .slick-next:before {
   color: #fff; }
+
+@media screen and (max-width: 1400px) {
+  .navbar-header__content-video {
+    margin-top: 300px; }
+  .navbar-header__content-slide {
+    margin-top: 100px; } }
+
+@media screen and (max-width: 1200px) {
+  .navbar-header__content-video {
+    margin-top: 250px; }
+  .navbar-header__content-slide {
+    margin-top: 100px; }
+    .navbar-header__content-slide--subtitle {
+      font-size: 16px; } }
+
+@media screen and (max-width: 960px) {
+  .navbar-header__content-video {
+    margin-top: 200px; } }
 
 .setfooter {
   height: 230px;
@@ -230,172 +267,135 @@ div {
         .footer .navbar-footer__menu-box li a:hover {
           color: #23b14c; }
 
-.index-history {
-  width: 100%;
-  height: 342px;
-  padding-top: 60px;
-  background-color: #fff;
-  background-image: url("/img/resource/header_01.jpg"); }
-  .index-history__title {
-    font-size: 45px;
-    font-weight: bold;
-    color: #219c46;
-    text-shadow: 2px 2px #285737; }
-  .index-history__content {
-    margin-top: 15px;
-    font-size: 15px;
-    font-weight: bold;
-    color: #a8b1ab; }
-  .index-history__button {
-    width: 120px;
-    height: 40px;
-    font-size: 15px;
-    margin-top: 20px;
-    margin-left: auto;
-    margin-right: auto;
-    color: #a8b1ab;
-    background-color: transparent;
-    border: 1px solid #a8b1ab; }
-  .index-history__circle {
-    width: 100%;
-    background-color: #fff;
-    padding-top: 60px;
-    padding-bottom: 100px;
-    margin-right: 0;
-    margin-left: 0; }
-    .index-history__circle--item {
-      width: 200px;
-      height: 200px;
-      margin-right: auto;
-      margin-left: auto;
-      border-radius: 50%;
-      border: 2px solid #166c3b; }
-      .index-history__circle--item img {
-        width: 100%; }
+.index-service {
+  position: relative;
+  margin-top: -6px;
+  padding: 60px;
+  color: #fff;
+  background-color: #242526; }
+  .index-service__title {
+    font-size: 24px; }
+  .index-service__border {
+    margin: 40px auto; }
+    .index-service__border p {
+      margin-top: 20px;
+      font-size: 20px; }
 
-.index-product {
-  width: 100%;
-  height: 270px;
-  padding-top: 60px;
-  margin-right: 0;
-  margin-left: 0;
-  background-color: #fff;
-  background-image: url("/img/resource/product_header_01.jpg"); }
-  .index-product__title {
-    font-size: 40px;
-    font-weight: bold;
-    color: #107326; }
-  .index-product__sub-title {
-    font-size: 25px;
-    font-weight: bold;
-    color: #e5e5e5;
-    margin-top: -10px; }
-  .index-product__content {
-    font-size: 15px;
-    color: #dce6d1; }
-  .index-product__button {
-    width: 120px;
-    height: 40px;
-    color: #fff;
-    background-color: transparent;
-    margin-top: 120px;
-    border: 1px solid #fff; }
-  .index-product__preview {
+.index-activity {
+  position: relative;
+  padding: 60px;
+  background-color: #fff; }
+  .index-activity__border {
     position: relative;
-    width: 180px;
-    height: 180px;
-    margin: 60px auto;
-    border: 1px solid #94bf46; }
-    .index-product__preview img {
-      width: 100%;
+    width: 266px;
+    margin: 30px auto; }
+    .index-activity__border p {
+      margin-top: 20px;
+      font-size: 17px; }
+
+.index-winner {
+  position: relative;
+  height: 475px;
+  background-color: #242526; }
+  .index-winner__left {
+    height: 475px;
+    background-image: url("/img/resource/winnerCat/winlight_catalog_header_01.jpg"); }
+    .index-winner__left img {
+      width: 100%; }
+    .index-winner__left a {
+      text-decoration: none;
+      color: #fff; }
+    .index-winner__left--download {
       position: absolute;
       margin: auto;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0; }
-    .index-product__preview:hover {
-      background-color: #96c341; }
-
-.index-service {
-  width: 100%;
-  height: 270px;
-  padding-top: 60px;
-  margin-right: 0;
-  margin-left: 0;
-  background-color: #fff;
-  background-image: url("/img/resource/service_header.jpg"); }
-  .index-service__title {
-    font-size: 40px;
-    font-weight: bold;
-    color: #b65203; }
-  .index-service__sub-title {
-    font-size: 25px;
-    font-weight: bold;
-    color: #e5e5e5;
-    margin-top: -10px; }
-  .index-service__content {
-    font-size: 15px;
-    color: #fff; }
-  .index-service__button {
-    width: 120px;
-    height: 40px;
-    color: #fff;
-    background-color: transparent;
-    margin-top: 120px;
-    border: 1px solid #fff; }
-  .index-service__circle {
+      top: 30px;
+      right: 50px;
+      color: #fff; }
+      .index-winner__left--download-title {
+        font-size: 60px;
+        font-weight: 100; }
+      .index-winner__left--download-subtitle {
+        line-height: 2px;
+        font-size: 35px;
+        font-weight: bold; }
+      .index-winner__left--download-button {
+        width: 180px;
+        margin-top: 60px;
+        margin-left: 40px;
+        padding: 0 20px;
+        font-size: 27px;
+        font-weight: bold;
+        border-radius: 20px;
+        background-color: #95C342; }
+  .index-winner__right {
+    position: relative;
     width: 100%;
-    background-color: #fff;
-    padding-top: 60px;
-    padding-bottom: 100px;
-    margin-right: 0;
-    margin-left: 0; }
-    .index-service__circle--item {
-      width: 200px;
-      height: 200px;
-      margin-right: auto;
-      margin-left: auto;
-      border-radius: 50%;
-      border: 2px solid #ffa517; }
-      .index-service__circle--item img {
-        width: 100%; }
+    height: 475px;
+    float: left;
+    padding: 10px; }
+    .index-winner__right--image1 {
+      position: relative;
+      width: 40%;
+      float: left;
+      margin-right: 10px; }
+      .index-winner__right--image1 img {
+        width: 100%;
+        max-height: 475px; }
+    .index-winner__right--image2 {
+      position: relative;
+      width: 40%;
+      float: left; }
+      .index-winner__right--image2 img {
+        width: 100%;
+        max-height: 475px; }
+
+.index-philips {
+  position: relative;
+  height: 475px;
+  background-image: url("/img/resource/winnerCat/philips_catalog_header_01.jpg");
+  background-color: #242526; }
+  .index-philips a {
+    text-decoration: none;
+    color: #fff; }
+  .index-philips__download {
+    position: absolute;
+    margin: auto;
+    top: 30px;
+    right: 50px;
+    color: #fff; }
+    .index-philips__download-title {
+      font-size: 60px;
+      font-weight: 100; }
+    .index-philips__download-subtitle {
+      line-height: 2px;
+      font-size: 35px;
+      font-weight: bold; }
+    .index-philips__download-button {
+      width: 180px;
+      margin-top: 60px;
+      padding: 0 20px;
+      font-size: 27px;
+      font-weight: bold;
+      border-radius: 20px;
+      background-color: #95C342; }
 
 .index-reference {
-  width: 100%;
-  height: 270px;
-  padding-top: 60px;
-  margin-right: 0;
-  margin-left: 0;
-  background-color: #fff;
-  background-image: url("/img/resource/reference_header.jpg"); }
-  .index-reference__title {
+  padding: 60px 0;
+  background-image: url("/img/resource/reference/project_ref_header_01.jpg"); }
+  .index-reference__header--title {
     font-size: 40px;
     font-weight: bold;
-    color: #0c648e; }
-  .index-reference__sub-title {
-    font-size: 25px;
+    color: #1F6391; }
+  .index-reference__header--subtitle {
+    font-size: 20px;
     font-weight: bold;
-    color: #e5e5e5;
-    margin-top: -10px; }
-  .index-reference__content {
-    font-size: 15px;
     color: #fff; }
-  .index-reference__button {
-    width: 120px;
-    height: 40px;
-    color: #fff;
-    background-color: transparent;
-    margin-top: 120px;
-    border: 1px solid #fff; }
-  .index-reference__showcase {
-    margin-left: 0;
-    margin-right: 0; }
-    .index-reference__showcase--inner {
-      margin-top: 60px;
-      margin-bottom: 100px; }
-    .index-reference__showcase img {
-      margin: 10px 15px; }
+  .index-reference__content--border-img {
+    width: 150px;
+    height: 150px;
+    margin: 20px auto; }
+    .index-reference__content--border-img img {
+      width: 100%; }
 
 .index-contact {
   width: 100%;

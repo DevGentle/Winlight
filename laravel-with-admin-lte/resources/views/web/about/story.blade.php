@@ -1,5 +1,9 @@
 @extends('web.layout')
 
+@section('navbar')
+    @include('web.main.slidenav')
+@endsection
+
 @section('content')
     <div class="row">
         <div class="col-md-12 story__header">
@@ -28,25 +32,6 @@
                 <p>
                     ทางบริษัทมีเป้าหมายในการสร้างความประทับ ใจในสินค้าและบริการสูงสุดให้แก่ลูกค้าบริษัทได้ปรับปรุงวิธีการทำงาน นำนวัตกรรมใหม่ๆ และเทคโนโลยีที่ทันสมัย เข้ามาปรับใช้อยู่ตลอดเวลาเพื่อให้สินค้ามีคุณภาพและหลากหลายตอบ สนองความต้องการของลูกค้าได้มากสุด ได้มาตรฐานตามสำนักมาตรฐานผลิตภัณฑ์ อุตสาหกรรม (สมอ.) และการบริหารงานคุณภาพ ISO9001:2008
                 </p>
-            </div>
-        </div>
-        <div class="row story__circle text-center">
-            <div class="col-xs-10 col-xs-offset-1">
-                <div class="col-md-4">
-                    <div class="story__circle--item">
-                        <img src="{{ asset('img/resource/home_image_001.png') }}">
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="story__circle--item">
-                        <img src="{{ asset('img/resource/home_image_002.png') }}">
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="story__circle--item">
-                        <img src="{{ asset('img/resource/home_image_003.png') }}">
-                    </div>
-                </div>
             </div>
         </div>
     </div>

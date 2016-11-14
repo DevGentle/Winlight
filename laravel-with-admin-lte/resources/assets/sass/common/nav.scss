@@ -18,8 +18,9 @@
     &__menu-box {
         ul {
             list-style-type: none;
-            margin: 0;
+            margin-top: 20px;
             padding: 0;
+            font-size: 15px;
             overflow: hidden;
             float: right;
         }
@@ -43,12 +44,32 @@
             }
         }
     }
-    &__content {
+    &__content-video {
         position: absolute;
         left: 0px;
         top: 0;
         width: 100%;
         margin-top: 350px;
+        z-index: 1;
+        text-align: center;
+        &--title {
+            font-size: 60px;
+            font-weight: bold;
+            color: #fff;
+        }
+        &--subtitle {
+            margin-top: -2px;
+            font-size: 20px;
+            color: #fff;
+            line-height: 4px;
+        }
+    }
+    &__content-slide {
+        position: absolute;
+        left: 0px;
+        top: 0;
+        width: 100%;
+        margin-top: 120px;
         z-index: 1;
         text-align: center;
         &--title {
@@ -76,7 +97,6 @@
             height: auto;
             z-index: -100;
             transform: translateX(-50%) translateY(-50%);
-            background: url('//demosthenes.info/assets/images/polina.jpg') no-repeat;
             background-size: cover;
             transition: 1s opacity;
         }
@@ -117,6 +137,39 @@
         }
         .slick-prev:before, .slick-next:before {
             color: #fff;
+        }
+    }
+}
+
+@media screen and (max-width: 1400px)  {
+    .navbar-header {
+        &__content-video {
+            margin-top: 300px;
+        }
+        &__content-slide {
+            margin-top: 100px;
+        }
+    }
+}
+
+@media screen and (max-width: 1200px)  {
+    .navbar-header {
+        &__content-video {
+            margin-top: 250px;
+        }
+        &__content-slide {
+            margin-top: 100px;
+            &--subtitle {
+                font-size: 16px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 960px)  {
+    .navbar-header {
+        &__content-video {
+            margin-top: 200px;
         }
     }
 }

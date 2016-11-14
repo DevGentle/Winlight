@@ -1,10 +1,10 @@
-// $(document).ready(function(){
-//     $('.navbar-header__cover').slick({
-//         autoplay: true,
-//         infinite: true,
-//         arrows: false
-//     });
-// });
+$(document).ready(function(){
+    $('.navbar-header__cover').slick({
+        autoplay: true,
+        infinite: true,
+        arrows: false
+    });
+});
 
 var vid = document.getElementById("bgvid");
 var pauseButton = document.querySelector("#polina button");

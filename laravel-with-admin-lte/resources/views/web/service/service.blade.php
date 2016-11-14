@@ -1,5 +1,9 @@
 @extends('web.layout')
 
+@section('navbar')
+    @include('web.main.slidenav')
+@endsection
+
 @section('content')
     <div class="row service p-r-l-0">
         <div class="container service__first-header">

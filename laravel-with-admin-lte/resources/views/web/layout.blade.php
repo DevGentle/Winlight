@@ -22,7 +22,7 @@
 
     <body>
         <div>
-            @include('web.main.nav')
+            @yield('navbar')
 
             <div class="container-fluid p-r-l-0">
                 @yield('content')
