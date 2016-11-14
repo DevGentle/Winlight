@@ -26,7 +26,7 @@ class ProductsController extends Controller
     public function productsByMainCat($categoryId)
     {
         $productMainCategories = ProductMainCategory::findOrFail($categoryId);
-        $products = $productMainCategories->products()->paginate(15);
+        $products = $productMainCategories->products()->paginate(9);
 
         return view('web.product.index', compact('products'));
     }

@@ -477,6 +477,8 @@ div {
         text-decoration: none; }
         .product-content__menu--title a:hover {
           font-weight: bold; }
+  .product-content__paginate {
+    margin-top: 20px; }
   .product-content__category {
     width: 100%;
     background-color: #fff;
