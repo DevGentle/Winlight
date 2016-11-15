@@ -12,7 +12,7 @@ class ProductSubCategory extends Model
 
     public function productMainCategories()
     {
-        return $this->belongsTo('App\Model\Product\ProductMainCategory');
+        return $this->belongsTo('App\Model\Product\ProductMainCategory', 'category_main_id');
     }
 
     public function products()

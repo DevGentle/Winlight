@@ -34,13 +34,16 @@
                     <div class="row product-content__category">
                         <ol class="breadcrumb">
                             <li><a href="{{ url('/') }}">Home</a></li>
-                            <li><a href="{{ url('/products') }}">Products</a></li>
+                            <li>Products</li>
                         </ol>
                         @foreach($products as $product)
                             @if($product)
                                 <a href="{{ route('web.product.item', ['Id' => $product->id]) }}">
-                                    <div class="col-md-4 product-content__category--item">
-                                        <img src="{{ asset($product->photo->file) }}">
+                                    <div class="col-md-4">
+                                        <div class="col-md-12 product-content__category--item">
+                                            <img src="{{ asset($product->photo->file) }}">
+                                        </div>
+                                        <h4 class="text-center">{{ $product->title }}</h4>
                                     </div>
                                 </a>
                             @else

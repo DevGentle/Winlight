@@ -7,6 +7,7 @@ use App\Model\Photo\Photo;
 use App\Model\Product\Product;
 use App\Model\Product\ProductMainCategory;
 use App\Model\Product\ProductSubCategory;
+use Intervention\Image\Facades\Image;
 use Nayjest\Grids\EloquentDataProvider;
 use Nayjest\Grids\FieldConfig;
 use Nayjest\Grids\FilterConfig;
@@ -81,11 +82,10 @@ class ProductsController extends Controller
                         )
                         ->setCallback(function ($val, ObjectDataRow $row) {
                             $subCat = SubCategory::find($val);
-
-                            if ($subCat == null) {
-                                return '-';
-                            } else {
+                            if ($subCat) {
                                 return $subCat->title;
+                            } else {
+                                return '-';
                             }
                         }),
                     (new FieldConfig)

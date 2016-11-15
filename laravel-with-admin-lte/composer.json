@@ -11,7 +11,8 @@
         "nayjest/grids": "^1.2",
         "laravelcollective/html": "5.2.*",
         "unisharp/laravel-ckeditor": "^4.5",
-        "hedronium/spaceless-blade": "~2.0"
+        "hedronium/spaceless-blade": "~2.0",
+        "intervention/image": "^2.3"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

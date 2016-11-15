@@ -62,6 +62,14 @@
                 }
             }
         }
+        &:hover {
+            .product-content__menu--square {
+                background-color: #94bf46;
+            }
+        }
+    }
+    &__paginate {
+        margin-top: 20px;
     }
     &__paginate {
         margin-top: 20px;

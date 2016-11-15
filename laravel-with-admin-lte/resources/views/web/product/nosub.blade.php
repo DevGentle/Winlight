@@ -34,19 +34,19 @@
                     <div class="row product-content__category">
                         <ol class="breadcrumb">
                             <li><a href="{{ url('/') }}">Home</a></li>
-                            <li><a href="{{ url('/product') }}">Products</a></li>
-                            <li><a href="{{ route('web.product.category', ['categoryId' => $product->productMainCategories->id]) }}">{{ $product->productMainCategories->title }}</a></li>
-                            @if($product->productSubCategories->count())
-                                <li><a href="{{ route('web.product.subCategory', ['subCategoryId' => $product->productSubCategories->id]) }}">{{ $product->productSubCategories->title }}</a></li>
-                            @endif
-                            <li class="active">{{ $product->title }}</li>
+                            <li><a href="{{ url('/products') }}">Products</a></li>
+                            <li>{{ $productMainCategories->title }}</li>
                         </ol>
-                        <div class="col-md-12 product-item__category--image">
-                            <img src="{{ asset($product->photo->file) }}" width="100%">
-                        </div>
-                        <div class="col-md-10 product-item__category--description">
-                            {!! $product->description !!}
-                        </div>
+                        @foreach($products as $product)
+                            <a href="{{ route('web.product.item', ['Id' => $product->id]) }}">
+                                <div class="col-md-4">
+                                    <div class="col-md-12 product-content__category--item">
+                                        <img src="{{ asset($product->photo->file) }}">
+                                    </div>
+                                    <h4 class="text-center">{{ $product->title }}</h4>
+                                </div>
+                            </a>
+                        @endforeach
                     </div>
                 </div>
             </div>
