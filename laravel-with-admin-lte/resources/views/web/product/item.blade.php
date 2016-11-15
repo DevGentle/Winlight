@@ -36,6 +36,9 @@
                             <li><a href="{{ url('/') }}">Home</a></li>
                             <li><a href="{{ url('/product') }}">Products</a></li>
                             <li><a href="{{ route('web.product.category', ['categoryId' => $product->productMainCategories->id]) }}">{{ $product->productMainCategories->title }}</a></li>
+                            @if($product->productSubCategories->count())
+                                <li><a href="{{ route('web.product.subCategory', ['subCategoryId' => $product->productSubCategories->id]) }}">{{ $product->productSubCategories->title }}</a></li>
+                            @endif
                             <li class="active">{{ $product->title }}</li>
                         </ol>
                         <div class="col-md-12 product-item__category--image">

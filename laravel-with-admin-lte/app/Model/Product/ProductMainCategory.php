@@ -12,7 +12,7 @@ class ProductMainCategory extends Model implements ProductMainCategoryInterface
 
     public function productSubCategories()
     {
-        return $this->hasMany('App\Model\Product\ProductSubCategory');
+        return $this->hasMany('App\Model\Product\ProductSubCategory', 'category_main_id');
     }
 
     public function products()
