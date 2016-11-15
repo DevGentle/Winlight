@@ -479,6 +479,8 @@ div {
           font-weight: bold; }
     .product-content__menu:hover .product-content__menu--square {
       background-color: #94bf46; }
+  .product-content__paginate {
+    margin-top: 20px; }
   .product-content__category {
     width: 100%;
     background-color: #fff;

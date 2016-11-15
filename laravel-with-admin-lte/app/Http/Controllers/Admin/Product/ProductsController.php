@@ -87,7 +87,6 @@ class ProductsController extends Controller
                             } else {
                                 return '-';
                             }
-
                         }),
                     (new FieldConfig)
                         ->setName('id')
