@@ -47,6 +47,8 @@
                                 <div class="col-md-12"><h1>{{ 'Has no product in this category' }}</h1></div>
                             @endif
                         @endforeach
+                    </div>
+                    <div class="product-content__paginate text-center">
                         {{  $products->links() }}
                     </div>
                 </div>

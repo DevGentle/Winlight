@@ -81,7 +81,12 @@ class ProductsController extends Controller
                         )
                         ->setCallback(function ($val, ObjectDataRow $row) {
                             $subCat = SubCategory::find($val);
-                            return $subCat->title;
+
+                            if ($subCat == null) {
+                                return '-';
+                            } else {
+                                return $subCat->title;
+                            }
                         }),
                     (new FieldConfig)
                         ->setName('id')
