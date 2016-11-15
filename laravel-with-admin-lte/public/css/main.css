@@ -477,6 +477,8 @@ div {
         text-decoration: none; }
         .product-content__menu--title a:hover {
           font-weight: bold; }
+    .product-content__menu:hover .product-content__menu--square {
+      background-color: #94bf46; }
   .product-content__category {
     width: 100%;
     background-color: #fff;
