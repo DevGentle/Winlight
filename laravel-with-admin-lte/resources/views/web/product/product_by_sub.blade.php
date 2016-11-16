@@ -39,8 +39,6 @@
                             <li>{{ $productSubCategories->title }}</li>
                         </ol>
                         @foreach($products as $product)
-
-                            {{--{{ dump($product) }}--}}
                             <a href="{{ route('web.product.item', ['Id' => $product->id]) }}">
                                 <div class="col-md-4">
                                     <div class="col-md-12 product-content__category--item">
@@ -50,6 +48,9 @@
                                 </div>
                             </a>
                         @endforeach
+                    </div>
+                    <div class="product-content__paginate text-center">
+                        {{  $products->links() }}
                     </div>
                 </div>
             </div>

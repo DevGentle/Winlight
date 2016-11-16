@@ -48,6 +48,9 @@
                             </a>
                         @endforeach
                     </div>
+                    <div class="product-content__paginate text-center">
+                        {{  $products->links() }}
+                    </div>
                 </div>
             </div>
         </div>

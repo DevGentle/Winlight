@@ -45,8 +45,11 @@
                                     </div>
                                     <h4 class="text-center">{{ $subCat->title }}</h4>
                                 </div>
-                            {{--</a>--}}
+                            </a>
                         @endforeach
+                    </div>
+                    <div class="product-content__paginate text-center">
+                        {{  $subCats->links() }}
                     </div>
                 </div>
             </div>
