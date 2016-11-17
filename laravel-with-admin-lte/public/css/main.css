@@ -492,6 +492,8 @@ div {
     padding-left: 10px;
     padding-right: 10px;
     padding-bottom: 40px; }
+    .product-content__category h4 {
+      color: #000; }
     .product-content__category--item {
       width: 200px;
       height: 200px;

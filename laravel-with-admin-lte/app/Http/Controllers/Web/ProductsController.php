@@ -12,9 +12,9 @@ class ProductsController extends Controller
 {
     public function index()
     {
-        $products = Product::paginate(9);
+        $productMainCategories = ProductMainCategory::all();
 
-        return view('web.product.index', compact('products'));
+        return view('web.product.index', compact('productMainCategories'));
     }
 
     public function findProduct($Id)

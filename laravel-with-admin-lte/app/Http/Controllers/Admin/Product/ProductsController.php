@@ -130,6 +130,10 @@ class ProductsController extends Controller
     {
         $input = $request->all();
 
+        $product = new Product();
+        
+        $subCats = ProductSubCategory::find($request->get('category_sub_id'));
+
         if ($file = $request->file('photo_id')) {
 
             $name = '/images/product/' . $file->getClientOriginalName();
@@ -142,7 +146,10 @@ class ProductsController extends Controller
 
         }
 
-        Product::create($input);
+        $product->productSubCategories()->associate($subCats);
+        $product->fill($input);
+
+        $product->save();
 
         return redirect('admin/products');
     }

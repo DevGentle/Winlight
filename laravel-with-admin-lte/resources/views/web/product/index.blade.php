@@ -34,25 +34,22 @@
                     <div class="row product-content__category">
                         <ol class="breadcrumb">
                             <li><a href="{{ url('/') }}">Home</a></li>
-                            <li>Products</li>
+                            <li>Product Main Category</li>
                         </ol>
-                        @foreach($products as $product)
-                            @if($product)
-                                <a href="{{ route('web.product.item', ['Id' => $product->id]) }}">
+                        @foreach($productMainCategories as $productMainCategory)
+                            @if($productMainCategory)
+                                <a href="{{ route('web.product.category', ['categoryId' => $productMainCategory->id])  }}">
                                     <div class="col-md-4">
                                         <div class="col-md-12 product-content__category--item">
-                                            <img src="{{ asset($product->photo->file) }}">
+                                            <img src="{{ asset($productMainCategory->photo->file) }}">
                                         </div>
-                                        <h4 class="text-center">{{ $product->title }}</h4>
+                                        <h4 class="text-center">{{ $productMainCategory->title }}</h4>
                                     </div>
                                 </a>
                             @else
                                 <div class="col-md-12"><h1>{{ 'Has no product in this category' }}</h1></div>
                             @endif
                         @endforeach
-                    </div>
-                    <div class="product-content__paginate text-center">
-                        {{  $products->links() }}
                     </div>
                 </div>
             </div>
