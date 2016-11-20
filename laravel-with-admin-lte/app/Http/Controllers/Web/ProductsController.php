@@ -49,4 +49,9 @@ class ProductsController extends Controller
             return view('web.product.nosub', compact('products', 'productMainCategories'));
         }
     }
+
+    public function philipsDownload()
+    {
+        return view('web.product.philips.download');
+    }
 }
