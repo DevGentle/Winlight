@@ -29,6 +29,7 @@ Route::get('/about-us', function () {
 });
 Route::get('contact-us', 'Web\ContactsController@findContactAll');
 Route::get('products', 'Web\ProductsController@index');
+Route::get('product/philips/download', 'Web\ProductsController@philipsDownload');
 Route::get('product-category/{categoryId}', 'Web\ProductsController@productsByMainCat')->name('web.product.category');
 Route::get('product-sub-category/{subCategoryId}', 'Web\ProductsController@productBySubCat')->name('web.product.subCategory');
 Route::get('products/{Id}', 'Web\ProductsController@findProduct')->name('web.product.item');
