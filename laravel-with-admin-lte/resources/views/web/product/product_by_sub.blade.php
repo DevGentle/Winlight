@@ -39,14 +39,14 @@
                             <li>{{ $productSubCategories->title }}</li>
                         </ol>
                         @foreach($products as $product)
-                            <a href="{{ route('web.product.item', ['Id' => $product->id]) }}">
-                                <div class="col-md-4">
-                                    <div class="col-md-12 product-content__category--item">
+                            <div class="col-md-4">
+                                <div class="col-md-12 product-content__category--item">
+                                    <a href="{{ route('web.product.item', ['Id' => $product->id]) }}">
                                         <img src="{{ asset($product->photo->file) }}">
-                                    </div>
-                                    <h4 class="text-center">{{ $product->title }}</h4>
+                                    </a>
                                 </div>
-                            </a>
+                                <h4 class="text-center">{{ $product->title }}</h4>
+                            </div>
                         @endforeach
                     </div>
                     <div class="product-content__paginate text-center">

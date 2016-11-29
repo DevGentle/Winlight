@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Web;
 
 use App\Http\Requests;
+use App\Model\Download\Philips;
 use App\Model\Product\Product;
 use App\Model\Product\ProductMainCategory;
 use App\Http\Controllers\Controller;
@@ -52,6 +53,8 @@ class ProductsController extends Controller
 
     public function philipsDownload()
     {
-        return view('web.product.philips.download');
+        $philips = Philips::all();
+
+        return view('web.download.philips.download', compact('philips'));
     }
 }
