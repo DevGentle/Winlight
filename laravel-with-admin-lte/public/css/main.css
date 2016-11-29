@@ -425,6 +425,125 @@ div {
   margin-left: 0;
   margin-right: 0; }
 
+.download-index {
+  width: 100%;
+  height: 250px;
+  margin-right: 0;
+  margin-left: 0;
+  background-image: url("/img/resource/product_header_01.jpg"); }
+  .download-index__header {
+    margin-top: 40px; }
+    .download-index__header--title {
+      margin-top: -13px;
+      font-size: 40px;
+      font-weight: bold;
+      color: #107326; }
+    .download-index__header--sub-title {
+      font-size: 25px;
+      font-weight: bold;
+      color: #fff;
+      margin-top: -10px; }
+    .download-index__header--description {
+      font-size: 15px;
+      color: #fff; }
+
+.download-content {
+  width: 100%;
+  margin-top: 30px;
+  margin-bottom: 30px; }
+  .download-content__main {
+    background-color: #f1f1f1; }
+  .download-content__header {
+    font-size: 35px;
+    font-weight: bold; }
+  .download-content__menu {
+    display: block;
+    margin-top: 10px; }
+    .download-content__menu--square {
+      width: 12px;
+      height: 12px;
+      margin-top: 5px;
+      margin-left: 2px;
+      float: left;
+      border: 1px solid #94bf46; }
+      .download-content__menu--square:active {
+        background-color: #94bf46; }
+    .download-content__menu--title {
+      width: auto;
+      margin-left: 25px;
+      font-size: 15px; }
+      .download-content__menu--title a {
+        color: #626262;
+        text-decoration: none; }
+        .download-content__menu--title a:hover {
+          font-weight: bold; }
+    .download-content__menu:hover .download-content__menu--square {
+      background-color: #94bf46; }
+  .download-content__paginate {
+    margin-top: 20px; }
+  .download-content__paginate {
+    margin-top: 20px; }
+  .download-content__category {
+    width: 100%;
+    background-color: #fff;
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: -30px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 40px; }
+    .download-content__category h4 {
+      color: #000; }
+    .download-content__category--title {
+      margin-top: 10px;
+      font-size: 18px; }
+    .download-content__category-box {
+      margin-top: 5px;
+      margin-left: 34px; }
+      .download-content__category-box--philips {
+        font-size: 34px;
+        font-weight: 100;
+        color: #1464d4; }
+    .download-content__category--item {
+      width: 180px;
+      height: 250px;
+      margin-left: 20px;
+      margin-top: 20px;
+      padding: 0px;
+      border: 1px solid #94bf46;
+      text-align: center; }
+      .download-content__category--item:hover {
+        background-color: #36b648; }
+      .download-content__category--item img {
+        position: absolute;
+        width: 100%;
+        margin: auto;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0; }
+    .download-content__category ol.breadcrumb {
+      padding: 8px 16px;
+      margin-top: 20px;
+      list-style: none;
+      font-size: 16px;
+      font-style: italic;
+      background-color: transparent; }
+    .download-content__category ol.breadcrumb li {
+      display: inline; }
+    .download-content__category ol.breadcrumb li + li:before {
+      padding: 8px;
+      font-weight: bold;
+      color: #626262;
+      content: "\003e"; }
+    .download-content__category ol.breadcrumb li a {
+      color: #626262; }
+  .download-content hr {
+    width: 60px;
+    left: 0;
+    margin-left: 0;
+    border-top: 1px solid #707070; }
+
 .product-index {
   width: 100%;
   height: 250px;

@@ -53,6 +53,12 @@
             </li>
             <li><a href="{{ url('admin/references') }}"><i class='fa fa-users'></i> <span>Project References</span></a></li>
             <li><a href="{{ url('admin/contacts') }}"><i class='fa fa-users'></i> <span>Contacts</span></a></li>
+            <li class="treeview">
+                <a href="#"><i class="fa fa-lightbulb-o"></i> <span>Download</span> <i class="fa fa-angle-left pull-right"></i></a>
+                <ul class="treeview-menu">
+                    <li><a href="{{ url('admin/download/philips') }}">Philips</a></li>
+                </ul>
+            </li>
         </ul>
         <!-- /.sidebar-menu -->
     </section>
