@@ -15,12 +15,6 @@
             <div class="col-xs-6">
                 <div class="product-index__header--title">ผลิตภัณฑ์</div>
                 <div class="product-index__header--sub-title">ด้านแสงสว่าง</div>
-                <div class="product-index__header--description">
-                    <span>Fluorescent, LED, Downlight, Low Bay/ High Bay,</span><br>
-                    <span>Street Light, Post top light, Bollard Light, Border Light,</span><br>
-                    <span>Wall Mount Light, Spot Light, Inground Light, Flood Light,</span><br>
-                    <span>Interior Lighting</span>
-                </div>
             </div>
         </div>
     </div>
@@ -56,6 +50,4 @@
             </div>
         </div>
     </div>
-
-    @include('web.main.map')
 @endsection
