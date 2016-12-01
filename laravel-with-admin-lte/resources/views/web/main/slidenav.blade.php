@@ -20,8 +20,8 @@
                 </div>
             </div>
             <div class="navbar-header__content-slide hidden-xs hidden-sm">
-                <div class="navbar-header__content-slide--title"><span style="color: #23b14c">วินเนอร์</span> ไลท์</div>
-                <div class="navbar-header__content-slide--subtitle">เราดำเนินธุรกิจเกี่ยวกับผลิตภัณฑ์ด้านแสงสว่างอย่างครอบคลุม</div>
+                <div class="navbar-header__content-slide--title"><span style="color: #23b14c">WINNER</span> LIGHT</div>
+                <div class="navbar-header__content-slide--subtitle">We are operates on Lighting products a comprehensive</div>
             </div>
         </div>
     </div>

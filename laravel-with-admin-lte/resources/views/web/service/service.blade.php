@@ -52,6 +52,4 @@
             </div>
         </div>
     </div>
-
-    @include('web.main.map')
 @endsection
