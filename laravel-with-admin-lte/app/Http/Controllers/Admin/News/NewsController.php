@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\Admin\Download;
+namespace App\Http\Controllers\Admin\News;
 
-use App\Http\Requests\PhilipsRequest;
-use App\Model\Download\Philips;
+use App\Http\Requests\NewsRequest;
+use App\Model\Paper\News;
+use App\Model\Paper\NewsCategory;
 use App\Model\Photo\Photo;
 use Nayjest\Grids\EloquentDataProvider;
 use Nayjest\Grids\FieldConfig;
@@ -14,7 +15,7 @@ use App\Http\Requests;
 use Nayjest\Grids\ObjectDataRow;
 use App\Http\Controllers\Controller;
 
-class PhilipsController extends Controller
+class NewsController extends Controller
 {
     public function __construct()
     {
@@ -26,36 +27,15 @@ class PhilipsController extends Controller
         $grid = new Grid(
             (new GridConfig)
                 ->setDataProvider(
-                    new EloquentDataProvider(Philips::query())
+                    new EloquentDataProvider(News::query())
                 )
-                ->setName('philips')
+                ->setName('news')
                 ->setPageSize(15)
                 ->setColumns([
                     (new FieldConfig)
                         ->setName('id')
                         ->setLabel('ID')
                         ->setSortable(true),
-                    (new FieldConfig)
-                        ->setName('photo_id')
-                        ->setLabel('Image')
-                        ->setCallback(function ($val, ObjectDataRow $row) {
-                            $photo = Photo::find($val);
-                            $path = $photo->file;
-
-                            if ($photo == null) {
-                                $img =
-                                    '<div>No image</div>'
-                                ;
-                            } else {
-                                $img =
-                                    '<div>
-                                        <img height="50" src="'.$path.'">
-                                    </div>'
-                                ;
-                            }
-
-                            return $img;
-                        }),
                     (new FieldConfig)
                         ->setName('title')
                         ->setLabel('Title')
@@ -66,11 +46,33 @@ class PhilipsController extends Controller
                                 ->setOperator(FilterConfig::OPERATOR_LIKE)
                         ),
                     (new FieldConfig)
+                        ->setName('news_category_id')
+                        ->setLabel('News category')
+                        ->setSortable(true)
+                        ->addFilter(
+                            (new FilterConfig)
+                                ->setName('news_category_id')
+                                ->setOperator(FilterConfig::OPERATOR_LIKE)
+                        )
+                        ->setCallback(function ($val, ObjectDataRow $row) {
+                            $newsCategory = NewsCategory::find($val);
+                            return $newsCategory->title;
+                        }),
+                    (new FieldConfig)
+                        ->setName('created_at')
+                        ->setLabel('Created at')
+                        ->setSortable(true)
+                        ->addFilter(
+                            (new FilterConfig)
+                                ->setName('created_at')
+                                ->setOperator(FilterConfig::OPERATOR_LIKE)
+                        ),
+                    (new FieldConfig)
                         ->setName('id')
                         ->setLabel('Action')
                         ->setCallback(function ($val, ObjectDataRow $row) {
-                            $edit = action('Admin\download\PhilipsController@edit', ['id' => $val]);
-                            $remove = action('Admin\download\PhilipsController@destroy', ['id' => $val]);
+                            $edit = action('Admin\News\NewsController@edit', ['id' => $val]);
+                            $remove = action('Admin\News\NewsController@destroy', ['id' => $val]);
                             $icon =
                                 '<div class="btn-group">
                                     <a href="#" class="glyphicon glyphicon-cog"
@@ -92,34 +94,25 @@ class PhilipsController extends Controller
         );
         $grid = $grid->render();
 
-        return view('admin.philips.index', compact('grid'));
+        return view('admin.news.index', compact('grid'));
     }
 
     public function create()
     {
-        return view('admin.philips.create');
+        $newsCategory = NewsCategory::lists('title', 'id')->all();
+
+        return view('admin.news.create', compact('newsCategory'));
     }
 
-    public function store(PhilipsRequest $request)
+    public function store(NewsRequest $request)
     {
         $input = $request->all();
 
-        $philips = new Philips();
-
-        if ($pdf = $request->file('file')) {
-
-            $name = '/download/philips/' . $pdf->getClientOriginalName();
-
-            $pdf->move('download/philips', $name);
-
-            $input['file'] = $name;
-        }
-
         if ($file = $request->file('photo_id')) {
 
-            $name = '/images/download/philips/' . $file->getClientOriginalName();
+            $name = '/images/news/' . $file->getClientOriginalName();
 
-            $file->move('images/download/philips', $name);
+            $file->move('images/news', $name);
 
             $photo = Photo::create(['file'=> $name]);
 
@@ -127,40 +120,31 @@ class PhilipsController extends Controller
 
         }
 
-        $philips->fill($input);
+        News::create($input);
 
-        $philips->save();
-
-        return redirect('admin/download/philips');
+        return redirect('admin/news');
     }
 
     public function edit($id)
     {
-        $philips = Philips::findOrFail($id);
+        $newsCategory = NewsCategory::lists('title', 'id')->all();
 
-        return view('admin.philips.edit', compact('philips'));
+        $news = News::findOrFail($id);
+
+        return view('admin.news.edit', compact('news', 'newsCategory'));
     }
 
-    public function update(PhilipsRequest $request, $id)
+    public function update(NewsRequest $request, $id)
     {
-        $philips = Philips::findOrFail($id);
+        $news = News::findOrFail($id);
 
         $input = $request->all();
 
-        if ($pdf = $request->file('file')) {
-
-            $name = '/download/philips/' . $pdf->getClientOriginalName();
-
-            $pdf->move('download/philips', $name);
-
-            $input['file'] = $name;
-        }
-
         if ($file = $request->file('photo_id')) {
 
-            $name = '/images/download/philips/' . $file->getClientOriginalName();
+            $name = '/images/news/' . $file->getClientOriginalName();
 
-            $file->move('images/download/philips', $name);
+            $file->move('images/news', $name);
 
             $photo = new Photo();
 
@@ -169,17 +153,18 @@ class PhilipsController extends Controller
             $photo->save();
 
             $input['photo_id'] = $photo->id;
+
         }
 
-        $philips->update($input);
+        $news->update($input);
 
-        return redirect('admin/download/philips');
+        return redirect('admin/news');
     }
 
     public function destroy($id)
     {
-        Philips::whereId($id)->delete();
+        News::whereId($id)->delete();
 
-        return redirect('admin/download/philips');
+        return redirect('admin/news');
     }
 }

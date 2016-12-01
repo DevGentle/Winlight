@@ -44,8 +44,8 @@ Route::get('services', 'Web\ServicesController@findServiceAll');
 Route::group(['prefix' => 'admin'], function () {
     Route::resource('contacts', 'Admin\Contact\ContactsController');
     Route::resource('download/philips', 'Admin\download\PhilipsController');
-    Route::resource('news-categories', 'NewsCategoriesController');
-    Route::resource('news', 'NewsController');
+    Route::resource('news-categories', 'Admin\News\NewsCategoriesController');
+    Route::resource('news', 'Admin\News\NewsController');
     Route::resource('product-main-categories', 'Admin\Product\ProductMainCategoriesController');
     Route::resource('product-sub-categories', 'Admin\Product\ProductSubCategoriesController');
     Route::resource('products', 'Admin\Product\ProductsController');
