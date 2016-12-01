@@ -26,8 +26,9 @@
     &__header {
         width: 100%;
         height: auto;
+        background-color: #232425;
         &--title {
-            margin-top: 100px;
+            margin-top: 50px;
             font-size: 40px;
             font-style: italic;
             color: #ff8f05;
@@ -42,12 +43,13 @@
     &__content {
         margin-top: 100px;
         margin-bottom: 100px;
+        color: #ff8f05;
         &--title {
             width: 80%;
             margin-left: auto;
             margin-right: auto;
-            margin-top: 50px;
-            font-size: 22px;
+            margin-top: 10px;
+            font-size: 24px;
             font-style: italic;
         }
         &--description {
@@ -68,15 +70,26 @@
         margin-left: 0;
 
         &--item {
-            width: 200px;
-            height: 200px;
+            width: 150px;
+            height: 150px;
             margin-right: auto;
             margin-left: auto;
             border-radius: 50%;
-            border: 4px solid #23b14c;
+            //border: 4px solid #23b14c;
             img {
                 width: 100%;
             }
+        }
+    }
+    &__contact {
+        margin-top: 50px;
+        color: #fff;
+        button {
+            padding: 6px 20px;
+            border: none;
+            border-radius: 40px;
+            font-size: 18px;
+            background-color: #93BE4F;
         }
     }
 }

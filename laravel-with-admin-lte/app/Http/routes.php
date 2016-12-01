@@ -20,8 +20,6 @@ use Illuminate\Support\Facades\DB;
 */
 
 Route::get('/', function () {
-    $randProducts = Product::all()->random(4);
-
     return view('web.main.index', compact('randProducts'));
 });
 Route::get('/about-us', function () {
