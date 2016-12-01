@@ -29,6 +29,7 @@
                         <div class="reference__content--item">
                             <img src="{{ asset($reference->photo->file) }}">
                         </div>
+                        <div class="reference__content--title">{{ $reference->title }}</div>
                     </div>
                 @endforeach
             </div>

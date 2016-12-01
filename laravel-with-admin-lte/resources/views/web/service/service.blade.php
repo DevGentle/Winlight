@@ -22,30 +22,31 @@
             </div>
         </div>
     </div>
-    <div class="container">
-        <div class="text-center">
-            <div class="service__header--title">
-                Support from start to finish
-            </div>
-            <div class="service__header--sub-title">
-                แก้ไข รวดเร็ว ทันใจ
-            </div>
-            <div class="service__content">
-                <div class="row">
-                    <div class="col-xs-10 col-xs-offset-1">
-                        @foreach($services as $service)
-                            <div class="col-md-4">
-                                <div class="service__circle--item">
-                                    <img src="{{ $service->photo->file }}">
+    <div class="service__header">
+        <div class="container">
+            <div class="text-center">
+                <div class="service__header--title">
+                    บริการจากพวกเรา
+                </div>
+                <div class="service__content">
+                    <div class="row">
+                        <div class="col-xs-10 col-xs-offset-1">
+                            @foreach($services as $service)
+                                <div class="col-md-4">
+                                    <div class="service__circle--item">
+                                        <img src="{{ $service->photo->file }}">
+                                    </div>
+                                    <div class="service__content--title">
+                                        <p>{{ $service->title }}</p>
+                                    </div>
                                 </div>
-                                <div class="service__content--title">
-                                    <p>{{ $service->title }}</p>
-                                </div>
-                                <div class="service__content--description">
-                                    <p>{!! $service->content !!}</p>
-                                </div>
+                            @endforeach
+                        </div>
+                        <a href="{{ url('/contact-us') }}">
+                            <div class="col-xs-12 service__contact text-center">
+                                <button>{{ 'ติดต่อเรา' }}</button>
                             </div>
-                        @endforeach
+                        </a>
                     </div>
                 </div>
             </div>

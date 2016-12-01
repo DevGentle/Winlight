@@ -97,7 +97,7 @@
                     <div class="index-winner__left--download">
                         <div class="index-philips__download-title">{{ "PHILIPS" }}</div>
                         <div class="index-philips__download-subtitle">{{ "catalog" }}</div>
-                        <a href="#"><div class="index-philips__download-button">{{ "DOWNLOAD" }}</div></a>
+                        <a href="{{ url('/product/download/philips') }}"><div class="index-philips__download-button">{{ "DOWNLOAD" }}</div></a>
                     </div>
                 </div>
             </div>
