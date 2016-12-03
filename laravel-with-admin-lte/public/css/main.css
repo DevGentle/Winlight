@@ -285,13 +285,43 @@ div {
   position: relative;
   padding: 60px;
   background-color: #fff; }
+  .index-activity #news-slider button {
+    position: absolute;
+    top: 50%;
+    width: 1.5rem;
+    height: 1.5rem;
+    background: transparent;
+    border-top: .4rem solid black;
+    border-right: .4rem solid black;
+    box-shadow: 0 0 0 black;
+    transition: all 200ms ease;
+    color: #fff; }
+    .index-activity #news-slider button:hover {
+      border-top: .4rem solid green;
+      border-right: .4rem solid green; }
+  .index-activity #news-slider .slick-prev {
+    z-index: 1;
+    transform: translate3d(0, -50%, 0) rotate(-135deg); }
+    .index-activity #news-slider .slick-prev:before {
+      content: none; }
+  .index-activity #news-slider .slick-next {
+    z-index: 1;
+    transform: translate3d(0, -50%, 0) rotate(45deg); }
+    .index-activity #news-slider .slick-next:before {
+      content: none; }
+  .index-activity #news-slider .slick-prev:before, .index-activity #news-slider .slick-next:before {
+    color: #000; }
   .index-activity__border {
     position: relative;
     width: 266px;
     margin: 30px auto; }
-    .index-activity__border p {
-      margin-top: 20px;
-      font-size: 17px; }
+    .index-activity__border img {
+      border-radius: 5px; }
+  .index-activity__created {
+    font-style: italic; }
+  .index-activity__title {
+    font-size: 17px;
+    font-weight: bold; }
 
 .index-winner {
   position: relative;

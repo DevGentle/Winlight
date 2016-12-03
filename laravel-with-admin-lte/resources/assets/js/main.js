@@ -6,6 +6,15 @@ $(document).ready(function(){
     });
 });
 
+$(document).ready(function(){
+    $('#news-slider').slick({
+        autoplay: false,
+        infinite: true,
+        arrows: true,
+        slidesToShow: 4
+    });
+});
+
 var vid = document.getElementById("bgvid");
 var pauseButton = document.querySelector("#polina button");
 

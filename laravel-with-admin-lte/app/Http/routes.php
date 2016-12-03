@@ -7,7 +7,7 @@ use App\Country;
 use App\Post;
 use App\Photo;
 use Carbon\Carbon;
-use App\Model\Product\Product;
+use App\Model\Paper\News;
 use App\Model\Product\ProductMainCategory;
 use App\Model\Product\ProductSubCategory;
 use App\Http\Controllers\Admin\Slideshow\SlideshowsController;
@@ -20,7 +20,9 @@ use Illuminate\Support\Facades\DB;
 */
 
 Route::get('/', function () {
-    return view('web.main.index', compact('randProducts'));
+    $news = News::all();
+
+    return view('web.main.index', compact('news'));
 });
 Route::get('/about-us', function () {
     return view('web.about.story');
