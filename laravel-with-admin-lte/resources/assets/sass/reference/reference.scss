@@ -26,12 +26,33 @@
     &__content {
         margin-bottom: 30px;
         &--item {
-            background-color: transparent;
+            position: relative;
+            display: inline-block;
             img {
                 margin-top: 30px;
-                &:hover {
-                    background-color: #0000AA;
+            }
+            .overlay {
+                position:absolute;
+                margin: auto;
+                top: 30px;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background-color: rgba(0, 0, 255, 0.6);
+                z-index: 9999;
+                color: white;
+                visibility: hidden;
+                img {
+                    position: absolute;
+                    margin: auto;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
                 }
+            }
+            &:hover > .overlay {
+                visibility: visible;
             }
         }
         &--title {
