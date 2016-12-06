@@ -28,6 +28,9 @@
                     <div class="col-md-4 col-sm-6">
                         <div class="reference__content--item">
                             <img src="{{ asset($reference->photo->file) }}">
+                            <div class="overlay">
+                                <img src="{{ asset('img/resource/plus.png') }}">
+                            </div>
                         </div>
                         <div class="reference__content--title">{{ $reference->title }}</div>
                     </div>

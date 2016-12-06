@@ -36,31 +36,16 @@
         <div class="container">
             <h1>{{ "Activity Update" }}</h1>
             <div class="row text-left">
-                <div class="col-md-12">
-                    <div class="col-lg-3 col-sm-6 col-xs-12">
-                        <div class="index-activity__border">
-                            <img src="{{ asset('img/resource/activity/activity_01.jpg') }}" alt="">
-                            <p>{{ "ติดตั้งแผงโซลาเซลล์สำหรับชาร์จแบตมือถือบริเวณท้องสนามหลวง" }}</p>
+                <div id="news-slider" class="col-md-12">
+                    @foreach($news as $new)
+                        <div class="col-lg-3 col-sm-6 col-xs-12">
+                            <div class="index-activity__border">
+                                <img src="{{ asset($new->photo->file) }}" alt="">
+                            </div>
+                            <div class="index-activity__created">{{ date('F d, Y', strtotime($new->created_at)) }}</div>
+                            <div class="index-activity__title">{{ $new->title }}</div>
                         </div>
-                    </div>
-                    <div class="col-lg-3 col-sm-6 col-xs-12">
-                        <div class="index-activity__border">
-                            <img src="{{ asset('img/resource/activity/activity_02.jpg') }}" alt="">
-                            <p>{{ "เปลี่ยนหลอดไฟ LED สำนักงาน กปร. และมูลนิธิชัยพัฒนา กรุงเทพ" }}</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-sm-6 col-xs-12">
-                        <div class="index-activity__border">
-                            <img src="{{ asset('img/resource/activity/activity_03.jpg') }}" alt="">
-                            <p>{{ "เปลี่ยนหลอดไฟ LED ศูนย์ศึกษาการพัฒนาฯ พิกุลทอง จ.นราธิวาศ" }}</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-sm-6 col-xs-12">
-                        <div class="index-activity__border">
-                            <img src="{{ asset('img/resource/activity/activity_04.jpg') }}" alt="">
-                            <p>{{ "เปลี่ยนหลอดไฟ LED ศูนย์อำนวยการและประสานงานการพัฒนาฯ ปากพนัง จ.นครศรีธรรมราช" }}</p>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>

@@ -285,13 +285,43 @@ div {
   position: relative;
   padding: 60px;
   background-color: #fff; }
+  .index-activity #news-slider button {
+    position: absolute;
+    top: 50%;
+    width: 1.5rem;
+    height: 1.5rem;
+    background: transparent;
+    border-top: .4rem solid black;
+    border-right: .4rem solid black;
+    box-shadow: 0 0 0 black;
+    transition: all 200ms ease;
+    color: #fff; }
+    .index-activity #news-slider button:hover {
+      border-top: .4rem solid green;
+      border-right: .4rem solid green; }
+  .index-activity #news-slider .slick-prev {
+    z-index: 1;
+    transform: translate3d(0, -50%, 0) rotate(-135deg); }
+    .index-activity #news-slider .slick-prev:before {
+      content: none; }
+  .index-activity #news-slider .slick-next {
+    z-index: 1;
+    transform: translate3d(0, -50%, 0) rotate(45deg); }
+    .index-activity #news-slider .slick-next:before {
+      content: none; }
+  .index-activity #news-slider .slick-prev:before, .index-activity #news-slider .slick-next:before {
+    color: #000; }
   .index-activity__border {
     position: relative;
     width: 266px;
     margin: 30px auto; }
-    .index-activity__border p {
-      margin-top: 20px;
-      font-size: 17px; }
+    .index-activity__border img {
+      border-radius: 5px; }
+  .index-activity__created {
+    font-style: italic; }
+  .index-activity__title {
+    font-size: 17px;
+    font-weight: bold; }
 
 .index-winner {
   position: relative;
@@ -703,11 +733,30 @@ div {
   .reference__content {
     margin-bottom: 30px; }
     .reference__content--item {
-      background-color: transparent; }
+      position: relative;
+      display: inline-block; }
       .reference__content--item img {
         margin-top: 30px; }
-        .reference__content--item img:hover {
-          background-color: #0000AA; }
+      .reference__content--item .overlay {
+        position: absolute;
+        margin: auto;
+        top: 30px;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 255, 0.6);
+        z-index: 9999;
+        color: white;
+        visibility: hidden; }
+        .reference__content--item .overlay img {
+          position: absolute;
+          margin: auto;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0; }
+      .reference__content--item:hover > .overlay {
+        visibility: visible; }
     .reference__content--title {
       font-size: 18px; }
 
