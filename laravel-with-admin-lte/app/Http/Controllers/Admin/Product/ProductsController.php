@@ -134,6 +134,15 @@ class ProductsController extends Controller
         
         $subCats = ProductSubCategory::find($request->get('category_sub_id'));
 
+        if ($pdf = $request->file('file')) {
+
+            $name = '/download/products/' . $pdf->getClientOriginalName();
+
+            $pdf->move('download/products', $name);
+
+            $input['file'] = $name;
+        }
+
         if ($file = $request->file('photo_id')) {
 
             $name = '/images/product/' . $file->getClientOriginalName();
@@ -175,6 +184,15 @@ class ProductsController extends Controller
         $products = Product::findOrFail($id);
 
         $input = $request->all();
+
+        if ($pdf = $request->file('file')) {
+
+            $name = '/download/products/' . $pdf->getClientOriginalName();
+
+            $pdf->move('download/products', $name);
+
+            $input['file'] = $name;
+        }
 
         if ($file = $request->file('photo_id')) {
 

@@ -20,7 +20,7 @@ use Illuminate\Support\Facades\DB;
 */
 
 Route::get('/', function () {
-    $news = News::all();
+    $news = News::all()->sortByDesc('created_at');
 
     return view('web.main.index', compact('news'));
 });
@@ -28,13 +28,13 @@ Route::get('/about-us', function () {
     return view('web.about.story');
 });
 Route::get('contact-us', 'Web\ContactsController@findContactAll');
+Route::get('events', 'Web\EventsController@findEventAll');
 Route::get('products', 'Web\ProductsController@index');
 Route::get('product/download/philips', 'Web\ProductsController@philipsDownload');
 Route::get('product-category/{categoryId}', 'Web\ProductsController@productsByMainCat')->name('web.product.category');
 Route::get('product-sub-category/{subCategoryId}', 'Web\ProductsController@productBySubCat')->name('web.product.subCategory');
 Route::get('products/{Id}', 'Web\ProductsController@findProduct')->name('web.product.item');
 Route::get('references', 'Web\ReferencesController@findReferenceAll');
-Route::get('product', 'Web\ProductsController@findProductCategoriesAll');
 Route::get('services', 'Web\ServicesController@findServiceAll');
 
 /*

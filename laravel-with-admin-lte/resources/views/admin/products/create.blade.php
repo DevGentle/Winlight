@@ -33,6 +33,10 @@
                     {{ Form::text('title', null, ['class' => 'form-control', 'placeholder' => 'Enter product title']) }}
                 </div>
                 <div>
+                    {{ Form::label('file', 'PDF') }}
+                    {{ Form::file('file', null, ['class' => 'form-control']) }}
+                </div>
+                <div>
                     {{ Form::label('photo_id', 'Image') }}
                     {{ Form::file('photo_id', null, ['class' => 'form-control']) }}
                 </div>

@@ -64,11 +64,17 @@
                 </div>
                 <div class="col-md-6 p-r-l-0 hidden-xs hidden-sm">
                     <div class="index-winner__right">
-                        <div class="index-winner__right--image1">
+                        <div class="index-winner__right--image">
                             <img src="{{ asset('img/resource/winnerCat/winlight_catalog_cover_01.jpg') }}" alt="">
+                            <div class="overlay">
+                                <img src="{{ asset('img/resource/plus.png') }}">
+                            </div>
                         </div>
-                        <div class="index-winner__right--image2">
+                        <div class="index-winner__right--image">
                             <img src="{{ asset('img/resource/winnerCat/winlight_catalog_cover_02.jpg') }}" alt="">
+                            <div class="overlay">
+                                <img src="{{ asset('img/resource/plus.png') }}">
+                            </div>
                         </div>
                     </div>
                 </div>

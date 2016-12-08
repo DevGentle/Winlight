@@ -117,7 +117,7 @@
         height: 475px;
         float: left;
         padding: 10px;
-        &--image1 {
+        &--image {
             position: relative;
             width: 40%;
             float: left;
@@ -126,15 +126,31 @@
                 width: 100%;
                 max-height: 475px;
             }
-        }
-        &--image2 {
-            position: relative;
-            width: 40%;
-            float: left;
-            img {
-                width: 100%;
-                max-height: 475px;
+            .overlay {
+                position:absolute;
+                margin: auto;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background-color: rgba(150, 192, 0, 0.6);
+                z-index: 9999;
+                color: white;
+                visibility: hidden;
+                img {
+                    position: absolute;
+                    margin: auto;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    width: 50px;
+                }
             }
+            &:hover > .overlay {
+                visibility: visible;
+            }
+
         }
     }
 }

@@ -267,6 +267,42 @@ div {
         .footer .navbar-footer__menu-box li a:hover {
           color: #23b14c; }
 
+.activity__row {
+  padding-top: 20px; }
+  .activity__row:last-child {
+    padding-bottom: 20px; }
+  .activity__row img {
+    border-radius: 3px; }
+
+.activity__header {
+  margin-top: 30px;
+  font-size: 30px;
+  font-weight: bold; }
+
+.activity__title {
+  margin-top: 10px;
+  font-size: 22px;
+  font-weight: bold; }
+
+.activity__date {
+  font-style: italic;
+  color: #999; }
+
+.activity__description {
+  margin-top: 10px;
+  font-size: 16px; }
+
+.activity .big {
+  margin-top: 0;
+  margin-bottom: 0;
+  border: 0;
+  border-top: 4px solid green; }
+
+.activity .small {
+  width: 90%;
+  margin-top: 20px;
+  margin-bottom: 0; }
+
 .index-service {
   position: relative;
   margin-top: -6px;
@@ -363,21 +399,35 @@ div {
     height: 475px;
     float: left;
     padding: 10px; }
-    .index-winner__right--image1 {
+    .index-winner__right--image {
       position: relative;
       width: 40%;
       float: left;
       margin-right: 10px; }
-      .index-winner__right--image1 img {
+      .index-winner__right--image img {
         width: 100%;
         max-height: 475px; }
-    .index-winner__right--image2 {
-      position: relative;
-      width: 40%;
-      float: left; }
-      .index-winner__right--image2 img {
-        width: 100%;
-        max-height: 475px; }
+      .index-winner__right--image .overlay {
+        position: absolute;
+        margin: auto;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(150, 192, 0, 0.6);
+        z-index: 9999;
+        color: white;
+        visibility: hidden; }
+        .index-winner__right--image .overlay img {
+          position: absolute;
+          margin: auto;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          width: 50px; }
+      .index-winner__right--image:hover > .overlay {
+        visibility: visible; }
 
 .index-philips {
   position: relative;
