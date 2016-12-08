@@ -7,6 +7,10 @@
         @yield('metadata')
             <meta charset="UTF-8">
 
+        @yield('seo_metadata')
+            <meta name="description" content="ผลิตภัณฑ์เกี่ยวกับโคมไฟและหลอดไฟ">
+            <meta name="keywords" content="วินเนอร์,วินไลท์,วินเนอร์ไลท์,โคมไฟ,โคมไฟแอลอีดี,หลอดไฟ,เสาไฟ,หลอดแอลอีดี,โคมไฟถนน,โคมถนนแอลอีดี,โคมไฮเบย์,โคมไฟโซล่าเซล,โคมกันน้ำกันฝุ่น,โคมดาวน์ไลท์,Winner,Winlight,Winner Light,Luminaire/Fixture,Led,Lamp,Pole,Led Lamp,Street Light,Street Light Led,High Bay,Solarcell,Water Proof,Downlight">
+
         @yield('stylesheet')
             <link rel="stylesheet" href="{{ asset('/css/bootstrap.css') }}">
             <link rel="stylesheet" href="{{ asset('/css/main.css') }}">
