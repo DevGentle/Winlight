@@ -14,4 +14,11 @@ class EventsController extends Controller
 
         return view('web.event.activity', compact('events'));
     }
+
+    public function findEvent($eventId)
+    {
+        $event = News::findOrFail($eventId);
+
+        return view('web.event.activity_show', compact('event'));
+    }
 }

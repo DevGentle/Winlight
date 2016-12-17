@@ -13,6 +13,11 @@
     font-weight: 100;
     src: url('../fonts/Kanit/Kanit-SemiBold.ttf') format('truetype');
 }
+@font-face {
+    font-family: 'Kanit';
+    font-weight: 200;
+    src: url('../fonts/Kanit/Kanit-Medium.ttf') format('truetype');
+}
 
 div {
     font-family: 'Kanit', sans-serif;

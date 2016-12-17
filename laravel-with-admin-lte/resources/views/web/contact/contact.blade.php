@@ -5,9 +5,6 @@
 @endsection
 
 @section('content')
-    <div class="row product-index p-r-l-0">
-        <div class="container product-index__header"></div>
-    </div>
     <div class="contact-bg">
         <div class="container">
             <div class="contact-index">

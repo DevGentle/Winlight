@@ -12,7 +12,7 @@
                     <img src="{{ asset('img/resource/product_icon.png') }}" alt="">
                 </div>
             </div>
-            <div class="col-xs-6">
+            <div class="col-xs-11">
                 <div class="product-index__header--title">ผลิตภัณฑ์</div>
                 <div class="product-index__header--sub-title">ด้านแสงสว่าง</div>
             </div>
@@ -35,12 +35,20 @@
                             @endif
                             <li class="active">{{ $product->title }}</li>
                         </ol>
-                        <div class="col-md-12 product-item__category--image">
-                            <img src="{{ asset($product->photo->file) }}" width="100%">
-                        </div>
-                        <div class="col-md-10 product-item__category--description">
-                            {!! $product->description !!}
-                        </div>
+                        @if($product->productMainCategories->title == 'Interior Lighting')
+                            @if($product->file)
+                                <embed src="{{ asset($product->file) }}" width="100%" height="1150px%" />
+                            @else
+                                {{ 'No results' }}
+                            @endif
+                        @else
+                            <div class="col-md-12 product-item__category--image">
+                                <img src="{{ asset($product->photo->file) }}" width="100%">
+                            </div>
+                            <div class="col-md-10 product-item__category--description">
+                                {!! $product->description !!}
+                            </div>
+                        @endif
                     </div>
                 </div>
             </div>

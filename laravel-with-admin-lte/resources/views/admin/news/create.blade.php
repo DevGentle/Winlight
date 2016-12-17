@@ -10,6 +10,7 @@
 
 @section('main-content')
     @include('admin.validation.error')
+    @include('tinymce.textarea')
 
     <div class="box-body">
         {!! Form::open(['method' => 'POST', 'action' => 'Admin\News\NewsController@store', 'files'=>true]) !!}

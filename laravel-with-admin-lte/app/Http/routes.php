@@ -29,8 +29,10 @@ Route::get('/about-us', function () {
 });
 Route::get('contact-us', 'Web\ContactsController@findContactAll');
 Route::get('events', 'Web\EventsController@findEventAll');
+Route::get('event/{eventId}', 'Web\EventsController@findEvent')->name('web.event.show');
 Route::get('products', 'Web\ProductsController@index');
 Route::get('product/download/philips', 'Web\ProductsController@philipsDownload');
+Route::get('product/download/winner-products', 'Web\ProductsController@winnerProductsDownload');
 Route::get('product-category/{categoryId}', 'Web\ProductsController@productsByMainCat')->name('web.product.category');
 Route::get('product-sub-category/{subCategoryId}', 'Web\ProductsController@productBySubCat')->name('web.product.subCategory');
 Route::get('products/{Id}', 'Web\ProductsController@findProduct')->name('web.product.item');
@@ -46,6 +48,7 @@ Route::get('services', 'Web\ServicesController@findServiceAll');
 Route::group(['prefix' => 'admin'], function () {
     Route::resource('contacts', 'Admin\Contact\ContactsController');
     Route::resource('download/philips', 'Admin\download\PhilipsController');
+    Route::resource('download/winner-products', 'Admin\download\WinnerProductsController');
     Route::resource('news-categories', 'Admin\News\NewsCategoriesController');
     Route::resource('news', 'Admin\News\NewsController');
     Route::resource('product-main-categories', 'Admin\Product\ProductMainCategoriesController');
