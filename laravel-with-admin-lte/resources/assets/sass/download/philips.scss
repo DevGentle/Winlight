@@ -95,8 +95,13 @@
             margin-left: 34px;
             &--philips {
                 font-size: 34px;
-                font-weight: 100;
+                font-weight: 200;
                 color: #1464d4;
+            }
+            &--winner {
+                font-size: 34px;
+                font-weight: 200;
+                color: #2eb642;
             }
         }
         &--item {

@@ -12,7 +12,7 @@
                     <img src="{{ asset('img/resource/reference_icon.png') }}">
                 </div>
             </div>
-            <div class="col-xs-6">
+            <div class="col-xs-11">
                 <div class="service__first-header--title">ด้านบริการ</div>
                 <div class="service__first-header--sub-title">ให้คำปรึกษา และอื่นๆ</div>
                 <div class="service__first-header--description">

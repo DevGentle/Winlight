@@ -12,7 +12,7 @@
                     <img src="{{ asset('img/resource/reference_icon.png') }}">
                 </div>
             </div>
-            <div class="col-xs-6">
+            <div class="col-xs-11">
                 <div class="reference__header--title">ตัวอย่างผลงาน</div>
                 <div class="reference__header--sub-title">โครงการ</div>
                 <div class="reference__header--description">

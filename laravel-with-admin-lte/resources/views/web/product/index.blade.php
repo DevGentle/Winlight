@@ -12,7 +12,7 @@
                     <img src="{{ asset('img/resource/product_icon.png') }}" alt="">
                 </div>
             </div>
-            <div class="col-xs-6">
+            <div class="col-xs-11">
                 <div class="product-index__header--title">ผลิตภัณฑ์</div>
                 <div class="product-index__header--sub-title">ด้านแสงสว่าง</div>
             </div>

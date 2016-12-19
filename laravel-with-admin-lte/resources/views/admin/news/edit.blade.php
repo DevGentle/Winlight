@@ -10,6 +10,7 @@
 
 @section('main-content')
     @include('admin.validation.error')
+    @include('tinymce.textarea')
 
     <div class="box-body">
         {!! Form::model($news, ['method' => 'PATCH', 'action' => ['Admin\News\NewsController@update', $news->id], 'files' => true]) !!}

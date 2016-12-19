@@ -19,6 +19,9 @@
     position: relative;
     padding: 60px;
     background-color: #fff;
+    h1 {
+        font-weight: bold;
+    }
     #news-slider {
         button {
             position: absolute;
@@ -53,19 +56,36 @@
         .slick-prev:before, .slick-next:before {
             color: #000;
         }
+        .slick-slide {
+            min-height: 340px;
+        }
+    }
+    &__box {
+        margin-top: 10px;
+        margin-left: 5px;
+        margin-right: 5px;
+        background-color: #ededed;
+        &:first-child {
+            margin-left: 0;
+        }
+        &:last-child {
+            margin-right: 0;
+        }
     }
     &__border {
         position: relative;
-        width: 266px;
-        margin: 30px auto;
+        height: 180px;
+        margin: 20px auto;
         img {
             border-radius: 5px;
         }
     }
     &__created {
+        color: #999;
         font-style: italic;
     }
     &__title {
+        color: #000;
         font-size: 17px;
         font-weight: bold;
     }
@@ -124,7 +144,7 @@
             margin-right: 10px;
             img {
                 width: 100%;
-                max-height: 475px;
+                max-height: 456px;
             }
             .overlay {
                 position:absolute;
@@ -191,21 +211,19 @@
 }
 .index-reference {
     padding: 60px 0;
-    background-image: url("/img/resource/reference/project_ref_header_01.jpg");
     &__header {
         &--title {
             font-size: 40px;
             font-weight: bold;
-            color: #1F6391;
         }
         &--subtitle {
-            font-size: 20px;
-            font-weight: bold;
-            color: #fff;
+            font-size: 18px;
         }
     }
     &__content {
+        margin-top: 10px;
         &--border {
+            background-color: #ededed;
             &-img {
                 width: 150px;
                 height: 150px;
@@ -215,6 +233,19 @@
                 }
             }
         }
+    }
+    &__logo {
+        &:first-child {
+            margin-top: 10px;
+            margin-bottom: 30px;
+        }
+        img {
+            margin: 0 20px;
+        }
+    }
+    hr {
+        width: 33%;
+        border-top: 2px solid #eeeeee;
     }
 }
 .index-contact {

@@ -5,7 +5,13 @@
 <div class="product-content__menu">
     <div class="product-content__menu--square"></div>
     <div class="product-content__menu--title">
-        <a href="{{ url('product/download/philips') }}">{{ 'PHILIPS' }}</a>
+        <a href="{{ url('product/download/philips') }}">{{ 'PHILIPS Download' }}</a>
+    </div>
+</div>
+<div class="product-content__menu">
+    <div class="product-content__menu--square"></div>
+    <div class="product-content__menu--title">
+        <a href="{{ url('product/download/winner-products') }}">{{ 'Catalog Download' }}</a>
     </div>
 </div>
 <hr>

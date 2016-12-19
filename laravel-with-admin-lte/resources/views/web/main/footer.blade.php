@@ -2,7 +2,9 @@
     <div class="container">
         <div class="row">
             <div class="col-xs-3 text-xs-center">
-                <p class="setcol-left"><img src="{{ asset('img/resource/logo_medium.png') }}"></p>
+                <a href="{{ url('/') }}">
+                    <p class="setcol-left"><img src="{{ asset('img/resource/logo_medium.png') }}"></p>
+                </a>
             </div>
             <div class="col-xs-9 text-xs-center">
                 <div class="setcol-right">
