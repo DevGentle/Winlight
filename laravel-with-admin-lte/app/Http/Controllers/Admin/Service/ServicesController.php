@@ -108,7 +108,7 @@ class ServicesController extends Controller
 
     public function create()
     {
-        $serviceCategory = ServiceCategory::lists('title', 'id')->all();
+        $serviceCategory = ServiceCategory::pluck('title', 'id')->all();
 
         return view('admin.service.create', compact('serviceCategory'));
     }
@@ -144,7 +144,7 @@ class ServicesController extends Controller
     public function edit($id)
     {
         $services = Service::findOrFail($id);
-        $serviceCategory = ServiceCategory::lists('title', 'id')->all();
+        $serviceCategory = ServiceCategory::pluck('title', 'id')->all();
 
         return view('admin.service.edit', compact('services', 'serviceCategory'));
     }

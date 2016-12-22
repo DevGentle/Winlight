@@ -24,13 +24,10 @@ class ContactRequest extends Request
     public function rules()
     {
         return [
-
-            'title' => 'required',
-            'address' => 'required',
-            'email' => 'required',
-            'phone_number' => 'required',
-            'fax_number' => 'required',
-            'link' => 'required'
+            'email' => 'required|email',
+            'subject' => 'required|min:10',
+            'description' => 'required|min:30',
+            'phone_number' => 'required|min:8'
 
         ];
     }

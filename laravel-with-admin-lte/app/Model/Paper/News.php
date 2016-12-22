@@ -19,4 +19,9 @@ class News extends Model
     {
         return $this->belongsTo('App\Model\Photo\Photo');
     }
+
+    public function photos()
+    {
+        return $this->hasMany('App\Model\Photo\Photo');
+    }
 }

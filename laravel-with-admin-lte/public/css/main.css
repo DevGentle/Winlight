@@ -21,8 +21,11 @@
 div {
   font-family: 'Kanit', sans-serif; }
 
-.story__header img {
-  width: 100%; }
+.story__header {
+  padding-left: 0;
+  padding-right: 0; }
+  .story__header img {
+    width: 100%; }
 
 .story__title {
   margin-top: 30px;
@@ -274,9 +277,11 @@ div {
 
 .activity {
   padding-top: 20px;
+  padding-bottom: 20px;
   background-color: #fff; }
   .activity__row {
-    padding-top: 20px; }
+    padding-top: 20px;
+    padding-bottom: 20px; }
     .activity__row--image img {
       width: 100%;
       border-radius: 3px; }
@@ -304,7 +309,7 @@ div {
     border-top: 4px solid green; }
   .activity .small {
     width: 90%;
-    margin-top: 20px;
+    margin-top: 0;
     margin-bottom: 0; }
   .activity a {
     color: #000000; }

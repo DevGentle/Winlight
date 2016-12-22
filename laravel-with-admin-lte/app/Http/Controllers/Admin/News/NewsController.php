@@ -6,6 +6,7 @@ use App\Http\Requests\NewsRequest;
 use App\Model\Paper\News;
 use App\Model\Paper\NewsCategory;
 use App\Model\Photo\Photo;
+use Illuminate\Support\Facades\Session;
 use Nayjest\Grids\EloquentDataProvider;
 use Nayjest\Grids\FieldConfig;
 use Nayjest\Grids\FilterConfig;
@@ -99,7 +100,7 @@ class NewsController extends Controller
 
     public function create()
     {
-        $newsCategory = NewsCategory::lists('title', 'id')->all();
+        $newsCategory = NewsCategory::pluck('title', 'id')->all();
 
         return view('admin.news.create', compact('newsCategory'));
     }
@@ -122,12 +123,14 @@ class NewsController extends Controller
 
         News::create($input);
 
+        Session::flash('success', 'Yes !');
+
         return redirect('admin/news');
     }
 
     public function edit($id)
     {
-        $newsCategory = NewsCategory::lists('title', 'id')->all();
+        $newsCategory = NewsCategory::pluck('title', 'id')->all();
 
         $news = News::findOrFail($id);
 

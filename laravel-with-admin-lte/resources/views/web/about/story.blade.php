@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-    <div class="row">
+    <div class="row m-l-r-0">
         <div class="col-md-12 story__header">
             <img src="{{ asset('/img/resource/aboutus_header.jpg') }}">
         </div>
