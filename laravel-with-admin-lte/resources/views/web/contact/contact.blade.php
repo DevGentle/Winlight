@@ -5,6 +5,14 @@
 @endsection
 
 @section('content')
+    <style>
+        .form-margin {
+            margin-bottom: 10px;
+        }
+        .button-margin-right {
+            margin-right: 10px;
+        }
+    </style>
     <div class="contact-bg">
         <div class="container">
             <div class="contact-index">
@@ -17,27 +25,41 @@
                     </div>
                 </div>
                 <div class="row">
+                    @include('admin.validation.error')
+                    @if(Session::has('success'))
+                        <div class="alert alert-success" role="alert">
+                            <span class="glyphicon glyphicon-ok">&nbsp;</span>
+                            <strong>Success!</strong> {!! session('success') !!}
+                        </div>
+                    @endif
                     <div class="col-xs-4 contact-index__content-form">
-                        <form>
-                            <div class="form-group">
-                                <label>ชื่อผู้มาติดต่อ</label>
-                                <input type="text" class="form-control" id="exampleInputEmail1" placeholder="ชื่อผู้มาติดต่อ">
+                        {!! Form::open(['method' => 'POST', 'action' => 'Web\ContactsController@postContact']) !!}
+                        {{ Form::token() }}
+
+                        <div class="col-xs-12">
+                            <div class="form-margin">
+                                {{ Form::label('email', 'อีเมลล์') }}
+                                {{ Form::text('email', null, ['class' => 'form-control', 'placeholder' => '']) }}
                             </div>
-                            <div class="form-group">
-                                <label>อีเมลล์</label>
-                                <input type="email" class="form-control" id="exampleInputPassword1" placeholder="อีเมลล์">
+                            <div class="form-margin">
+                                {{ Form::label('subject', 'เรื่องที่ต้องการติดต่อ') }}
+                                {{ Form::text('subject', null, ['class' => 'form-control', 'placeholder' => '']) }}
                             </div>
-                            <div class="form-group">
-                                <label>เบอร์โทรศัพท์</label>
-                                <input type="tel" class="form-control" id="exampleInputPassword1" placeholder="เบอร์โทรศัพท์">
+                            <div class="form-margin">
+                                {{ Form::label('phone_number', 'เบอร์โทรศัพท์') }}
+                                {{ Form::tel('phone_number', null, ['class' => 'form-control', 'placeholder' => '']) }}
                             </div>
-                            <div class="form-group">
-                                <label>ข้อความ</label>
-                                <textarea class="form-control" rows="11"></textarea>
+                            <div class="form-margin">
+                                {{ Form::label('description', 'ข้อความ') }}
+                                {{ Form::textarea('description', null, ['class' => 'form-control', 'placeholder' => '']) }}
                             </div>
-                            <button type="submit" class="btn btn-success">ยืนยัน</button>
-                            <button type="reset" class="btn btn-default">ยกเลิก</button>
-                        </form>
+                        </div>
+
+                        <div class="col-xs-10 margin">
+                            {{ Form::submit('Save', ['class'=>'btn btn-success button-margin-right']) }}
+                            {{ Form::reset('Cancel', ['class'=>'btn btn-default']) }}
+                        </div>
+                        {!! Form::close() !!}
                     </div>
                     <div class="col-xs-8 contact-index__content-map">
                         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3877.0626258499688!2d100.40444921536134!3d13.653954390410824!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30e2bd1ca89dcdeb%3A0xb27a3a25108a1515!2sWinnerlight+Corporation!5e0!3m2!1sen!2sth!4v1480522983702" width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>

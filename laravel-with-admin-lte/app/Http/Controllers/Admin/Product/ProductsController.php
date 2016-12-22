@@ -120,8 +120,8 @@ class ProductsController extends Controller
 
     public function create()
     {
-        $mainCat = ProductMainCategory::lists('title', 'id')->all();
-        $subCat = ProductSubCategory::lists('title', 'id')->all();
+        $mainCat = ProductMainCategory::pluck('title', 'id')->all();
+        $subCat = ProductSubCategory::pluck('title', 'id')->all();
 
         return view('admin.products.create', compact('mainCat', 'subCat'));
     }
@@ -173,8 +173,8 @@ class ProductsController extends Controller
     public function edit($id)
     {
         $products = Product::findOrFail($id);
-        $mainCat = ProductMainCategory::lists('title', 'id')->all();
-        $subCat = ProductSubCategory::lists('title', 'id')->all();
+        $mainCat = ProductMainCategory::pluck('title', 'id')->all();
+        $subCat = ProductSubCategory::pluck('title', 'id')->all();
 
         return view('admin.products.edit', compact('products', 'mainCat', 'subCat'));
     }
