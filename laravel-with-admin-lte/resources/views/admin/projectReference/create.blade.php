@@ -21,8 +21,12 @@
                     {{ Form::text('title', null, ['class' => 'form-control', 'placeholder' => 'Enter your title']) }}
                 </div>
                 <div class="margin">
-                    {{ Form::label('photo_id', 'Image') }}
-                    {{ Form::file('photo_id', null, ['class' => 'form-control']) }}
+                    {{ Form::label('cover', 'Cover Image') }}
+                    {{ Form::file('cover', null, ['class' => 'form-control']) }}
+                </div>
+                <div class="margin">
+                    {{ Form::label('file', 'Content Image') }}
+                    {{ Form::file('file[]', array('multiple'=>true), ['class' => 'form-control']) }}
                 </div>
                 <div class="margin">
                     {{ Form::label('content', 'Content') }}

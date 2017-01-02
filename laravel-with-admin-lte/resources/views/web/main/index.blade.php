@@ -41,7 +41,7 @@
                         <div class="col-lg-3 col-sm-6 col-xs-12 index-activity__box">
                             <a href="{{ route('web.event.show', ['eventId' => $new->id])  }}">
                                 <div class="index-activity__border">
-                                    <img src="{{ asset($new->photo->file) }}" width="100%" height="180px">
+                                    <img src="{{ asset($new->cover) }}" width="100%" height="180px">
                                 </div>
                                 <div class="index-activity__created">{{ date('F d, Y', strtotime($new->created_at)) }}</div>
                                 <div class="index-activity__title">{{ $new->title }}</div>

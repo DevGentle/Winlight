@@ -339,6 +339,8 @@ div {
     padding-left: 10px;
     margin-top: 15px;
     font-size: 16px; }
+  .activity-show .fotorama__stage__frame {
+    background-color: #dcdcdc; }
 
 .index-service {
   position: relative;

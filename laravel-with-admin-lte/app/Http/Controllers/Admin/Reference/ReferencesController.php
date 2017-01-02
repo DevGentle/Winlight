@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin\Reference;
 
 use App\Http\Requests\ReferenceRequest;
 use App\Model\Photo\Photo;
+use App\Model\Photo\PhotoReference;
 use App\Model\Reference\Reference;
 use Illuminate\Support\Facades\Input;
 use Nayjest\Grids\EloquentDataProvider;
@@ -98,19 +99,36 @@ class ReferencesController extends Controller
     {
         $input = $request->all();
 
-        if ($file = $request->file('photo_id')) {
+        $reference = new Reference();
 
-            $name = '/images/reference/' . $file->getClientOriginalName();
+        if ($image = $request->file('cover')) {
 
-            $file->move('images/reference', $name);
+            $name = '/images/reference/' . $image->getClientOriginalName();
 
-            $photo = Photo::create(['file'=> $name]);
+            $image->move('images/reference', $name);
 
-            $input['photo_id'] = $photo->id;
-
+            $input['cover'] = $name;
         }
 
-        Reference::create($input);
+        $reference->fill($input);
+
+        $reference->save();
+
+        if ($files = $request->file('file')) {
+
+            $photos = [];
+
+            foreach ($files as $file) {
+                $name = '/images/reference/' . $file->getClientOriginalName();
+
+                $file->move('images/reference', $name);
+
+                $photo = PhotoReference::create(['file' => $name]);
+
+                $photos[] = $photo;
+            }
+            $reference->photos()->saveMany($photos);
+        }
 
         return redirect('admin/references');
     }
@@ -134,6 +152,15 @@ class ReferencesController extends Controller
         $references = Reference::findOrFail($id);
 
         $input = $request->all();
+
+        if ($image = $request->file('cover')) {
+
+            $name = '/images/reference/' . $image->getClientOriginalName();
+
+            $image->move('images/reference', $name);
+
+            $input['cover'] = $name;
+        }
 
         if ($file = $request->file('photo_id')) {
 

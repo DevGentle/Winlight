@@ -1,9 +1,10 @@
 <?php
 
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateReferencesTable extends Migration
+class CreatePhotoNewsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,13 +13,12 @@ class CreateReferencesTable extends Migration
      */
     public function up()
     {
-        Schema::create('references', function (Blueprint $table) {
+        Schema::create('photo_news', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('title');
-            $table->text('content')->nullable();
-            $table->string('cover')->nullable();
-            $table->string('link')->nullable();
             $table->timestamps();
+            $table->integer('news_id')->unsigned()->nullable();
+            $table->foreign('news_id')->references('id')->on('news');
+            $table->string('file')->nullable();
         });
     }
 
@@ -29,6 +29,6 @@ class CreateReferencesTable extends Migration
      */
     public function down()
     {
-        Schema::drop('references');
+        Schema::dropIfExists('photo_news');
     }
 }

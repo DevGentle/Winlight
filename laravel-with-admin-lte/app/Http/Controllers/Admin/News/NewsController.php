@@ -6,7 +6,9 @@ use App\Http\Requests\NewsRequest;
 use App\Model\Paper\News;
 use App\Model\Paper\NewsCategory;
 use App\Model\Photo\Photo;
+use App\Model\Photo\PhotoNews;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Validator;
 use Nayjest\Grids\EloquentDataProvider;
 use Nayjest\Grids\FieldConfig;
 use Nayjest\Grids\FilterConfig;
@@ -109,19 +111,36 @@ class NewsController extends Controller
     {
         $input = $request->all();
 
-        if ($file = $request->file('photo_id')) {
+        $news = new News();
 
-            $name = '/images/news/' . $file->getClientOriginalName();
+        if ($image = $request->file('cover')) {
 
-            $file->move('images/news', $name);
+            $name = '/images/news/' . $image->getClientOriginalName();
 
-            $photo = Photo::create(['file'=> $name]);
+            $image->move('images/news', $name);
 
-            $input['photo_id'] = $photo->id;
-
+            $input['cover'] = $name;
         }
 
-        News::create($input);
+        $news->fill($input);
+
+        $news->save();
+
+        if ($files = $request->file('file')) {
+
+            $photos = [];
+
+            foreach ($files as $file) {
+                $name = '/images/news/' . $file->getClientOriginalName();
+
+                $file->move('images/news', $name);
+
+                $photo = PhotoNews::create(['file' => $name]);
+
+                $photos[] = $photo;
+            }
+            $news->photos()->saveMany($photos);
+        }
 
         Session::flash('success', 'Yes !');
 
@@ -143,23 +162,50 @@ class NewsController extends Controller
 
         $input = $request->all();
 
-        if ($file = $request->file('photo_id')) {
+//        if ($image = $request->file('cover')) {
+//
+//            $name = '/images/news/' . $image->getClientOriginalName();
+//
+//            $image->move('images/news', $name);
+//
+//            $input['cover'] = $name;
+//        }
 
-            $name = '/images/news/' . $file->getClientOriginalName();
+        if ($files = $request->file('file')) {
 
-            $file->move('images/news', $name);
+            $photos = [];
 
-            $photo = new Photo();
+            foreach ($files as $file) {
+                $name = '/images/news/' . $file->getClientOriginalName();
 
-            $photo->file = $name;
+                $file->move('images/news', $name);
 
-            $photo->save();
+                $photo = PhotoNews::create(['file' => $name]);
 
-            $input['photo_id'] = $photo->id;
-
+                $photos[] = $photo;
+            }
+            $news->photos()->saveMany($photos);
         }
 
         $news->update($input);
+
+//        if ($file = $request->file('photo_id')) {
+//
+//            $name = '/images/news/' . $file->getClientOriginalName();
+//
+//            $file->move('images/news', $name);
+//
+//            $photo = new Photo();
+//
+//            $photo->file = $name;
+//
+//            $photo->save();
+//
+//            $input['photo_id'] = $photo->id;
+//
+//        }
+
+//        $news->update($input);
 
         return redirect('admin/news');
     }
