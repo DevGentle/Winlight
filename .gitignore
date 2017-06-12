@@ -1,10 +1,11 @@
-/.vagrant
 /vendor
 /node_modules
 /public/storage
+/laravel-with-admin-lte/public/images
 /laravel-with-admin-lte/vendor
 Homestead.yaml
 Homestead.json
 .env
 /.idea/
 .idea
+/.vagrant

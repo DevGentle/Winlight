@@ -6,7 +6,6 @@ use App\Http\Requests\ReferenceRequest;
 use App\Model\Photo\Photo;
 use App\Model\Photo\PhotoReference;
 use App\Model\Reference\Reference;
-use Illuminate\Support\Facades\Input;
 use Nayjest\Grids\EloquentDataProvider;
 use Nayjest\Grids\Grid;
 use Nayjest\Grids\GridConfig;
@@ -69,19 +68,17 @@ class ReferencesController extends Controller
                                     <a href="#" class="glyphicon glyphicon-cog" 
                                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     </a>
-                                    <ul class="dropdown-menu">
+                                    <ul class="dropdown-menu dropdown-menu-right">
                                         <li>
-                                            <a href="'.$edit.'" class="glyphicon glyphicon-pencil"> Edit</a>
+                                            <a href="'.$edit.'"><i class="glyphicon glyphicon-pencil"></i> Edit</a>
                                         </li>
                                         <li>
-                                            <a data-token="'. csrf_token() .'" class="delete-btn text-red" href="'.$remove.'">Delete</a>
+                                            <a data-token="'. csrf_token() .'" class="delete-btn text-red" href="'.$remove.'"><i class="glyphicon glyphicon-trash"></i> Delete</a>
                                         </li>
                                     </ul>
                                 </div>';
 
-                            return
-                                $icon
-                                ;
+                            return $icon;
                         })
                 ])
         );
@@ -153,6 +150,13 @@ class ReferencesController extends Controller
 
         $input = $request->all();
 
+        if (count($request->input('delete-photo')) > 0 ) {
+            foreach ($request->input('delete-photo') as $photo) {
+                $p = PhotoReference::find($photo);
+                $p->delete();
+            }
+        }
+
         if ($image = $request->file('cover')) {
 
             $name = '/images/reference/' . $image->getClientOriginalName();
@@ -162,20 +166,20 @@ class ReferencesController extends Controller
             $input['cover'] = $name;
         }
 
-        if ($file = $request->file('photo_id')) {
+        if ($files = $request->file('file')) {
 
-            $name = 'images/reference/' . $file->getClientOriginalName();
+            $photos = [];
 
-            $file->move('images/reference', $name);
+            foreach ($files as $file) {
+                $name = '/images/reference/' . $file->getClientOriginalName();
 
-            $photo = new Photo();
+                $file->move('images/reference', $name);
 
-            $photo->file = $name;
+                $photo = PhotoReference::create(['file' => $name]);
 
-            $photo->save();
-
-            $input['photo_id'] = $photo->id;
-
+                $photos[] = $photo;
+            }
+            $references->photos()->saveMany($photos);
         }
 
         $references->update($input);

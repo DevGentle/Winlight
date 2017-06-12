@@ -45,7 +45,9 @@
                     <div class="col-md-12"><hr class="small"></div>
                 @endforeach
             </div>
-            {{--{{  $events->links() }}--}}
+            <div class="text-center">
+                {{  $events->links() }}
+            </div>
         </div>
     </div>
 @endsection

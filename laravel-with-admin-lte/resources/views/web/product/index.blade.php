@@ -32,13 +32,15 @@
                         </ol>
                         @foreach($productMainCategories as $productMainCategory)
                             @if($productMainCategory)
-                                <div class="col-md-4">
+                                <div class="col-xs-12 col-sm-6 col-lg-4 itemheight">
                                     <div class="col-md-12 product-content__category--item">
                                         <a href="{{ route('web.product.category', ['categoryId' => $productMainCategory->id])  }}">
                                             <img src="{{ asset($productMainCategory->photo->file) }}">
                                         </a>
                                     </div>
-                                    <h4 class="text-center">{{ $productMainCategory->title }}</h4>
+                                    <div class="col-xs-12">
+                                        <h4 class="text-center">{{ $productMainCategory->title }}</h4>
+                                    </div>
                                 </div>
                             @else
                                 <div class="col-md-12"><h1>{{ 'Has no product in this category' }}</h1></div>

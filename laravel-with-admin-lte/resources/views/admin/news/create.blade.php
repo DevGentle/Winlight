@@ -18,11 +18,11 @@
 
             <div class="col-xs-12">
                 <div class="margin">
-                    {{ Form::label('news_category_id', 'News category') }}
+                    {{ Form::label('news_category_id', 'News category') }} <span class="text-red">*</span>
                     {{ Form::select('news_category_id', $newsCategory, null, ['class' => 'form-control' ,'placeholder' => 'Select news category']) }}
                 </div>
                 <div class="margin">
-                    {{ Form::label('title', 'Title') }}
+                    {{ Form::label('title', 'Title') }} <span class="text-red">*</span>
                     {{ Form::text('title', null, ['class' => 'form-control', 'placeholder' => 'Enter your title']) }}
                 </div>
                 <div class="margin">
@@ -30,7 +30,7 @@
                     {{ Form::text('sub_title', null, ['class' => 'form-control', 'placeholder' => 'Enter your sub title']) }}
                 </div>
                 <div class="margin">
-                    {{ Form::label('content', 'Content') }}
+                    {{ Form::label('content', 'Content') }} <span class="text-red">*</span>
                     {{ Form::textarea('content', null, ['class' => 'form-control', 'placeholder' => 'Enter your content']) }}
                 </div>
                 <div class="margin">

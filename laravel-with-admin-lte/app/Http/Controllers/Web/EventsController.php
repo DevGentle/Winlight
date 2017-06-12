@@ -2,16 +2,16 @@
 
 namespace App\Http\Controllers\Web;
 
-use App\Http\Requests;
 use App\Model\Paper\News;
 use App\Http\Controllers\Controller;
-use App\Model\Photo\PhotoNews;
+use Illuminate\Pagination\Paginator;
+use Illuminate\Support\Facades\DB;
 
 class EventsController extends Controller
 {
     public function findEventAll()
     {
-        $events = News::all()->sortByDesc('created_at');
+        $events = DB::table('news')->paginate(10);
 
         return view('web.event.activity', compact('events'));
     }

@@ -16,11 +16,11 @@
             {{ Form::token() }}
             <div class="col-lg-5">
                 <div class="margin">
-                    {{ Form::label('name', 'Name') }}
+                    {{ Form::label('name', 'Name') }} <span class="text-red">*</span>
                     {{ Form::text('name', null, ['class' => 'form-control']) }}
                 </div>
                 <div class="margin">
-                    {{ Form::label('email', 'Email') }}
+                    {{ Form::label('email', 'Email') }} <span class="text-red">*</span>
                     {{ Form::email('email', null, ['class' => 'form-control']) }}
                 </div>
                 <div class="margin">
@@ -32,7 +32,7 @@
                     {{ Form::select('is_enable',array(1 => 'Active', 0 => 'Not Active'), 0,['class' => 'form-control']) }}
                 </div>
                 <div class="margin">
-                    {{ Form::label('password', 'Password') }}
+                    {{ Form::label('password', 'Password') }} <span class="text-red">*</span>
                     {{ Form::password('password', ['class' => 'form-control']) }}
                 </div>
             </div>

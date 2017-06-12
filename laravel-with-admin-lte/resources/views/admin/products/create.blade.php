@@ -17,7 +17,7 @@
             {{ Form::token() }}
             <div class="col-lg-12">
                 <div class="margin">
-                    {{ Form::label('category_main_id', 'Main category') }}
+                    {{ Form::label('category_main_id', 'Main category') }} <span class="text-red">*</span>
                     {{ Form::select('category_main_id', $mainCat, null, ['class' => 'form-control' ,'placeholder' => 'Select main category']) }}
                 </div>
                 <div class="margin">
@@ -25,11 +25,11 @@
                     {{ Form::select('category_sub_id', $subCat, null, ['class' => 'form-control' ,'placeholder' => 'Select sub category']) }}
                 </div>
                 <div class="margin">
-                    {{ Form::label('code', 'Code') }}
+                    {{ Form::label('code', 'Code') }} <span class="text-red">*</span>
                     {{ Form::text('code', null, ['class' => 'form-control', 'placeholder' => 'Enter product code']) }}
                 </div>
                 <div class="margin">
-                    {{ Form::label('title', 'Title') }}
+                    {{ Form::label('title', 'Title') }} <span class="text-red">*</span>
                     {{ Form::text('title', null, ['class' => 'form-control', 'placeholder' => 'Enter product title']) }}
                 </div>
                 <div>
@@ -41,7 +41,7 @@
                     {{ Form::file('photo_id', null, ['class' => 'form-control']) }}
                 </div>
                 <div class="margin">
-                    {{ Form::label('description', 'Content') }}
+                    {{ Form::label('description', 'Content') }} <span class="text-red">*</span>
                     {{ Form::textarea('description', null, ['class' => 'form-control', 'placeholder' => 'Enter product description']) }}
                 </div>
             </div>

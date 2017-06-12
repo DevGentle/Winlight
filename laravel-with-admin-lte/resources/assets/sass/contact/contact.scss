@@ -12,7 +12,19 @@
     }
     &__header-right {
         padding-top: 40px;
+        display: inline-flex;
+        justify-content: flex-end;
         text-align: right;
+        font-family: 'Kanit', sans-serif;
+        font-weight: bold;
+        &--text {
+            padding: 10px 0;
+        }
+        img {
+            width: 100px;
+            height: 100px;
+            margin-left: 20px;
+        }
     }
     &__content-form {
         padding-top: 2px;

@@ -64,12 +64,12 @@ class NewsCategoriesController extends Controller
                                     <a href="#" class="glyphicon glyphicon-cog"
                                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     </a>
-                                    <ul class="dropdown-menu">
+                                    <ul class="dropdown-menu dropdown-menu-right">
                                         <li>
-                                            <a href="' . $edit . '" class="glyphicon glyphicon-pencil"> Edit</a>
+                                            <a href="' . $edit . '"><i class="glyphicon glyphicon-pencil"></i> Edit</a>
                                         </li>
                                         <li>
-                                            <a data-token="'. csrf_token() .'" class="delete-btn text-red" href="'.$remove.'">Delete</a>
+                                            <a data-token="'. csrf_token() .'" class="delete-btn text-red" href="'.$remove.'"><i class="glyphicon glyphicon-trash"></i> Delete</a>
                                         </li>
                                     </ul>
                                 </div>';

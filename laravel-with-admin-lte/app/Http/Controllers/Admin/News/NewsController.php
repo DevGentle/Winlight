@@ -81,12 +81,12 @@ class NewsController extends Controller
                                     <a href="#" class="glyphicon glyphicon-cog"
                                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     </a>
-                                    <ul class="dropdown-menu">
+                                    <ul class="dropdown-menu dropdown-menu-right">
                                         <li>
-                                            <a href="' . $edit . '" class="glyphicon glyphicon-pencil"> Edit</a>
+                                            <a href="' . $edit . '"><i class="glyphicon glyphicon-pencil"></i> Edit</a>
                                         </li>
                                         <li>
-                                            <a data-token="'. csrf_token() .'" class="delete-btn text-red" href="'.$remove.'">Delete</a>
+                                            <a data-token="'. csrf_token() .'" class="delete-btn text-red" href="'.$remove.'"><i class="glyphicon glyphicon-trash"></i> Delete</a>
                                         </li>
                                     </ul>
                                 </div>';
@@ -162,14 +162,21 @@ class NewsController extends Controller
 
         $input = $request->all();
 
-//        if ($image = $request->file('cover')) {
-//
-//            $name = '/images/news/' . $image->getClientOriginalName();
-//
-//            $image->move('images/news', $name);
-//
-//            $input['cover'] = $name;
-//        }
+        if (count($request->input('delete-photo')) > 0 ) {
+            foreach ($request->input('delete-photo') as $photo) {
+                $img = PhotoNews::find($photo);
+                $img->delete();
+            }
+        }
+
+        if ($image = $request->file('cover')) {
+
+            $name = '/images/news/' . $image->getClientOriginalName();
+
+            $image->move('images/news', $name);
+
+            $input['cover'] = $name;
+        }
 
         if ($files = $request->file('file')) {
 
@@ -188,24 +195,6 @@ class NewsController extends Controller
         }
 
         $news->update($input);
-
-//        if ($file = $request->file('photo_id')) {
-//
-//            $name = '/images/news/' . $file->getClientOriginalName();
-//
-//            $file->move('images/news', $name);
-//
-//            $photo = new Photo();
-//
-//            $photo->file = $name;
-//
-//            $photo->save();
-//
-//            $input['photo_id'] = $photo->id;
-//
-//        }
-
-//        $news->update($input);
 
         return redirect('admin/news');
     }

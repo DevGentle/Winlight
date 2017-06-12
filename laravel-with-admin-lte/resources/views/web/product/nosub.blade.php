@@ -32,7 +32,7 @@
                             <li>{{ $productMainCategories->title }}</li>
                         </ol>
                         @foreach($products as $product)
-                            <div class="col-md-4">
+                            <div class="col-md-4 itemheight">
                                 <div class="col-md-12 product-content__category--item">
                                     <a href="{{ route('web.product.item', ['Id' => $product->id]) }}">
                                         <img src="{{ asset($product->photo->file) }}">

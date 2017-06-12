@@ -15,12 +15,26 @@
         {{ Form::token() }}
         <div class="col-xs-12">
             <div class="margin">
-                {{ Form::label('title', 'Title') }}
+                {{ Form::label('title', 'Title') }} <span class="text-red">*</span>
                 {{ Form::text('title', null, ['class' => 'form-control']) }}
             </div>
             <div class="margin">
                 {{ Form::label('photo_id', 'Image') }}
                 {{ Form::file('photo_id', null, ['class' => 'form-control']) }}
+                <div class="row">
+                    <div class="col-xs-12" style="padding-top: 5px; padding-bottom: 5px">
+                        <table class="table table-bordered" style="background: #ffffff">
+                            <tbody>
+                            <tr>
+                                <td><img src="{{ asset($productMainCategories->photo->file) }}" width="200" height="100" alt=""></td>
+                            </tr>
+                            <tr>
+                                <td><b>File name: </b>{{ $productMainCategories->photo->file }}</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
         {!! Form::close() !!}
             <div class="margin">

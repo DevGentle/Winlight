@@ -17,11 +17,11 @@
             {{ Form::token() }}
             <div class="col-xs-12">
                 <div class="margin">
-                    {{ Form::label('title', 'Title') }}
+                    {{ Form::label('title', 'Title') }} <span class="text-red">*</span>
                     {{ Form::text('title', null, ['class' => 'form-control', 'placeholder' => 'Enter your title']) }}
                 </div>
                 <div class="margin">
-                    {{ Form::label('cover', 'Cover Image') }}
+                    {{ Form::label('cover', 'Cover Image') }} <span class="text-red">*</span>
                     {{ Form::file('cover', null, ['class' => 'form-control']) }}
                 </div>
                 <div class="margin">
@@ -29,7 +29,7 @@
                     {{ Form::file('file[]', array('multiple'=>true), ['class' => 'form-control']) }}
                 </div>
                 <div class="margin">
-                    {{ Form::label('content', 'Content') }}
+                    {{ Form::label('content', 'Content') }} <span class="text-red">*</span>
                     {{ Form::textarea('content', null, ['class' => 'form-control', 'placeholder' => 'Enter product description']) }}
                 </div>
                 <div class="margin">

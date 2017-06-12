@@ -34,6 +34,14 @@ $(document).ready(function(){
             }
         ]
     });
+    
+    $('a.delete-image').on('click', function (e) {
+        e.preventDefault();
+
+        $('#photo-gallery').append('<input type="hidden" name="delete-photo[]" value="'+ $(this).data('image-id') +'" />');
+
+        $(this).closest('.image-container').remove();
+    });
 });
 
 var vid = document.getElementById("bgvid");
