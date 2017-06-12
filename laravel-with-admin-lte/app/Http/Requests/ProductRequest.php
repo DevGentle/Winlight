@@ -27,8 +27,16 @@ class ProductRequest extends Request
 
             'category_main_id' => 'required',
             'code' => 'required',
-            'title' => 'required'
+            'title' => 'required',
+            'description' => 'required'
 
         ];
     }
+
+//    public function messages()
+//    {
+//        return [
+//            'title.required' => 'กรุณากรอกข้อมูลให้ครบถ้วน'
+//        ];
+//    }
 }

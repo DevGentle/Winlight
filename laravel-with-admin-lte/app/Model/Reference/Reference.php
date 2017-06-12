@@ -7,11 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 class Reference extends Model
 {
     protected $fillable = [
-        'title', 'content', 'photo_id', 'link'
+        'title', 'content', 'cover', 'link'
     ];
 
-    public function photo()
+    public function photos()
     {
-        return $this->belongsTo('App\Model\Photo\Photo');
+        return $this->hasMany('App\Model\Photo\PhotoReference');
     }
 }

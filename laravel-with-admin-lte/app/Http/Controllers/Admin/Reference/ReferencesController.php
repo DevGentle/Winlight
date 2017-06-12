@@ -4,8 +4,8 @@ namespace App\Http\Controllers\Admin\Reference;
 
 use App\Http\Requests\ReferenceRequest;
 use App\Model\Photo\Photo;
+use App\Model\Photo\PhotoReference;
 use App\Model\Reference\Reference;
-use Illuminate\Support\Facades\Input;
 use Nayjest\Grids\EloquentDataProvider;
 use Nayjest\Grids\Grid;
 use Nayjest\Grids\GridConfig;
@@ -68,19 +68,17 @@ class ReferencesController extends Controller
                                     <a href="#" class="glyphicon glyphicon-cog" 
                                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     </a>
-                                    <ul class="dropdown-menu">
+                                    <ul class="dropdown-menu dropdown-menu-right">
                                         <li>
-                                            <a href="'.$edit.'" class="glyphicon glyphicon-pencil"> Edit</a>
+                                            <a href="'.$edit.'"><i class="glyphicon glyphicon-pencil"></i> Edit</a>
                                         </li>
                                         <li>
-                                            <a data-token="'. csrf_token() .'" class="delete-btn text-red" href="'.$remove.'">Delete</a>
+                                            <a data-token="'. csrf_token() .'" class="delete-btn text-red" href="'.$remove.'"><i class="glyphicon glyphicon-trash"></i> Delete</a>
                                         </li>
                                     </ul>
                                 </div>';
 
-                            return
-                                $icon
-                                ;
+                            return $icon;
                         })
                 ])
         );
@@ -98,19 +96,36 @@ class ReferencesController extends Controller
     {
         $input = $request->all();
 
-        if ($file = $request->file('photo_id')) {
+        $reference = new Reference();
 
-            $name = '/images/reference/' . $file->getClientOriginalName();
+        if ($image = $request->file('cover')) {
 
-            $file->move('images/reference', $name);
+            $name = '/images/reference/' . $image->getClientOriginalName();
 
-            $photo = Photo::create(['file'=> $name]);
+            $image->move('images/reference', $name);
 
-            $input['photo_id'] = $photo->id;
-
+            $input['cover'] = $name;
         }
 
-        Reference::create($input);
+        $reference->fill($input);
+
+        $reference->save();
+
+        if ($files = $request->file('file')) {
+
+            $photos = [];
+
+            foreach ($files as $file) {
+                $name = '/images/reference/' . $file->getClientOriginalName();
+
+                $file->move('images/reference', $name);
+
+                $photo = PhotoReference::create(['file' => $name]);
+
+                $photos[] = $photo;
+            }
+            $reference->photos()->saveMany($photos);
+        }
 
         return redirect('admin/references');
     }
@@ -135,20 +150,36 @@ class ReferencesController extends Controller
 
         $input = $request->all();
 
-        if ($file = $request->file('photo_id')) {
+        if (count($request->input('delete-photo')) > 0 ) {
+            foreach ($request->input('delete-photo') as $photo) {
+                $p = PhotoReference::find($photo);
+                $p->delete();
+            }
+        }
 
-            $name = 'images/reference/' . $file->getClientOriginalName();
+        if ($image = $request->file('cover')) {
 
-            $file->move('images/reference', $name);
+            $name = '/images/reference/' . $image->getClientOriginalName();
 
-            $photo = new Photo();
+            $image->move('images/reference', $name);
 
-            $photo->file = $name;
+            $input['cover'] = $name;
+        }
 
-            $photo->save();
+        if ($files = $request->file('file')) {
 
-            $input['photo_id'] = $photo->id;
+            $photos = [];
 
+            foreach ($files as $file) {
+                $name = '/images/reference/' . $file->getClientOriginalName();
+
+                $file->move('images/reference', $name);
+
+                $photo = PhotoReference::create(['file' => $name]);
+
+                $photos[] = $photo;
+            }
+            $references->photos()->saveMany($photos);
         }
 
         $references->update($input);

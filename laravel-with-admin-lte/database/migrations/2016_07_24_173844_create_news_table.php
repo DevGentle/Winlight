@@ -19,9 +19,8 @@ class CreateNewsTable extends Migration
             $table->string('title');
             $table->string('sub_title')->nullable();
             $table->text('content')->nullable();
-            $table->integer('photo_id')->unsigned()->nullable();
-            $table->foreign('photo_id')->references('id')->on('photos');
             $table->string('link')->nullable();
+            $table->string('cover')->nullable();
             $table->timestamps();
         });
     }

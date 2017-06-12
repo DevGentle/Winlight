@@ -17,7 +17,7 @@
 
             <div class="col-xs-12">
                 <div class="margin">
-                    {{ Form::label('title', 'Title') }}
+                    {{ Form::label('title', 'Title') }} <span class="text-red">*</span>
                     {{ Form::text('title', null, ['class' => 'form-control', 'placeholder' => 'Enter your title']) }}
                 </div>
                 <div class="margin">

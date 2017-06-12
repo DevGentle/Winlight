@@ -36,8 +36,8 @@ div {
 .story__description {
   padding-bottom: 40px;
   margin-top: 30px;
-  font-size: 16px;
-  color: #949494; }
+  font-size: 17px;
+  color: #242424; }
 
 .story__circle {
   background-color: #fff;
@@ -66,7 +66,19 @@ div {
     color: #3db44e; }
   .contact-index__header-right {
     padding-top: 40px;
-    text-align: right; }
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+    text-align: right;
+    font-family: 'Kanit', sans-serif;
+    font-weight: bold; }
+    .contact-index__header-right--text {
+      padding: 10px 0; }
+    .contact-index__header-right img {
+      width: 100px;
+      height: 100px;
+      margin-left: 20px; }
   .contact-index__content-form {
     padding-top: 2px; }
     .contact-index__content-form button {
@@ -339,6 +351,8 @@ div {
     padding-left: 10px;
     margin-top: 15px;
     font-size: 16px; }
+  .activity-show .fotorama__stage__frame {
+    background-color: #dcdcdc; }
 
 .index-service {
   position: relative;
@@ -392,7 +406,8 @@ div {
     margin-top: 10px;
     margin-left: 5px;
     margin-right: 5px;
-    background-color: #ededed; }
+    background-color: #f1f1f1;
+    border-radius: 7px; }
     .index-activity__box:first-child {
       margin-left: 0; }
     .index-activity__box:last-child {
@@ -445,6 +460,8 @@ div {
         font-weight: bold;
         border-radius: 20px;
         background-color: #95C342; }
+        .index-winner__left--download-button:hover {
+          box-shadow: 0 0 30px #888888; }
   .index-winner__right {
     position: relative;
     width: 100%;
@@ -477,7 +494,7 @@ div {
           left: 0;
           right: 0;
           bottom: 0;
-          width: 50px; }
+          width: 80px; }
       .index-winner__right--image:hover > .overlay {
         visibility: visible; }
 
@@ -510,6 +527,8 @@ div {
       font-weight: bold;
       border-radius: 20px;
       background-color: #95C342; }
+      .index-philips__download-button:hover {
+        box-shadow: 0 0 30px #888888; }
 
 .index-reference {
   padding: 60px 0; }
@@ -756,10 +775,12 @@ div {
     padding-bottom: 40px; }
     .product-content__category h4 {
       color: #000; }
+    .product-content__category .itemheight {
+      min-height: 268px; }
     .product-content__category--item {
       width: 200px;
       height: 200px;
-      margin-left: 20px;
+      margin: auto;
       margin-top: 20px;
       padding: 0px;
       border: 1px solid #94bf46;

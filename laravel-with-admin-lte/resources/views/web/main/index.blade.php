@@ -41,7 +41,7 @@
                         <div class="col-lg-3 col-sm-6 col-xs-12 index-activity__box">
                             <a href="{{ route('web.event.show', ['eventId' => $new->id])  }}">
                                 <div class="index-activity__border">
-                                    <img src="{{ asset($new->photo->file) }}" width="100%" height="180px">
+                                    <img src="{{ asset($new->cover) }}" width="100%" height="180px">
                                 </div>
                                 <div class="index-activity__created">{{ date('F d, Y', strtotime($new->created_at)) }}</div>
                                 <div class="index-activity__title">{{ $new->title }}</div>
@@ -60,7 +60,9 @@
                         <div class="index-winner__left--download">
                             <div class="index-winner__left--download-title">{{ "WINLIGHT" }}</div>
                             <div class="index-winner__left--download-subtitle">{{ "catalog" }}</div>
-                            <a href="{{ url('product/download/winner-products') }}"><div class="index-winner__left--download-button">{{ "DOWNLOAD" }}</div></a>
+                            <a href="{{ url('product/download/winner-products') }}">
+                                <div class="index-winner__left--download-button">{{ "DOWNLOAD" }}</div>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -94,7 +96,9 @@
                     <div class="index-winner__left--download">
                         <div class="index-philips__download-title">{{ "PHILIPS" }}</div>
                         <div class="index-philips__download-subtitle">{{ "catalog" }}</div>
-                        <a href="{{ url('/product/download/philips') }}"><div class="index-philips__download-button">{{ "DOWNLOAD" }}</div></a>
+                        <a href="{{ url('/product/download/philips') }}">
+                            <div class="index-philips__download-button">{{ "DOWNLOAD" }}</div>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -116,34 +120,17 @@
             <div class="row">
                 <div class="col-md-8 col-md-offset-2">
                     <div class="index-reference__content">
-                        <div class="col-md-3 col-sm-6">
-                            <div class="index-reference__content--border">
-                                <div class="index-reference__content--border-img">
-                                    <img src="{{ asset('img/resource/reference/ref_44.jpg') }}" alt="">
+                        @foreach($references as $reference)
+                            <a href="{{ url('/references') }}">
+                            <div class="col-md-3 col-sm-6">
+                                <div class="index-reference__content--border">
+                                    <div class="index-reference__content--border-img">
+                                        <img src="{{ asset($reference->cover) }}" alt="" width="100%">
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-md-3 col-sm-6">
-                            <div class="index-reference__content--border">
-                                <div class="index-reference__content--border-img">
-                                    <img src="{{ asset('img/resource/reference/ref_08.jpg') }}" alt="">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3 col-sm-6">
-                            <div class="index-reference__content--border">
-                                <div class="index-reference__content--border-img">
-                                    <img src="{{ asset('img/resource/reference/ref_19.jpg') }}" alt="">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3 col-sm-6">
-                            <div class="index-reference__content--border">
-                                <div class="index-reference__content--border-img">
-                                    <img src="{{ asset('img/resource/reference/ref_34.jpg') }}" alt="">
-                                </div>
-                            </div>
-                        </div>
+                            </a>
+                        @endforeach
                     </div>
                 </div>
             </div>

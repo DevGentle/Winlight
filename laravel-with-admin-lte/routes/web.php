@@ -1,7 +1,5 @@
 <?php
 
-use Illuminate\Support\Facades\Auth;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,18 +11,10 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-use App\Tag;
-use App\Taggable;
-use App\User;
-use App\Country;
-use App\Post;
 use App\Photo;
-use Carbon\Carbon;
 use App\Model\Paper\News;
-use App\Model\Product\ProductMainCategory;
-use App\Model\Product\ProductSubCategory;
-use App\Http\Controllers\Admin\Slideshow\SlideshowsController;
-use Illuminate\Support\Facades\DB;
+use App\Model\Reference\Reference;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,10 +24,13 @@ use Illuminate\Support\Facades\DB;
 
 Auth::routes();
 
+Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
+
 Route::get('/', function () {
     $news = News::all()->sortByDesc('created_at');
+    $references = Reference::all()->random(4);
 
-    return view('web.main.index', compact('news'));
+    return view('web.main.index', compact('news', 'references'));
 });
 Route::get('/about-us', function () {
     return view('web.about.story');
@@ -63,8 +56,8 @@ Route::get('services', 'Web\ServicesController@findServiceAll');
 
 Route::group(['prefix' => 'admin'], function () {
     Route::resource('contacts', 'Admin\Contact\ContactsController');
-    Route::resource('download/philips', 'Admin\download\PhilipsController');
-    Route::resource('download/winner-products', 'Admin\download\WinnerProductsController');
+    Route::resource('download/philips', 'Admin\Download\PhilipsController');
+    Route::resource('download/winner-products', 'Admin\Download\WinnerProductsController');
     Route::resource('news-categories', 'Admin\News\NewsCategoriesController');
     Route::resource('news', 'Admin\News\NewsController');
     Route::resource('product-main-categories', 'Admin\Product\ProductMainCategoriesController');

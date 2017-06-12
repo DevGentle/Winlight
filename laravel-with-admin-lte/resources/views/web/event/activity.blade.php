@@ -26,7 +26,7 @@
                         <div class="col-md-12 activity__row">
                             <div class="col-md-4 text-right">
                                 <div class="activity__row--image">
-                                    <img src="{{ asset($event->photo->file) }}">
+                                    <img src="{{ asset($event->cover) }}">
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -45,7 +45,9 @@
                     <div class="col-md-12"><hr class="small"></div>
                 @endforeach
             </div>
-            {{--{{  $events->links() }}--}}
+            <div class="text-center">
+                {{  $events->links() }}
+            </div>
         </div>
     </div>
 @endsection

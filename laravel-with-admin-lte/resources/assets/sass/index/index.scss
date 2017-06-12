@@ -64,7 +64,8 @@
         margin-top: 10px;
         margin-left: 5px;
         margin-right: 5px;
-        background-color: #ededed;
+        background-color: #f1f1f1;
+        border-radius: 7px;
         &:first-child {
             margin-left: 0;
         }
@@ -128,6 +129,9 @@
                 font-weight: bold;
                 border-radius: 20px;
                 background-color: #95C342;
+                &:hover {
+                    box-shadow: 0 0 30px #888888;
+                }
             }
         }
     }
@@ -164,7 +168,7 @@
                     left: 0;
                     right: 0;
                     bottom: 0;
-                    width: 50px;
+                    width: 80px;
                 }
             }
             &:hover > .overlay {
@@ -206,6 +210,9 @@
             font-weight: bold;
             border-radius: 20px;
             background-color: #95C342;
+            &:hover {
+                box-shadow: 0 0 30px #888888;
+            }
         }
     }
 }

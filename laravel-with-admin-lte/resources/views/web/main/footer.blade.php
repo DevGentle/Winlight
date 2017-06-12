@@ -8,7 +8,7 @@
             </div>
             <div class="col-xs-9 text-xs-center">
                 <div class="setcol-right">
-                    <div class="fontfooter2"><img src="{{ asset('img/resource/icon_facebook.jpg') }}"></div>
+                    <div class="fontfooter2"><img src="{{ asset('img/resource/icon_facebook.png') }}" width="30"></div>
                     <div class="footer">
                         <div class=" navbar-footer__menu-box">
                             <ul>
@@ -24,8 +24,8 @@
                     </div>
                     <div class="fontfooter2">
                         สำนักงานใหญ่<br>
-                        บริษัท วินเนอร์ ไลท์ คอเปอร์เรชั่น จำกัด 91 ซอยกาญจนาภิเษก 4/1 (หมู่บ้านรัชดาอาคาเดียน) แขวงบางบอน เขตบางบอน กรุงเทพฯ 10150<br>
-                        © 2013 winner light corperation co.,ltd. Copyright All rights reserved.
+                        บริษัท วินเนอร์ ไลท์ คอเปอร์เรชั่น จำกัด 37, 39 ซอยเอกชัย 72 แขวงบางบอน เขตบางบอน กรุงเทพมหานคร 10150 ประเทศไทย<br>
+                        © 2013 - 2018 winner light corperation co.,ltd. Copyright All rights reserved.
                     </div>
                 </div>
             </div>

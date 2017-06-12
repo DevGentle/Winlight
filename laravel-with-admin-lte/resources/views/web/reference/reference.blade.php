@@ -27,9 +27,13 @@
                 @foreach($references as $reference)
                     <div class="col-md-4 col-sm-6">
                         <div class="reference__content--item">
-                            <img src="{{ asset($reference->photo->file) }}">
+                            <img src="{{ asset($reference->cover) }}">
                             <div class="overlay">
-                                <img src="{{ asset('img/resource/plus.png') }}">
+                                @foreach($reference->photos()->get() as $photo)
+                                    <a href="{{ asset($photo->file) }}" data-lightbox="roadtrip{{ $photo->reference_id }}" data-title="{{ $reference->title }}">
+                                        <img src="{{ asset('img/resource/plus.png') }}">
+                                    </a>
+                                @endforeach
                             </div>
                         </div>
                         <div class="reference__content--title">{{ $reference->title }}</div>

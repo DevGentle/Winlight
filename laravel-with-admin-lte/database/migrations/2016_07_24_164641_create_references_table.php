@@ -16,8 +16,7 @@ class CreateReferencesTable extends Migration
             $table->increments('id');
             $table->string('title');
             $table->text('content')->nullable();
-            $table->integer('photo_id')->unsigned()->nullable();
-            $table->foreign('photo_id')->references('id')->on('photos');
+            $table->string('cover')->nullable();
             $table->string('link')->nullable();
             $table->timestamps();
         });

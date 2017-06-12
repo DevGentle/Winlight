@@ -85,10 +85,13 @@
         h4 {
             color: #000;
         }
+        .itemheight {
+            min-height: 268px;
+        }
         &--item {
             width: 200px;
             height: 200px;
-            margin-left: 20px;
+            margin: auto;
             margin-top: 20px;
             padding: 0px;
             border: 1px solid #94bf46;

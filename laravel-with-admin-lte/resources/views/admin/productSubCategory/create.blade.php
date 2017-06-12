@@ -17,11 +17,11 @@
 
             <div class="col-xs-12">
                 <div class="margin">
-                    {{ Form::label('category_main_id', 'Main category') }}
+                    {{ Form::label('category_main_id', 'Main category') }} <span class="text-red">*</span>
                     {{ Form::select('category_main_id', $productMainCategory, null, ['class' => 'form-control' ,'placeholder' => 'Select main category']) }}
                 </div>
                 <div class="margin">
-                    {{ Form::label('title', 'Title') }}
+                    {{ Form::label('title', 'Title') }} <span class="text-red">*</span>
                     {{ Form::text('title', null, ['class' => 'form-control', 'placeholder' => 'Enter your title']) }}
                 </div>
                 <div class="margin">

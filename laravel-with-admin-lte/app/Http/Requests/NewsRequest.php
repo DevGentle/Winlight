@@ -22,8 +22,10 @@ class NewsRequest extends Request
     public function rules()
     {
         return [
-            
-            'title' => 'required'
+
+            'news_category_id' => 'required',
+            'title' => 'required',
+            'content' => 'required'
 
         ];
     }

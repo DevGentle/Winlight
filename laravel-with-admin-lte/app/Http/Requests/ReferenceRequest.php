@@ -27,7 +27,7 @@ class ReferenceRequest extends Request
 
             'title' => 'required',
             'content' => 'required',
-            'link' => 'required'
+            'cover' => 'required'
 
         ];
     }

@@ -13,11 +13,11 @@
     @include('tinymce.textarea')
 
     <div class="box-body">
-        {!! Form::open(['method' => 'POST', 'action' => 'Admin\download\PhilipsController@store', 'files'=>true]) !!}
+        {!! Form::open(['method' => 'POST', 'action' => 'Admin\Download\PhilipsController@store', 'files'=>true]) !!}
             {{ Form::token() }}
             <div class="col-xs-12">
                 <div class="margin">
-                    {{ Form::label('title', 'Title') }}
+                    {{ Form::label('title', 'Title') }} <span class="text-red">*</span>
                     {{ Form::text('title', null, ['class' => 'form-control', 'placeholder' => 'Enter your title']) }}
                 </div>
                 <div class="margin">

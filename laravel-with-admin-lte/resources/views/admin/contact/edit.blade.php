@@ -17,11 +17,11 @@
         {{ Form::token() }}
         <div class="col-xs-12">
             <div class="margin">
-                {{ Form::label('title', 'Title') }}
+                {{ Form::label('title', 'Title') }} <span class="text-red">*</span>
                 {{ Form::text('title', null, ['class' => 'form-control', 'placeholder' => 'Enter contact name']) }}
             </div>
             <div class="margin">
-                {{ Form::label('address', 'Address') }}
+                {{ Form::label('address', 'Address') }} <span class="text-red">*</span>
                 {{ Form::textarea('address', null, ['class' => 'form-control', 'placeholder' => 'Enter contact address']) }}
             </div>
             <div class="margin">

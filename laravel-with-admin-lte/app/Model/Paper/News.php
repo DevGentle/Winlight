@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class News extends Model
 {
     protected $fillable = [
-        'news_category_id', 'title', 'sub_title', 'content', 'photo_id', 'link'
+        'news_category_id', 'title', 'sub_title', 'content', 'link', 'cover'
     ];
 
     public function newsCategory()
@@ -15,13 +15,8 @@ class News extends Model
         return $this->belongsTo('App\Model\Paper\NewsCategory', 'news_category_id');
     }
 
-    public function photo()
-    {
-        return $this->belongsTo('App\Model\Photo\Photo');
-    }
-
     public function photos()
     {
-        return $this->hasMany('App\Model\Photo\Photo');
+        return $this->hasMany('App\Model\Photo\PhotoNews', 'news_id');
     }
 }

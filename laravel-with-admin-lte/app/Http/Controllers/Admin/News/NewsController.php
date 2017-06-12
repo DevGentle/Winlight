@@ -6,7 +6,9 @@ use App\Http\Requests\NewsRequest;
 use App\Model\Paper\News;
 use App\Model\Paper\NewsCategory;
 use App\Model\Photo\Photo;
+use App\Model\Photo\PhotoNews;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Validator;
 use Nayjest\Grids\EloquentDataProvider;
 use Nayjest\Grids\FieldConfig;
 use Nayjest\Grids\FilterConfig;
@@ -79,12 +81,12 @@ class NewsController extends Controller
                                     <a href="#" class="glyphicon glyphicon-cog"
                                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     </a>
-                                    <ul class="dropdown-menu">
+                                    <ul class="dropdown-menu dropdown-menu-right">
                                         <li>
-                                            <a href="' . $edit . '" class="glyphicon glyphicon-pencil"> Edit</a>
+                                            <a href="' . $edit . '"><i class="glyphicon glyphicon-pencil"></i> Edit</a>
                                         </li>
                                         <li>
-                                            <a data-token="'. csrf_token() .'" class="delete-btn text-red" href="'.$remove.'">Delete</a>
+                                            <a data-token="'. csrf_token() .'" class="delete-btn text-red" href="'.$remove.'"><i class="glyphicon glyphicon-trash"></i> Delete</a>
                                         </li>
                                     </ul>
                                 </div>';
@@ -109,19 +111,36 @@ class NewsController extends Controller
     {
         $input = $request->all();
 
-        if ($file = $request->file('photo_id')) {
+        $news = new News();
 
-            $name = '/images/news/' . $file->getClientOriginalName();
+        if ($image = $request->file('cover')) {
 
-            $file->move('images/news', $name);
+            $name = '/images/news/' . $image->getClientOriginalName();
 
-            $photo = Photo::create(['file'=> $name]);
+            $image->move('images/news', $name);
 
-            $input['photo_id'] = $photo->id;
-
+            $input['cover'] = $name;
         }
 
-        News::create($input);
+        $news->fill($input);
+
+        $news->save();
+
+        if ($files = $request->file('file')) {
+
+            $photos = [];
+
+            foreach ($files as $file) {
+                $name = '/images/news/' . $file->getClientOriginalName();
+
+                $file->move('images/news', $name);
+
+                $photo = PhotoNews::create(['file' => $name]);
+
+                $photos[] = $photo;
+            }
+            $news->photos()->saveMany($photos);
+        }
 
         Session::flash('success', 'Yes !');
 
@@ -143,20 +162,36 @@ class NewsController extends Controller
 
         $input = $request->all();
 
-        if ($file = $request->file('photo_id')) {
+        if (count($request->input('delete-photo')) > 0 ) {
+            foreach ($request->input('delete-photo') as $photo) {
+                $img = PhotoNews::find($photo);
+                $img->delete();
+            }
+        }
 
-            $name = '/images/news/' . $file->getClientOriginalName();
+        if ($image = $request->file('cover')) {
 
-            $file->move('images/news', $name);
+            $name = '/images/news/' . $image->getClientOriginalName();
 
-            $photo = new Photo();
+            $image->move('images/news', $name);
 
-            $photo->file = $name;
+            $input['cover'] = $name;
+        }
 
-            $photo->save();
+        if ($files = $request->file('file')) {
 
-            $input['photo_id'] = $photo->id;
+            $photos = [];
 
+            foreach ($files as $file) {
+                $name = '/images/news/' . $file->getClientOriginalName();
+
+                $file->move('images/news', $name);
+
+                $photo = PhotoNews::create(['file' => $name]);
+
+                $photos[] = $photo;
+            }
+            $news->photos()->saveMany($photos);
         }
 
         $news->update($input);

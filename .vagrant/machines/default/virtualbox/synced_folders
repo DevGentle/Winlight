@@ -1,1 +1,0 @@
-{"virtualbox":{"/home/vagrant/laravel-with-admin-lte":{"type":null,"mount_options":[],"guestpath":"/home/vagrant/laravel-with-admin-lte","hostpath":"/Users/Godoak/Web/Winlight/laravel-with-admin-lte","disabled":false,"__vagrantfile":true},"/vagrant":{"guestpath":"/vagrant","hostpath":"/Users/Godoak/Web/Winlight","disabled":false,"__vagrantfile":true}}}
