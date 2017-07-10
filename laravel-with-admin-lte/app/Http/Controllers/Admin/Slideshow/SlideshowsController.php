@@ -116,7 +116,7 @@ class SlideshowsController extends Controller
 
         Slideshow::create($input);
 
-        return redirect('admin/slideshows');
+        return redirect('admin/slideshow/nav');
     }
 
     public function show($id)
@@ -155,7 +155,7 @@ class SlideshowsController extends Controller
 
         $slide->update($input);
 
-        return redirect('admin/slideshows');
+        return redirect('admin/slideshow/nav');
     }
 
     public function destroy($id)

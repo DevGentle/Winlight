@@ -25,7 +25,7 @@
         <div class="text-center">
             <div class="col-md-10 col-md-offset-1 reference__content">
                 @foreach($references as $reference)
-                    <div class="col-md-4 col-sm-6">
+                    <div class="col-md-4 col-sm-6 item">
                         <div class="reference__content--item">
                             <img src="{{ asset($reference->cover) }}">
                             <div class="overlay">

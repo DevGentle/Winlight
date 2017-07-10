@@ -89,9 +89,10 @@
         &--title {
             margin-top: 10px;
             font-size: 18px;
+            text-align: center;
         }
         &-box {
-            margin-top: 5px;
+            margin-top: 20px;
             margin-left: 34px;
             &--philips {
                 font-size: 34px;
@@ -107,7 +108,7 @@
         &--item {
             width: 180px;
             height: 250px;
-            margin-left: 20px;
+            margin: auto;
             margin-top: 20px;
             padding: 0px;
             border: 1px solid #94bf46;
@@ -116,13 +117,7 @@
                 background-color: #36b648;
             }
             img {
-                position: absolute;
                 width: 100%;
-                margin: auto;
-                top: 0;
-                left: 0;
-                right: 0;
-                bottom: 0;
             }
         }
 

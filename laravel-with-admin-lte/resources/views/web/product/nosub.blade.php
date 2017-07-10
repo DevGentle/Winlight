@@ -18,7 +18,7 @@
             </div>
         </div>
     </div>
-    <div class="container-fluid product-content__main">
+    <div class="product-content__main">
         <div class="container">
             <div class="row product-content">
                 <div class="col-md-2 col-md-offset-1">
@@ -26,19 +26,23 @@
                 </div>
                 <div class="col-md-9">
                     <div class="row product-content__category">
-                        <ol class="breadcrumb">
+                        <ol class="breadcrumb hidden-xs">
                             <li><a href="{{ url('/') }}">Home</a></li>
                             <li><a href="{{ url('/products') }}">Products</a></li>
                             <li>{{ $productMainCategories->title }}</li>
                         </ol>
                         @foreach($products as $product)
-                            <div class="col-md-4 itemheight">
-                                <div class="col-md-12 product-content__category--item">
-                                    <a href="{{ route('web.product.item', ['Id' => $product->id]) }}">
-                                        <img src="{{ asset($product->photo->file) }}">
-                                    </a>
+                            <div class="col-xs-12 col-sm-6 col-lg-4 itemheight">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="product-content__category--item">
+                                            <a href="{{ route('web.product.item', ['Id' => $product->id]) }}">
+                                                <img src="{{ asset($product->photo->file) }}">
+                                            </a>
+                                        </div>
+                                    </div>
                                 </div>
-                                <h4 class="text-center">{{ $product->title }}</h4>
+                                <h4 class="text-center pname">{{ $product->title }}</h4>
                             </div>
                         @endforeach
                     </div>

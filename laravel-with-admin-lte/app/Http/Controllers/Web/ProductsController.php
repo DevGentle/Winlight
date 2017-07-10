@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Web;
 use App\Http\Requests;
 use App\Model\Download\Philips;
 use App\Model\Download\ProductCatalogs;
+use App\Model\Product\PhilipsProduct;
 use App\Model\Product\Product;
 use App\Model\Product\ProductMainCategory;
 use App\Http\Controllers\Controller;
@@ -52,17 +53,25 @@ class ProductsController extends Controller
         }
     }
 
-    public function philipsDownload()
-    {
-        $philips = Philips::all();
-
-        return view('web.download.philips.download', compact('philips'));
-    }
-
     public function winnerProductsDownload()
     {
         $catalogs = ProductCatalogs::all();
+        $philips = Philips::all();
 
-        return view('web.download.product.download', compact('catalogs'));
+        return view('web.download.product.download', compact('catalogs', 'philips'));
+    }
+
+    public function allPhilipsProduct()
+    {
+        $philipsProduct = PhilipsProduct::all();
+
+        return view('web.product.philips.index', compact('philipsProduct'));
+    }
+
+    public function findPhilipsProduct($id)
+    {
+        $philipsProduct = PhilipsProduct::findOrFail($id);
+
+        return view('web.product.philips.show', compact('philipsProduct'));
     }
 }

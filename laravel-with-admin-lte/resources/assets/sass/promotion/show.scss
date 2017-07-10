@@ -1,0 +1,28 @@
+.promotion-show {
+    margin-top: 20px;
+    &__detail {
+        word-wrap: break-word;
+        h2 {
+            font-weight: bold;
+        }
+        &--price, &--date {
+            font-size: 18px;
+        }
+    }
+    &__contact {
+        padding-top: 10px;
+        padding-bottom: 30px;
+        &--left {
+            text-align: right;
+            img {
+                height: 60px;
+            }
+        }
+        &--right {
+            text-align: left;
+            img {
+                height: 60px;
+            }
+        }
+    }
+}

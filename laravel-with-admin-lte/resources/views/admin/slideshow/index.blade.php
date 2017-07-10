@@ -13,7 +13,7 @@
 @endsection
 
 @section('button_crud')
-    <a href="{{ url('admin/slideshows/create') }}" class="btn btn-danger">Create</a>
+    <a href="{{ url('admin/slideshow/nav/create') }}" class="btn btn-danger">Create</a>
 @endsection
 
 @section('main-content')

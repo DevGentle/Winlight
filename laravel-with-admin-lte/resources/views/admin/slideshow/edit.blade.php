@@ -44,7 +44,7 @@
         {!! Form::close() !!}
             <div class="margin">
                 {{ Form::submit('Update', ['class'=>'btn btn-primary']) }}
-                <a href= "{{ url('admin/slideshows') }}" class="btn btn-danger">Cancel</a>
+                <a href= "{{ url('admin/slideshow') }}" class="btn btn-danger">Cancel</a>
             </div>
         </div>
         {!! Form::close() !!}

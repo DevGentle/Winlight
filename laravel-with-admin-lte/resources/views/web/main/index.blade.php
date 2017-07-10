@@ -5,28 +5,47 @@
 @endsection
 
 @section('content')
-    <div class="index-service text-center">
+    <div class="index-suggestion">
         <div class="container">
-            <h1>{{ "บริการของเรา" }}</h1>
             <div class="row">
-                <div class="col-md-8 col-md-offset-2">
-                    <div class="col-md-4">
-                        <div class="index-service__border">
-                            <img src="{{ asset('img/resource/index/service_icon_01.png') }}" alt="">
-                            <p>{{ "ด้านการออกแบบ" }}</p>
-                        </div>
+                <div class="col-xs-12 col-md-3">
+                    @include('web.main.patial.promotion_side')
+                </div>
+                <div class="col-xs-12 col-md-9">
+                    <div class="row index-suggestion__slide">
+                        @foreach($slides->slice(0, 5) as $slide)
+                            <div class="col-xs-12 col-md-4">
+                                <a href="{{ $slide->link }}">
+                                    <img src="{{ $slide->photo->file }}" alt="">
+                                </a>
+                            </div>
+                        @endforeach
                     </div>
-                    <div class="col-md-4">
-                        <div class="index-service__border">
-                            <img src="{{ asset('img/resource/index/service_icon_02.png') }}" alt="">
-                            <p>{{ "ติดตั้งระบบและอื่นๆ" }}</p>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="index-service__border">
-                            <img src="{{ asset('img/resource/index/service_icon_03.png') }}" alt="">
-                            <p>{{ "บริการให้คำปรึกษา" }}</p>
-                        </div>
+                </div>
+                <div class="col-xs-12">
+                    <div class="row index-suggestion__bestsell">
+                        <h1 class="text-center">สินค้าโปรโมชั่น</h1>
+                        @if(count($promotions) > 0)
+                            @foreach($promotions as $promotion)
+                                <div class="col-xs-12 col-md-4 item">
+                                    <div class="index-suggestion__bestsell--block">
+                                        <a href="{{ route('web.promotion.show', ['id' => $promotion->id ]) }}">
+                                            <img src="{{ $promotion->photo->file ? : $promotion->product->photo->file }}" alt="">
+                                        </a>
+                                    </div>
+                                    <div class="index-suggestion__bestsell-detail pname">
+                                        <a href="{{ route('web.promotion.show', ['id' => $promotion->id ]) }}">
+                                            <h3>{{ $promotion->title }}</h3>
+                                            <p class="index-suggestion__bestsell-detail--price"><strong>ราคาโปรโมชั่น: </strong>{{ $promotion->offer_price }}{{ ' บาท' }}</p>
+                                        </a>
+                                    </div>
+                                </div>
+                            @endforeach
+                        @else
+                            <div class="col-xs-12 text-center">
+                                <p class="noresult">ไม่พบสินค้าโปรโมชั่นในตอนนี้</p>
+                            </div>
+                        @endif
                     </div>
                 </div>
             </div>

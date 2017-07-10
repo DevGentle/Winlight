@@ -13,7 +13,7 @@
     @include('tinymce.textarea')
 
     <div class="box-body">
-        {!! Form::model($philips, ['method' => 'PATCH', 'action' => ['Admin\download\PhilipsController@update', $philips->id], 'files' => true]) !!}
+        {!! Form::model($philips, ['method' => 'PATCH', 'action' => ['Admin\Download\PhilipsController@update', $philips->id], 'files' => true]) !!}
         {{ Form::token() }}
         <div class="col-xs-12">
             <div class="margin">

@@ -32,7 +32,7 @@
 
             <div class="col-xs-10 margin">
                 {{ Form::submit('Save', ['class'=>'btn btn-primary']) }}
-                <a href= "{{ url('admin/slideshows') }}" class="btn btn-danger">Cancel</a>
+                <a href= "{{ url('admin/slideshow/nav') }}" class="btn btn-danger">Cancel</a>
             </div>
         {!! Form::close() !!}
     </div>

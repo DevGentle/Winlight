@@ -1,17 +1,61 @@
-.index-service {
-    position: relative;
-    margin-top: -6px;
-    padding: 60px;
-    color: #fff;
-    background-color: #242526;
-    &__title {
-        font-size: 24px;
+.index-suggestion {
+    padding-top: 24px;
+    padding-bottom: 30px;
+    background-color: #252525;
+    hr {
+        width: 60px;
+        left: 0;
+        margin-left: 0;
+        border-top: 1px solid #707070;
     }
-    &__border {
-        margin: 40px auto;
-        p {
-            margin-top: 20px;
-            font-size: 20px;
+    &__slide {
+        &.slick-slider {
+            margin-bottom: 0 !important;
+            img {
+                width: 100%;
+            }
+        }
+        .slick-dots {
+            bottom: 0;
+        }
+    }
+    &__bestsell {
+        h1 {
+            color: #fff;
+            font-weight: bold;
+            padding-bottom: 20px;
+        }
+        &--block {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            border: 1px solid #94bf46;
+            background: #fff;
+            img {
+                width: 100%;
+            }
+        }
+        &-detail {
+            width: 100%;
+            padding: 15px;
+            background-color: #23B14C;
+            color: #fff;
+            word-wrap: break-word;
+            a {
+                color: #fff;
+                h3 {
+                    margin-top: 0;
+                    font-weight: bold;
+                }
+                &--price {
+                    font-size: 16px;
+                }
+            }
+        }
+        .noresult {
+            color: #fff;
+            font-size: 28px;
         }
     }
 }
@@ -161,6 +205,7 @@
                 z-index: 9999;
                 color: white;
                 visibility: hidden;
+                transform: translate(0, 0);
                 img {
                     position: absolute;
                     margin: auto;
@@ -252,6 +297,8 @@
     }
     hr {
         width: 33%;
+        margin-left: auto;
+        margin-right: auto;
         border-top: 2px solid #eeeeee;
     }
 }
@@ -285,4 +332,15 @@
 .m-l-r-0 {
     margin-left: 0;
     margin-right: 0;
+}
+
+@media screen and (max-width: 991px) {
+    .index-suggestion {
+        &__bestsell {
+            padding-top: 0;
+            &--block {
+                margin-top: 30px;
+            }
+        }
+    }
 }

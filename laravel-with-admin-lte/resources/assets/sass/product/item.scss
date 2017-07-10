@@ -10,9 +10,8 @@
         padding-bottom: 40px;
         &--image {
             position: relative;
-            width: 500px;
+            //width: 500px;
             height: 500px;
-            margin-left: 20px;
             margin-top: 20px;
             border: 1px solid #94bf46;
             img {
@@ -25,8 +24,38 @@
                 bottom: 0;
             }
         }
+        &--code {
+            margin-top: 20px;
+        }
+        &--code, &--title, &--price {
+            font-size: 20px;
+        }
         &--description {
             margin-top: 10px;
+            table {
+                overflow-x: auto;
+                min-height: 0.01%;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .product-item {
+        &__category {
+            &--image {
+                height: 300px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .product-item {
+        &__category {
+            &--image {
+                height: 200px;
+            }
         }
     }
 }

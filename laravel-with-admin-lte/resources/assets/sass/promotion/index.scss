@@ -1,0 +1,17 @@
+.promotion-index {
+    padding-top: 20px;
+    .thumbnail {
+        .caption {
+            word-wrap: break-word;
+            a {
+                color: #000;
+                h3 {
+                    font-weight: bold;
+                }
+            }
+            a.btn {
+                margin-top: 20px;;
+            }
+        }
+    }
+}
