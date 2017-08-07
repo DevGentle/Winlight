@@ -100,7 +100,7 @@ class ReferencesController extends Controller
 
         if ($image = $request->file('cover')) {
 
-            $name = '/images/reference/' . $image->getClientOriginalName();
+            $name = '/images/reference/' . time() . $image->getClientOriginalName();
 
             $image->move('images/reference', $name);
 
@@ -116,7 +116,7 @@ class ReferencesController extends Controller
             $photos = [];
 
             foreach ($files as $file) {
-                $name = '/images/reference/' . $file->getClientOriginalName();
+                $name = '/images/reference/' . time() . $file->getClientOriginalName();
 
                 $file->move('images/reference', $name);
 
@@ -159,7 +159,7 @@ class ReferencesController extends Controller
 
         if ($image = $request->file('cover')) {
 
-            $name = '/images/reference/' . $image->getClientOriginalName();
+            $name = '/images/reference/' . time() . $image->getClientOriginalName();
 
             $image->move('images/reference', $name);
 
@@ -171,7 +171,7 @@ class ReferencesController extends Controller
             $photos = [];
 
             foreach ($files as $file) {
-                $name = '/images/reference/' . $file->getClientOriginalName();
+                $name = '/images/reference/' . time() . $file->getClientOriginalName();
 
                 $file->move('images/reference', $name);
 

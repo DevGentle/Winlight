@@ -87,7 +87,7 @@ class PhilipsProductsController extends Controller
 
         if ($file = $request->file('photo_id')) {
 
-            $name = '/images/philips-product/' . $file->getClientOriginalName();
+            $name = '/images/philips-product/' . time() . $file->getClientOriginalName();
 
             $file->move('images/philips-product', $name);
 
@@ -119,7 +119,7 @@ class PhilipsProductsController extends Controller
 
         if ($file = $request->file('photo_id')) {
 
-            $name = '/images/philips-product/' . $file->getClientOriginalName();
+            $name = '/images/philips-product/' . time() . $file->getClientOriginalName();
 
             $file->move('images/philips-product', $name);
 

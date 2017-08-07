@@ -107,7 +107,7 @@ class PhilipsController extends Controller
 
         if ($pdf = $request->file('file')) {
 
-            $name = '/download/philips/' . $pdf->getClientOriginalName();
+            $name = '/download/philips/' . time() . $pdf->getClientOriginalName();
 
             $pdf->move('download/philips', $name);
 
@@ -116,7 +116,7 @@ class PhilipsController extends Controller
 
         if ($file = $request->file('photo_id')) {
 
-            $name = '/images/download/philips/' . $file->getClientOriginalName();
+            $name = '/images/download/philips/' . time() . $file->getClientOriginalName();
 
             $file->move('images/download/philips', $name);
 
@@ -148,7 +148,7 @@ class PhilipsController extends Controller
 
         if ($pdf = $request->file('file')) {
 
-            $name = '/download/philips/' . $pdf->getClientOriginalName();
+            $name = '/download/philips/' . time() . $pdf->getClientOriginalName();
 
             $pdf->move('download/philips', $name);
 
@@ -157,7 +157,7 @@ class PhilipsController extends Controller
 
         if ($file = $request->file('photo_id')) {
 
-            $name = '/images/download/philips/' . $file->getClientOriginalName();
+            $name = '/images/download/philips/' . time() . $file->getClientOriginalName();
 
             $file->move('images/download/philips', $name);
 

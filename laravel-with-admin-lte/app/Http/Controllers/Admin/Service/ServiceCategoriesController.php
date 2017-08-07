@@ -108,7 +108,7 @@ class ServiceCategoriesController extends Controller
 
         if ($file = $request->file('photo_id')) {
 
-            $name = '/images/serviceCategory/' . $file->getClientOriginalName();
+            $name = '/images/serviceCategory/' . time() . $file->getClientOriginalName();
 
             $file->move('images/serviceCategory', $name);
 
@@ -145,7 +145,7 @@ class ServiceCategoriesController extends Controller
 
         if ($file = $request->file('photo_id')) {
 
-            $name = '/images/serviceCategory/' . $file->getClientOriginalName();
+            $name = '/images/serviceCategory/' . time() . $file->getClientOriginalName();
 
             $file->move('images/serviceCategory', $name);
 

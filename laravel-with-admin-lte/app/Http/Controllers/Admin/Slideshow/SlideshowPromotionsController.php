@@ -39,14 +39,19 @@ class SlideshowPromotionsController extends Controller
                         ->setName('photo_id')
                         ->setLabel('Image')
                         ->setCallback(function ($val, ObjectDataRow $row) {
-                            $photo = Photo::find($val);
-                            $path = $photo->file;
+                            if ($photo = Photo::find($val)) {
+                                $path = $photo->file;
 
-                            $img =
-                                '<div>
-                                    <img height="50" src="'.$path.'">
-                                </div>'
-                            ;
+                                $img =
+                                    '<div>
+                                        <img height="50" src="'.$path.'">
+                                    </div>'
+                                ;
+
+                                return $img;
+                            }
+
+                            $img = '<div>No image</div>';
 
                             return $img;
                         }),
@@ -103,7 +108,7 @@ class SlideshowPromotionsController extends Controller
 
         if ($file = $request->file('photo_id')) {
             
-            $name = '/images/slideShowPromotion/' . $file->getClientOriginalName();
+            $name = '/images/slideShowPromotion/' . time() . $file->getClientOriginalName();
 
             $file->move('images/slideShowPromotion', $name);
 
@@ -138,7 +143,7 @@ class SlideshowPromotionsController extends Controller
 
         if ($file = $request->file('photo_id')) {
 
-            $name = '/images/slideShowPromotion/' . $file->getClientOriginalName();
+            $name = '/images/slideShowPromotion/' . time() . $file->getClientOriginalName();
 
             $file->move('images/slideShowPromotion', $name);
 

@@ -25,7 +25,7 @@ class ProductSubCategoryRequest extends Request
     {
         return [
 
-            'product_main_category_id' => 'required',
+//            'product_main_category_id' => 'required',
             'title' => 'required'
 
         ];

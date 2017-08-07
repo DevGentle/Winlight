@@ -104,7 +104,7 @@ class PromotionsController extends Controller
 
         if ($file = $request->file('photo_id')) {
 
-            $name = '/images/promotion/' . $file->getClientOriginalName();
+            $name = '/images/promotion/' . time() . $file->getClientOriginalName();
 
             $file->move('images/promotion', $name);
 
@@ -140,7 +140,7 @@ class PromotionsController extends Controller
 
         if ($file = $request->file('photo_id')) {
 
-            $name = '/images/promotion/' . $file->getClientOriginalName();
+            $name = '/images/promotion/' . time() . $file->getClientOriginalName();
 
             $file->move('images/promotion', $name);
 

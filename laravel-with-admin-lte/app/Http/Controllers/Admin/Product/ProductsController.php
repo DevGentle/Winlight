@@ -137,7 +137,7 @@ class ProductsController extends Controller
 
         if ($pdf = $request->file('file')) {
 
-            $name = '/download/products/' . $pdf->getClientOriginalName();
+            $name = '/download/products/' . time() . $pdf->getClientOriginalName();
 
             $pdf->move('download/products', $name);
 
@@ -146,7 +146,7 @@ class ProductsController extends Controller
 
         if ($file = $request->file('photo_id')) {
 
-            $name = '/images/product/' . $file->getClientOriginalName();
+            $name = '/images/product/' . time() . $file->getClientOriginalName();
 
             $file->move('images/product', $name);
 
@@ -188,7 +188,7 @@ class ProductsController extends Controller
 
         if ($pdf = $request->file('file')) {
 
-            $name = '/download/products/' . $pdf->getClientOriginalName();
+            $name = '/download/products/' . time() . $pdf->getClientOriginalName();
 
             $pdf->move('download/products', $name);
 
@@ -197,7 +197,7 @@ class ProductsController extends Controller
 
         if ($file = $request->file('photo_id')) {
 
-            $name = '/images/product/' . $file->getClientOriginalName();
+            $name = '/images/product/' . time() . $file->getClientOriginalName();
 
             $file->move('images/product', $name);
 

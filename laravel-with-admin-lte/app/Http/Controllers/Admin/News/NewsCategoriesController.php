@@ -94,7 +94,7 @@ class NewsCategoriesController extends Controller
 
         if ($file = $request->file('photo_id')) {
 
-            $name = '/images/newsCategory/' . $file->getClientOriginalName();
+            $name = '/images/newsCategory/' . time() . $file->getClientOriginalName();
 
             $file->move('images/newsCategory', $name);
 
@@ -124,7 +124,7 @@ class NewsCategoriesController extends Controller
 
         if ($file = $request->file('photo_id')) {
 
-            $name = '/images/newsCategory/' . $file->getClientOriginalName();
+            $name = '/images/newsCategory/' . time() . $file->getClientOriginalName();
 
             $file->move('images/newsCategory', $name);
 

@@ -108,7 +108,7 @@ class ProductMainCategoriesController extends Controller
 
         if ($file = $request->file('photo_id')) {
 
-            $name = '/images/productMainCategory/' . $file->getClientOriginalName();
+            $name = '/images/productMainCategory/' . time() . $file->getClientOriginalName();
 
             $file->move('images/productMainCategory', $name);
 
@@ -145,7 +145,7 @@ class ProductMainCategoriesController extends Controller
 
         if ($file = $request->file('photo_id')) {
 
-            $name = '/images/productMainCategory/' . $file->getClientOriginalName();
+            $name = '/images/productMainCategory/' . time() . $file->getClientOriginalName();
 
             $file->move('images/productMainCategory', $name);
 
