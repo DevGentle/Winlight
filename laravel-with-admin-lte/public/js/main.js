@@ -4,9 +4,15 @@ $(document).ready(function(){
         infinite: true,
         arrows: false
     });
-});
 
-$(document).ready(function(){
+    $('.index-suggestion__slide').slick({
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        autoplay: true,
+        arrows: false,
+        dots: true
+    });
+
     $('#news-slider').slick({
         autoplay: false,
         infinite: true,
@@ -44,19 +50,28 @@ $(document).ready(function(){
     });
 });
 
-var vid = document.getElementById("bgvid");
-var pauseButton = document.querySelector("#polina button");
-
-function vidFade() {
-    vid.classList.add("stopfade");
-}
-
-vid.addEventListener('ended', function()
-{
-// only functional if "loop" is removed
-    vid.pause();
-// to capture IE10
-    vidFade();
+$(document).ready(function () {
+    $('.pname').matchHeight();
+    $('.item').matchHeight();
 });
+
+$(document).ready(function () {
+    $('table').closest('div').addClass('table-responsive');
+});
+
+// var vid = document.getElementById("bgvid");
+// var pauseButton = document.querySelector("#polina button");
+//
+// function vidFade() {
+//     vid.classList.add("stopfade");
+// }
+//
+// vid.addEventListener('ended', function()
+// {
+// // only functional if "loop" is removed
+//     vid.pause();
+// // to capture IE10
+//     vidFade();
+// });
 
 //# sourceMappingURL=main.js.map

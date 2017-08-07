@@ -1,34 +1,11 @@
-@inject('slides', 'App\Services\SlideShowService')
-<div class="container-fluid p-r-l-0">
-    <div class="row">
-        <div class="container">
-            <div class="navbar-header__menu">
-                <div class="col-xs-10 col-xs-offset-1">
-                    <div class="col-xs-1 navbar-header__menu-image">
-                        <a href="{{ url('/') }}"><img src="{{ asset('img/resource/winlight_logo_white.png') }}"></a>
-                    </div>
-                    <div class="col-xs-11 text-center navbar-header__menu-box ">
-                        <ul>
-                            <li><a href="{{ url('/') }}">หน้าแรก</a></li>
-                            <li><a href="{{ url('/about-us') }}">วินเนอร์</a></li>
-                            <li><a href="{{ url('/products') }}">ผลิตภัณฑ์</a></li>
-                            <li><a href="{{ url('/events') }}">กิจกรรม</a></li>
-                            <li><a href="{{ url('/services') }}">บริการ</a></li>
-                            <li><a href="{{ url('/references') }}">ผลงาน</a></li>
-                            <li><a href="{{ url('/contact-us') }}">ติดต่อสอบถาม</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="navbar-header__content-video hidden-xs">
-                <div class="navbar-header__content-video--title"><span style="color: #23b14c">WINNER</span> LIGHT</div>
-                <div class="navbar-header__content-video--subtitle">We are operates on Lighting products a comprehensive</div>
-            </div>
-        </div>
-    </div>
-    <video poster="{{ asset('video/background_video_poster.png') }}" width="100%" id="bgvid" playsinline autoplay muted loop>
+<div class="container-fluid p-r-l-0" style="position: relative; background-color: #252525;">
+    <video poster="{{ asset('video/background_video_poster.png') }}" width="100%" height="100%"
+           id="bgvid" playsinline autoplay muted loop>
         <source src="{{ asset('video/background_video_blur.webm') }}" type="video/webm">
         <source src="{{ asset('video/background_video_blur.mp4') }}" type="video/mp4">
+        <source src="{{ asset('video/background_video_blur.mp4') }}" type="video/mov">
     </video>
+
+    @include('web.main.nav')
 </div>
 

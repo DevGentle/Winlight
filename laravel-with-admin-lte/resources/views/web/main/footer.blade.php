@@ -1,15 +1,19 @@
 <footer class="setfooter">
     <div class="container">
         <div class="row">
-            <div class="col-xs-3 text-xs-center">
+            <div class="col-xs-12 col-md-3">
                 <a href="{{ url('/') }}">
                     <p class="setcol-left"><img src="{{ asset('img/resource/logo_medium.png') }}"></p>
                 </a>
             </div>
-            <div class="col-xs-9 text-xs-center">
+            <div class="col-xs-12 col-md-9 text-xs-center">
                 <div class="setcol-right">
-                    <div class="fontfooter2"><img src="{{ asset('img/resource/icon_facebook.png') }}" width="30"></div>
-                    <div class="footer">
+                    <div class="fontfooter2">
+                        <a href="https://www.facebook.com/bangbonstation" target="_blank">
+                            <img src="{{ asset('img/resource/icon_facebook.png') }}" width="30">
+                        </a>
+                    </div>
+                    <div class="footer visible-lg visible-md">
                         <div class=" navbar-footer__menu-box">
                             <ul>
                                 <li><a href="{{ url('/contact-us') }}">ติดต่อสอบถาม</a></li>
@@ -17,6 +21,7 @@
                                 <li><a href="{{ url('/services') }}">บริการ</a></li>
                                 <li><a href="{{ url('/events') }}">กิจกรรม</a></li>
                                 <li><a href="{{ url('/products') }}">ผลิตภัณฑ์</a></li>
+                                <li><a href="{{ url('/about-us') }}">โปรโมชั่น</a></li>
                                 <li><a href="{{ url('/about-us') }}">วินเนอร์</a></li>
                                 <li><a href="{{ url('/') }}">หน้าแรก</a></li>
                             </ul>

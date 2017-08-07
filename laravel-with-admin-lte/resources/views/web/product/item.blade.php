@@ -18,15 +18,15 @@
             </div>
         </div>
     </div>
-    <div class="container-fluid product-content__main">
+    <div class="product-content__main">
         <div class="container">
             <div class="row product-content">
-                <div class="col-md-2 col-md-offset-1">
+                <div class="col-xs-12 col-md-2 col-md-offset-1">
                     @include('web.product.patial.sidemunu')
                 </div>
-                <div class="col-md-9">
+                <div class="col-xs-12 col-md-9">
                     <div class="row product-content__category">
-                        <ol class="breadcrumb">
+                        <ol class="breadcrumb hidden-xs">
                             <li><a href="{{ url('/') }}">Home</a></li>
                             <li><a href="{{ url('/products') }}">Products</a></li>
                             <li><a href="{{ route('web.product.category', ['categoryId' => $product->productMainCategories->id]) }}">{{ $product->productMainCategories->title }}</a></li>
@@ -42,13 +42,27 @@
                                 {{ 'No results' }}
                             @endif
                         @else
-                            <div class="col-md-12 product-item__category--image">
-                                <img src="{{ asset($product->photo->file) }}" width="100%">
+                            <div class="col-md-12">
+                                <div class="product-item__category--image">
+                                    <img src="{{ asset($product->photo->file) }}" width="100%">
+                                </div>
                             </div>
-                            <div class="col-md-10 product-item__category--description">
-                                {!! $product->description !!}
+                            <div class="col-xs-12">
+                                <div class="product-item__category--description">
+                                    {!! $product->description !!}
+                                </div>
                             </div>
                         @endif
+                        <div class="col-xs-12 col-sm-6 product-content__category--image-contact">
+                            <a href="{{ route('web.contact-us.index') }}">
+                                <img src="{{ asset('img/resource/contact-wl.png') }}" alt="">
+                            </a>
+                        </div>
+                        <div class="col-xs-12 col-sm-6 product-content__category--image-line">
+                            <a href="https://line.me/R/ti/p/%40qzh9268t" target="_blank">
+                                <img src="{{ asset('img/resource/add-line.png') }}" alt="">
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>

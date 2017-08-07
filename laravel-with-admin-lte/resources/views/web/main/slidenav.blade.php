@@ -1,36 +1,12 @@
 @inject('slides', 'App\Services\SlideShowService')
-<div class="container-fluid p-r-l-0">
-    <div class="row">
-        <div class="container">
-            <div class="navbar-header__menu">
-                <div class="col-xs-10 col-xs-offset-1">
-                    <div class="col-xs-1 navbar-header__menu-image">
-                        <a href="{{ url('/') }}"><img src="{{ asset('img/resource/winlight_logo_white.png') }}"></a>
-                    </div>
-                    <div class="col-xs-11 text-center navbar-header__menu-box">
-                        <ul>
-                            <li><a href="{{ url('/') }}">หน้าแรก</a></li>
-                            <li><a href="{{ url('/about-us') }}">วินเนอร์</a></li>
-                            <li><a href="{{ url('/products') }}">ผลิตภัณฑ์</a></li>
-                            <li><a href="{{ url('/events') }}">กิจกรรม</a></li>
-                            <li><a href="{{ url('/services') }}">บริการ</a></li>
-                            <li><a href="{{ url('/references') }}">ผลงาน</a></li>
-                            <li><a href="{{ url('/contact-us') }}">ติดต่อสอบถาม</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="navbar-header__content-slide hidden-xs hidden-sm">
-                <div class="navbar-header__content-slide--title"><span style="color: #23b14c">WINNER</span> LIGHT</div>
-                <div class="navbar-header__content-slide--subtitle">We are operates on Lighting products a comprehensive</div>
-            </div>
-        </div>
-    </div>
+
+<div class="container-fluid p-r-l-0" style="position: relative;">
     <div class="navbar-header__cover">
         @foreach($slides->findSlides()->slides as $slide)
             <img data-u="image" src="{{ asset($slide->photo->file) }}" />
         @endforeach
     </div>
-    <div class="navbar-header__green-line"></div>
-</div>
+    <div class="green-line"></div>
 
+    @include('web.main.nav')
+</div>

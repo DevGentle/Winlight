@@ -1,0 +1,354 @@
+/*
+LESS FILE
+Web Component: Responsive Navigation Menu
+wc_responsiveNavMenu_v1.less
+
+Author: Jacob Scott
+Created: 10-26-15
+Updated: 11-06-15
+*/
+
+.hb-menu-btn {
+  display: block;
+  position: fixed;
+  top: 0.75em;
+  width: 3em;
+  height: 3em;
+  border: 3px solid #23B14C;
+  background-color: #23B14C;
+  border-radius: 50%;
+  z-index: 5000;
+  transition: border-radius background-color border-color;
+  transition-duration: 0.25s;
+  transition-timing-function: ease;
+  transition-delay: 0.0s;
+}
+.hb-menu-btn .line-block {
+  display: block;
+  position: relative;
+  top: 0.9em;
+}
+.hb-menu-btn .line {
+  display: block;
+  position: relative;
+  width: 1.7em;
+  left: 0.5em;
+  border-top: 4px solid white;
+  transition: all ease;
+  transition-duration: 0.25s;
+}
+.hb-menu-btn #line1 {
+  bottom: 0.25em;
+}
+.hb-menu-btn #line3 {
+  top: 0.25em;
+}
+.hb-menu-btn::selection,
+.hb-menu-btn *::selection {
+  background-color: transparent;
+}
+.hb-menu-btn:hover {
+  cursor: pointer;
+  transform: scale(0.95);
+  background-color: white;
+  border-color: white;
+  transition-duration: 0.15s;
+}
+.hb-menu-btn:hover .line {
+  border-color: #1a1a1a;
+}
+.hb-menu-btn.hb-menu-open {
+  border-radius: 50%;
+  background-color: white;
+  border-color: white;
+}
+.hb-menu-btn.hb-menu-open .line {
+  border-color: #EB2D2D;
+  transition: all ease;
+  transition-duration: 0.25s;
+}
+.hb-menu-btn.hb-menu-open #line1 {
+  transform: rotate(45deg);
+  bottom: -0.25em;
+}
+.hb-menu-btn.hb-menu-open #line2 {
+  width: 0%;
+  left: 50%;
+  border: 0px;
+}
+.hb-menu-btn.hb-menu-open #line3 {
+  transform: rotate(-45deg);
+  top: 0;
+}
+.hb-menu-btn.circle {
+  border-radius: 50%;
+}
+.hb-menu-btn.rounded-square {
+  border-radius: 10%;
+}
+.hb-menu-btn.square {
+  border-radius: 0%;
+}
+.hb-menu-btn.place-left {
+  right: 2.75em;
+}
+@media screen and (max-width: 767px) {
+  .hb-menu-btn.place-left {
+    right: 0.75em;
+  }
+}
+.hb-menu-btn.place-right {
+  right: 0.75em;
+}
+.hb-menu {
+  display: block;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #23B14C;
+  z-index: 2500;
+  transition: all 0.25s ease;
+  transition-delay: 0.0s;
+  overflow-y: scroll;
+}
+.hb-menu nav ul {
+  margin-top: 48px;
+}
+.hb-menu nav ul li {
+  list-style-type: none;
+  display: block;
+  position: relative;
+  width: 100%;
+  height: auto;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  border-bottom: 3px solid rgba(0, 0, 0, 0.1);
+  padding: 0 0 0 0;
+  margin: 0 0 0 0;
+}
+.hb-menu nav ul li a {
+  display: inline-block;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 0.5em 0px 0.5em 64px;
+  background-color: transparent;
+  text-align: left;
+  text-decoration: none;
+  font-size: 1.15em;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  color: white;
+  transition: border 0.15s ease;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+.hb-menu nav ul li a.withSubmenu {
+  width: 60%;
+  padding-right: 0;
+  display: inline-block;
+}
+.hb-menu nav ul li a:hover {
+  cursor: pointer;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+.hb-menu nav ul li div {
+  display: inline-block;
+  z-index: 10000;
+  width: 15%;
+  height: 100%;
+  float: right;
+  padding: 0.5em 0 0.5em 16px;
+}
+.hb-menu nav ul li div > i {
+  transition: transform 0.3s ease;
+  text-align: center;
+  font-size: 1.5em;
+}
+.hb-menu nav ul li div > i.hb-menu-sub-open {
+  -webkit-transform: rotate(135deg);
+}
+.hb-menu nav ul li div:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+.hb-menu nav ul li ul {
+  margin-top: 0;
+  height: 0px;
+  display: block;
+  background-color: #1a1a1a;
+  transition: all 0.5s ease;
+}
+.hb-menu nav ul li ul.hb-menu-sub-open {
+  padding-top: 16px;
+  height: 1080px;
+}
+.hb-menu nav ul li ul li {
+  display: block;
+  position: relative;
+  height: auto;
+  background-color: transparent;
+}
+.hb-menu nav ul li ul li a {
+  font-size: 1.0em;
+  line-height: 1.5em;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+}
+.hb-menu nav ul li ul li a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+.hb-menu.push-left {
+  left: -100%;
+}
+.hb-menu.push-right {
+  left: 100%;
+}
+.hb-menu.hb-menu-open.push-left {
+  left: 0;
+}
+.hb-menu.hb-menu-open.push-right {
+  transform: translatex(-100%);
+}
+.hb-menu .menu-title {
+  display: block;
+  position: relative;
+  width: 100%;
+  color: white;
+  background-color: transparent;
+  text-align: center;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.5em;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  padding: 0.75em 0;
+}
+.hb-menu-page.hb-menu-open {
+  -webkit-filter: saturate(0);
+  opacity: 0.5;
+}
+.hb-menu-page.hb-menu-open.push-left {
+  /*left: @hb-menu-push-length;*/
+}
+.hb-menu-page.hb-menu-open.push-right {
+  /*transform: translatex(-@hb-menu-push-length);*/
+}
+body {
+  overflow-x: hidden;
+}
+/* 	Set the hamburger menu style color variables FIRST. Then,
+		if you wish to have different colors on the tabbed menu,
+		change the following values. */
+.tabbed-menu {
+  display: block;
+  background-color: #EB2D2D;
+  top: 0;
+  width: 100%;
+  height: auto;
+  z-index: 5000;
+}
+.tabbed-menu.active {
+  position: fixed;
+}
+.tabbed-menu a img {
+  display: inline-block;
+  position: absolute;
+  width: auto;
+  height: 32px;
+  padding-top: 0.65em;
+  left: 50px;
+}
+.tabbed-menu nav ul {
+  display: inline-block;
+  position: relative;
+  height: inherit;
+  width: auto;
+}
+.tabbed-menu nav ul li {
+  display: inline-block;
+  height: inherit;
+}
+.tabbed-menu nav ul li ul {
+  display: none;
+  position: absolute;
+  z-index: 500000;
+  width: auto;
+  background-color: #1a1a1a;
+}
+.tabbed-menu nav ul li ul li:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+.tabbed-menu nav ul li:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+.tabbed-menu nav ul li:hover ul {
+  display: block;
+}
+.tabbed-menu nav ul li:hover ul li {
+  display: block;
+  position: relative;
+  min-width: 200px;
+}
+.tabbed-menu nav ul li:hover ul li a {
+  font-size: 1em;
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
+.tabbed-menu nav ul li a {
+  display: block;
+  width: auto;
+  padding-left: 1em;
+  padding-right: 1em;
+  text-decoration: none;
+  color: white;
+  font-family: 'Open Sans', arial, sans-serif;
+  font-size: 1.25em;
+  padding-top: 0.625em;
+  padding-bottom: 0.625em;
+  vertical-align: top;
+}
+.hide-selection::selection {
+  background-color: transparent;
+}
+.normal-margin {
+  display: block;
+  position: relative;
+  width: 100%;
+  margin-top: 32px;
+  margin-bottom: 32px;
+}
+.normal-margin * {
+  margin-left: 32px;
+  margin-right: 32px;
+}
+.no-margin {
+  display: block;
+  position: relative;
+  width: 100%;
+}
+.no-margin * {
+  margin-left: 0;
+  margin-right: 0;
+}
+.bg-image {
+  background: cover;
+  background-position: 50% 50%;
+}
+.bg-align-top {
+  background-position-y: 0%;
+}
+.bg-align-bottom {
+  background-position-y: 100%;
+}
+.bg-align-left {
+  background-position-x: 0%;
+}
+.bg-align-right {
+  background-position-x: 100%;
+}
+.bg-fixed {
+  background-attachment: fixed;
+}

@@ -115,7 +115,7 @@ class NewsController extends Controller
 
         if ($image = $request->file('cover')) {
 
-            $name = '/images/news/' . $image->getClientOriginalName();
+            $name = '/images/news/' . time() . $image->getClientOriginalName();
 
             $image->move('images/news', $name);
 
@@ -131,7 +131,7 @@ class NewsController extends Controller
             $photos = [];
 
             foreach ($files as $file) {
-                $name = '/images/news/' . $file->getClientOriginalName();
+                $name = '/images/news/' . time() . $file->getClientOriginalName();
 
                 $file->move('images/news', $name);
 
@@ -171,7 +171,7 @@ class NewsController extends Controller
 
         if ($image = $request->file('cover')) {
 
-            $name = '/images/news/' . $image->getClientOriginalName();
+            $name = '/images/news/' . time() . $image->getClientOriginalName();
 
             $image->move('images/news', $name);
 
@@ -183,7 +183,7 @@ class NewsController extends Controller
             $photos = [];
 
             foreach ($files as $file) {
-                $name = '/images/news/' . $file->getClientOriginalName();
+                $name = '/images/news/' . time() . $file->getClientOriginalName();
 
                 $file->move('images/news', $name);
 

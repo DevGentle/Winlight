@@ -108,7 +108,7 @@ class WinnerProductsController extends Controller
 
         if ($pdf = $request->file('file')) {
 
-            $name = '/download/product-catalog/' . $pdf->getClientOriginalName();
+            $name = '/download/product-catalog/' . time() . $pdf->getClientOriginalName();
 
             $pdf->move('download/product-catalog', $name);
 
@@ -117,7 +117,7 @@ class WinnerProductsController extends Controller
 
         if ($file = $request->file('photo_id')) {
 
-            $name = '/images/download/product-catalog/' . $file->getClientOriginalName();
+            $name = '/images/download/product-catalog/' . time() . $file->getClientOriginalName();
 
             $file->move('images/download/product-catalog', $name);
 
@@ -149,7 +149,7 @@ class WinnerProductsController extends Controller
 
         if ($pdf = $request->file('file')) {
 
-            $name = '/download/product-catalog/' . $pdf->getClientOriginalName();
+            $name = '/download/product-catalog/' . time() . $pdf->getClientOriginalName();
 
             $pdf->move('download/product-catalog', $name);
 
@@ -158,7 +158,7 @@ class WinnerProductsController extends Controller
 
         if ($file = $request->file('photo_id')) {
 
-            $name = '/images/download/product-catalog/' . $file->getClientOriginalName();
+            $name = '/images/download/product-catalog/' . time() . $file->getClientOriginalName();
 
             $file->move('images/download/product-catalog', $name);
 

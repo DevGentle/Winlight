@@ -40,14 +40,19 @@ class SlideshowsController extends Controller
                         ->setName('photo_id')
                         ->setLabel('Image')
                         ->setCallback(function ($val, ObjectDataRow $row) {
-                            $photo = Photo::find($val);
-                            $path = $photo->file;
+                            if ($photo = Photo::find($val)) {
+                                $path = $photo->file;
 
-                            $img =
-                                '<div>
-                                    <img height="50" src="'.$path.'">
-                                </div>'
-                            ;
+                                $img =
+                                    '<div>
+                                        <img height="50" src="'.$path.'">
+                                    </div>'
+                                ;
+
+                                return $img;
+                            }
+
+                            $img = '<div>No image</div>';
 
                             return $img;
                         }),
@@ -104,7 +109,7 @@ class SlideshowsController extends Controller
 
         if ($file = $request->file('photo_id')) {
             
-            $name = '/images/slideShow/' . $file->getClientOriginalName();
+            $name = '/images/slideShow/' . time() . $file->getClientOriginalName();
 
             $file->move('images/slideShow', $name);
 
@@ -116,7 +121,7 @@ class SlideshowsController extends Controller
 
         Slideshow::create($input);
 
-        return redirect('admin/slideshows');
+        return redirect('admin/slideshow/nav');
     }
 
     public function show($id)
@@ -139,7 +144,7 @@ class SlideshowsController extends Controller
 
         if ($file = $request->file('photo_id')) {
 
-            $name = '/images/slideShow/' . $file->getClientOriginalName();
+            $name = '/images/slideShow/' . time() . $file->getClientOriginalName();
 
             $file->move('images/slideShow', $name);
 
@@ -155,7 +160,7 @@ class SlideshowsController extends Controller
 
         $slide->update($input);
 
-        return redirect('admin/slideshows');
+        return redirect('admin/slideshow/nav');
     }
 
     public function destroy($id)

@@ -37,7 +37,13 @@
                 <!-- Optionally, you can add icons to the links -->
                 <li class="active"><a href="{{ url('home') }}"><i class='fa fa-tachometer'></i> <span>Dashboard</span></a></li>
                 <li><a href="{{ url('admin/users') }}"><i class='fa fa-users'></i> <span>Users</span></a></li>
-                <li><a href="{{ url('admin/slideshows') }}"><i class='fa fa-picture-o'></i> <span>Slide show</span></a></li>
+                <li class="treeview">
+                    <a href="#"><i class="fa fa-lightbulb-o"></i> <span>Slideshows</span> <i class="fa fa-angle-left pull-right"></i></a>
+                    <ul class="treeview-menu">
+                        <li><a href="{{ url('admin/slideshow/nav') }}">Navbar slide</a></li>
+                        <li><a href="{{ url('admin/slideshow/promotion') }}">Promotion slide</a></li>
+                    </ul>
+                </li>
                 <li class="treeview">
                     <a href="#"><i class="fa fa-rss"></i> <span>News</span> <i class="fa fa-angle-left pull-right"></i></a>
                     <ul class="treeview-menu">
@@ -51,7 +57,11 @@
                         <li><a href="{{ url('admin/product-main-categories') }}">Product Categories Main</a></li>
                         <li><a href="{{ url('admin/product-sub-categories') }}">Product Categories Sub</a></li>
                         <li><a href="{{ url('admin/products') }}">Products</a></li>
+                        <li><a href="{{ url('admin/philips-product') }}">Philips Product</a></li>
                     </ul>
+                </li>
+                <li class="treeview">
+                    <a href="{{ url('admin/promotions') }}"><i class="fa fa-lightbulb-o"></i> <span>Promotions</span></a>
                 </li>
                 <li class="treeview">
                     <a href="#"><i class="fa fa-cubes"></i> <span>Service</span> <i class="fa fa-angle-left pull-right"></i></a>

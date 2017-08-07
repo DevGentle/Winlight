@@ -1,39 +1,44 @@
-@inject('slides', 'App\Services\SlideShowService')
-<div class="container-fluid p-r-l-0">
-    <div class="row">
-        <div class="container">
-            <div class="navbar-header__menu">
-                <div class="col-xs-10 col-xs-offset-1">
-                    <div class="col-xs-1 navbar-header__menu-image">
-                        <a href="{{ url('/') }}"><img src="{{ asset('img/resource/winlight_logo_white.png') }}"></a>
-                    </div>
-                    <div class="col-xs-11 text-center navbar-header__menu-box">
-                        <ul>
-                            <li><a href="{{ url('/') }}">หน้าแรก</a></li>
-                            <li><a href="{{ url('/about-us') }}">วินเนอร์</a></li>
-                            <li><a href="{{ url('/products') }}">ผลิตภัณฑ์</a></li>
-                            <li><a href="{{ url('/events') }}">กิจกรรม</a></li>
-                            <li><a href="{{ url('/services') }}">บริการ</a></li>
-                            <li><a href="{{ url('/references') }}">ผลงาน</a></li>
-                            <li><a href="{{ url('/contact-us') }}">ติดต่อสอบถาม</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="navbar-header__content">
-                <div class="navbar-header__content--title"><span style="color: #23b14c">วินเนอร์</span> ไลท์</div>
-                <div class="navbar-header__content--subtitle">เราดำเนินธุรกิจเกี่ยวกับผลิตภัณฑ์ด้านแสงสว่างอย่างครอบคลุม</div>
-            </div>
-        </div>
-    </div>
-    <video width="100%" id="bgvid" playsinline autoplay muted loop>
-        <source src="{{ asset('video/background_video.mp4') }}" type="video/mp4">
-    </video>
-    {{--<div class="navbar-header__cover">--}}
-        {{--@foreach($slides->findSlides()->slides as $slide)--}}
-            {{--<img data-u="image" src="{{ asset($slide->photo->file) }}" />--}}
-        {{--@endforeach--}}
-    </div>
-    <div class="navbar-header__green-line"></div>
+<div class="overlay hidden-xs">
+    <div class="overlay--title"><span style="color: #23b14c">WINNER</span> LIGHT</div>
+    <div class="overlay--subtitle">We are operates on Lighting products a comprehensive</div>
 </div>
 
+<div class="hb-menu-btn place-left rounded-square" onClick="hbMenuToggle()" style="display: none;">
+    <div class="line-block">
+        <div class="line" id="line1"></div>
+        <div class="line" id="line2"></div>
+        <div class="line" id="line3"></div>
+    </div>
+</div>
+
+<div class="hb-menu push-right">
+    <div class="menu-title">
+    </div>
+    <nav id="main-nav" class="hide-selection">
+    </nav>
+</div>
+
+<nav class="navbar">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="container">
+            <div class="navbar-header">
+                <a href="{{ url('/') }}"><img src="{{ asset('img/resource/winlight_logo_white.png') }}"></a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="nav nav-bar">
+                    <li><a href="{{ url('/') }}">หน้าแรก</a></li>
+                    <li><a href="{{ url('/about-us') }}">วินเนอร์</a></li>
+                    <li><a href="{{ url('/promotion') }}">โปรโมชั่น</a></li>
+                    <li><a href="{{ url('/products') }}">ผลิตภัณฑ์</a></li>
+                    <li><a href="{{ url('/events') }}">กิจกรรม</a></li>
+                    <li><a href="{{ url('/services') }}">บริการ</a></li>
+                    <li><a href="{{ url('/references') }}">ผลงาน</a></li>
+                    <li><a href="{{ url('/contact-us') }}">ติดต่อสอบถาม</a></li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div>
+    </div><!-- /.container-fluid -->
+</nav>
