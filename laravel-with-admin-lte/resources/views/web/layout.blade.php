@@ -11,6 +11,7 @@
             <meta name="description" content="ผลิตภัณฑ์เกี่ยวกับโคมไฟและหลอดไฟ">
             <meta name="keywords" content="วินเนอร์,วินไลท์,วินเนอร์ไลท์,โคมไฟ,โคมไฟแอลอีดี,หลอดไฟ,เสาไฟ,หลอดแอลอีดี,โคมไฟถนน,โคมถนนแอลอีดี,โคมไฮเบย์,โคมไฟโซล่าเซล,โคมกันน้ำกันฝุ่น,โคมดาวน์ไลท์,Winner,Winlight,Winner Light,Luminaire/Fixture,Led,Lamp,Pole,Led Lamp,Street Light,Street Light Led,High Bay,Solarcell,Water Proof,Downlight">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <meta name="google-site-verification" content="Rl22p1_FkhYM5JfgGrBHpXMAqdTznYDUdEqU837Bz_M" />
 
         @yield('stylesheet')
             <link rel="stylesheet" href="{{ asset('/css/bootstrap.css') }}">
