@@ -30,7 +30,7 @@
                                 <div class="col-xs-12 col-md-4 item">
                                     <div class="index-suggestion__bestsell--block">
                                         <a href="{{ route('web.promotion.show', ['id' => $promotion->id ]) }}">
-                                            <img src="{{ $promotion->photo->file ? : $promotion->product->photo->file }}" alt="">
+                                            <img src="{{ $promotion->cover ? : $promotion->product->photo->file }}" alt="">
                                         </a>
                                     </div>
                                     <div class="index-suggestion__bestsell-detail pname">

@@ -27,27 +27,10 @@
     <div class="container-fluid download-content__main">
         <div class="container">
             <div class="row download-content">
-                <div class="col-md-2 col-md-offset-1">
+                <div class="col-md-3">
                     @include('web.product.patial.sidemunu')
                 </div>
                 <div class="col-md-9">
-                    <div class="row download-content__category">
-                        <div class="download-content__category-box">
-                            <span class="download-content__category-box--philips">{{ 'PHILIPS CATALOG' }}</span>
-                        </div>
-                        @foreach($philips as $philip)
-                            <div class="col-sm-6 col-md-4">
-                                <div class="download-content__category--item">
-                                    <a href="{{ asset($philip->file) }}" target="_blank">
-                                        <img src="{{ asset($philip->photo->file) }}">
-                                    </a>
-                                </div>
-                                <div class="download-content__category--title">
-                                    {{ $philip->title }}
-                                </div>
-                            </div>
-                        @endforeach
-                    </div>
                     <div class="row download-content__category">
                         <div class="download-content__category-box">
                             <span class="download-content__category-box--winner">{{ 'WINNER LIGHT CATALOG' }}</span>
@@ -60,7 +43,9 @@
                                     </a>
                                 </div>
                                 <div class="download-content__category--title">
-                                    {{ $catalog->title }}
+                                    <a href="{{ asset($catalog->file) }}" target="_blank">
+                                        {{ $catalog->title }}
+                                    </a>
                                 </div>
                             </div>
                         @endforeach

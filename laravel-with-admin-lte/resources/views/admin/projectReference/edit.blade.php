@@ -36,12 +36,14 @@
                     <div class="col-xs-12" style="padding-top: 5px; padding-bottom: 5px">
                         <table class="table table-bordered" style="background: #ffffff">
                             <tbody>
-                            <tr>
-                                <td><img src="{{ asset($references->cover) }}" width="200" height="100" alt=""></td>
-                            </tr>
-                            <tr>
-                                <td><b>File name: </b>{{ $references->cover }}</td>
-                            </tr>
+                            @if($references->cover)
+                                <tr>
+                                    <td><img src="{{ asset($references->cover) }}" width="200" height="100" alt=""></td>
+                                </tr>
+                                <tr>
+                                    <td><b>File name: </b>{{ $references->cover }}</td>
+                                </tr>
+                            @endif
                             </tbody>
                         </table>
                     </div>
@@ -55,6 +57,7 @@
                         <div class="image-container col-xs-12 col-md-4" style="padding-top: 5px; padding-bottom: 5px">
                             <table class="table table-bordered" style="background: #ffffff">
                                 <tbody>
+                                @if($reference->file)
                                     <tr>
                                         <td><img src="{{ asset($reference->file) }}" width="200" height="100" alt=""></td>
                                     </tr>
@@ -68,6 +71,7 @@
                                             </a>
                                         </td>
                                     </tr>
+                                @endif
                                 </tbody>
                             </table>
                         </div>

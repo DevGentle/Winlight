@@ -21,23 +21,25 @@
     <div class="activity-bg">
         <div class="container">
             <div class="row activity-show">
-                <div class="col-md-9">
-                    <div class="activity-show__title">{{ $event->title }}</div>
-                    <div class="fotorama"
-                         data-nav="thumbs"
-                         data-loop="true"
-                         data-click="true"
-                         data-arrows="true"
-                         data-width="700"
-                         data-ratio="700/467"
-                         data-max-width="100%"
-                         data-allowfullscreen="native">
-                        @foreach($event->photos()->get() as $photo )
-                            <a href="{{ asset($photo->file) }}">
-                                <img src="{{ asset($photo->file) }}" data-fit="cover">
-                            </a>
-                        @endforeach
+                <div class="col-md-offset-1 col-md-10">
+                    <div style="display: flex;">
+                        <div class="fotorama"
+                             data-nav="thumbs"
+                             data-loop="true"
+                             data-click="true"
+                             data-arrows="true"
+                             data-width="700"
+                             data-ratio="700/467"
+                             data-max-width="100%"
+                             data-allowfullscreen="native" style="margin: auto;">
+                            @foreach($event->photos()->get() as $photo )
+                                <a href="{{ asset($photo->file) }}">
+                                    <img src="{{ asset($photo->file) }}" data-fit="cover">
+                                </a>
+                            @endforeach
+                        </div>
                     </div>
+                    <div class="activity-show__title">{{ $event->title }}</div>
                     <div class="activity-show__date">{{ 'Created on : ' }}{{ date('F d, Y', strtotime($event->created_at)) }}</div>
                     <div class="activity-show__content">
                         @if($event->content)
@@ -48,7 +50,6 @@
                     </div>
                 </div>
             </div>
-            {{--{{  $events->links() }}--}}
         </div>
     </div>
 @endsection

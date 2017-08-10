@@ -31,12 +31,14 @@
                     <div class="col-xs-12" style="padding-top: 5px; padding-bottom: 5px">
                         <table class="table table-bordered" style="background: #ffffff">
                             <tbody>
-                            <tr>
-                                <td><img src="{{ asset($services->photo->file) }}" width="200" height="100" alt=""></td>
-                            </tr>
-                            <tr>
-                                <td><b>File name: </b>{{ $services->photo->file }}</td>
-                            </tr>
+                            @if($services->photo)
+                                <tr>
+                                    <td><img src="{{ asset($services->photo->file) }}" width="200" height="100" alt=""></td>
+                                </tr>
+                                <tr>
+                                    <td><b>File name: </b>{{ $services->photo->file }}</td>
+                                </tr>
+                            @endif
                             </tbody>
                         </table>
                     </div>

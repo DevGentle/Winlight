@@ -34,7 +34,7 @@ Route::get('event/{eventId}', 'Web\EventsController@findEvent')->name('web.event
 Route::get('products', 'Web\ProductsController@index');
 Route::get('product/philips', 'Web\ProductsController@allPhilipsProduct');
 Route::get('product/philips/{id}', 'Web\ProductsController@findPhilipsProduct')->name('web.product.philips.show');
-Route::get('product/download/philips', 'Web\ProductsController@philipsDownload');
+Route::get('product/download/philips', 'Web\ProductsController@philipsProductsDownload');
 Route::get('product/download/winner-products', 'Web\ProductsController@winnerProductsDownload');
 Route::get('product-category/{categoryId}', 'Web\ProductsController@productsByMainCat')->name('web.product.category');
 Route::get('product-sub-category/{subCategoryId}', 'Web\ProductsController@productBySubCat')->name('web.product.subCategory');

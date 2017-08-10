@@ -16,14 +16,13 @@ class CreatePromotionsTable extends Migration
         Schema::create('promotions', function (Blueprint $table) {
             $table->increments('id');
             $table->string('title');
-            $table->text('description');
+            $table->text('description')->nullable();;
             $table->integer('product_id')->unsigned()->nullable();
             $table->foreign('product_id')->references('id')->on('products');
-            $table->string('offer_price');
-            $table->dateTime('start_time');
-            $table->dateTime('end_time');
-            $table->integer('photo_id')->unsigned()->nullable();
-            $table->foreign('photo_id')->references('id')->on('photos');
+            $table->string('offer_price')->nullable();;
+            $table->dateTime('start_time')->nullable();;
+            $table->dateTime('end_time')->nullable();;
+            $table->string('cover')->nullable();
             $table->timestamps();
         });
     }

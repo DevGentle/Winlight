@@ -41,18 +41,20 @@
                     {{ Form::datetime('end_time', null, ['class' => 'form-control' ]) }}
                 </div>
                 <div>
-                    {{ Form::label('photo_id', 'Image') }}
-                    {{ Form::file('photo_id', null, ['class' => 'form-control']) }}
+                    {{ Form::label('cover', 'Image') }}
+                    {{ Form::file('cover', null, ['class' => 'form-control']) }}
                     <div class="row">
                         <div class="col-xs-12" style="padding-top: 5px; padding-bottom: 5px">
                             <table class="table table-bordered" style="background: #ffffff">
                                 <tbody>
-                                <tr>
-                                    <td><img src="{{ asset($promotion->photo->file) }}" width="200" height="100" alt=""></td>
-                                </tr>
-                                <tr>
-                                    <td><b>File name: </b>{{ $promotion->photo->file }}</td>
-                                </tr>
+                                @if($promotion->cover)
+                                    <tr>
+                                        <td><img src="{{ asset($promotion->cover) }}" width="200" height="100" alt=""></td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>File name: </b>{{ $promotion->cover }}</td>
+                                    </tr>
+                                @endif
                                 </tbody>
                             </table>
                         </div>

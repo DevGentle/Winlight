@@ -21,7 +21,7 @@
     <div class="product-content__main">
         <div class="container">
             <div class="row product-content">
-                <div class="col-xs-12 col-md-2 col-md-offset-1">
+                <div class="col-md-3">
                     @include('web.product.patial.sidemunu')
                 </div>
                 <div class="col-xs-12 col-md-9">
@@ -43,9 +43,13 @@
                             @endif
                         @else
                             <div class="col-md-12">
-                                <div class="product-item__category--image">
-                                    <img src="{{ asset($product->photo->file) }}" width="100%">
-                                </div>
+                                @if($product->photo)
+                                    <div class="product-item__category--image">
+                                        <img src="{{ asset($product->photo->file) }}" width="100%">
+                                    </div>
+                                @else
+                                    <embed src="{{ asset($product->file) }}" width="100%" height="1150px%" />
+                                @endif
                             </div>
                             <div class="col-xs-12">
                                 <div class="product-item__category--description">

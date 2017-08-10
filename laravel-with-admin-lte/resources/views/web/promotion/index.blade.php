@@ -17,40 +17,37 @@
                 <div class="product-index__header--sub-title">โปรโมชั่นสินค้าต่างๆ</div>
             </div>
         </div>
-    </div>]
-    <div class="container">
-        <div class="row">
-            @foreach($promotions as $r)
-            <div class="col-md-4">
-                <div class="promotion-index">
-                    <div class="thumbnail">
-                        <a href="{{ route('web.promotion.show', ['id' => $r->id ]) }}">
-                            <img src="{{ $r->photo->file ? : $r->product->photo->file }}" alt="">
-                        </a>
-                        <div class="caption">
-                            <a href="{{ route('web.promotion.show', ['id' => $r->id ]) }}">
-                                <h3>{{ $r->title }}</h3>
-                                <div>
-                                    <strong>เวลาโปรโมชั่น: </strong>
-                                    {{ date('d, F Y', strtotime($r->start_time)) }}
-                                    {{ ' - ' }}
-                                    {{ date('d, F Y', strtotime($r->end_time)) }}
+    </div>
+    <div class="activity-bg">
+        <div class="container">
+            <div class="row activity">
+                @foreach($promotions as $promotion)
+                    <a href="{{ route('web.promotion.show', ['id' => $promotion->id])  }}">
+                        <div class="col-md-12 activity__row">
+                            <div class="col-md-4 text-right">
+                                <div class="activity__row--image">
+                                    <img src="{{ $promotion->cover ? : $promotion->product->photo->file }}">
                                 </div>
-                                <div>
-                                    <strong>ราคา: </strong>{{ $r->offer_price }}{{ ' บาท' }}
+                            </div>
+                            <div class="col-md-6">
+                                <div class="activity__title">{{ $promotion->title }}</div>
+                                <div class="activity__date">{{ date('F d, Y', strtotime($promotion->created_at)) }}</div>
+                                <div class="activity__description">
+                                    @if($promotion->description)
+                                        {!! $promotion->description !!}
+                                    @else
+                                        {{ 'No description' }}
+                                    @endif
                                 </div>
-                            </a>
-                            <p>
-                                <a href="{{ route('web.promotion.show', ['id' => $r->id ]) }}" class="btn btn-default" role="button">อ่านเพิ่ม</a>
-                            </p>
+                            </div>
                         </div>
-                    </div>
-                </div>
+                    </a>
+                    <div class="col-md-12"><hr class="small"></div>
+                @endforeach
             </div>
-            @endforeach
+            <div class="text-center">
+                {{ $promotions->links() }}
+            </div>
         </div>
-        {{--<div class="text-center">--}}
-            {{--{{ $promotions->links() }}--}}
-        {{--</div>--}}
     </div>
 @endsection

@@ -273,18 +273,17 @@ div {
   padding: 30px 20px;
   background-color: #ffffff; }
   .activity-show__title {
+    margin-top: 15px;
     font-size: 30px;
     font-weight: bold; }
   .activity-show__image {
     margin-top: 10px; }
   .activity-show__date {
-    padding-left: 10px;
     margin-top: 10px;
     font-size: 16px;
     font-style: italic;
     color: #444; }
   .activity-show__content {
-    padding-left: 10px;
     margin-top: 15px;
     font-size: 16px; }
   .activity-show .fotorama__stage__frame {
@@ -324,7 +323,7 @@ div {
   .index-suggestion__bestsell-detail {
     width: 100%;
     padding: 15px;
-    background-color: #23B14C;
+    background-color: #94bf46;
     color: #fff;
     word-wrap: break-word; }
     .index-suggestion__bestsell-detail a {
@@ -636,6 +635,12 @@ div {
       margin-top: 10px;
       font-size: 18px;
       text-align: center; }
+      .download-content__category--title a {
+        color: #000;
+        transition: all 0.2s; }
+        .download-content__category--title a:hover {
+          font-weight: bold;
+          text-decoration: none; }
     .download-content__category-box {
       margin-top: 20px;
       margin-left: 34px; }
@@ -746,8 +751,12 @@ div {
     padding-left: 10px;
     padding-right: 10px;
     padding-bottom: 40px; }
-    .product-content__category h4 {
+    .product-content__category a h4 {
       color: #000; }
+    .product-content__category a:hover {
+      text-decoration: none; }
+      .product-content__category a:hover h4 {
+        font-weight: bold; }
     .product-content__category .itemheight {
       min-height: 268px; }
     .product-content__category--item {
@@ -814,17 +823,15 @@ div {
   padding-bottom: 40px; }
   .product-item__category--image {
     position: relative;
-    height: 500px;
+    width: 80%;
+    height: auto;
     margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
     border: 1px solid #94bf46; }
     .product-item__category--image img {
-      position: absolute;
-      width: 100%;
-      margin: auto;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0; }
+      max-width: 100%;
+      max-height: 100%; }
   .product-item__category--code {
     margin-top: 20px; }
   .product-item__category--code, .product-item__category--title, .product-item__category--price {

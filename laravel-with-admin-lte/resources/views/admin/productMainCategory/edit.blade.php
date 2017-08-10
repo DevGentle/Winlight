@@ -25,12 +25,14 @@
                     <div class="col-xs-12" style="padding-top: 5px; padding-bottom: 5px">
                         <table class="table table-bordered" style="background: #ffffff">
                             <tbody>
-                            <tr>
-                                <td><img src="{{ asset($productMainCategories->photo->file) }}" width="200" height="100" alt=""></td>
-                            </tr>
-                            <tr>
-                                <td><b>File name: </b>{{ $productMainCategories->photo->file }}</td>
-                            </tr>
+                            @if($productMainCategories->photo)
+                                <tr>
+                                    <td><img src="{{ asset($productMainCategories->photo->file) }}" width="200" height="100" alt=""></td>
+                                </tr>
+                                <tr>
+                                    <td><b>File name: </b>{{ $productMainCategories->photo->file }}</td>
+                                </tr>
+                            @endif
                             </tbody>
                         </table>
                     </div>

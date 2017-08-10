@@ -21,7 +21,7 @@
     <div class="product-content__main">
         <div class="container">
             <div class="row product-content">
-                <div class="col-md-2 col-md-offset-1">
+                <div class="col-md-3">
                     @include('web.product.patial.sidemunu')
                 </div>
                 <div class="col-md-9">
@@ -37,12 +37,18 @@
                                         <div class="col-md-12">
                                             <div class="product-content__category--item">
                                                 <a href="{{ route('web.product.category', ['categoryId' => $productMainCategory->id])  }}">
-                                                    <img src="{{ asset($productMainCategory->photo->file) }}">
+                                                    @if($productMainCategory->photo)
+                                                        <img src="{{ asset($productMainCategory->photo->file) }}">
+                                                    @else
+                                                        <img src="{{ asset('img/resource/default_200.png') }}">
+                                                    @endif
                                                 </a>
                                             </div>
                                         </div>
                                         <div class="col-xs-12">
-                                            <h4 class="text-center pname">{{ $productMainCategory->title }}</h4>
+                                            <a href="{{ route('web.product.category', ['categoryId' => $productMainCategory->id])  }}">
+                                                <h4 class="text-center pname">{{ $productMainCategory->title }}</h4>
+                                            </a>
                                         </div>
                                     </div>
                                 </div>

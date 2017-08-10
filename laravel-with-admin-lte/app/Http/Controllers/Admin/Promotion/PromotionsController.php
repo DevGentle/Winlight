@@ -102,23 +102,18 @@ class PromotionsController extends Controller
 
         $promotion = new Promotion();
 
-        if ($file = $request->file('photo_id')) {
+        if ($image = $request->file('cover')) {
 
-            $name = '/images/promotion/' . time() . $file->getClientOriginalName();
+            $name = '/images/promotion/' . time() . $image->getClientOriginalName();
 
-            $file->move('images/promotion', $name);
+            $image->move('images/promotion', $name);
 
-            $photo = Photo::create(['file'=> $name]);
-
-            $input['photo_id'] = $photo->id;
-
+            $input['cover'] = $name;
         }
 
         $promotion->fill($input);
 
         $promotion->save();
-
-//        Session::flash('success', 'Yes !');
 
         return redirect('admin/promotions');
     }
@@ -138,20 +133,13 @@ class PromotionsController extends Controller
 
         $input = $request->all();
 
-        if ($file = $request->file('photo_id')) {
+        if ($image = $request->file('cover')) {
 
-            $name = '/images/promotion/' . time() . $file->getClientOriginalName();
+            $name = '/images/promotion/' . time() . $image->getClientOriginalName();
 
-            $file->move('images/promotion', $name);
+            $image->move('images/promotion', $name);
 
-            $photo = new Photo();
-
-            $photo->file = $name;
-
-            $photo->save();
-
-            $input['photo_id'] = $photo->id;
-
+            $input['cover'] = $name;
         }
 
         $promotion->update($input);
