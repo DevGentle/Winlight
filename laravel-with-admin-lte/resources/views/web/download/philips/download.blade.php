@@ -1,5 +1,14 @@
 @extends('web.layout')
 
+@section('title')
+    {{ 'แคตตาล็อกสินค้า Philips' }}
+@endsection
+
+@section('seo_metadata')
+    <meta name="description" content="แคตตาล็อกสินค้า ดาวน์โหลดแคตตาล็อกสินค้า แคตตาล็อกสินค้า Philips">
+    <meta name="keywords" content="แคตตาล็อกสินค้า, ดาวน์โหลดแคตตาล็อกสินค้า, แคตตาล็อกสินค้า Philips">
+@endsection
+
 @section('navbar')
     @include('web.main.slidenav')
 @endsection
@@ -27,23 +36,25 @@
     <div class="container-fluid download-content__main">
         <div class="container">
             <div class="row download-content">
-                <div class="col-md-2 col-md-offset-1">
+                <div class="col-md-3">
                     @include('web.product.patial.sidemunu')
                 </div>
                 <div class="col-md-9">
                     <div class="row download-content__category">
                         <div class="download-content__category-box">
-                            <span class="download-content__category-box--philips">{{ 'PHILIPS' }}</span>
+                            <span class="download-content__category-box--philips">{{ 'PHILIPS CATALOG' }}</span>
                         </div>
                         @foreach($philips as $philip)
-                            <div class="col-md-4">
-                                <div class="col-md-12 download-content__category--item">
+                            <div class="col-sm-6 col-md-4">
+                                <div class="download-content__category--item">
                                     <a href="{{ asset($philip->file) }}" target="_blank">
                                         <img src="{{ asset($philip->photo->file) }}">
                                     </a>
                                 </div>
-                                <div class="col-md-12 text-center download-content__category--title">
-                                    {{ $philip->title }}
+                                <div class="download-content__category--title">
+                                    <a href="{{ asset($philip->file) }}" target="_blank">
+                                        {{ $philip->title }}
+                                    </a>
                                 </div>
                             </div>
                         @endforeach

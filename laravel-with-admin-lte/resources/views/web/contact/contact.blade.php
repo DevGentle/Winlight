@@ -1,5 +1,14 @@
 @extends('web.layout')
 
+@section('title')
+    ติดต่อเรา ติดต่อฝ่ายขาย เบอร์โทรศัพท์ อีเมล์ แผนที่บริษัท
+@endsection
+
+@section('seo_metadata')
+    <meta name="description" content="ติดต่อเรา ติดต่อฝ่ายขาย เบอร์โทรศัพท์ อีเมล์ แผนที่บริษัท">
+    <meta name="keywords" content="ติดต่อเรา, ติดต่อฝ่ายขาย, เบอร์โทรศัพท์, อีเมล์, แผนที่บริษัท">
+@endsection
+
 @section('navbar')
     @include('web.main.slidenav')
 @endsection
@@ -17,7 +26,7 @@
         <div class="container">
             <div class="contact-index">
                 <div class="row">
-                    <div class="col-xs-3 contact-index__header-left">ติดต่อ/สอบถาม</div>
+                    <div class="col-xs-3 contact-index__header-left"><h1>ติดต่อ/สอบถาม</h1></div>
                     <div class="col-xs-9 contact-index__header-right">
                         <div class="contact-index__header-right--text">
                             <span>{{ "Tel. 0-2415-7576-7" }}</span><br>
@@ -39,23 +48,24 @@
                     <div class="col-xs-4 contact-index__content-form">
                         {!! Form::open(['method' => 'POST', 'action' => 'Web\ContactsController@postContact']) !!}
                         {{ Form::token() }}
-
-                        <div class="col-xs-12">
-                            <div class="form-margin">
-                                {{ Form::label('email', 'อีเมลล์') }}
-                                {{ Form::text('email', null, ['class' => 'form-control', 'placeholder' => '']) }}
-                            </div>
-                            <div class="form-margin">
-                                {{ Form::label('subject', 'เรื่องที่ต้องการติดต่อ') }}
-                                {{ Form::text('subject', null, ['class' => 'form-control', 'placeholder' => '']) }}
-                            </div>
-                            <div class="form-margin">
-                                {{ Form::label('phone_number', 'เบอร์โทรศัพท์') }}
-                                {{ Form::tel('phone_number', null, ['class' => 'form-control', 'placeholder' => '']) }}
-                            </div>
-                            <div class="form-margin">
-                                {{ Form::label('description', 'ข้อความ') }}
-                                {{ Form::textarea('description', null, ['class' => 'form-control', 'placeholder' => '']) }}
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div class="form-margin">
+                                    {{ Form::label('email', 'อีเมลล์') }}
+                                    {{ Form::text('email', null, ['class' => 'form-control', 'placeholder' => '']) }}
+                                </div>
+                                <div class="form-margin">
+                                    {{ Form::label('subject', 'เรื่องที่ต้องการติดต่อ') }}
+                                    {{ Form::text('subject', null, ['class' => 'form-control', 'placeholder' => '']) }}
+                                </div>
+                                <div class="form-margin">
+                                    {{ Form::label('phone_number', 'เบอร์โทรศัพท์') }}
+                                    {{ Form::tel('phone_number', null, ['class' => 'form-control', 'placeholder' => '']) }}
+                                </div>
+                                <div class="form-margin">
+                                    {{ Form::label('description', 'ข้อความ') }}
+                                    {{ Form::textarea('description', null, ['class' => 'form-control', 'placeholder' => '']) }}
+                                </div>
                             </div>
                         </div>
 

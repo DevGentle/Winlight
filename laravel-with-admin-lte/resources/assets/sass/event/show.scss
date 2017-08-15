@@ -2,21 +2,22 @@
     padding: 30px 20px;
     background-color: #ffffff;
     &__title {
-        font-size: 30px;
-        font-weight: bold;
+        h1 {
+            margin-top: 15px;
+            font-size: 30px;
+            font-weight: bold;
+        }
     }
     &__image {
         margin-top: 10px;
     }
     &__date {
-        padding-left: 10px;
         margin-top: 10px;
         font-size: 16px;
         font-style: italic;
         color: #444;
     }
     &__content {
-        padding-left: 10px;
         margin-top: 15px;
         font-size: 16px;
     }

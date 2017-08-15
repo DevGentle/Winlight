@@ -17,6 +17,26 @@
         line-height: 4px;
     }
 }
+.overlay-video {
+    position: absolute;
+    z-index: 12;
+    top: 50%;
+    left: 50%;
+    text-align: center;
+    transform: translate(-50%, -50%);
+    &--title {
+        font-size: 60px;
+        font-weight: 200;
+        color: #fff;
+    }
+    &--subtitle {
+        h1 {
+            margin: 0 auto;
+            font-size: 20px;
+            color: #fff;
+        }
+    }
+}
 .green-line {
     border-bottom: 5px solid #23b14c;
 }
@@ -70,6 +90,16 @@
             font-size: 18px;
         }
     }
+    .overlay-video {
+        &--title {
+            font-size: 50px;
+        }
+        &--subtitle {
+            h1 {
+                font-size: 18px;
+            }
+        }
+    }
 }
 @media screen and (max-width: 1024px) {
     .navbar {
@@ -85,6 +115,16 @@
         }
         &--subtitle {
             font-size: 15px;
+        }
+    }
+    .overlay-video {
+        &--title {
+            font-size: 48px;
+        }
+        &--subtitle {
+            h1 {
+                font-size: 15px;
+            }
         }
     }
     .navbar {

@@ -1,5 +1,14 @@
 @extends('web.layout')
 
+@section('title')
+    สินค้าโปรโมชั่น สินค้าลดราคา เสาไฟลดราคา โคมไฟลดราคา หลอดไฟลดราคา
+@endsection
+
+@section('seo_metadata')
+    <meta name="description" content="สินค้าโปรโมชั่น สินค้าลดราคา โคมไฟราคาถูก หลอดไฟราคาถูก เสาไฟราคาถูก">
+    <meta name="keywords" content="สินค้าโปรโมชั่น, สินค้าลดราคา, เสาไฟลดราคา, โคมไฟลดราคา, หลอดไฟลดราคา, โคมไฟราคาถูก, หลอดไฟราคาถูก, เสาไฟราคาถูก">
+@endsection
+
 @section('navbar')
     @include('web.main.slidenav')
 @endsection
@@ -13,44 +22,43 @@
                 </div>
             </div>
             <div class="col-xs-11">
-                <div class="product-index__header--title">โปรโมชั่น</div>
+                <div class="product-index__header--title">
+                    <h1>โปรโมชั่น</h1>
+                </div>
                 <div class="product-index__header--sub-title">โปรโมชั่นสินค้าต่างๆ</div>
             </div>
         </div>
-    </div>]
-    <div class="container">
-        <div class="row">
-            @foreach($promotions as $r)
-            <div class="col-md-4">
-                <div class="promotion-index">
-                    <div class="thumbnail">
-                        <a href="{{ route('web.promotion.show', ['id' => $r->id ]) }}">
-                            <img src="{{ $r->photo->file ? : $r->product->photo->file }}" alt="">
-                        </a>
-                        <div class="caption">
-                            <a href="{{ route('web.promotion.show', ['id' => $r->id ]) }}">
-                                <h3>{{ $r->title }}</h3>
-                                <div>
-                                    <strong>เวลาโปรโมชั่น: </strong>
-                                    {{ date('d, F Y', strtotime($r->start_time)) }}
-                                    {{ ' - ' }}
-                                    {{ date('d, F Y', strtotime($r->end_time)) }}
+    </div>
+    <div class="activity-bg">
+        <div class="container">
+            <div class="row activity">
+                @foreach($promotions as $promotion)
+                    <a href="{{ route('web.promotion.show', ['id' => $promotion->id, 'title' => $promotion->title])  }}">
+                        <div class="col-md-12 activity__row">
+                            <div class="col-md-4 text-right">
+                                <div class="activity__row--image">
+                                    <img src="{{ $promotion->cover ? : $promotion->product->photo->file }}">
                                 </div>
-                                <div>
-                                    <strong>ราคา: </strong>{{ $r->offer_price }}{{ ' บาท' }}
+                            </div>
+                            <div class="col-md-6">
+                                <div class="activity__title"><h2>{{ $promotion->title }}</h2></div>
+                                <div class="activity__date">{{ date('F d, Y', strtotime($promotion->created_at)) }}</div>
+                                <div class="activity__description">
+                                    @if($promotion->description)
+                                        {!! $promotion->description !!}
+                                    @else
+                                        {{ 'No description' }}
+                                    @endif
                                 </div>
-                            </a>
-                            <p>
-                                <a href="{{ route('web.promotion.show', ['id' => $r->id ]) }}" class="btn btn-default" role="button">อ่านเพิ่ม</a>
-                            </p>
+                            </div>
                         </div>
-                    </div>
-                </div>
+                    </a>
+                    <div class="col-md-12"><hr class="small"></div>
+                @endforeach
             </div>
-            @endforeach
+            <div class="text-center">
+                {{ $promotions->links() }}
+            </div>
         </div>
-        {{--<div class="text-center">--}}
-            {{--{{ $promotions->links() }}--}}
-        {{--</div>--}}
     </div>
 @endsection

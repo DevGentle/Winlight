@@ -25,6 +25,12 @@
             font-weight: bold;
             padding-bottom: 20px;
         }
+        .h1 {
+            padding-bottom: 20px;
+            font-size: 40px;
+            font-weight: bold;
+            color: #fff;
+        }
         &--block {
             display: flex;
             align-items: center;
@@ -39,7 +45,7 @@
         &-detail {
             width: 100%;
             padding: 15px;
-            background-color: #23B14C;
+            background-color: #94bf46;
             color: #fff;
             word-wrap: break-word;
             a {
@@ -65,6 +71,12 @@
     background-color: #fff;
     h1 {
         font-weight: bold;
+    }
+    .h1 {
+        margin: 0 auto;
+        font-size: 40px;
+        font-weight: bold;
+        color: #000;
     }
     #news-slider {
         button {
@@ -267,6 +279,12 @@
         &--title {
             font-size: 40px;
             font-weight: bold;
+            .h1 {
+                margin: 0 auto;
+                font-size: 40px;
+                font-weight: bold;
+                color: #000;
+            }
         }
         &--subtitle {
             font-size: 18px;

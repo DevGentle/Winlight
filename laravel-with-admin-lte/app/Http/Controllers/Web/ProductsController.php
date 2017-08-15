@@ -56,9 +56,15 @@ class ProductsController extends Controller
     public function winnerProductsDownload()
     {
         $catalogs = ProductCatalogs::all();
+
+        return view('web.download.product.download', compact('catalogs'));
+    }
+
+    public function philipsProductsDownload()
+    {
         $philips = Philips::all();
 
-        return view('web.download.product.download', compact('catalogs', 'philips'));
+        return view('web.download.philips.download', compact('philips'));
     }
 
     public function allPhilipsProduct()

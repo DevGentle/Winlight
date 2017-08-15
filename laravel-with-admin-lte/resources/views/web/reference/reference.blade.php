@@ -1,5 +1,14 @@
 @extends('web.layout')
 
+@section('title')
+    ผลงาน ตัวอย่างผลงาน งานติดตั้งเสาไฟ งานติดตั้งโคมไฟ
+@endsection
+
+@section('seo_metadata')
+    <meta name="description" content="ผลงาน ตัวอย่างผลงาน งานติดตั้งเสาไฟ งานติดตั้งโคมไฟ">
+    <meta name="keywords" content="ผลงาน, ตัวอย่างผลงาน, งานติดตั้งเสาไฟ, งานติดตั้งโคมไฟ">
+@endsection
+
 @section('navbar')
     @include('web.main.slidenav')
 @endsection
@@ -13,7 +22,7 @@
                 </div>
             </div>
             <div class="col-xs-11">
-                <div class="reference__header--title">ตัวอย่างผลงาน</div>
+                <div class="reference__header--title"><h1>ตัวอย่างผลงาน</h1></div>
                 <div class="reference__header--sub-title">โครงการ</div>
                 <div class="reference__header--description">
                     <span>คู่ค้าที่ไว้วางใจใช้บริการจากเรา</span><br>
@@ -36,7 +45,7 @@
                                 @endforeach
                             </div>
                         </div>
-                        <div class="reference__content--title">{{ $reference->title }}</div>
+                        <div class="reference__content--title"><h2>{{ $reference->title }}</h2></div>
                     </div>
                 @endforeach
             </div>

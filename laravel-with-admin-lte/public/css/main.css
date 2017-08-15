@@ -27,7 +27,7 @@ div {
   .story__header img {
     width: 100%; }
 
-.story__title {
+.story__title h1 {
   margin-top: 30px;
   font-size: 30px;
   font-weight: bold;
@@ -60,7 +60,7 @@ div {
 .contact-index {
   padding: 30px 60px;
   background-color: #fff; }
-  .contact-index__header-left {
+  .contact-index__header-left h1 {
     font-size: 30px;
     font-weight: bold;
     color: #3db44e; }
@@ -111,6 +111,22 @@ div {
     color: #fff;
     line-height: 4px; }
 
+.overlay-video {
+  position: absolute;
+  z-index: 12;
+  top: 50%;
+  left: 50%;
+  text-align: center;
+  transform: translate(-50%, -50%); }
+  .overlay-video--title {
+    font-size: 60px;
+    font-weight: 200;
+    color: #fff; }
+  .overlay-video--subtitle h1 {
+    margin: 0 auto;
+    font-size: 20px;
+    color: #fff; }
+
 .green-line {
   border-bottom: 5px solid #23b14c; }
 
@@ -153,6 +169,10 @@ div {
   .overlay--title {
     font-size: 50px; }
   .overlay--subtitle {
+    font-size: 18px; }
+  .overlay-video--title {
+    font-size: 50px; }
+  .overlay-video--subtitle h1 {
     font-size: 18px; } }
 
 @media screen and (max-width: 1024px) {
@@ -163,6 +183,10 @@ div {
   .overlay--title {
     font-size: 48px; }
   .overlay--subtitle {
+    font-size: 15px; }
+  .overlay-video--title {
+    font-size: 48px; }
+  .overlay-video--subtitle h1 {
     font-size: 15px; }
   .navbar {
     width: 100%; }
@@ -237,7 +261,7 @@ div {
     margin-top: 30px;
     font-size: 30px;
     font-weight: bold; }
-  .activity__title {
+  .activity__title h2 {
     margin-top: 10px;
     font-size: 22px;
     font-weight: bold; }
@@ -272,19 +296,18 @@ div {
 .activity-show {
   padding: 30px 20px;
   background-color: #ffffff; }
-  .activity-show__title {
+  .activity-show__title h1 {
+    margin-top: 15px;
     font-size: 30px;
     font-weight: bold; }
   .activity-show__image {
     margin-top: 10px; }
   .activity-show__date {
-    padding-left: 10px;
     margin-top: 10px;
     font-size: 16px;
     font-style: italic;
     color: #444; }
   .activity-show__content {
-    padding-left: 10px;
     margin-top: 15px;
     font-size: 16px; }
   .activity-show .fotorama__stage__frame {
@@ -309,6 +332,11 @@ div {
     color: #fff;
     font-weight: bold;
     padding-bottom: 20px; }
+  .index-suggestion__bestsell .h1 {
+    padding-bottom: 20px;
+    font-size: 40px;
+    font-weight: bold;
+    color: #fff; }
   .index-suggestion__bestsell--block {
     display: -ms-flexbox;
     display: flex;
@@ -324,7 +352,7 @@ div {
   .index-suggestion__bestsell-detail {
     width: 100%;
     padding: 15px;
-    background-color: #23B14C;
+    background-color: #94bf46;
     color: #fff;
     word-wrap: break-word; }
     .index-suggestion__bestsell-detail a {
@@ -344,6 +372,11 @@ div {
   background-color: #fff; }
   .index-activity h1 {
     font-weight: bold; }
+  .index-activity .h1 {
+    margin: 0 auto;
+    font-size: 40px;
+    font-weight: bold;
+    color: #000; }
   .index-activity #news-slider button {
     position: absolute;
     top: 50%;
@@ -506,6 +539,11 @@ div {
   .index-reference__header--title {
     font-size: 40px;
     font-weight: bold; }
+    .index-reference__header--title .h1 {
+      margin: 0 auto;
+      font-size: 40px;
+      font-weight: bold;
+      color: #000; }
   .index-reference__header--subtitle {
     font-size: 18px; }
   .index-reference__content {
@@ -636,6 +674,12 @@ div {
       margin-top: 10px;
       font-size: 18px;
       text-align: center; }
+      .download-content__category--title a {
+        color: #000;
+        transition: all 0.2s; }
+        .download-content__category--title a:hover {
+          font-weight: bold;
+          text-decoration: none; }
     .download-content__category-box {
       margin-top: 20px;
       margin-left: 34px; }
@@ -690,9 +734,9 @@ div {
   background-image: url("/img/resource/product_header_01.jpg"); }
   .product-index__header {
     color: #fff; }
-    .product-index__header--title {
-      margin-top: -13px;
+    .product-index__header--title h1 {
       font-size: 40px;
+      margin-top: -13px;
       font-weight: bold; }
     .product-index__header--sub-title {
       font-size: 25px;
@@ -746,8 +790,15 @@ div {
     padding-left: 10px;
     padding-right: 10px;
     padding-bottom: 40px; }
-    .product-content__category h4 {
-      color: #000; }
+    .product-content__category a h2 {
+      margin-top: 10px;
+      margin-bottom: 0;
+      color: #000;
+      font-size: 18px; }
+    .product-content__category a:hover {
+      text-decoration: none; }
+      .product-content__category a:hover h2 {
+        font-weight: bold; }
     .product-content__category .itemheight {
       min-height: 268px; }
     .product-content__category--item {
@@ -814,17 +865,15 @@ div {
   padding-bottom: 40px; }
   .product-item__category--image {
     position: relative;
-    height: 500px;
+    width: 80%;
+    height: auto;
     margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
     border: 1px solid #94bf46; }
     .product-item__category--image img {
-      position: absolute;
-      width: 100%;
-      margin: auto;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0; }
+      max-width: 100%;
+      max-height: 100%; }
   .product-item__category--code {
     margin-top: 20px; }
   .product-item__category--code, .product-item__category--title, .product-item__category--price {
@@ -882,7 +931,7 @@ div {
   background-image: url("/img/resource/reference_header.jpg"); }
   .reference__header {
     margin-top: 50px; }
-    .reference__header--title {
+    .reference__header--title h1 {
       margin-top: -13px;
       font-size: 40px;
       font-weight: bold;
@@ -923,7 +972,7 @@ div {
           bottom: 0; }
       .reference__content--item:hover > .overlay {
         visibility: visible; }
-    .reference__content--title {
+    .reference__content--title h2 {
       font-size: 18px; }
 
 .service {
@@ -934,17 +983,18 @@ div {
   background-image: url("/img/resource/service_header.jpg"); }
   .service__first-header {
     margin-top: 42px; }
-    .service__first-header--title {
+    .service__first-header--title h1 {
       margin-top: -13px;
       font-size: 40px;
       font-weight: bold;
       color: #b45215; }
-    .service__first-header--sub-title {
+    .service__first-header--sub-title h2 {
       font-size: 25px;
       font-weight: bold;
       color: #fff;
       margin-top: -10px; }
-    .service__first-header--description {
+    .service__first-header--description h3 {
+      margin: 0 auto;
       font-size: 15px;
       color: #fff; }
   .service__header {
@@ -1015,5 +1065,9 @@ div {
 .p-t-b-0 {
   padding-top: 0;
   padding-bottom: 0; }
+
+.video-ralative {
+  position: relative;
+  background-color: #252525; }
 
 /*# sourceMappingURL=main.css.map */

@@ -10,18 +10,15 @@
         padding-bottom: 40px;
         &--image {
             position: relative;
-            //width: 500px;
-            height: 500px;
+            width: 80%;
+            height: auto;
             margin-top: 20px;
+            margin-left: auto;
+            margin-right: auto;
             border: 1px solid #94bf46;
             img {
-                position: absolute;
-                width: 100%;
-                margin: auto;
-                top: 0;
-                left: 0;
-                right: 0;
-                bottom: 0;
+                max-width: 100%;
+                max-height: 100%;
             }
         }
         &--code {

@@ -10,11 +10,7 @@ class PromotionController extends Controller
 {
     public function all()
     {
-        $promotions = Promotion::all();
-
-        $promotions->sortByDesc('created_at');
-
-//        $promotions = DB::table('promotions')->paginate(10);
+        $promotions = DB::table('promotions')->paginate(8);
 
         return view('web.promotion.index', compact('promotions'));
     }

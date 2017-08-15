@@ -5,22 +5,22 @@
 <div class="product-content__menu">
     <div class="product-content__menu--square"></div>
     <div class="product-content__menu--title">
-        <a href="{{ url('product/download/winner-products') }}">{{ 'Catalog Download' }}</a>
+        <a href="{{ url('product/download/winner-products') }}">{{ 'Winner Catalog Download' }}</a>
     </div>
 </div>
-<hr>
 <div class="product-content__menu">
     <div class="product-content__menu--square"></div>
     <div class="product-content__menu--title">
-        <a href="{{ url('product/philips') }}">{{ 'Philips Product' }}</a>
+        <a href="{{ url('product/download/philips') }}">{{ 'Philips Catalog Download' }}</a>
     </div>
 </div>
 <hr>
 @foreach($productMainCategory->findProductMainCategories()->productMainCategories as $productMainCategory)
+    @php($link = route('web.product.category', ['categoryId' => $productMainCategory->id, 'categoryTitle' => $productMainCategory->getSlug()]) )
     <div class="product-content__menu">
         <div class="product-content__menu--square"></div>
         <div class="product-content__menu--title">
-            <a href="{{ route('web.product.category', ['categoryId' => $productMainCategory->id])  }}">{{ $productMainCategory->title }}</a>
+            <a href="{{ $link  }}">{{ $productMainCategory->title }}</a>
         </div>
     </div>
 @endforeach

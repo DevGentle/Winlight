@@ -43,13 +43,15 @@
                     <div class="col-xs-12" style="padding-top: 5px; padding-bottom: 5px">
                         <table class="table table-bordered" style="background: #ffffff">
                             <tbody>
-                            <tr>
-                                <td><img src="{{ asset($news->cover) }}" width="200" height="100" alt=""></td>
-                            </tr>
-                            <tr>
-                                <td><b>File name: </b>{{ $news->cover }}</td>
-                            </tr>
-                            </tbody>
+                            @if($news->cover)
+                                <tr>
+                                    <td><img src="{{ asset($news->cover) }}" width="200" height="100" alt=""></td>
+                                </tr>
+                                <tr>
+                                    <td><b>File name: </b>{{ $news->cover }}</td>
+                                </tr>
+                                </tbody>
+                            @endif
                         </table>
                     </div>
                 </div>
@@ -62,19 +64,21 @@
                         <div class="image-container col-xs-12 col-md-4" style="padding-top: 5px; padding-bottom: 5px">
                             <table class="table table-bordered" style="background: #ffffff">
                                 <tbody>
-                                <tr>
-                                    <td><img src="{{ asset($photo->file) }}" width="200" height="100" alt=""></td>
-                                </tr>
-                                <tr>
-                                    <td><b>File name: </b>{{ $photo->file }}</td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <a href="#" data-image-id="{{ $photo->id }}" class="delete-image btn btn-danger">
-                                            <i class="fa fa-trash"></i> {{ 'Delete' }}
-                                        </a>
-                                    </td>
-                                </tr>
+                                @if($photo->file)
+                                    <tr>
+                                        <td><img src="{{ asset($photo->file) }}" width="200" height="100" alt=""></td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>File name: </b>{{ $photo->file }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <a href="#" data-image-id="{{ $photo->id }}" class="delete-image btn btn-danger">
+                                                <i class="fa fa-trash"></i> {{ 'Delete' }}
+                                            </a>
+                                        </td>
+                                    </tr>
+                                @endif
                                 </tbody>
                             </table>
                         </div>

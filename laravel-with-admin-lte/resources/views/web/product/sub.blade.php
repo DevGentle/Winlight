@@ -1,5 +1,14 @@
 @extends('web.layout')
 
+@section('title')
+    สินค้า {{ $productMainCategories->title }} แคตตาล็อกสินค้า โคมไฟ หลอดไฟ เสาไฟ ดาวน์โหลดแคตตาล็อก philips
+@endsection
+
+@section('seo_metadata')
+    <meta name="description" content="สินค้า {{ $productMainCategories->title }} แคตตาล็อกสินค้า โคมไฟ หลอดไฟ เสาไฟ ดาวน์โหลดแคตตาล็อก philips">
+    <meta name="keywords" content="สินค้า {{ $productMainCategories->title }}, แคตตาล็อกสินค้า, โคมไฟ, หลอดไฟ, เสาไฟ, ดาวน์โหลดแคตตาล็อก, philips">
+@endsection
+
 @section('navbar')
     @include('web.main.slidenav')
 @endsection
@@ -13,7 +22,7 @@
                 </div>
             </div>
             <div class="col-xs-11">
-                <div class="product-index__header--title">ผลิตภัณฑ์</div>
+                <div class="product-index__header--title"><h1>ผลิตภัณฑ์</h1></div>
                 <div class="product-index__header--sub-title">ด้านแสงสว่าง</div>
             </div>
         </div>
@@ -21,7 +30,7 @@
     <div class="product-content__main">
         <div class="container">
             <div class="row product-content">
-                <div class="col-md-2 col-md-offset-1">
+                <div class="col-md-3">
                     @include('web.product.patial.sidemunu')
                 </div>
                 <div class="col-md-9">
@@ -32,17 +41,24 @@
                             <li>{{ $productMainCategories->title }}</li>
                         </ol>
                         @foreach($subCats as $subCat)
+                            @php($link = route('web.product.subCategory', ['subCategoryId' => $subCat->id, 'subCategoryTitle' => $subCat->getSlug()]))
                             <div class="col-xs-12 col-sm-6 col-lg-4 itemheight">
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="product-content__category--item">
-                                            <a href="{{ route('web.product.subCategory', ['subCategoryId' => $subCat->id]) }}">
-                                                <img src="{{ asset($subCat->photo->file) }}">
+                                            <a href="{{ $link }}">
+                                                @if($subCat->photo)
+                                                    <img src="{{ asset($subCat->photo->file) }}">
+                                                @else
+                                                    <img src="{{ asset('img/resource/default_200.png') }}">
+                                                @endif
                                             </a>
                                         </div>
                                     </div>
                                 </div>
-                                <h4 class="text-center pname">{{ $subCat->title }}</h4>
+                                <a href="{{ $link }}">
+                                    <h2 class="text-center pname">{{ $subCat->title }}</h2>
+                                </a>
                             </div>
                         @endforeach
                     </div>

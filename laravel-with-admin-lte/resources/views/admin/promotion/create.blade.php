@@ -42,8 +42,8 @@
                     {{ Form::date('end_time', \Carbon\Carbon::now()) }}
                 </div>
                 <div>
-                    {{ Form::label('photo_id', 'Image') }}
-                    {{ Form::file('photo_id', null, ['class' => 'form-control']) }}
+                    {{ Form::label('cover', 'Image') }}
+                    {{ Form::file('cover', null, ['class' => 'form-control']) }}
                 </div>
             </div>
             <div class="col-xs-10 margin">
