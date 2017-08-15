@@ -1,5 +1,14 @@
 @extends('web.layout')
 
+@section('title')
+    {{ $promotion->title }}
+@endsection
+
+@section('seo_metadata')
+    <meta name="description" content="โปรโมชั่น {{ $promotion->title }}">
+    <meta name="keywords" content="{{ $promotion->title }}, โปรโมชั่น{{ $promotion->title }}">
+@endsection
+
 @section('navbar')
     @include('web.main.slidenav')
 @endsection
@@ -24,7 +33,7 @@
                             </a>
                         </div>
                     </div>
-                    <div class="activity-show__title">{{ $promotion->title }}</div>
+                    <div class="activity-show__title"><h1>{{ $promotion->title }}</h1></div>
                     <div class="activity-show__date">{{ 'Created on : ' }}{{ date('F d, Y', strtotime($promotion->created_at)) }}</div>
                     <div class="activity-show__content">
                         @if($promotion->description)

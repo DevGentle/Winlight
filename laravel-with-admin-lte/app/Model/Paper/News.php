@@ -2,6 +2,7 @@
 
 namespace App\Model\Paper;
 
+use App\Model\URLify;
 use Illuminate\Database\Eloquent\Model;
 
 class News extends Model
@@ -18,5 +19,10 @@ class News extends Model
     public function photos()
     {
         return $this->hasMany('App\Model\Photo\PhotoNews', 'news_id');
+    }
+
+    public function getSlug()
+    {
+        return URLify::slug($this->attributes['title']);
     }
 }

@@ -1,5 +1,14 @@
 @extends('web.layout')
 
+@section('title')
+    บริการดีไซน์ออกแบบ บริการติดตั้งระบบส่องสว่าง บริการให้คำปรึกษาระบบส่องสว่าง
+@endsection
+
+@section('seo_metadata')
+    <meta name="description" content="บริการดีไซน์ออกแบบ บริการติดตั้งระบบส่องสว่าง บริการให้คำปรึกษาระบบส่องสว่าง">
+    <meta name="keywords" content="บริการดีไซน์ออกแบบ, บริการติดตั้งระบบส่องสว่าง, บริการให้คำปรึกษาระบบส่องสว่าง">
+@endsection
+
 @section('navbar')
     @include('web.main.slidenav')
 @endsection
@@ -13,11 +22,11 @@
                 </div>
             </div>
             <div class="col-xs-11">
-                <div class="service__first-header--title">ด้านบริการ</div>
-                <div class="service__first-header--sub-title">ให้คำปรึกษา และอื่นๆ</div>
+                <div class="service__first-header--title"><h1>ด้านบริการ</h1></div>
+                <div class="service__first-header--sub-title"><h2>ให้คำปรึกษา และอื่นๆ</h2></div>
                 <div class="service__first-header--description">
-                    <span>เราให้คำปรึกษา และให้บริการเกี่ยวกับการติดตั้ง และคำแนะนำในการใช้</span><br>
-                    <span>ติดตั้งแสงสว่างให้ได้ประโยชน์ในการใช้งานสูงสุด</span><br>
+                    <h3>เราให้คำปรึกษา และให้บริการเกี่ยวกับการติดตั้ง และคำแนะนำในการใช้
+                    ติดตั้งแสงสว่างให้ได้ประโยชน์ในการใช้งานสูงสุด</h3>
                 </div>
             </div>
         </div>

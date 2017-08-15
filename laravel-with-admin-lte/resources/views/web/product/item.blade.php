@@ -1,5 +1,14 @@
 @extends('web.layout')
 
+@section('title')
+    {{ $product->title }}
+@endsection
+
+@section('seo_metadata')
+    <meta name="description" content="{{ $product->title }} สินค้า แคตตาล็อกสินค้า โคมไฟ หลอดไฟ เสาไฟ ดาวน์โหลดแคตตาล็อก philips">
+    <meta name="keywords" content="{{ $product->title }}, สินค้า, แคตตาล็อกสินค้า, โคมไฟ, หลอดไฟ, เสาไฟ, ดาวน์โหลดแคตตาล็อก, philips">
+@endsection
+
 @section('navbar')
     @include('web.main.slidenav')
 @endsection
@@ -13,7 +22,7 @@
                 </div>
             </div>
             <div class="col-xs-11">
-                <div class="product-index__header--title">ผลิตภัณฑ์</div>
+                <div class="product-index__header--title"><h1>ผลิตภัณฑ์</h1></div>
                 <div class="product-index__header--sub-title">ด้านแสงสว่าง</div>
             </div>
         </div>
@@ -29,9 +38,22 @@
                         <ol class="breadcrumb hidden-xs">
                             <li><a href="{{ url('/') }}">Home</a></li>
                             <li><a href="{{ url('/products') }}">Products</a></li>
-                            <li><a href="{{ route('web.product.category', ['categoryId' => $product->productMainCategories->id]) }}">{{ $product->productMainCategories->title }}</a></li>
+                            <li><a href="{{ route('web.product.category', [
+                                'categoryId' => $product->productMainCategories->id,
+                                'categoryTitle' => $product->productMainCategories->getSlug()]) }}">
+                                    {{ $product->productMainCategories->title }}
+                            </a></li>
                             @if($product->productSubCategories()->count())
-                                <li><a href="{{ route('web.product.subCategory', ['subCategoryId' => $product->productSubCategories->id]) }}">{{ $product->productSubCategories->title }}</a></li>
+                                <li>
+                                    <a href="{{ route('web.product.subCategory',
+                                        [
+                                            'subCategoryId' => $product->productSubCategories->id,
+                                            'subCategorytitle' => $product->productSubCategories->getSlug(),
+                                        ]
+                                    ) }} ">
+                                        {{ $product->productSubCategories->title }}
+                                    </a>
+                                </li>
                             @endif
                             <li class="active">{{ $product->title }}</li>
                         </ol>

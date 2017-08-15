@@ -3,6 +3,7 @@
 namespace App\Model\Promotion;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Model\URLify;
 
 class Promotion extends Model
 {
@@ -13,5 +14,10 @@ class Promotion extends Model
     public function product()
     {
         return $this->belongsTo('App\Model\Product\Product');
+    }
+
+    public function getSlug()
+    {
+        return URLify::slug($this->attributes['title']);
     }
 }

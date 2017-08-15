@@ -1,5 +1,14 @@
 @extends('web.layout')
 
+@section('title')
+    {{ $event->title }}
+@endsection
+
+@section('seo_metadata')
+    <meta name="description" content="ข่าวสารและกิจกรรม {{ $event->title }} ข่าวสาร">
+    <meta name="keywords" content="ข่าวสารและกิจกรรม {{ $event->title }}, ข่าวสาร">
+@endsection
+
 @section('navbar')
     @include('web.main.slidenav')
 @endsection
@@ -13,7 +22,7 @@
                 </div>
             </div>
             <div class="col-xs-11">
-                <div class="product-index__header--title">ข่าวสารและกิจกรรม</div>
+                <div class="product-index__header--title"><h1>ข่าวสารและกิจกรรม</h1></div>
                 <div class="product-index__header--sub-title">ข่าวสารและกิจกรรมต่างๆ</div>
             </div>
         </div>
@@ -39,7 +48,8 @@
                             @endforeach
                         </div>
                     </div>
-                    <div class="activity-show__title">{{ $event->title }}</div>
+                    {{ dump($event->getSlug()) }}
+                    <div class="activity-show__title"><h2>{{ $event->title }}</h2></div>
                     <div class="activity-show__date">{{ 'Created on : ' }}{{ date('F d, Y', strtotime($event->created_at)) }}</div>
                     <div class="activity-show__content">
                         @if($event->content)

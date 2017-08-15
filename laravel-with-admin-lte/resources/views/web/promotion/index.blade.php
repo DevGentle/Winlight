@@ -1,5 +1,14 @@
 @extends('web.layout')
 
+@section('title')
+    สินค้าโปรโมชั่น สินค้าลดราคา เสาไฟลดราคา โคมไฟลดราคา หลอดไฟลดราคา
+@endsection
+
+@section('seo_metadata')
+    <meta name="description" content="สินค้าโปรโมชั่น สินค้าลดราคา โคมไฟราคาถูก หลอดไฟราคาถูก เสาไฟราคาถูก">
+    <meta name="keywords" content="สินค้าโปรโมชั่น, สินค้าลดราคา, เสาไฟลดราคา, โคมไฟลดราคา, หลอดไฟลดราคา, โคมไฟราคาถูก, หลอดไฟราคาถูก, เสาไฟราคาถูก">
+@endsection
+
 @section('navbar')
     @include('web.main.slidenav')
 @endsection
@@ -13,7 +22,9 @@
                 </div>
             </div>
             <div class="col-xs-11">
-                <div class="product-index__header--title">โปรโมชั่น</div>
+                <div class="product-index__header--title">
+                    <h1>โปรโมชั่น</h1>
+                </div>
                 <div class="product-index__header--sub-title">โปรโมชั่นสินค้าต่างๆ</div>
             </div>
         </div>
@@ -22,7 +33,7 @@
         <div class="container">
             <div class="row activity">
                 @foreach($promotions as $promotion)
-                    <a href="{{ route('web.promotion.show', ['id' => $promotion->id])  }}">
+                    <a href="{{ route('web.promotion.show', ['id' => $promotion->id, 'title' => $promotion->title])  }}">
                         <div class="col-md-12 activity__row">
                             <div class="col-md-4 text-right">
                                 <div class="activity__row--image">
@@ -30,7 +41,7 @@
                                 </div>
                             </div>
                             <div class="col-md-6">
-                                <div class="activity__title">{{ $promotion->title }}</div>
+                                <div class="activity__title"><h2>{{ $promotion->title }}</h2></div>
                                 <div class="activity__date">{{ date('F d, Y', strtotime($promotion->created_at)) }}</div>
                                 <div class="activity__description">
                                     @if($promotion->description)

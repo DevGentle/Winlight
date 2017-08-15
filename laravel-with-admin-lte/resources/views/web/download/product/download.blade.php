@@ -1,5 +1,14 @@
 @extends('web.layout')
 
+@section('title')
+    {{ 'แคตตาล็อกสินค้า วินเนอร์ ไลท์' }}
+@endsection
+
+@section('seo_metadata')
+    <meta name="description" content="แคตตาล็อกสินค้า ดาวน์โหลดแคตตาล็อกสินค้า แคตตาล็อกสินค้า วินเนอร์ ไลท์">
+    <meta name="keywords" content="แคตตาล็อกสินค้า, ดาวน์โหลดแคตตาล็อกสินค้า, แคตตาล็อกสินค้า วินเนอร์ ไลท์">
+@endsection
+
 @section('navbar')
     @include('web.main.slidenav')
 @endsection

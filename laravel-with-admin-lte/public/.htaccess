@@ -17,4 +17,7 @@
     # Handle Authorization Header
     RewriteCond %{HTTP:Authorization} .
     RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+
+    RewriteCond %{HTTP_HOST} !^www.winnerlight.co.th$ [NC]
+    RewriteRule ^(.*)$ http://www.winnerlight.co.th/$1 [L,R=301]
 </IfModule>

@@ -2,6 +2,7 @@
 
 namespace App\Model\Product;
 
+use App\Model\URLify;
 use Illuminate\Database\Eloquent\Model;
 
 class ProductMainCategory extends Model implements ProductMainCategoryInterface
@@ -23,5 +24,10 @@ class ProductMainCategory extends Model implements ProductMainCategoryInterface
     public function photo()
     {
         return $this->belongsTo('App\Model\Photo\Photo');
+    }
+
+    public function getSlug()
+    {
+        return URLify::slug($this->attributes['title']);
     }
 }

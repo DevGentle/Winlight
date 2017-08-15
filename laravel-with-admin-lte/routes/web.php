@@ -30,21 +30,24 @@ Route::get('/about-us', function () {
 Route::get('contact-us', 'Web\ContactsController@getContact')->name('web.contact-us.index');
 Route::post('contact-us', 'Web\ContactsController@postContact');
 Route::get('events', 'Web\EventsController@findEventAll');
-Route::get('event/{eventId}', 'Web\EventsController@findEvent')->name('web.event.show');
+Route::get('event/{eventId}/{eventTitle}', 'Web\EventsController@findEvent')->name('web.event.show');
 Route::get('products', 'Web\ProductsController@index');
 Route::get('product/philips', 'Web\ProductsController@allPhilipsProduct');
 Route::get('product/philips/{id}', 'Web\ProductsController@findPhilipsProduct')->name('web.product.philips.show');
 Route::get('product/download/philips', 'Web\ProductsController@philipsProductsDownload');
 Route::get('product/download/winner-products', 'Web\ProductsController@winnerProductsDownload');
-Route::get('product-category/{categoryId}', 'Web\ProductsController@productsByMainCat')->name('web.product.category');
-Route::get('product-sub-category/{subCategoryId}', 'Web\ProductsController@productBySubCat')->name('web.product.subCategory');
-Route::get('products/{Id}', 'Web\ProductsController@findProduct')->name('web.product.item');
+Route::get('product-main-category/{categoryId}/{categoryTitle}', 'Web\ProductsController@productsByMainCat')->name('web.product.category');
+Route::get('product-sub-category/{subCategoryId}/{subCategoryTitle}', 'Web\ProductsController@productBySubCat')->name('web.product.subCategory');
+Route::get('product/{Id}/{title}', 'Web\ProductsController@findProduct')->name('web.product.item');
 
 Route::get('promotion', 'Web\PromotionController@all')->name('web.promotion.index');
-Route::get('promotion/{id}', 'Web\PromotionController@findPromotion')->name('web.promotion.show');
+Route::get('promotion/{id}/{title}', 'Web\PromotionController@findPromotion')->name('web.promotion.show');
 
 Route::get('references', 'Web\ReferencesController@findReferenceAll');
 Route::get('services', 'Web\ServicesController@findServiceAll');
+
+Route::get('sitemap.xml', 'SitemapController@index');
+Route::get('sitemap-products.xml', 'SitemapController@productList');
 
 /*
 |--------------------------------------------------------------------------

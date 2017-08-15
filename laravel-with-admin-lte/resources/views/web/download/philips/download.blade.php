@@ -1,5 +1,14 @@
 @extends('web.layout')
 
+@section('title')
+    {{ 'แคตตาล็อกสินค้า Philips' }}
+@endsection
+
+@section('seo_metadata')
+    <meta name="description" content="แคตตาล็อกสินค้า ดาวน์โหลดแคตตาล็อกสินค้า แคตตาล็อกสินค้า Philips">
+    <meta name="keywords" content="แคตตาล็อกสินค้า, ดาวน์โหลดแคตตาล็อกสินค้า, แคตตาล็อกสินค้า Philips">
+@endsection
+
 @section('navbar')
     @include('web.main.slidenav')
 @endsection
@@ -33,7 +42,7 @@
                 <div class="col-md-9">
                     <div class="row download-content__category">
                         <div class="download-content__category-box">
-                            <span class="download-content__category-box--winner">{{ 'WINNER LIGHT CATALOG' }}</span>
+                            <span class="download-content__category-box--philips">{{ 'PHILIPS CATALOG' }}</span>
                         </div>
                         @foreach($philips as $philip)
                             <div class="col-sm-6 col-md-4">

@@ -1,5 +1,14 @@
 @extends('web.layout')
 
+@section('title')
+    สินค้า แคตตาล็อกสินค้า โคมไฟ หลอดไฟ เสาไฟ ดาวน์โหลดแคตตาล็อก philips
+@endsection
+
+@section('seo_metadata')
+    <meta name="description" content="สินค้า แคตตาล็อกสินค้า โคมไฟ หลอดไฟ เสาไฟ ดาวน์โหลดแคตตาล็อก philips">
+    <meta name="keywords" content="สินค้า, แคตตาล็อกสินค้า, โคมไฟ, หลอดไฟ, เสาไฟ, ดาวน์โหลดแคตตาล็อก, philips">
+@endsection
+
 @section('navbar')
     @include('web.main.slidenav')
 @endsection
@@ -13,7 +22,7 @@
                 </div>
             </div>
             <div class="col-xs-11">
-                <div class="product-index__header--title">ผลิตภัณฑ์</div>
+                <div class="product-index__header--title"><h1>ผลิตภัณฑ์</h1></div>
                 <div class="product-index__header--sub-title">ด้านแสงสว่าง</div>
             </div>
         </div>
@@ -32,11 +41,12 @@
                         </ol>
                         @foreach($productMainCategories as $productMainCategory)
                             @if($productMainCategory)
+                                @php($link = route('web.product.category', ['categoryId' => $productMainCategory->id, 'categoryTitle' => $productMainCategory->getSlug()]) )
                                 <div class="col-xs-12 col-sm-6 col-lg-4 itemheight">
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="product-content__category--item">
-                                                <a href="{{ route('web.product.category', ['categoryId' => $productMainCategory->id])  }}">
+                                                <a href="{{ $link }}">
                                                     @if($productMainCategory->photo)
                                                         <img src="{{ asset($productMainCategory->photo->file) }}">
                                                     @else
@@ -46,14 +56,14 @@
                                             </div>
                                         </div>
                                         <div class="col-xs-12">
-                                            <a href="{{ route('web.product.category', ['categoryId' => $productMainCategory->id])  }}">
-                                                <h4 class="text-center pname">{{ $productMainCategory->title }}</h4>
+                                            <a href="{{ $link }}">
+                                                <h2 class="text-center pname">{{ $productMainCategory->title }}</h2>
                                             </a>
                                         </div>
                                     </div>
                                 </div>
                             @else
-                                <div class="col-md-12"><h1>{{ 'Has no product in this category' }}</h1></div>
+                                <div class="col-md-12"><h2>{{ 'Has no product in this category' }}</h2></div>
                             @endif
                         @endforeach
                     </div>

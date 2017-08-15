@@ -1,5 +1,14 @@
 @extends('web.layout')
 
+@section('title')
+    เกี่ยวกับ บริษัท วินเนอร์ ไลท์ คอเปอร์เรชั่น จำกัด
+@endsection
+
+@section('seo_metadata')
+    <meta name="description" content="ประวัติบริษัท รู้จักวินเนอไลท์ ติดต่อบริษัท">
+    <meta name="keywords" content="ประวัติความเป็นมา, บริษัท วินเนอร์ ไลท์, ธุรกิจเกี่ยวกับระบบไฟฟ้าแสงสว่าง, สินค้าไฟส่องสว่าง">
+@endsection
+
 @section('navbar')
     @include('web.main.slidenav')
 @endsection
@@ -13,7 +22,7 @@
     <div class="container">
         <div class="row text-center">
             <div class="col-xs-12 story__title">
-                <span>รู้จัก วินเนอร์ไลท์</span>
+                <h1>รู้จัก วินเนอร์ไลท์</h1>
             </div>
             <div class="col-xs-8 col-xs-offset-2 story__description">
                 <p>
