@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "364cb252ad19d3cfaee46cb470e584c4",
-    "content-hash": "baa43d78aa1961c09b32e2f3d2f2c032",
+    "hash": "fdaaca058864aabccf3a71e11b4490e3",
+    "content-hash": "6fb1f90f072efd91286fa1777ebb5e06",
     "packages": [
         {
             "name": "acacha/admin-lte-template-laravel",
@@ -2481,6 +2481,82 @@
                 "wysiwyg"
             ],
             "time": "2016-02-16 05:56:20"
+        },
+        {
+            "name": "unisharp/laravel-filemanager",
+            "version": "v1.8.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/UniSharp/laravel-filemanager.git",
+                "reference": "f5ec3b4e6398d196000aa320c44800e6d8b6fc00"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/UniSharp/laravel-filemanager/zipball/f5ec3b4e6398d196000aa320c44800e6d8b6fc00",
+                "reference": "f5ec3b4e6398d196000aa320c44800e6d8b6fc00",
+                "shasum": ""
+            },
+            "require": {
+                "ext-exif": "*",
+                "illuminate/support": ">=4.2.0",
+                "intervention/image": "2.*",
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "orchestra/testbench": "~3.0",
+                "phpspec/phpspec": "~2.1",
+                "phpunit/phpunit": "~4.8"
+            },
+            "suggest": {
+                "ext-gd": "to use GD library based image processing.",
+                "ext-imagick": "to use Imagick based image processing."
+            },
+            "bin": [
+                "bin/debug"
+            ],
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Unisharp\\Laravelfilemanager\\LaravelFilemanagerServiceProvider",
+                        "Intervention\\Image\\ImageServiceProvider"
+                    ],
+                    "aliases": {
+                        "Image": "Intervention\\Image\\Facades\\Image"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Unisharp\\Laravelfilemanager\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Trevor Sawler",
+                    "email": "trevor.sawler@gmail.com"
+                },
+                {
+                    "name": "UniSharp Ltd.",
+                    "email": "unisharp-service@unisharp.com"
+                }
+            ],
+            "description": "A file upload/editor intended for use with Laravel 5 and CKEditor / TinyMCE",
+            "keywords": [
+                "CKEditor",
+                "file",
+                "filemanager",
+                "image",
+                "laravel",
+                "manager",
+                "tinymce",
+                "upload"
+            ],
+            "time": "2017-07-13 06:55:50"
         },
         {
             "name": "vlucas/phpdotenv",

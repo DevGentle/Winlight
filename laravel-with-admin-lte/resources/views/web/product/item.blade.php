@@ -57,6 +57,7 @@
                             @endif
                             <li class="active">{{ $product->title }}</li>
                         </ol>
+
                         @if($product->productMainCategories->title == 'Interior Lighting')
                             @if($product->file)
                                 <embed src="{{ asset($product->file) }}" width="100%" height="1150px%" />
@@ -65,12 +66,12 @@
                             @endif
                         @else
                             <div class="col-md-12">
-                                @if($product->photo)
+                                @if($product->file)
+                                    <embed src="{{ asset($product->file) }}" width="100%" height="1150px%" />
+                                @else
                                     <div class="product-item__category--image">
                                         <img src="{{ asset($product->photo->file) }}" width="100%">
                                     </div>
-                                @else
-                                    <embed src="{{ asset($product->file) }}" width="100%" height="1150px%" />
                                 @endif
                             </div>
                             <div class="col-xs-12">
@@ -79,6 +80,7 @@
                                 </div>
                             </div>
                         @endif
+
                         <div class="col-xs-12 col-sm-6 product-content__category--image-contact">
                             <a href="{{ route('web.contact-us.index') }}">
                                 <img src="{{ asset('img/resource/contact-wl.png') }}" alt="">

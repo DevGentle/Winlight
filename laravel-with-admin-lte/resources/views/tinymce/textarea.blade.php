@@ -1,31 +1,41 @@
 <head>
     <script src="{{ asset('tinymce/js/tinymce/tinymce.min.js') }}"></script>
+
     <script>
-        tinymce.init({
-            selector: 'textarea',
+        var editor_config = {
+            path_absolute : "/",
+            selector: "textarea",
             plugins: [
-                "advlist autolink lists link image charmap print preview anchor",
-                "searchreplace visualblocks code fullscreen",
-                "insertdatetime media table contextmenu paste imagetools",
-                "textcolor"
+                "advlist autolink lists link image charmap print preview hr anchor pagebreak",
+                "searchreplace wordcount visualblocks visualchars code fullscreen",
+                "insertdatetime media nonbreaking save table contextmenu directionality",
+                "emoticons template paste textcolor colorpicker textpattern"
             ],
-            style_formats: [
-                {title: 'Div', format: 'div'}
-            ],
-            toolbar: "insertfile undo redo | fontsizeselect | forecolor backcolor | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image",
-            imagetools_cors_hosts: ['www.tinymce.com', 'codepen.io'],
-            content_css: [
-                '//fast.fonts.net/cssapi/e6dc9b99-64fe-4292-ad98-6974f93cd2a2.css',
-                '//www.tinymce.com/css/codepen.min.css'
-            ],
-            file_browser_callback: function(field_name, url, type, win) {
-                win.document.getElementById(field_name).value = 'my browser value';
-            },
-            file_browser_callback_types: 'file image media',
-            file_picker_types: 'file image media',
-            images_upload_url: 'postAcceptor.php',
-            images_upload_base_path: '/image/tinymce',
-            images_upload_credentials: true
-        });
+            toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image media",
+            relative_urls: false,
+            file_browser_callback : function(field_name, url, type, win) {
+                var x = window.innerWidth || document.documentElement.clientWidth || document.getElementsByTagName('body')[0].clientWidth;
+                var y = window.innerHeight|| document.documentElement.clientHeight|| document.getElementsByTagName('body')[0].clientHeight;
+
+                var cmsURL = editor_config.path_absolute + 'laravel-filemanager?field_name=' + field_name;
+                if (type == 'image') {
+                    cmsURL = cmsURL + "&type=Images";
+                } else {
+                    cmsURL = cmsURL + "&type=Files";
+                }
+
+                tinyMCE.activeEditor.windowManager.open({
+                    file : cmsURL,
+                    title : 'Filemanager',
+                    width : x * 0.8,
+                    height : y * 0.8,
+                    resizable : "yes",
+                    close_previous : "no"
+                });
+            }
+        };
+
+        tinymce.init(editor_config);
     </script>
+
 </head>
