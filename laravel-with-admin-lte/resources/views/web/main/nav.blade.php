@@ -33,7 +33,7 @@
                     <li><a href="{{ url('/about-us') }}">วินเนอร์</a></li>
                     <li><a href="{{ url('/promotion') }}">โปรโมชั่น</a></li>
                     <li><a href="{{ url('/products') }}">ผลิตภัณฑ์</a></li>
-                    <li><a href="{{ url('/events') }}">กิจกรรม</a></li>
+                    <li><a href="{{ url('/events') }}">ไฮไลท์</a></li>
                     <li><a href="{{ url('/services') }}">บริการ</a></li>
                     <li><a href="{{ url('/references') }}">ผลงาน</a></li>
                     <li><a href="{{ url('/contact-us') }}">ติดต่อสอบถาม</a></li>

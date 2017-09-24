@@ -29,8 +29,10 @@ Route::get('/about-us', function () {
 });
 Route::get('contact-us', 'Web\ContactsController@getContact')->name('web.contact-us.index');
 Route::post('contact-us', 'Web\ContactsController@postContact');
+
 Route::get('events', 'Web\EventsController@findEventAll');
 Route::get('event/{eventId}/{eventTitle}', 'Web\EventsController@findEvent')->name('web.event.show');
+
 Route::get('products', 'Web\ProductsController@index');
 Route::get('product/philips', 'Web\ProductsController@allPhilipsProduct');
 Route::get('product/philips/{id}', 'Web\ProductsController@findPhilipsProduct')->name('web.product.philips.show');

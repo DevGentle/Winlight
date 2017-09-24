@@ -22,8 +22,8 @@
                 </div>
             </div>
             <div class="col-xs-11">
-                <div class="product-index__header--title"><h1>ข่าวสารและกิจกรรม</h1></div>
-                <div class="product-index__header--sub-title">ข่าวสารและกิจกรรมต่างๆ</div>
+                <div class="product-index__header--title"><h1>ไฮไลท์สินค้า</h1></div>
+                <div class="product-index__header--sub-title">ไฮไลท์สินค้า และอื่นๆ</div>
             </div>
         </div>
     </div>
@@ -48,7 +48,6 @@
                             @endforeach
                         </div>
                     </div>
-                    {{ dump($event->getSlug()) }}
                     <div class="activity-show__title"><h2>{{ $event->title }}</h2></div>
                     <div class="activity-show__date">{{ 'Created on : ' }}{{ date('F d, Y', strtotime($event->created_at)) }}</div>
                     <div class="activity-show__content">
