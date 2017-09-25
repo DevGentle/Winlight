@@ -5,6 +5,7 @@ use App\Model\Reference\Reference;
 use App\Model\Slideshow\SlideshowPromotion;
 use App\Model\Promotion\Promotion;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,7 +21,7 @@ Route::get('/', function () {
     $news = News::all()->sortByDesc('created_at');
     $references = Reference::all()->random(4);
     $slides = SlideshowPromotion::all()->sortByDesc('created_at');
-    $promotions = Promotion::all()->sortByDesc('created_at');
+    $promotions = DB::table('promotions')->orderBy('created_at', 'desc')->limit(3)->get();
 
     return view('web.main.index', compact('news', 'references', 'slides', 'promotions'));
 });
