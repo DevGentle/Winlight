@@ -3,7 +3,6 @@
 use App\Model\Paper\News;
 use App\Model\Reference\Reference;
 use App\Model\Slideshow\SlideshowPromotion;
-use App\Model\Promotion\Promotion;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
