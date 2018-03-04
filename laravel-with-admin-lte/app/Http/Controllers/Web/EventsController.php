@@ -11,7 +11,7 @@ class EventsController extends Controller
 {
     public function findEventAll()
     {
-        $events = DB::table('news')->paginate(10);
+        $events = DB::table('news')->orderBy('created_at', 'desc')->paginate(10);
 
         return view('web.event.activity', compact('events'));
     }

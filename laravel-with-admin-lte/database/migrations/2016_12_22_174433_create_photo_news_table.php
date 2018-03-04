@@ -17,7 +17,7 @@ class CreatePhotoNewsTable extends Migration
             $table->increments('id');
             $table->timestamps();
             $table->integer('news_id')->unsigned()->nullable();
-            $table->foreign('news_id')->references('id')->on('news');
+            $table->foreign('news_id')->references('id')->on('news')->onDelete('cascade');
             $table->string('file')->nullable();
         });
     }

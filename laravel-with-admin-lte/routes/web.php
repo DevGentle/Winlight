@@ -3,8 +3,8 @@
 use App\Model\Paper\News;
 use App\Model\Reference\Reference;
 use App\Model\Slideshow\SlideshowPromotion;
-use App\Model\Promotion\Promotion;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,7 +20,7 @@ Route::get('/', function () {
     $news = News::all()->sortByDesc('created_at');
     $references = Reference::all()->random(4);
     $slides = SlideshowPromotion::all()->sortByDesc('created_at');
-    $promotions = Promotion::all()->sortByDesc('created_at');
+    $promotions = DB::table('promotions')->orderBy('created_at', 'desc')->limit(3)->get();
 
     return view('web.main.index', compact('news', 'references', 'slides', 'promotions'));
 });
@@ -29,8 +29,10 @@ Route::get('/about-us', function () {
 });
 Route::get('contact-us', 'Web\ContactsController@getContact')->name('web.contact-us.index');
 Route::post('contact-us', 'Web\ContactsController@postContact');
+
 Route::get('events', 'Web\EventsController@findEventAll');
 Route::get('event/{eventId}/{eventTitle}', 'Web\EventsController@findEvent')->name('web.event.show');
+
 Route::get('products', 'Web\ProductsController@index');
 Route::get('product/philips', 'Web\ProductsController@allPhilipsProduct');
 Route::get('product/philips/{id}', 'Web\ProductsController@findPhilipsProduct')->name('web.product.philips.show');

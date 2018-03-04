@@ -62,7 +62,7 @@
     </div>
     <div class="index-activity text-center">
         <div class="container">
-            <h2 class="h1">{{ "Activity Update" }}</h2>
+            <h2 class="h1">{{ "Product Highlight" }}</h2>
             <div class="row text-left">
                 <div id="news-slider" class="col-sm-12">
                     @foreach($news as $n)

@@ -44,6 +44,18 @@
                         <div class="download-content__category-box">
                             <span class="download-content__category-box--philips">{{ 'PHILIPS CATALOG' }}</span>
                         </div>
+                        <div class="col-sm-6 col-md-4">
+                            <div class="download-content__category--item">
+                                <a href="{{ asset('download/philips/philips-2018.pdf') }}" target="_blank">
+                                    <img src="{{ asset('img/resource/philips-2018.jpg') }}">
+                                </a>
+                            </div>
+                            <div class="download-content__category--title">
+                                <a href="{{ asset('download/philips-2018.pdf') }}" target="_blank">
+                                    {{ 'Philips Catalog 2018' }}
+                                </a>
+                            </div>
+                        </div>
                         @foreach($philips as $philip)
                             <div class="col-sm-6 col-md-4">
                                 <div class="download-content__category--item">
