@@ -14,19 +14,9 @@
 @endsection
 
 @section('content')
-    <div class="row product-index p-r-l-0">
-        <div class="container product-index__header">
-            <div class="col-xs-1 text-right">
-                <div class="product-index__header--icon">
-                    <img src="{{ asset('img/resource/product_icon.png') }}" alt="">
-                </div>
-            </div>
-            <div class="col-xs-11">
-                <div class="product-index__header--title"><h1>ผลิตภัณฑ์</h1></div>
-                <div class="product-index__header--sub-title">ด้านแสงสว่าง</div>
-            </div>
-        </div>
-    </div>
+    {{-- Header zone --}}
+    @include('web.product.patial.header', ['title' => $productMainCategories->title])
+
     <div class="product-content__main">
         <div class="container">
             <div class="row product-content">
@@ -36,8 +26,8 @@
                 <div class="col-md-9">
                     <div class="row product-content__category">
                         <ol class="breadcrumb hidden-xs">
-                            <li><a href="{{ url('/') }}">Home</a></li>
-                            <li><a href="{{ url('/products') }}">Products</a></li>
+                            <li><a href="{{ url('/') }}">{{ 'Home' }}</a></li>
+                            <li><a href="{{ url('/products') }}">{{ 'Products' }}</a></li>
                             <li>{{ $productMainCategories->title }}</li>
                         </ol>
                         @foreach($subCats as $subCat)

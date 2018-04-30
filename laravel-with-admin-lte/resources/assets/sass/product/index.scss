@@ -161,6 +161,15 @@
 }
 
 @media screen and (max-width: 767px) {
+    .product-index {
+        &__header {
+            &--title {
+                h1 {
+                    font-size: 30px;
+                }
+            }
+        }
+    }
     .product-content {
         &__category {
             &--image {
