@@ -15,7 +15,7 @@
 
 @section('content')
     {{-- Header zone --}}
-    @include('web.product.patial.header', ['title' => null])
+    @include('web.product.patial.header', ['title' => null, 'seoTitle' => null])
 
     <div class="product-content__main">
         <div class="container">

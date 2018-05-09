@@ -32,6 +32,10 @@
                     {{ Form::label('title', 'Title') }} <span class="text-red">*</span>
                     {{ Form::text('title', null, ['class' => 'form-control', 'placeholder' => 'Enter product title']) }}
                 </div>
+                <div class="margin">
+                    {{ Form::label('seo_title', 'Seo title') }} <span class="text-red">*</span>
+                    {{ Form::text('seo_title', null, ['class' => 'form-control', 'placeholder' => 'Enter product seo title']) }}
+                </div>
                 <div>
                     {{ Form::label('file', 'PDF') }}
                     {{ Form::file('file', null, ['class' => 'form-control']) }}
