@@ -31,9 +31,9 @@
                         <div class="contact-index__header-right--text">
                             <span>{{ "Tel. 0-2415-7576-7" }}</span><br>
                             <span>{{ "Fax. 0-2415-7578" }}</span><br>
-                            <span>{{ "Mobile. 081-880-6617" }}</span><br>
+                            <span>{{ "Mobile. 081-880-6616" }}</span><br>
                             <span>{{ "sale_wlc@winnerlight.co.th" }}</span><br>
-                            <span>{{ "Line. qzh9268t" }}</span>
+                            <span>{{ "Line id. winnerlight" }}</span>
                         </div>
                         <img src="{{ asset('img/resource/winner_line.png') }}" alt="">
                     </div>

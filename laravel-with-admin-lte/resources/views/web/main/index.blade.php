@@ -31,32 +31,32 @@
                         @endforeach
                     </div>
                 </div>
-                <div class="col-xs-12">
-                    <div class="row index-suggestion__bestsell">
-                        <h2 class="h1 text-center">สินค้าโปรโมชั่น</h2>
-                        @if(count($promotions) > 0)
-                            @foreach($promotions as $promotion)
-                                <div class="col-xs-12 col-md-4 item">
-                                    <div class="index-suggestion__bestsell--block">
-                                        <a href="{{ route('web.promotion.show', ['id' => $promotion->id, 'title' => $promotion->title]) }}">
-                                            <img src="{{ $promotion->cover ? : $promotion->product->photo->file }}" alt="{{ $promotion->title }}">
-                                        </a>
-                                    </div>
-                                    <div class="index-suggestion__bestsell-detail pname">
-                                        <a href="{{ route('web.promotion.show', ['id' => $promotion->id, 'title' => $promotion->title]) }}">
-                                            <h3>{{ $promotion->title }}</h3>
-                                            <p class="index-suggestion__bestsell-detail--price"><strong>ราคาโปรโมชั่น: </strong>{{ $promotion->offer_price }}{{ ' บาท' }}</p>
-                                        </a>
-                                    </div>
-                                </div>
-                            @endforeach
-                        @else
-                            <div class="col-xs-12 text-center">
-                                <p class="noresult">ไม่พบสินค้าโปรโมชั่นในตอนนี้</p>
-                            </div>
-                        @endif
-                    </div>
-                </div>
+                {{--<div class="col-xs-12">--}}
+                    {{--<div class="row index-suggestion__bestsell">--}}
+                        {{--<h2 class="h1 text-center">{{ 'สินค้าโปรโมชั่น' }}</h2>--}}
+                        {{--@if(count($promotions) > 0)--}}
+                            {{--@foreach($promotions as $promotion)--}}
+                                {{--<div class="col-xs-12 col-md-4 item">--}}
+                                    {{--<div class="index-suggestion__bestsell--block">--}}
+                                        {{--<a href="{{ route('web.promotion.show', ['id' => $promotion->id, 'title' => $promotion->title]) }}">--}}
+                                            {{--<img src="{{ $promotion->cover ? : $promotion->product->photo->file }}" alt="{{ $promotion->title }}">--}}
+                                        {{--</a>--}}
+                                    {{--</div>--}}
+                                    {{--<div class="index-suggestion__bestsell-detail pname">--}}
+                                        {{--<a href="{{ route('web.promotion.show', ['id' => $promotion->id, 'title' => $promotion->title]) }}">--}}
+                                            {{--<h3>{{ $promotion->title }}</h3>--}}
+                                            {{--<p class="index-suggestion__bestsell-detail--price"><strong>ราคาโปรโมชั่น: </strong>{{ $promotion->offer_price }}{{ ' บาท' }}</p>--}}
+                                        {{--</a>--}}
+                                    {{--</div>--}}
+                                {{--</div>--}}
+                            {{--@endforeach--}}
+                        {{--@else--}}
+                            {{--<div class="col-xs-12 text-center">--}}
+                                {{--<p class="noresult">ไม่พบสินค้าโปรโมชั่นในตอนนี้</p>--}}
+                            {{--</div>--}}
+                        {{--@endif--}}
+                    {{--</div>--}}
+                {{--</div>--}}
             </div>
         </div>
     </div>

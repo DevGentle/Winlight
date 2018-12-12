@@ -19,6 +19,11 @@
             <img src="{{ asset('/img/resource/aboutus_header.jpg') }}">
         </div>
     </div>
+    @include('web.main.breadcrumb', [
+        'items' => [
+            [ 'link' => url('products'), 'label' => 'Products' ]
+        ]
+    ])
     <div class="container">
         <div class="row text-center">
             <div class="col-xs-12 story__title">

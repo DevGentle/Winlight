@@ -16,6 +16,11 @@
 @section('content')
     {{-- Header zone --}}
     @include('web.product.patial.header', ['title' => null, 'seoTitle' => null])
+    @include('web.main.breadcrumb', [
+        'items' => [
+            ['link' => null, 'label' => 'Product Main Category']
+        ]
+    ])
 
     <div class="product-content__main">
         <div class="container">
@@ -25,10 +30,6 @@
                 </div>
                 <div class="col-md-9">
                     <div class="row product-content__category">
-                        <ol class="breadcrumb hidden-xs">
-                            <li><a href="{{ url('/') }}">{{ 'Home' }}</a></li>
-                            <li>{{ 'Product Main Category' }}</li>
-                        </ol>
                         @foreach($productMainCategories as $productMainCategory)
                             @if($productMainCategory)
                                 @php($link = route('web.product.category', ['categoryId' => $productMainCategory->id, 'categoryTitle' => $productMainCategory->getSlug()]) )

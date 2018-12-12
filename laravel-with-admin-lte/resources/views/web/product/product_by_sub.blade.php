@@ -16,6 +16,17 @@
 @section('content')
     {{-- Header zone --}}
     @include('web.product.patial.header', ['title' => $productSubCategories->title, 'seoTitle' => null])
+    @include('web.main.breadcrumb', [
+        'items' => [
+            [ 'link' => url('products'), 'label' => 'Products' ],
+            [ 'link' => route('web.product.category', [
+                        'categoryId' => $productSubCategories->productMainCategories->id,
+                        'categoryTitle' => $productSubCategories->productMainCategories->getSlug()]),
+              'label' => $productSubCategories->productMainCategories->title
+            ],
+            [ 'link' => null, 'label' => $productSubCategories->title ],
+        ]
+    ])
 
     <div class="product-content__main">
         <div class="container">
@@ -25,16 +36,6 @@
                 </div>
                 <div class="col-md-9">
                     <div class="row product-content__category">
-                        <ol class="breadcrumb hidden-xs">
-                            <li><a href="{{ url('/') }}">Home</a></li>
-                            <li><a href="{{ url('/products') }}">Products</a></li>
-                            <li><a href="{{ route('web.product.category', [
-                                'categoryId' => $productSubCategories->productMainCategories->id,
-                                'categoryTitle' => $productSubCategories->productMainCategories->getSlug()]) }}">
-                                    {{ $productSubCategories->productMainCategories->title }}
-                                </a></li>
-                            <li>{{ $productSubCategories->title }}</li>
-                        </ol>
                         @foreach($products as $product)
                             @php($link = route('web.product.item', ['Id' => $product->id, 'title' => $product->getSlug()]))
                             <div class="col-xs-12 col-sm-6 col-lg-4 itemheight">

@@ -1,0 +1,14 @@
+.x-breadcrumb-container {
+    background-color: #000;
+    .breadcrumb {
+        margin: 0;
+        padding: 1.5rem 0;
+        background-color: #000;
+        &-item {
+            color: grey;
+            a {
+                color: yellow;
+            }
+        }
+    }
+}

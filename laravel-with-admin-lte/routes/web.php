@@ -18,7 +18,7 @@ Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
 Route::get('/', function () {
     $news = News::all()->sortByDesc('created_at');
-    $references = Reference::all()->random(4);
+    $references = Reference::all();
     $slides = SlideshowPromotion::all()->sortByDesc('created_at');
     $promotions = DB::table('promotions')->orderBy('created_at', 'desc')->limit(3)->get();
 
