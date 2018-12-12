@@ -40,6 +40,40 @@ $(document).ready(function(){
             }
         ]
     });
+
+    $('.index-reference__content').slick({
+        autoplay: true,
+        infinite: true,
+        slidesToScroll: 4,
+        slidesToShow: 4,
+        responsive: [
+            {
+                breakpoint: 1280,
+                settings: {
+                    slidesToShow: 4,
+                    infinite: true
+                }
+            },
+            {
+                breakpoint: 1080,
+                settings: {
+                    slidesToShow: 3
+                }
+            },
+            {
+                breakpoint: 768,
+                settings: {
+                    slidesToShow: 2
+                }
+            },
+            {
+                breakpoint: 524,
+                settings: {
+                    slidesToShow: 1
+                }
+            }
+        ]
+    });
     
     $('a.delete-image').on('click', function (e) {
         e.preventDefault();

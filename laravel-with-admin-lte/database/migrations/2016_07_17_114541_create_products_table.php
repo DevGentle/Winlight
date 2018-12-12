@@ -20,6 +20,7 @@ class CreateProductsTable extends Migration
             $table->foreign('category_sub_id')->references('id')->on('product_sub_categories')->nullable();
             $table->string('code');
             $table->string('title');
+            $table->string('seo_title')->nullable();
             $table->text('description')->nullable();
             $table->string('file')->nullable();
             $table->integer('photo_id')->unsigned()->nullable();

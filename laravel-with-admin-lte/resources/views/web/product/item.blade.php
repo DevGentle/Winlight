@@ -14,19 +14,27 @@
 @endsection
 
 @section('content')
-    <div class="row product-index p-r-l-0">
-        <div class="container product-index__header">
-            <div class="col-xs-1 text-right">
-                <div class="product-index__header--icon">
-                    <img src="{{ asset('img/resource/product_icon.png') }}" alt="">
-                </div>
-            </div>
-            <div class="col-xs-11">
-                <div class="product-index__header--title"><h1>ผลิตภัณฑ์</h1></div>
-                <div class="product-index__header--sub-title">ด้านแสงสว่าง</div>
-            </div>
-        </div>
-    </div>
+    {{-- Header zone --}}
+    @include('web.product.patial.header', ['title' => $product->title, 'seoTitle' => $product->seo_title])
+    @include('web.main.breadcrumb', [
+        'items' => [
+            [ 'link' => url('products'), 'label' => 'Products' ],
+            [ 'link' => route('web.product.category', [
+                        'categoryId' => $product->productMainCategories->id,
+                        'categoryTitle' => $product->productMainCategories->getSlug()]),
+              'label' => $product->productMainCategories->title
+            ],
+            $product->productSubCategories()->count()
+                ? [ 'link' => route('web.product.subCategory', [
+                        'subCategoryId' => $product->productSubCategories->id,
+                        'subCategorytitle' => $product->productSubCategories->getSlug()]),
+                    'label' => $product->productSubCategories->title
+                  ]
+                : null,
+            [ 'link' => null, 'label' => $product->title ],
+        ]
+    ])
+
     <div class="product-content__main">
         <div class="container">
             <div class="row product-content">
@@ -35,29 +43,6 @@
                 </div>
                 <div class="col-xs-12 col-md-9">
                     <div class="row product-content__category">
-                        <ol class="breadcrumb hidden-xs">
-                            <li><a href="{{ url('/') }}">Home</a></li>
-                            <li><a href="{{ url('/products') }}">Products</a></li>
-                            <li><a href="{{ route('web.product.category', [
-                                'categoryId' => $product->productMainCategories->id,
-                                'categoryTitle' => $product->productMainCategories->getSlug()]) }}">
-                                    {{ $product->productMainCategories->title }}
-                            </a></li>
-                            @if($product->productSubCategories()->count())
-                                <li>
-                                    <a href="{{ route('web.product.subCategory',
-                                        [
-                                            'subCategoryId' => $product->productSubCategories->id,
-                                            'subCategorytitle' => $product->productSubCategories->getSlug(),
-                                        ]
-                                    ) }} ">
-                                        {{ $product->productSubCategories->title }}
-                                    </a>
-                                </li>
-                            @endif
-                            <li class="active">{{ $product->title }}</li>
-                        </ol>
-
                         @if($product->productMainCategories->title == 'Interior Lighting')
                             @if($product->file)
                                 <embed src="{{ asset($product->file) }}" width="100%" height="1150px%" />

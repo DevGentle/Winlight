@@ -1,12 +1,12 @@
 @extends('web.layout')
 
 @section('title')
-    โคมไฟ เสาไฟ หลอดไฟ ออกแบบ ติดตั้ง
+    ผลิตภัณฑ์เกี่ยวกับโคมไฟและหลอดไฟ โคมไฟ LED เสาไฟ หลอดไฟ ออกแบบและติดตั้ง
 @endsection
 
 @section('seo_metadata')
-    <meta name="description" content="ผลิตภัณฑ์เกี่ยวกับโคมไฟและหลอดไฟ โคมไฟ เสาไฟ หลอดไฟ บริการติดตั้งเสาไฟ บริการออกแบบระบบไฟส่องสว่าง">
-    <meta name="keywords" content="วินเนอร์, วินไลท์, วินเนอร์ไลท์, โคมไฟ, โคมไฟแอลอีดี, หลอดไฟ, เสาไฟ, หลอดแอลอีดี, โคมไฟถนน, โคมถนนแอลอีดี, โคมไฮเบย์, โคมไฟโซล่าเซล, โคมกันน้ำกันฝุ่น, โคมดาวน์ไลท์, Winner, Winlight, Winner Light, Luminaire/Fixture, Led, Lamp, Pole, LedLamp, Street Light, Street Light Led, High Bay, Solarcell, Water Proof, Downlight">
+    <meta name="description" content="ผลิตภัณฑ์เกี่ยวกับโคมไฟและหลอดไฟ โคมไฟ LED เสาไฟถนน เสาไฟส่องสว่าง หลอดไฟ Philips บริการติดตั้งเสาไฟ บริการออกแบบระบบไฟส่องสว่าง">
+    <meta name="keywords" content="วินเนอร์,วินไลท์,วินเนอร์ไลท์,โคมไฟ,โคมไฟแอลอีดี,หลอดไฟ,เสาไฟ,หลอดแอลอีดี,โคมไฟถนน,โคมถนนแอลอีดี,โคมไฮเบย์,โคมไฟโซล่าเซล,โคมกันน้ำกันฝุ่น,โคมดาวน์ไลท์,Winner,Winlight,Winner Light,Luminaire/Fixture,Led,Lamp,Pole,LedLamp,Street Light,Street Light Led,High Bay,Solarcell,Water Proof,Downlight">
 @endsection
 
 @section('navbar')
@@ -31,32 +31,32 @@
                         @endforeach
                     </div>
                 </div>
-                <div class="col-xs-12">
-                    <div class="row index-suggestion__bestsell">
-                        <h2 class="h1 text-center">สินค้าโปรโมชั่น</h2>
-                        @if(count($promotions) > 0)
-                            @foreach($promotions as $promotion)
-                                <div class="col-xs-12 col-md-4 item">
-                                    <div class="index-suggestion__bestsell--block">
-                                        <a href="{{ route('web.promotion.show', ['id' => $promotion->id, 'title' => $promotion->title]) }}">
-                                            <img src="{{ $promotion->cover ? : $promotion->product->photo->file }}" alt="{{ $promotion->title }}">
-                                        </a>
-                                    </div>
-                                    <div class="index-suggestion__bestsell-detail pname">
-                                        <a href="{{ route('web.promotion.show', ['id' => $promotion->id, 'title' => $promotion->title]) }}">
-                                            <h3>{{ $promotion->title }}</h3>
-                                            <p class="index-suggestion__bestsell-detail--price"><strong>ราคาโปรโมชั่น: </strong>{{ $promotion->offer_price }}{{ ' บาท' }}</p>
-                                        </a>
-                                    </div>
-                                </div>
-                            @endforeach
-                        @else
-                            <div class="col-xs-12 text-center">
-                                <p class="noresult">ไม่พบสินค้าโปรโมชั่นในตอนนี้</p>
-                            </div>
-                        @endif
-                    </div>
-                </div>
+                {{--<div class="col-xs-12">--}}
+                    {{--<div class="row index-suggestion__bestsell">--}}
+                        {{--<h2 class="h1 text-center">{{ 'สินค้าโปรโมชั่น' }}</h2>--}}
+                        {{--@if(count($promotions) > 0)--}}
+                            {{--@foreach($promotions as $promotion)--}}
+                                {{--<div class="col-xs-12 col-md-4 item">--}}
+                                    {{--<div class="index-suggestion__bestsell--block">--}}
+                                        {{--<a href="{{ route('web.promotion.show', ['id' => $promotion->id, 'title' => $promotion->title]) }}">--}}
+                                            {{--<img src="{{ $promotion->cover ? : $promotion->product->photo->file }}" alt="{{ $promotion->title }}">--}}
+                                        {{--</a>--}}
+                                    {{--</div>--}}
+                                    {{--<div class="index-suggestion__bestsell-detail pname">--}}
+                                        {{--<a href="{{ route('web.promotion.show', ['id' => $promotion->id, 'title' => $promotion->title]) }}">--}}
+                                            {{--<h3>{{ $promotion->title }}</h3>--}}
+                                            {{--<p class="index-suggestion__bestsell-detail--price"><strong>ราคาโปรโมชั่น: </strong>{{ $promotion->offer_price }}{{ ' บาท' }}</p>--}}
+                                        {{--</a>--}}
+                                    {{--</div>--}}
+                                {{--</div>--}}
+                            {{--@endforeach--}}
+                        {{--@else--}}
+                            {{--<div class="col-xs-12 text-center">--}}
+                                {{--<p class="noresult">ไม่พบสินค้าโปรโมชั่นในตอนนี้</p>--}}
+                            {{--</div>--}}
+                        {{--@endif--}}
+                    {{--</div>--}}
+                {{--</div>--}}
             </div>
         </div>
     </div>
@@ -64,16 +64,19 @@
         <div class="container">
             <h2 class="h1">{{ "Product Highlight" }}</h2>
             <div class="row text-left">
-                <div id="news-slider" class="col-sm-12">
-                    @foreach($news as $n)
+                <div id="news-slider">
+                    @foreach($news as $item)
+                        @php($link = $item->link ?: route('web.event.show', ['eventId' => $item->id, 'eventTitle' => $item->title]))
                         <div class="col-lg-3 col-sm-6 col-xs-12 index-activity__box">
-                            <a href="{{ route('web.event.show', ['eventId' => $n->id, 'eventTitle' => $n->title])  }}">
-                                <div class="index-activity__border">
-                                    <img src="{{ asset($n->cover) }}" alt="{{ $n->title }}" width="100%" height="180px">
-                                </div>
-                                <div class="index-activity__created">{{ date('F d, Y', strtotime($n->created_at)) }}</div>
-                                <div class="index-activity__title">{{ $n->title }}</div>
-                            </a>
+                            <div class="index-activity__border">
+                                <a href="{{ $link }}">
+                                    <img src="{{ asset($item->cover) }}" alt="{{ $item->title }}" width="100%" height="180px">
+                                </a>
+                            </div>
+                            <div class="index-activity__created">{{ date('F d, Y', strtotime($item->created_at)) }}</div>
+                            <div class="index-activity__title">
+                                <a href="{{ $link }}">{{ $item->title }}</a>
+                            </div>
                         </div>
                     @endforeach
                 </div>
@@ -151,15 +154,18 @@
                 <div class="col-md-8 col-md-offset-2">
                     <div class="index-reference__content">
                         @foreach($references as $reference)
-                            <a href="{{ url('/references') }}">
                             <div class="col-md-3 col-sm-6">
                                 <div class="index-reference__content--border">
                                     <div class="index-reference__content--border-img">
-                                        <img src="{{ asset($reference->cover) }}" alt="{{ $reference->title }}" width="100%">
+                                        <a href="{{ url('/references') }}">
+                                            <img src="{{ asset($reference->cover) }}" alt="{{ $reference->title }}" width="100%">
+                                        </a>
                                     </div>
                                 </div>
+                                <div class="index-reference__content--title">
+                                    <a href="{{ url('/references') }}">{{ $reference->title }}</a>
+                                </div>
                             </div>
-                            </a>
                         @endforeach
                     </div>
                 </div>
